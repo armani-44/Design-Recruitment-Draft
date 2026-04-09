@@ -685,6 +685,19 @@
         flex-direction: column;
         align-items: flex-start;
       }
+      /* Force inner containers to full width so section-tag aligns to left edge */
+      #about > div > div:first-child > *,
+      #services > div > div:first-child > *,
+      #spotlight > div > div:first-child > * {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      /* Left-align the section-tag gold lines + text */
+      #about .section-tag,
+      #services .section-tag,
+      #spotlight .section-tag {
+        justify-content: flex-start;
+      }
 
       /* Hero — strengthen text legibility on mobile */
       .hero-headline { text-shadow: 0 2px 32px rgba(7,7,26,0.6); }
