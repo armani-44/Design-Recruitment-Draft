@@ -1,9 +1,8 @@
 User-agent: *
 Allow: /
 
-# Disallow build artefacts and the duplicate asset folder
+# Disallow build artefacts
 Disallow: /about-page/dist/
 Disallow: /about-page/node_modules/
-Disallow: /Luxury%20BBK%20Imagery/
 
 Sitemap: https://designerrecruitment.co.uk/sitemap.xml

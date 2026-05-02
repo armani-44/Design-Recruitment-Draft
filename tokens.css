@@ -13,6 +13,7 @@
   --color-navy-deep:   #0B0252;   /* R11 G2  B82   — secondary dark */
   --color-blue:        #2353E8;   /* R35 G83 B232  — brand blue / primary CTA */
   --color-gold:        #D9BC80;   /* R217 G188 B128 — warm gold accent */
+  --color-gold-soft:   #E6CC94;   /* lighter gold for hover/highlight */
   --color-cream:       #F2EDE4;   /* R242 G237 B228 — light surface */
   --color-white:       #FFFFFF;
 

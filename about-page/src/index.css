@@ -116,7 +116,7 @@
       box-shadow var(--dur-base) ease;
   }
   .btn-primary:hover {
-    background: #e6cc94;
+    background: var(--color-gold-soft);
     transform: translateY(-2px);
     box-shadow: var(--shadow-glow-gold);
   }
