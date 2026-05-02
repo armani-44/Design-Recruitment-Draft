@@ -88,6 +88,18 @@
       overflow-x: hidden;
     }
 
+    /* ── Skip link — visually hidden until focused via keyboard ── */
+    .skip-link {
+      position: absolute; top: 8px; left: 8px; z-index: 10000;
+      padding: 12px 22px; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--color-midnight); background: var(--color-gold);
+      border-radius: var(--radius-full); text-decoration: none;
+      transform: translateY(-150%);
+      transition: transform 0.2s var(--ease-out-expo);
+    }
+    .skip-link:focus { transform: translateY(0); outline: 3px solid var(--color-gold-soft); outline-offset: 2px; }
+
     /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 3px; }
     ::-webkit-scrollbar-track { background: var(--midnight); }
@@ -861,6 +873,9 @@
 </head>
 <body>
 
+<!-- Skip link — first focusable element for keyboard users -->
+<a href="#hero" class="skip-link">Skip to content</a>
+
 <!-- Custom cursor -->
 <div id="cursor-dot" class="cursor-dot hidden" aria-hidden="true"></div>
 <div id="cursor-ring" class="cursor-ring hidden" aria-hidden="true"></div>
@@ -873,7 +888,7 @@
 
   <!-- Pill bar: burger | logo | contact -->
   <div id="nav-pill">
-    <button id="burger" aria-label="Toggle menu" aria-expanded="false">
+    <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-dropdown">
       <span class="burger-icon" aria-hidden="true">
         <span class="burger-line b1"></span>
         <span class="burger-line b2"></span>
@@ -909,7 +924,7 @@
 </div><!-- /nav-wrap -->
 
 <!-- ═══════════ HERO ═══════════ -->
-<section id="hero" aria-label="Hero">
+<section id="hero" aria-label="Hero" tabindex="-1">
   <div id="hero-bg" role="img" aria-label="Luxury kitchen interior"></div>
   <div class="hero-vignette" aria-hidden="true"></div>
 

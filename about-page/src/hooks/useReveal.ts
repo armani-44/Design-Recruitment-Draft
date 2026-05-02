@@ -1,6 +1,14 @@
 import { useEffect, useRef } from "react";
 
-export function useReveal<T extends HTMLElement = HTMLElement>(threshold = 0.18) {
+/**
+ * Reveal-on-scroll hook. Threshold + rootMargin match the homepage's
+ * IntersectionObserver values (index.html `.fade-up` observer) so reveals
+ * trigger at the same scroll position on both surfaces.
+ */
+export function useReveal<T extends HTMLElement = HTMLElement>(
+  threshold = 0.08,
+  rootMargin = "0px 0px -32px 0px",
+) {
   const ref = useRef<T | null>(null);
 
   useEffect(() => {
@@ -21,12 +29,12 @@ export function useReveal<T extends HTMLElement = HTMLElement>(threshold = 0.18)
           }
         });
       },
-      { threshold, rootMargin: "0px 0px -8% 0px" },
+      { threshold, rootMargin },
     );
 
     io.observe(el);
     return () => io.disconnect();
-  }, [threshold]);
+  }, [threshold, rootMargin]);
 
   return ref;
 }

@@ -19,6 +19,7 @@ export default function Hero() {
     <section
       id="about-hero"
       data-bg="dark"
+      tabIndex={-1}
       className="relative flex items-end justify-center overflow-hidden"
       style={{ height: "100vh", minHeight: 720 }}
       aria-label="About Designer Recruitment"

@@ -1,6 +1,7 @@
 import Grain from "./components/Grain";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import SkipLink from "./components/SkipLink";
 
 import Hero from "./sections/Hero";
 import Story from "./sections/Story";
@@ -15,6 +16,7 @@ import Cta from "./sections/Cta";
 export default function App() {
   return (
     <>
+      <SkipLink />
       <Grain />
       <Nav />
 
