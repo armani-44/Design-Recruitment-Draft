@@ -23,7 +23,7 @@ export default function Cta() {
             <h2
               className="serif"
               style={{
-                fontSize: "clamp(40px, 5vw, 76px)",
+                fontSize: "var(--fs-display-lg)",
                 fontWeight: 300,
                 lineHeight: 1,
                 color: "var(--midnight)",
@@ -88,7 +88,7 @@ export default function Cta() {
         >
           {[
             { head: "Studio", body: "Manchester, UK\nBy appointment" },
-            { head: "General", body: "hello@designerrecruitment.co.uk\n+44 (0) 000 000 0000" },
+            { head: "General", body: "hello@designerrecruitment.co.uk" },
             { head: "Press &amp; Partnerships", body: "press@designerrecruitment.co.uk" },
           ].map((c, i) => (
             <Reveal key={c.head} delay={((i + 1) * 100) as 100 | 200 | 300}>

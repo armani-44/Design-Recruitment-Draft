@@ -53,7 +53,7 @@ export default function Process() {
             <h2
               className="serif"
               style={{
-                fontSize: "clamp(34px, 4vw, 60px)",
+                fontSize: "var(--fs-display-md)",
                 fontWeight: 300,
                 lineHeight: 1.06,
                 color: "var(--warm)",
@@ -78,8 +78,9 @@ export default function Process() {
                 maxWidth: 460,
               }}
             >
-              We move slowly on purpose. Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit &mdash; replace with the agency&rsquo;s methodology copy when ready.
+              We move slowly on purpose. The work that protects a placement &mdash; long-form
+              briefing, real conversations, considered shortlists &mdash; happens before any
+              CV changes hands. Speed is a by-product of fit, not a goal in itself.
             </p>
           </Reveal>
         </div>

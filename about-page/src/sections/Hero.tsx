@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import HlsVideo from "../components/HlsVideo";
+// import HlsVideo from "../components/HlsVideo";
 
-// Big Buck Bunny — public test stream. Swap for the brand reel when available.
-const HLS_TEST_STREAM =
-  "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
-const HERO_POSTER =
-  "https://placehold.co/1920x1080/07071a/c8a96a?text=Designer+Recruitment";
+// When the brand reel is ready, set BRAND_REEL_HLS_URL to the .m3u8 source
+// and uncomment the HlsVideo block below. Until then, the hero shows the
+// premium kitchen still as a static background. HlsVideo.tsx is wired up
+// and ready (native HLS in Safari, hls.js elsewhere).
+const BRAND_REEL_HLS_URL: string | null = null;
+const HERO_STILL = "/Brand_assets/AWinship-8084-025-High-scaled.jpg";
 
 export default function Hero() {
   const [wipe, setWipe] = useState(false);
@@ -24,14 +25,18 @@ export default function Hero() {
       style={{ height: "100vh", minHeight: 720 }}
       aria-label="About Designer Recruitment"
     >
-      {/* Video background */}
+      {/* Hero background — static still until the brand reel is delivered */}
       <div className="absolute inset-0">
-        <HlsVideo
-          src={HLS_TEST_STREAM}
-          poster={HERO_POSTER}
-          ariaLabel="Showroom craft, decorative"
-          className="absolute inset-0 h-full w-full object-cover scale-[1.04]"
-        />
+        {BRAND_REEL_HLS_URL ? null : (
+          <img
+            src={HERO_STILL}
+            alt=""
+            aria-hidden
+            decoding="async"
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover scale-[1.04]"
+          />
+        )}
         {/* Vignette layers — subtle gradient + warm shadow at the base */}
         <div
           aria-hidden
@@ -95,7 +100,7 @@ export default function Hero() {
         <h1
           className="serif mb-8 font-light text-warm"
           style={{
-            fontSize: "clamp(54px, 8.4vw, 124px)",
+            fontSize: "var(--fs-display-xl)",
             lineHeight: 0.98,
             letterSpacing: "-0.02em",
           }}

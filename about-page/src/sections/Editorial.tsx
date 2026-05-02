@@ -9,9 +9,11 @@ export default function Editorial() {
       }}
     >
       <img
-        src="https://placehold.co/1920x900/0d0c22/c8a96a?text=Showroom+%E2%80%94+placeholder"
+        src="/Brand_assets/AWinship-8084-025-High-scaled.jpg"
         alt=""
         aria-hidden
+        loading="lazy"
+        decoding="async"
         style={{
           position: "absolute",
           inset: 0,
@@ -83,7 +85,7 @@ export default function Editorial() {
           <h2
             className="serif"
             style={{
-              fontSize: "clamp(30px, 4.6vw, 64px)",
+              fontSize: "var(--fs-display-lg)",
               fontWeight: 300,
               color: "var(--warm)",
               lineHeight: 1.14,
@@ -107,8 +109,9 @@ export default function Editorial() {
               margin: "0 auto",
             }}
           >
-            Lorem ipsum placeholder &mdash; replace with the brand&rsquo;s positioning statement.
-            Designer Recruitment exists to do one thing exceptionally well.
+            Designer Recruitment exists to do one thing exceptionally well: place KBB
+            talent inside the industry&rsquo;s most respected showrooms and studios. We
+            decline briefs outside our remit, and we&rsquo;re unapologetic about it.
           </p>
         </div>
       </div>

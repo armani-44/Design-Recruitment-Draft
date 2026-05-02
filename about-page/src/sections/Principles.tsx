@@ -43,7 +43,7 @@ export default function Principles() {
             <h2
               className="serif"
               style={{
-                fontSize: "clamp(34px, 4vw, 60px)",
+                fontSize: "var(--fs-display-md)",
                 fontWeight: 300,
                 lineHeight: 1.06,
                 color: "var(--warm)",
@@ -112,7 +112,7 @@ export default function Principles() {
               <h3
                 className="serif mt-10"
                 style={{
-                  fontSize: "clamp(22px, 2.2vw, 28px)",
+                  fontSize: "var(--fs-2xl)",
                   fontWeight: 300,
                   lineHeight: 1.2,
                   color: "var(--warm)",

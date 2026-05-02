@@ -20,7 +20,7 @@ export default function Story() {
             <h2
               className="serif"
               style={{
-                fontSize: "clamp(38px, 4.6vw, 68px)",
+                fontSize: "var(--fs-display-lg)",
                 fontWeight: 300,
                 lineHeight: 1.04,
                 color: "var(--midnight)",
@@ -75,12 +75,11 @@ export default function Story() {
                 color: "rgba(7,7,26,0.7)",
               }}
             >
-              Lorem ipsum placeholder — replace with the founding story. Ben Paine started
-              the agency after a decade inside KBB retail and design, frustrated by how often
-              brilliant designers were funnelled into the wrong studios and how often great
-              showrooms were sold &ldquo;the next CV&rdquo; instead of the right person. He wanted
-              something different: an agency that would behave more like a curator than a
-              broker.
+              Ben Paine founded the agency in 2014 after a decade inside KBB retail and
+              design. He had watched too many brilliant designers funnelled into the wrong
+              studios, and too many great showrooms sold &ldquo;the next CV&rdquo; rather than the
+              right person. The brief he set himself was simple: build an agency that would
+              behave more like a curator than a broker.
             </p>
           </Reveal>
 
@@ -94,8 +93,9 @@ export default function Story() {
               }}
             >
               Today we&rsquo;re a small, deliberately specialist team. We don&rsquo;t cover everything &mdash;
-              we cover one industry, exceptionally well. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              we cover one industry, exceptionally well. That focus is the entire offer: a
+              network deep enough to know who&rsquo;s quietly looking, an eye trained on craft, and
+              the patience to make introductions that compound over years rather than quarters.
             </p>
           </Reveal>
 
@@ -107,7 +107,7 @@ export default function Story() {
                 marginTop: 56,
                 padding: "44px 48px",
                 background: "var(--midnight)",
-                borderRadius: 18,
+                borderRadius: "var(--radius-lg)",
                 color: "var(--warm)",
               }}
             >
@@ -128,7 +128,7 @@ export default function Story() {
               <blockquote
                 className="serif-i relative"
                 style={{
-                  fontSize: "clamp(22px, 2.4vw, 32px)",
+                  fontSize: "var(--fs-2xl)",
                   fontWeight: 300,
                   lineHeight: 1.35,
                 }}

@@ -47,7 +47,7 @@ export default function Numbers() {
               <div
                 className="font-display"
                 style={{
-                  fontSize: "clamp(48px, 6vw, 84px)",
+                  fontSize: "var(--fs-display-lg)",
                   fontWeight: 700,
                   lineHeight: 1,
                   color: "var(--warm)",
@@ -87,7 +87,7 @@ export default function Numbers() {
                 <h2
                   className="serif"
                   style={{
-                    fontSize: "clamp(32px, 3.6vw, 52px)",
+                    fontSize: "var(--fs-display-md)",
                     fontWeight: 300,
                     lineHeight: 1.1,
                     color: "var(--warm)",
