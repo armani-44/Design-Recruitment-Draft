@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ──────────────────────────────────────────────
+   Brand foundation — mirrors the homepage tokens
+   ────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --midnight: #07071a;
+    --ink: #0d0c22;
+    --surface: #141330;
+    --surface2: #1a1840;
+    --gold: #c8a96a;
+    --gold-soft: #d9bc80;
+    --gold-dim: rgba(200, 169, 106, 0.12);
+    --cream: #f2ede4;
+    --warm: #faf8f4;
+    --muted: rgba(242, 237, 228, 0.48);
+    --line: rgba(242, 237, 228, 0.1);
+    --navy: #1b2d4f;
+  }
+
+  /* Canela — served from /public/fonts (symlink → /Fonts) */
+  @font-face {
+    font-family: "Canela Text";
+    src: url("/fonts/Canela-Medium.woff2") format("woff2"),
+      url("/fonts/Canela-Medium.woff") format("woff");
+    font-weight: 300 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Canela Text";
+    src: url("/fonts/Canela-MediumItalic.woff2") format("woff2"),
+      url("/fonts/Canela-MediumItalic.woff") format("woff");
+    font-weight: 300 600;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-midnight text-cream font-sans;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--midnight);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--gold);
+  }
+
+  ::selection {
+    background: rgba(200, 169, 106, 0.3);
+    color: var(--warm);
+  }
+}
+
+/* ──────────────────────────────────────────────
+   Reusable component classes
+   ────────────────────────────────────────────── */
+@layer components {
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .section-tag {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .section-tag::before,
+  .section-tag::after {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: currentColor;
+  }
+  .section-tag.is-solo::after {
+    display: none;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--midnight);
+    background: var(--gold);
+    padding: 14px 32px;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: background 0.25s ease,
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.3s ease;
+  }
+  .btn-primary:hover {
+    background: var(--gold-soft);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(200, 169, 106, 0.28);
+  }
+  .btn-primary:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10.5px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    border: 1px solid rgba(242, 237, 228, 0.32);
+    border-radius: 9999px;
+    padding: 14px 32px;
+    transition: border-color 0.25s ease, gap 0.25s ease, background 0.25s ease;
+  }
+  .btn-ghost:hover {
+    border-color: rgba(242, 237, 228, 0.7);
+    gap: 18px;
+    background: rgba(242, 237, 228, 0.04);
+  }
+
+  .btn-dark-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10.5px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--midnight);
+    text-decoration: none;
+    border: 1px solid rgba(7, 7, 26, 0.25);
+    border-radius: 9999px;
+    padding: 14px 32px;
+    transition: border-color 0.25s ease, gap 0.25s ease, color 0.25s ease;
+  }
+  .btn-dark-ghost:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    gap: 18px;
+  }
+
+  .serif {
+    font-family: "Canela Text", Georgia, serif;
+  }
+  .serif-i {
+    font-family: "Canela Text", Georgia, serif;
+    font-style: italic;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   Reveal on scroll — utility class controlled by an IntersectionObserver
+   ────────────────────────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-up.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.delay-100 {
+  transition-delay: 0.1s;
+}
+.delay-200 {
+  transition-delay: 0.2s;
+}
+.delay-300 {
+  transition-delay: 0.3s;
+}
+.delay-400 {
+  transition-delay: 0.4s;
+}
+.delay-500 {
+  transition-delay: 0.5s;
+}
+
+/* Per-line wipe-up (hero) */
+.wipe-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+.wipe-line > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wipe-on .wipe-line > span {
+  transform: translateY(0);
+}
+.wipe-on .wipe-line:nth-child(2) > span {
+  transition-delay: 0.14s;
+}
+.wipe-on .wipe-line:nth-child(3) > span {
+  transition-delay: 0.28s;
+}

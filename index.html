@@ -23,13 +23,21 @@
       --line:     rgba(242,237,228,0.1);
     }
 
-    /* ── Canela Text — drop your woff2/woff files into a fonts/ folder and update the src below ── */
+    /* ── Canela — served from /Fonts (case-insensitive on macOS) ── */
     @font-face {
       font-family: 'Canela Text';
-      src: url('fonts/CanelaText-Regular.woff2') format('woff2'),
-           url('fonts/CanelaText-Regular.woff')  format('woff');
-      font-weight: 400;
+      src: url('Fonts/Canela-Medium.woff2') format('woff2'),
+           url('Fonts/Canela-Medium.woff')  format('woff');
+      font-weight: 300 600;
       font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Canela Text';
+      src: url('Fonts/Canela-MediumItalic.woff2') format('woff2'),
+           url('Fonts/Canela-MediumItalic.woff')  format('woff');
+      font-weight: 300 600;
+      font-style: italic;
       font-display: swap;
     }
 
