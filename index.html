@@ -832,6 +832,31 @@
     }
     .cursor-dot.hidden, .cursor-ring.hidden { opacity: 0; }
     @media (hover: none) { .cursor-dot, .cursor-ring { display: none; } }
+
+    /* ══════════════════════════════════════════
+       REDUCED MOTION — collapse animations and restore
+       native cursor for users who prefer less motion.
+       JS guards in scripts below stop RAF loops too.
+    ══════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      /* Reveal-on-scroll lands directly visible */
+      .fade-up { opacity: 1 !important; transform: none !important; }
+      /* Hero per-line wipe renders in place */
+      .hero-headline .hero-line-inner { transform: translateY(0) !important; }
+      .hero-sub, .hero-actions { opacity: 1 !important; transform: none !important; }
+      /* Stop infinite-loop animations */
+      .marquee-track { animation: none !important; }
+      .scroll-line { animation: none !important; opacity: 1; }
+      /* Restore native cursor — custom cursor is a motion liability */
+      body, a, button, .svc-card, .exp-row, .team-card, #burger { cursor: auto !important; }
+      .cursor-dot, .cursor-ring { display: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -1086,7 +1111,8 @@
       wrap.style.transform = 'scale(1)';
     }, 100 + i * 60);
 
-    // Float animation
+    // Float animation — skip if user prefers reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const delay = Math.random() * dur * 1000;
     let start = null;
     const offset = Math.random() * Math.PI * 2;
@@ -2096,14 +2122,21 @@
 <!-- ═══════════ SCRIPTS ═══════════ -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+  // Reduced-motion preference — gate motion-heavy features
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ── Lenis smooth scroll (init first so menu can reference it) ──
-  const lenis = new Lenis({
-    duration: 1.15,
-    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-  });
-  function lRaf(time) { lenis.raf(time); requestAnimationFrame(lRaf); }
-  requestAnimationFrame(lRaf);
+  // Skip entirely when reduced motion is preferred — the browser's native
+  // scroll is what such users expect.
+  if (!reduceMotion && typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+      duration: 1.15,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+    function lRaf(time) { lenis.raf(time); requestAnimationFrame(lRaf); }
+    requestAnimationFrame(lRaf);
+  }
 
   // ── Pill nav: go dark when scrolled over a light section ──
   // The pill sits at bottom: ~20px, so check if the area near the bottom of the viewport
@@ -2278,10 +2311,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Stat counter ──
   document.querySelectorAll('.stat-count[data-target]').forEach(el => {
+    const target = parseInt(el.dataset.target, 10);
+    if (reduceMotion) {
+      // Skip the count-up animation; show the final value when scrolled into view
+      const cObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          e.target.textContent = target;
+          cObs.unobserve(e.target);
+        });
+      }, { threshold: 0.5 });
+      cObs.observe(el);
+      return;
+    }
     const cObs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (!e.isIntersecting) return;
-        const target = parseInt(e.target.dataset.target, 10);
         const duration = 1800;
         const startTime = performance.now();
         function tick(now) {
@@ -2298,6 +2343,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ── Custom cursor ──
+  // Skip entirely under reduced-motion. The CSS @media block already restores
+  // the native cursor; bailing out here avoids a perpetual RAF loop on hidden DOM.
+  if (reduceMotion) return;
+
   const cDot = document.getElementById('cursor-dot');
   const cRing = document.getElementById('cursor-ring');
   let mx = -200, my = -200, lx = -200, ly = -200;
