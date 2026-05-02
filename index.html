@@ -3,50 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Designer Recruitment® — KBB Recruitment & Consultancy</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <!-- Primary meta -->
+  <title>Designer Recruitment® — UK KBB Specialist Recruitment & Consultancy</title>
+  <meta name="description" content="The UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom & Builders Merchant industry. Connecting exceptional KBB talent with the studios and showrooms that define design excellence.">
+  <meta name="keywords" content="KBB recruitment, kitchen designer jobs, bathroom recruitment, bedroom designer, builders merchant recruitment, KBB careers, showroom manager jobs">
+  <meta name="author" content="Designer Recruitment®">
+  <meta name="theme-color" content="#07071B">
+  <link rel="canonical" href="https://designerrecruitment.co.uk/">
+
+  <!-- Favicon + app icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/Brand_assets/DR-Logo-Blue-2.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Brand_assets/DR-Logo-Blue-2.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://designerrecruitment.co.uk/">
+  <meta property="og:title" content="Designer Recruitment® — UK KBB Specialist Recruitment">
+  <meta property="og:description" content="Specialist recruitment for the KBB & Builders Merchant industry. We connect exceptional talent with the studios and showrooms that define design excellence.">
+  <meta property="og:image" content="https://designerrecruitment.co.uk/Brand_assets/AWinship-8084-025-High-scaled.jpg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image:alt" content="A premium luxury kitchen — the world Designer Recruitment® places talent into.">
+  <meta property="og:site_name" content="Designer Recruitment®">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Designer Recruitment® — UK KBB Specialist Recruitment">
+  <meta name="twitter:description" content="Specialist recruitment for the KBB & Builders Merchant industry. Connecting exceptional talent with the studios that define design excellence.">
+  <meta name="twitter:image" content="https://designerrecruitment.co.uk/Brand_assets/AWinship-8084-025-High-scaled.jpg">
+
+  <!-- Structured data — Organisation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Designer Recruitment",
+    "alternateName": "Designer Recruitment®",
+    "url": "https://designerrecruitment.co.uk/",
+    "logo": "https://designerrecruitment.co.uk/Brand_assets/DR-Logo-Blue.png",
+    "description": "UK specialist recruitment agency exclusively serving the Kitchen, Bedroom, Bathroom & Builders Merchant industry.",
+    "email": "hello@designerrecruitment.co.uk",
+    "sameAs": [
+      "https://www.linkedin.com/company/designer-recruitment/"
+    ]
+  }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --midnight: #07071A;
-      --dark:     #0D0C22;
-      --surface:  #141330;
-      --surface2: #1A1840;
-      --gold:     #C8A96A;
-      --gold-dim: rgba(200,169,106,0.12);
-      --cream:    #F2EDE4;
-      --warm:     #FAF8F4;
-      --muted:    rgba(242,237,228,0.48);
-      --line:     rgba(242,237,228,0.1);
-    }
+  <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-    /* ── Canela — served from /Fonts (case-insensitive on macOS) ── */
-    @font-face {
-      font-family: 'Canela Text';
-      src: url('Fonts/Canela-Medium.woff2') format('woff2'),
-           url('Fonts/Canela-Medium.woff')  format('woff');
-      font-weight: 300 600;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Canela Text';
-      src: url('Fonts/Canela-MediumItalic.woff2') format('woff2'),
-           url('Fonts/Canela-MediumItalic.woff')  format('woff');
-      font-weight: 300 600;
-      font-style: italic;
-      font-display: swap;
+  <!-- Canonical brand tokens (single source of truth) -->
+  <link rel="stylesheet" href="tokens.css">
+
+  <style>
+    /* ── Legacy aliases — keep existing inline references rendering
+         until the homepage is migrated component-by-component to the
+         canonical tokens.css names. New code MUST use the variables
+         declared in tokens.css directly. ───────────────────────── */
+    :root {
+      --midnight:  var(--color-midnight);
+      --dark:      var(--bg-surface);
+      --surface:   var(--bg-surface);
+      --surface2:  var(--bg-elevated);
+      --gold:      var(--color-gold);
+      --gold-dim:  var(--accent-soft);
+      --cream:     var(--color-cream);
+      --warm:      var(--color-cream);
+      --muted:     var(--fg-muted);
+      /* --line is already declared in tokens.css */
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: auto; }
     body {
-      font-family: 'Jost', sans-serif;
-      background: var(--midnight);
-      color: var(--cream);
+      font-family: var(--font-body);
+      font-weight: var(--fw-light);
+      background: var(--bg-base);
+      color: var(--fg-base);
       overflow-x: hidden;
     }
 
@@ -56,8 +94,8 @@
     ::-webkit-scrollbar-thumb { background: var(--gold); }
 
     /* ── Font helpers ── */
-    .serif   { font-family: 'Canela Text', Georgia, serif; }
-    .serif-i { font-family: 'Canela Text', Georgia, serif; }
+    .serif   { font-family: var(--font-display); }
+    .serif-i { font-family: var(--font-display); }
 
     /* ── Grain overlay ── */
     .grain {
@@ -108,7 +146,7 @@
       display: flex; align-items: center; gap: 10px;
       background: none; border: none; cursor: none;
       color: var(--cream); padding: 8px 12px 8px 10px;
-      font-size: 13px; font-family: 'Jost', sans-serif;
+      font-size: 13px; font-family: var(--font-body);
       font-weight: 300; letter-spacing: 0.05em;
       justify-self: start;
     }
@@ -147,7 +185,7 @@
     /* Contact pill button — right slot */
     .nav-contact-btn {
       padding: 10px 22px;
-      font-size: 11px; font-family: 'Jost', sans-serif;
+      font-size: 11px; font-family: var(--font-body);
       font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase;
       color: var(--midnight); background: var(--cream);
       border-radius: 9999px; text-decoration: none; white-space: nowrap;
@@ -177,7 +215,7 @@
     /* Dropdown links */
     .nd-link {
       display: block;
-      font-family: 'Canela Text', Georgia, serif;
+      font-family: var(--font-display);
       font-size: clamp(28px, 4vw, 38px);
       font-weight: 300; line-height: 1.2; letter-spacing: -0.01em;
       color: var(--warm); text-decoration: none;
@@ -217,7 +255,7 @@
 
     /* Ghost nav btn */
     .nav-btn {
-      padding: 7px 18px; font-size: 11px; font-family: 'Jost', sans-serif;
+      padding: 7px 18px; font-size: 11px; font-family: var(--font-body);
       font-weight: 300; letter-spacing: 0.07em;
       border: 1px solid rgba(242,237,228,0.22); background: transparent;
       color: rgba(242,237,228,0.6); border-radius: 9999px;
@@ -258,7 +296,7 @@
       display: flex; flex-direction: column; align-items: center;
     }
     .hero-headline {
-      font-family: 'Canela Text', Georgia, serif;
+      font-family: var(--font-display);
       font-weight: 300;
       font-size: clamp(52px, 7.8vw, 108px);
       line-height: 1.03; letter-spacing: -0.01em;
@@ -398,7 +436,7 @@
       text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
     }
     .svc-title {
-      font-family: 'Canela Text', Georgia, serif; font-weight: 400;
+      font-family: var(--font-display); font-weight: 400;
       font-size: clamp(22px, 2.2vw, 30px); line-height: 1.22;
       color: var(--warm); margin-bottom: 24px;
     }
@@ -416,7 +454,7 @@
 
     /* ── Stats ── */
     .stat-num {
-      font-family: 'Montserrat', sans-serif;
+      font-family: var(--font-body);
       font-weight: 700;
       font-size: clamp(48px, 6vw, 80px);
       line-height: 1; color: var(--warm);
@@ -446,11 +484,11 @@
     .exp-row:last-child { border-bottom: 1px solid var(--line); }
     .exp-row:hover { border-color: rgba(200,169,106,0.35); }
     .exp-idx {
-      font-family: 'Canela Text', Georgia, serif; font-weight: 300;
+      font-family: var(--font-display); font-weight: 300;
       font-size: 16px; color: var(--gold); width: 28px; flex-shrink: 0;
     }
     .exp-title {
-      font-family: 'Canela Text', Georgia, serif; font-weight: 400;
+      font-family: var(--font-display); font-weight: 400;
       font-size: clamp(18px, 1.8vw, 24px); color: var(--cream); flex: 1;
       transition: color 0.25s ease;
     }
@@ -480,7 +518,7 @@
       border-top: 1px solid rgba(255,255,255,0.10);
     }
     .team-name {
-      font-family: 'Canela Text', Georgia, serif; font-weight: 400;
+      font-family: var(--font-display); font-weight: 400;
       font-size: 22px; color: var(--cream);
     }
     .team-role {
@@ -817,7 +855,7 @@
       </span>
       <span class="burger-label">Menu</span>
     </button>
-    <a href="#" id="nav-logo" aria-label="Designer Recruitment home">
+    <a href="#hero" id="nav-logo" aria-label="Designer Recruitment home">
       <img id="logo-white" src="Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
       <img id="logo-blue"  src="Brand_assets/DR-Logo-Blue-2.png"  alt="">
     </a>
@@ -882,9 +920,9 @@
   <div style="max-width:700px;margin:0 auto;text-align:center;">
     <div class="fade-up">
       <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:26px;">
-        <span style="display:block;flex:0 0 28px;height:1px;background:#8A6D3B;"></span>
-        <span style="font-size:10px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:#8A6D3B;">The Industry</span>
-        <span style="display:block;flex:0 0 28px;height:1px;background:#8A6D3B;"></span>
+        <span style="display:block;flex:0 0 28px;height:1px;background:var(--color-blue);"></span>
+        <span style="font-size:10px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--color-blue);">The Industry</span>
+        <span style="display:block;flex:0 0 28px;height:1px;background:var(--color-blue);"></span>
       </div>
       <h2 class="serif-i" style="font-size:clamp(34px,4.2vw,58px);font-weight:300;line-height:1.14;color:#07071A;margin-bottom:32px;">
         Where precision<br>meets passion.
@@ -931,7 +969,7 @@
 </section>
 
 <!-- ═══════════ MARQUEE ═══════════ -->
-<div style="background:#8a6d3b;border-top:1px solid rgba(255,255,255,0.12);border-bottom:1px solid rgba(255,255,255,0.12);padding:18px 0;" class="marquee-wrap" aria-hidden="true">
+<div style="background:var(--color-navy-deep);border-top:1px solid rgba(255,255,255,0.12);border-bottom:1px solid rgba(255,255,255,0.12);padding:18px 0;" class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
     <span style="font-size:12.5px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap;">Kitchen Designers</span>
     <span style="color:var(--gold);font-size:9px;opacity:0.7;">✦</span>
@@ -978,9 +1016,9 @@
   <!-- Central content -->
   <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 48px;max-width:640px;margin:0 auto;">
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;">
-      <span style="display:block;flex:0 0 28px;height:1px;background:#8A6D3B;"></span>
-      <span style="font-size:10px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:#8A6D3B;">Testimonials</span>
-      <span style="display:block;flex:0 0 28px;height:1px;background:#8A6D3B;"></span>
+      <span style="display:block;flex:0 0 28px;height:1px;background:var(--color-blue);"></span>
+      <span style="font-size:10px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--color-blue);">Testimonials</span>
+      <span style="display:block;flex:0 0 28px;height:1px;background:var(--color-blue);"></span>
     </div>
     <h2 class="serif-i" style="font-size:clamp(34px,4.2vw,56px);font-weight:300;line-height:1.12;color:#07071A;margin-bottom:24px;letter-spacing:-0.02em;">
       Trusted by designers<br>across the industry.
@@ -988,7 +1026,7 @@
     <p style="font-size:18px;font-weight:300;line-height:1.75;color:rgba(7,7,26,0.5);margin-bottom:44px;max-width:440px;">
       Hear from the KBB professionals we've placed — and the studios that trust us to find exceptional talent.
     </p>
-    <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:#07071A;border:1px solid rgba(7,7,26,0.25);border-radius:9999px;padding:14px 28px;text-decoration:none;transition:border-color 0.22s,background 0.22s;" onmouseover="this.style.borderColor='#C8A96A';this.style.color='#C8A96A';" onmouseout="this.style.borderColor='rgba(7,7,26,0.25)';this.style.color='#07071A';">
+    <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:#07071A;border:1px solid rgba(7,7,26,0.25);border-radius:9999px;padding:14px 28px;text-decoration:none;transition:border-color 0.22s,background 0.22s;" onmouseover="this.style.borderColor='#D9BC80';this.style.color='#D9BC80';" onmouseout="this.style.borderColor='rgba(7,7,26,0.25)';this.style.color='#07071A';">
       Read Success Stories
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -1083,7 +1121,7 @@
     <!-- 3 cards with 25px gap -->
     <div class="services-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:25px;">
       <!-- Card 1: Candidates -->
-      <a href="#" class="svc-card" style="height:580px;display:block;text-decoration:none;">
+      <a href="mailto:hello@designerrecruitment.co.uk?subject=Looking%20for%20a%20role" class="svc-card" style="height:580px;display:block;text-decoration:none;">
         <img src="Brand_assets/AWinship-8084-025-High-scaled.jpg" alt="Find Your Next Role" loading="lazy">
         <div class="svc-overlay"></div>
         <div class="svc-content">
@@ -1096,7 +1134,7 @@
         </div>
       </a>
       <!-- Card 2: Clients -->
-      <a href="#" class="svc-card" style="height:580px;display:block;text-decoration:none;">
+      <a href="mailto:hello@designerrecruitment.co.uk?subject=Hiring%20enquiry" class="svc-card" style="height:580px;display:block;text-decoration:none;">
         <img src="Brand_assets/recruitment-concept-male-employer-read-cv-resume-2022-11-14-02-23-58-utc-scaled.jpg" alt="Hire Top Talent" loading="lazy" style="object-position:center top;">
         <div class="svc-overlay"></div>
         <div class="svc-content">
@@ -1109,7 +1147,7 @@
         </div>
       </a>
       <!-- Card 3: Consultancy -->
-      <a href="#" class="svc-card" style="height:580px;display:block;text-decoration:none;">
+      <a href="mailto:hello@designerrecruitment.co.uk?subject=Consultancy%20enquiry" class="svc-card" style="height:580px;display:block;text-decoration:none;">
         <img src="Brand_assets/law-firm-26.jpg" alt="Strategic Consultancy" loading="lazy" style="object-position:center;">
         <div class="svc-overlay"></div>
         <div class="svc-content">
@@ -1126,7 +1164,7 @@
 </section>
 
 <!-- ═══════════ STATS ═══════════ -->
-<section id="stats" class="rsp-sec" style="background:#8a6d3b;padding:84px 56px;border-top:1px solid rgba(255,255,255,0.12);">
+<section id="stats" class="rsp-sec" style="background:var(--color-navy-deep);padding:84px 56px;border-top:1px solid rgba(255,255,255,0.12);">
   <div class="stats-grid" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);">
     <div class="fade-up stat-cell" style="text-align:center;padding:0 32px;border-right:1px solid var(--line);">
       <div class="stat-num"><span class="stat-count" data-target="500">0</span><span style="font-size:0.45em;font-style:normal;vertical-align:super;">+</span></div>
@@ -1158,13 +1196,13 @@
     <div class="split-content" style="display:flex;align-items:center;padding:100px;">
       <div>
         <div class="section-tag fade-up" style="margin-bottom:24px;">For Clients</div>
-        <h2 class="serif-i fade-up d1" style="font-size:clamp(30px,3.4vw,48px);font-weight:300;line-height:1.2;color:#1B2D4F;margin-bottom:28px;">
+        <h2 class="serif-i fade-up d1" style="font-size:clamp(30px,3.4vw,48px);font-weight:300;line-height:1.2;color:var(--color-navy-deep);margin-bottom:28px;">
           The right person,<br>the first time.
         </h2>
-        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:#1B2D4F;margin-bottom:16px;">
+        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:16px;">
           We don't just fill vacancies. We understand your showroom, your brand, and the culture that makes great teams flourish.
         </p>
-        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:#1B2D4F;margin-bottom:44px;">
+        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:44px;">
           Our deep network across the KBB sector means we deliver pre-qualified candidates who hit the ground running — reducing time-to-hire and protecting your reputation.
         </p>
         <a href="#contact" class="btn-primary fade-up d3">
@@ -1183,13 +1221,13 @@
     <div class="split-content" style="display:flex;align-items:center;padding:100px;">
       <div>
         <div class="section-tag fade-up" style="margin-bottom:24px;">For Candidates</div>
-        <h2 class="serif-i fade-up d1" style="font-size:clamp(30px,3.4vw,48px);font-weight:300;line-height:1.2;color:#1B2D4F;margin-bottom:28px;">
+        <h2 class="serif-i fade-up d1" style="font-size:clamp(30px,3.4vw,48px);font-weight:300;line-height:1.2;color:var(--color-navy-deep);margin-bottom:28px;">
           A partner who<br>knows your world.
         </h2>
-        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:#1B2D4F;margin-bottom:16px;">
+        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:16px;">
           We represent talented designers, consultants, and sales professionals across the KBB sector — opening doors to opportunities you won't find on job boards.
         </p>
-        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:#1B2D4F;margin-bottom:44px;">
+        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:44px;">
           Your aspirations are our brief. We listen, advise, and advocate — so your next move is the right one.
         </p>
         <a href="#contact" class="btn-primary fade-up d3">
@@ -1255,11 +1293,11 @@
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;gap:40px;flex-wrap:wrap;">
       <div class="fade-up">
         <div class="section-tag" style="margin-bottom:20px;">Designer Spotlight</div>
-        <h2 class="serif-i" style="font-size:clamp(30px,3.5vw,50px);font-weight:300;line-height:1.14;color:#1B2D4F;">
+        <h2 class="serif-i" style="font-size:clamp(30px,3.5vw,50px);font-weight:300;line-height:1.14;color:var(--color-navy-deep);">
           Spaces we've helped<br>shape and staff.
         </h2>
       </div>
-      <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:#1B2D4F;max-width:360px;">
+      <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);max-width:360px;">
         The talent we place works inside some of the most beautiful KBB showrooms and studios in the industry.
       </p>
     </div>
@@ -1270,7 +1308,7 @@
         <div class="spotlight-content">
           <div class="spotlight-name">Chris Mitchell</div>
           <p class="spotlight-bio">Designer Recruitment recently caught up with Chris this week for a brief interview. Chris operates as an independent kitchen design consultant, offering specialised assistance to retail clients. His expertise lies in European and handmade furniture, and is...</p>
-          <a href="#" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#contact" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
 
@@ -1279,7 +1317,7 @@
         <div class="spotlight-content">
           <div class="spotlight-name">Faye Newman</div>
           <p class="spotlight-bio">Ben says "The KBB market is absolutely bustling and I feel privileged to be able to offer services to the rest of the KBB industry. If you have a recruitment need or are seeking a new role, I will always have time to speak with you. Get in touch!" Designer...</p>
-          <a href="#" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#contact" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
 
@@ -1288,7 +1326,7 @@
         <div class="spotlight-content">
           <div class="spotlight-name">Darren Morgan</div>
           <p class="spotlight-bio">Designer Recruitment are proud to be working alongside Darren. He is absolutely fantastic at what he does and is well worth arranging a call with should you have the need for additional design support! Part 1/5 Design Brilliance Redefines HR: A Pioneering Choice for...</p>
-          <a href="#" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#contact" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
 
@@ -1297,7 +1335,7 @@
         <div class="spotlight-content">
           <div class="spotlight-name">Langstaff-Ellis</div>
           <p class="spotlight-bio">Langstaff-Ellis has been crafting the finest living spaces from their workshop in Oxfordshire, since 2008. Dedicated teams across design, craft, technical and sales work together to bring every concept and vision to life. Langstaff-Ellis is a truly bespoke, luxury...</p>
-          <a href="#" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#contact" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
 
@@ -1306,7 +1344,7 @@
         <div class="spotlight-content">
           <div class="spotlight-name">Oliver Grant</div>
           <p class="spotlight-bio">Designer Recruitment recently connected with Oliver to discuss his journey within the KBB sector. With a strong background in contemporary kitchen design and space optimisation, Oliver supports clients in delivering functional yet beautifully refined interiors...</p>
-          <a href="#" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#contact" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
 
@@ -1315,7 +1353,7 @@
         <div class="spotlight-content">
           <div class="spotlight-name">Harrison Cole Interiors</div>
           <p class="spotlight-bio">Harrison Cole Interiors are known for delivering sophisticated, high-end living environments tailored to each client's lifestyle. With a focus on premium materials, detailed craftsmanship and timeless design, their team brings a considered and collaborative approach...</p>
-          <a href="#" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#contact" class="spotlight-read">Read More <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
 
@@ -1370,7 +1408,7 @@
     pointer-events: auto;
   }
   .spotlight-name {
-    font-family: 'Canela Text', Georgia, serif;
+    font-family: var(--font-display);
     font-size: 18px; font-weight: 400; color: var(--warm);
     margin-bottom: 8px;
   }
@@ -1445,11 +1483,11 @@
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:60px;gap:40px;flex-wrap:wrap;">
       <div class="fade-up">
         <div class="section-tag" style="margin-bottom:20px;">The Team</div>
-        <h2 class="serif-i" style="font-size:clamp(30px,3.5vw,50px);font-weight:300;line-height:1.14;color:#1B2D4F;">
+        <h2 class="serif-i" style="font-size:clamp(30px,3.5vw,50px);font-weight:300;line-height:1.14;color:var(--color-navy-deep);">
           People who<br>know people.
         </h2>
       </div>
-      <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:#1B2D4F;max-width:320px;">
+      <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);max-width:320px;">
         Our consultants are industry insiders — with direct experience in KBB retail, design studios, and trade.
       </p>
     </div>
@@ -1489,7 +1527,7 @@
   <div style="max-width:1240px;margin:0 auto;padding:0 56px;margin-bottom:56px;">
     <div class="section-tag fade-up" style="margin-bottom:20px;">Latest Insights</div>
     <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;">
-      <h2 class="serif-i fade-up d1" style="font-size:clamp(30px,3.5vw,50px);font-weight:300;line-height:1.14;color:#1B2D4F;">
+      <h2 class="serif-i fade-up d1" style="font-size:clamp(30px,3.5vw,50px);font-weight:300;line-height:1.14;color:var(--color-navy-deep);">
         From the<br>KBB Community.
       </h2>
       <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:rgba(7,7,26,0.55);max-width:400px;">
@@ -1884,7 +1922,7 @@
     display: inline-flex; align-items: center; gap: 10px;
     padding: 14px 32px; border-radius: 100px;
     font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
-    text-transform: uppercase; color: #1B2D4F; text-decoration: none;
+    text-transform: uppercase; color: var(--color-navy-deep); text-decoration: none;
     border: 1px solid rgba(27,45,79,0.25);
     background: rgba(27,45,79,0.05);
     transition: background 0.4s ease, border-color 0.4s ease;
@@ -2006,7 +2044,7 @@
           The KBB industry's specialist recruitment partner. Placing exceptional talent since 2014.
         </p>
         <!-- LinkedIn -->
-        <a href="#" aria-label="LinkedIn" style="width:36px;height:36px;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:border-color 0.22s,color 0.22s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--muted)'">
+        <a href="https://www.linkedin.com/company/designer-recruitment/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn" style="width:36px;height:36px;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:border-color 0.22s,color 0.22s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--muted)'">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
       </div>
@@ -2014,30 +2052,30 @@
       <div>
         <div class="foot-head">Candidates</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
-          <a href="#" class="foot-link">Find a Role</a>
-          <a href="#" class="foot-link">Submit Your CV</a>
-          <a href="#" class="foot-link">Career Advice</a>
-          <a href="#" class="foot-link">Salary Guide</a>
+          <a href="#contact" class="foot-link">Find a Role</a>
+          <a href="mailto:hello@designerrecruitment.co.uk?subject=CV%20submission" class="foot-link">Submit Your CV</a>
+          <a href="#contact" class="foot-link">Career Advice</a>
+          <a href="#contact" class="foot-link">Salary Guide</a>
         </div>
       </div>
       <!-- Clients -->
       <div>
         <div class="foot-head">Clients</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
-          <a href="#" class="foot-link">Start a Search</a>
-          <a href="#" class="foot-link">Our Process</a>
-          <a href="#" class="foot-link">Sectors</a>
-          <a href="#" class="foot-link">Case Studies</a>
+          <a href="mailto:hello@designerrecruitment.co.uk?subject=Hiring%20enquiry" class="foot-link">Start a Search</a>
+          <a href="/about-page/#process" class="foot-link">Our Process</a>
+          <a href="#expertise" class="foot-link">Sectors</a>
+          <a href="#spotlight" class="foot-link">Case Studies</a>
         </div>
       </div>
       <!-- Company -->
       <div>
         <div class="foot-head">Company</div>
         <div style="display:flex;flex-direction:column;gap:12px;">
-          <a href="#" class="foot-link">About Us</a>
-          <a href="#" class="foot-link">Meet the Team</a>
-          <a href="#" class="foot-link">News &amp; Insights</a>
-          <a href="#" class="foot-link">Contact</a>
+          <a href="/about-page/" class="foot-link">About Us</a>
+          <a href="/about-page/#team" class="foot-link">Meet the Team</a>
+          <a href="#insights" class="foot-link">News &amp; Insights</a>
+          <a href="#contact" class="foot-link">Contact</a>
         </div>
       </div>
     </div>
@@ -2047,9 +2085,9 @@
         © 2026 Designer Recruitment Ltd. All rights reserved. Registered in England &amp; Wales.
       </p>
       <div style="display:flex;gap:24px;">
-        <a href="#" class="foot-link" style="font-size:11px;">Privacy Policy</a>
-        <a href="#" class="foot-link" style="font-size:11px;">Terms of Service</a>
-        <a href="#" class="foot-link" style="font-size:11px;">Cookie Policy</a>
+        <a href="/privacy.html" class="foot-link" style="font-size:11px;">Privacy Policy</a>
+        <a href="/terms.html" class="foot-link" style="font-size:11px;">Terms of Service</a>
+        <a href="/cookies.html" class="foot-link" style="font-size:11px;">Cookie Policy</a>
       </div>
     </div>
   </div>
@@ -2057,6 +2095,7 @@
 
 <!-- ═══════════ SCRIPTS ═══════════ -->
 <script>
+document.addEventListener('DOMContentLoaded', () => {
   // ── Lenis smooth scroll (init first so menu can reference it) ──
   const lenis = new Lenis({
     duration: 1.15,
@@ -2304,6 +2343,7 @@
     });
   });
 
+}); // DOMContentLoaded
 </script>
 </body>
 </html>

@@ -14,7 +14,7 @@ export default function Marquee() {
     <div
       data-bg="dark"
       style={{
-        background: "#8a6d3b",
+        background: "var(--color-navy-deep)",
         borderTop: "1px solid rgba(255,255,255,0.12)",
         borderBottom: "1px solid rgba(255,255,255,0.12)",
         padding: "20px 0",

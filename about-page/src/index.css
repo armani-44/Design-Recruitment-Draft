@@ -1,42 +1,30 @@
+/* Canonical brand tokens (single source of truth at repo root) */
+@import "./tokens.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ──────────────────────────────────────────────
-   Brand foundation — mirrors the homepage tokens
+   Legacy aliases — bridge the about-page's earlier
+   token names (--midnight, --gold, --cream, etc.) to
+   the canonical tokens. Component code should migrate
+   to the canonical names; remove this block once
+   migration is complete.
    ────────────────────────────────────────────── */
 @layer base {
   :root {
-    --midnight: #07071a;
-    --ink: #0d0c22;
-    --surface: #141330;
-    --surface2: #1a1840;
-    --gold: #c8a96a;
-    --gold-soft: #d9bc80;
-    --gold-dim: rgba(200, 169, 106, 0.12);
-    --cream: #f2ede4;
-    --warm: #faf8f4;
-    --muted: rgba(242, 237, 228, 0.48);
-    --line: rgba(242, 237, 228, 0.1);
-    --navy: #1b2d4f;
-  }
-
-  /* Canela — served from /public/fonts (symlink → /Fonts) */
-  @font-face {
-    font-family: "Canela Text";
-    src: url("/fonts/Canela-Medium.woff2") format("woff2"),
-      url("/fonts/Canela-Medium.woff") format("woff");
-    font-weight: 300 600;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Canela Text";
-    src: url("/fonts/Canela-MediumItalic.woff2") format("woff2"),
-      url("/fonts/Canela-MediumItalic.woff") format("woff");
-    font-weight: 300 600;
-    font-style: italic;
-    font-display: swap;
+    --midnight:  var(--color-midnight);
+    --ink:       var(--bg-surface);
+    --surface:   var(--bg-surface);
+    --surface2:  var(--bg-elevated);
+    --gold:      var(--color-gold);
+    --gold-soft: var(--color-gold);
+    --gold-dim:  var(--accent-soft);
+    --cream:     var(--color-cream);
+    --warm:      var(--color-cream);
+    --muted:     var(--fg-muted);
+    --navy:      var(--color-navy-deep);
   }
 
   *,
@@ -50,7 +38,9 @@
   }
 
   body {
-    @apply bg-midnight text-cream font-sans;
+    @apply bg-midnight text-cream;
+    font-family: var(--font-body);
+    font-weight: var(--fw-light);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -60,15 +50,15 @@
     width: 3px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--midnight);
+    background: var(--bg-base);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--gold);
+    background: var(--accent);
   }
 
   ::selection {
-    background: rgba(200, 169, 106, 0.3);
-    color: var(--warm);
+    background: var(--accent-soft);
+    color: var(--color-cream);
   }
 }
 
@@ -79,7 +69,7 @@
   .grain {
     position: fixed;
     inset: 0;
-    z-index: 9999;
+    z-index: var(--z-grain);
     pointer-events: none;
     opacity: 0.03;
     mix-blend-mode: overlay;
@@ -90,11 +80,11 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    font-size: 10px;
-    font-weight: 400;
-    letter-spacing: 0.22em;
+    font-size: var(--fs-3xs);
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--ls-tag);
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--accent);
   }
   .section-tag::before,
   .section-tag::after {
@@ -111,26 +101,27 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
+    font-family: var(--font-body);
     font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-button);
     text-transform: uppercase;
-    color: var(--midnight);
-    background: var(--gold);
+    color: var(--color-midnight);
+    background: var(--accent);
     padding: 14px 32px;
-    border-radius: 9999px;
+    border-radius: var(--radius-full);
     text-decoration: none;
-    transition: background 0.25s ease,
-      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-      box-shadow 0.3s ease;
+    transition: background var(--dur-fast) ease,
+      transform var(--dur-base) var(--ease-out-expo),
+      box-shadow var(--dur-base) ease;
   }
   .btn-primary:hover {
-    background: var(--gold-soft);
+    background: #e6cc94;
     transform: translateY(-2px);
-    box-shadow: 0 12px 36px rgba(200, 169, 106, 0.28);
+    box-shadow: var(--shadow-glow-gold);
   }
   .btn-primary:focus-visible {
-    outline: 2px solid var(--gold);
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
   }
 
@@ -138,16 +129,18 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
+    font-family: var(--font-body);
     font-size: 10.5px;
-    font-weight: 400;
-    letter-spacing: 0.15em;
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--ls-button);
     text-transform: uppercase;
-    color: var(--cream);
+    color: var(--color-cream);
     text-decoration: none;
     border: 1px solid rgba(242, 237, 228, 0.32);
-    border-radius: 9999px;
+    border-radius: var(--radius-full);
     padding: 14px 32px;
-    transition: border-color 0.25s ease, gap 0.25s ease, background 0.25s ease;
+    transition: border-color var(--dur-fast) ease, gap var(--dur-fast) ease,
+      background var(--dur-fast) ease;
   }
   .btn-ghost:hover {
     border-color: rgba(242, 237, 228, 0.7);
@@ -159,28 +152,30 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
+    font-family: var(--font-body);
     font-size: 10.5px;
-    font-weight: 400;
-    letter-spacing: 0.15em;
+    font-weight: var(--fw-regular);
+    letter-spacing: var(--ls-button);
     text-transform: uppercase;
-    color: var(--midnight);
+    color: var(--color-midnight);
     text-decoration: none;
-    border: 1px solid rgba(7, 7, 26, 0.25);
-    border-radius: 9999px;
+    border: 1px solid var(--line-on-light);
+    border-radius: var(--radius-full);
     padding: 14px 32px;
-    transition: border-color 0.25s ease, gap 0.25s ease, color 0.25s ease;
+    transition: border-color var(--dur-fast) ease, gap var(--dur-fast) ease,
+      color var(--dur-fast) ease;
   }
   .btn-dark-ghost:hover {
-    border-color: var(--gold);
-    color: var(--gold);
+    border-color: var(--accent);
+    color: var(--accent);
     gap: 18px;
   }
 
   .serif {
-    font-family: "Canela Text", Georgia, serif;
+    font-family: var(--font-display);
   }
   .serif-i {
-    font-family: "Canela Text", Georgia, serif;
+    font-family: var(--font-display);
     font-style: italic;
   }
 }
@@ -191,28 +186,18 @@
 .fade-up {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity var(--dur-slow) var(--ease-out-expo),
+    transform var(--dur-slow) var(--ease-out-expo);
 }
 .fade-up.is-in {
   opacity: 1;
   transform: translateY(0);
 }
-.delay-100 {
-  transition-delay: 0.1s;
-}
-.delay-200 {
-  transition-delay: 0.2s;
-}
-.delay-300 {
-  transition-delay: 0.3s;
-}
-.delay-400 {
-  transition-delay: 0.4s;
-}
-.delay-500 {
-  transition-delay: 0.5s;
-}
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
 
 /* Per-line wipe-up (hero) */
 .wipe-line {
@@ -224,7 +209,7 @@
 .wipe-line > span {
   display: block;
   transform: translateY(110%);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform var(--dur-reveal) var(--ease-out-expo);
 }
 .wipe-on .wipe-line > span {
   transform: translateY(0);
@@ -234,4 +219,23 @@
 }
 .wipe-on .wipe-line:nth-child(3) > span {
   transition-delay: 0.28s;
+}
+
+/* ──────────────────────────────────────────────
+   Reduced motion — respect user preference
+   ────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-up,
+  .wipe-line > span {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

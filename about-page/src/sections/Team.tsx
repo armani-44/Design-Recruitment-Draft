@@ -41,7 +41,7 @@ export default function Team() {
       <div className="mx-auto" style={{ maxWidth: 1240 }}>
         <div className="mb-16 flex flex-wrap items-end justify-between gap-10">
           <Reveal>
-            <div className="section-tag" style={{ color: "#8A6D3B", marginBottom: 22 }}>
+            <div className="section-tag" style={{ color: "var(--color-blue)", marginBottom: 22 }}>
               The Team
             </div>
             <h2

@@ -1,16 +1,41 @@
-const FOOT_COLS = [
+type FootLink = { label: string; href: string };
+type FootCol = { head: string; links: FootLink[] };
+
+const FOOT_COLS: FootCol[] = [
   {
     head: "Company",
-    links: ["About", "Services", "Sectors", "Insights", "Contact"],
+    links: [
+      { label: "About", href: "#about-hero" },
+      { label: "Our Story", href: "#story" },
+      { label: "Principles", href: "#principles" },
+      { label: "Process", href: "#process" },
+      { label: "Contact", href: "#contact" },
+    ],
   },
   {
     head: "For Candidates",
-    links: ["Find a Role", "Submit your CV", "Career Advice", "Salary Guide"],
+    links: [
+      { label: "Find a Role", href: "/#contact" },
+      { label: "Submit your CV", href: "mailto:hello@designerrecruitment.co.uk?subject=CV%20submission" },
+      { label: "Career Advice", href: "/#contact" },
+      { label: "Salary Guide", href: "/#contact" },
+    ],
   },
   {
     head: "For Clients",
-    links: ["Hire Talent", "Post a Job", "Consultancy", "Talent Map"],
+    links: [
+      { label: "Hire Talent", href: "mailto:hello@designerrecruitment.co.uk?subject=Hiring%20enquiry" },
+      { label: "Post a Job", href: "mailto:hello@designerrecruitment.co.uk?subject=Post%20a%20role" },
+      { label: "Consultancy", href: "mailto:hello@designerrecruitment.co.uk?subject=Consultancy%20enquiry" },
+      { label: "Sectors", href: "/#expertise" },
+    ],
   },
+];
+
+const LEGAL_LINKS: FootLink[] = [
+  { label: "Privacy", href: "/privacy.html" },
+  { label: "Cookies", href: "/cookies.html" },
+  { label: "Terms", href: "/terms.html" },
 ];
 
 export default function Footer() {
@@ -69,9 +94,9 @@ export default function Footer() {
               </p>
               <ul style={{ display: "flex", flexDirection: "column", gap: 10, listStyle: "none", padding: 0 }}>
                 {col.links.map((l) => (
-                  <li key={l}>
+                  <li key={l.label}>
                     <a
-                      href="#"
+                      href={l.href}
                       style={{
                         fontSize: 13,
                         fontWeight: 300,
@@ -83,7 +108,7 @@ export default function Footer() {
                       onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cream)")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
                     >
-                      {l}
+                      {l.label}
                     </a>
                   </li>
                 ))}
@@ -109,15 +134,11 @@ export default function Footer() {
         >
           <span>© {new Date().getFullYear()} Designer Recruitment®. All rights reserved.</span>
           <span style={{ display: "flex", gap: 24 }}>
-            <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
-              Privacy
-            </a>
-            <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
-              Cookies
-            </a>
-            <a href="#" style={{ color: "inherit", textDecoration: "none" }}>
-              Terms
-            </a>
+            {LEGAL_LINKS.map((l) => (
+              <a key={l.label} href={l.href} style={{ color: "inherit", textDecoration: "none" }}>
+                {l.label}
+              </a>
+            ))}
           </span>
         </div>
       </div>

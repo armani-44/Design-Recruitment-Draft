@@ -12,7 +12,7 @@ export default function Story() {
         {/* Left rail — sticky */}
         <div className="lg:sticky lg:top-32 lg:self-start">
           <Reveal>
-            <div className="section-tag" style={{ color: "#8A6D3B", marginBottom: 22 }}>
+            <div className="section-tag" style={{ color: "var(--color-blue)", marginBottom: 22 }}>
               Our Story
             </div>
           </Reveal>
@@ -29,7 +29,7 @@ export default function Story() {
             >
               Built by the
               <br />
-              <span className="serif-i" style={{ color: "#8A6D3B" }}>
+              <span className="serif-i" style={{ color: "var(--color-blue)" }}>
                 industry,
               </span>
               <br />

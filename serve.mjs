@@ -14,6 +14,7 @@ const mimeTypes = {
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
   '.gif': 'image/gif',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
@@ -21,6 +22,8 @@ const mimeTypes = {
   '.woff2': 'font/woff2',
   '.ttf': 'font/ttf',
   '.json': 'application/json',
+  '.xml': 'application/xml',
+  '.txt': 'text/plain',
 };
 
 createServer(async (req, res) => {

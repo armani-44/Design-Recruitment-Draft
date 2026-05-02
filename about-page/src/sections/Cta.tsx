@@ -16,7 +16,7 @@ export default function Cta() {
           <Reveal>
             <div
               className="section-tag"
-              style={{ color: "#8A6D3B", marginBottom: 26 }}
+              style={{ color: "var(--color-blue)", marginBottom: 26 }}
             >
               Begin a Conversation
             </div>
@@ -32,7 +32,7 @@ export default function Cta() {
             >
               Hire well.
               <br />
-              <span className="serif-i" style={{ color: "#8A6D3B" }}>
+              <span className="serif-i" style={{ color: "var(--color-blue)" }}>
                 Be hired well.
               </span>
             </h2>
@@ -64,7 +64,7 @@ export default function Cta() {
                     />
                   </svg>
                 </a>
-                <a href="#" className="btn-dark-ghost">
+                <a href="mailto:hello@designerrecruitment.co.uk?subject=CV%20submission" className="btn-dark-ghost">
                   Submit your CV
                   <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                     <path
@@ -97,7 +97,7 @@ export default function Cta() {
                   fontSize: 10,
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
-                  color: "#8A6D3B",
+                  color: "var(--color-blue)",
                   marginBottom: 14,
                 }}
                 dangerouslySetInnerHTML={{ __html: c.head }}
