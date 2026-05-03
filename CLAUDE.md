@@ -64,6 +64,11 @@ This site is deployed via Netlify on a credit-based plan. Every push to `main` t
 - Never push to `main` without explicit confirmation in the chat. Treat phrases like "commit", "save", "push my changes", or "update the site" as meaning `dev`.
 - Only treat phrases like "publish", "go live", "ship it", or "merge to main" as a request for a production deploy.
 
+### Preview policy
+- **Default: local only.** Run `node serve.mjs` and view at `http://localhost:3000`. For mobile/tablet checks, use a Puppeteer script that drives localhost at the viewport you care about (e.g. 390×844 for mobile).
+- **Manual Netlify preview is opt-in.** Only run `npx netlify deploy --dir=.` (without `--prod`) when I explicitly ask for a shareable preview URL — for example, sharing the work-in-progress with someone or testing on a real device. Each preview deploy consumes ~1–3 Netlify credits, so never trigger one as part of the default workflow.
+- Never auto-deploy after a commit. If you think a preview is needed, ask first.
+
 ### Going live (production deploy)
 When I confirm I want to publish:
 1. Confirm with me one more time before merging, stating: "This will trigger a production deploy on Netlify (15 credits). Confirm?"
