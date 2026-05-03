@@ -17,6 +17,9 @@
   <link rel="preload" href="/Brand_assets/AdobeStock_1981538230.jpeg" as="image" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
+  <!-- Smooth scroll (matches homepage) -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+
   <!-- Shared brand tokens -->
   <link rel="stylesheet" href="../tokens.css">
 
@@ -36,7 +39,8 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    /* scroll-behavior left as auto — Lenis (loaded in <head>) handles smoothing */
+    html { scroll-behavior: auto; }
     body {
       font-family: var(--font-body);
       font-weight: var(--fw-light);
@@ -883,6 +887,21 @@ By appointment</p>
 <script>
   // Year in footer
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Lenis smooth scroll — same params as the homepage.
+  // Wait for DOMContentLoaded so the deferred Lenis script has finished
+  // loading. Skipped when prefers-reduced-motion is set.
+  document.addEventListener('DOMContentLoaded', () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || typeof Lenis === 'undefined') return;
+    const lenis = new Lenis({
+      duration: 1.15,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+    function lRaf(time) { lenis.raf(time); requestAnimationFrame(lRaf); }
+    requestAnimationFrame(lRaf);
+  });
 
   // Hero in-class once mounted
   requestAnimationFrame(() => document.body.classList.add('in'));
