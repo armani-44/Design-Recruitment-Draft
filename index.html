@@ -51,7 +51,6 @@
   }
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
@@ -2120,19 +2119,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Reduced-motion preference — gate motion-heavy features
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // ── Lenis smooth scroll (init first so menu can reference it) ──
-  // Skip entirely when reduced motion is preferred — the browser's native
-  // scroll is what such users expect.
-  if (!reduceMotion && typeof Lenis !== 'undefined') {
-    const lenis = new Lenis({
-      duration: 1.15,
-      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-    function lRaf(time) { lenis.raf(time); requestAnimationFrame(lRaf); }
-    requestAnimationFrame(lRaf);
-  }
 
   // ── Pill nav: go dark when scrolled over a light section ──
   // The pill sits at bottom: ~20px, so check if the area near the bottom of the viewport
