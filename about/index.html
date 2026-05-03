@@ -213,9 +213,9 @@
       text-align: center;
       display: flex; flex-direction: column; align-items: center;
     }
-    /* Desktop: keep "most trusted network." on a single line (3 visual lines total) */
+    /* Desktop: keep both lines on one row each (2 visual lines total) */
     @media (min-width: 1024px) {
-      #about-hero h1 .wipe-line:nth-child(3) > span { white-space: nowrap; }
+      #about-hero h1 .wipe-line > span { white-space: nowrap; }
     }
     #about-hero .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 14px;
@@ -600,8 +600,7 @@
     <div class="hero-content">
       <div class="hero-eyebrow">About Designer Recruitment</div>
       <h1>
-        <span class="wipe-line"><span>Quietly building</span></span>
-        <span class="wipe-line"><span class="serif-i">the industry's</span></span>
+        <span class="wipe-line"><span>Quietly building <span class="serif-i">the industry's</span></span></span>
         <span class="wipe-line"><span>most trusted network.</span></span>
       </h1>
       <p class="hero-sub">
