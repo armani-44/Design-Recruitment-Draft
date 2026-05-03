@@ -17,8 +17,8 @@ const FOOT_COLS: FootCol[] = [
     links: [
       { label: "Find a Role", href: "/#contact" },
       { label: "Submit your CV", href: "mailto:hello@designerrecruitment.co.uk?subject=CV%20submission" },
-      { label: "Career Advice", href: "/#contact" },
-      { label: "Salary Guide", href: "/#contact" },
+      { label: "Career Advice", href: "mailto:hello@designerrecruitment.co.uk?subject=Career%20advice%20request" },
+      { label: "Request a Salary Guide", href: "mailto:hello@designerrecruitment.co.uk?subject=Salary%20guide%20request" },
     ],
   },
   {
