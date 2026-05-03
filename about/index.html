@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Designer Recruitment® | UK KBB Specialist Recruitment</title>
+  <meta name="description" content="The story behind Designer Recruitment — a specialist recruitment studio for the KBB & Builders Merchant industry, founded on craft, character, and culture.">
+  <meta name="theme-color" content="#07071B">
+  <link rel="canonical" href="https://designerrecruitment.co.uk/about/">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/Brand_assets/DR-Logo-Blue-2.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Brand_assets/DR-Logo-Blue-2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/Brand_assets/AWinship-8084-025-High-scaled.jpg" as="image" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Shared brand tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <style>
+    /* Legacy aliases — match homepage so .midnight, .gold etc resolve */
+    :root {
+      --midnight:  var(--color-midnight);
+      --dark:      var(--bg-surface);
+      --surface:   var(--bg-surface);
+      --surface2:  var(--bg-elevated);
+      --gold:      var(--color-gold);
+      --gold-dim:  var(--accent-soft);
+      --cream:     var(--color-cream);
+      --warm:      var(--color-cream);
+      --muted:     var(--fg-muted);
+      --navy:      #1B2D4F;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-weight: var(--fw-light);
+      background: var(--bg-base);
+      color: var(--fg-base);
+      overflow-x: hidden;
+    }
+
+    .serif   { font-family: var(--font-display); }
+    .serif-i { font-family: var(--font-display); font-style: italic; }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    /* ── Skip link ── */
+    .skip-link {
+      position: absolute; top: 8px; left: 8px; z-index: 10000;
+      padding: 12px 22px; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--color-midnight); background: var(--color-gold);
+      border-radius: var(--radius-full); text-decoration: none;
+      transform: translateY(-150%);
+      transition: transform 0.2s var(--ease-out-expo);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    /* ── Grain ── */
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+      opacity: 0.05; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+    }
+
+    /* ── Nav (mirrors homepage) ── */
+    #nav-wrap { position: fixed; left: 0; right: 0; bottom: 24px; z-index: 200; display: flex; justify-content: center; pointer-events: none; }
+    #nav-pill {
+      pointer-events: auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      padding: 10px 14px 10px 22px;
+      background: rgba(7,7,27,0.66);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+      width: min(620px, calc(100vw - 48px));
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+    #burger {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: transparent; border: 0; cursor: pointer;
+      color: var(--cream); font-family: var(--font-body);
+      font-size: 12px; font-weight: 400; letter-spacing: 0.06em;
+    }
+    .burger-icon { position: relative; width: 18px; height: 12px; display: inline-block; }
+    .burger-line { position: absolute; left: 0; right: 0; height: 1px; background: var(--cream); transition: transform 0.3s var(--ease-out-expo), top 0.3s var(--ease-out-expo); }
+    .burger-line.b1 { top: 2px; }
+    .burger-line.b2 { top: 9px; }
+    #burger.open .b1 { top: 5.5px; transform: rotate(45deg); }
+    #burger.open .b2 { top: 5.5px; transform: rotate(-45deg); }
+    .burger-label { color: var(--cream); }
+    #nav-logo img { display: block; height: 26px; }
+    #nav-logo #logo-blue { display: none; }
+    .nav-contact-btn {
+      display: inline-flex; align-items: center; padding: 9px 22px;
+      background: var(--cream); color: var(--color-midnight);
+      border-radius: 100px; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.08em; text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    .nav-contact-btn:hover { opacity: 0.85; }
+    #nav-dropdown {
+      pointer-events: none; opacity: 0;
+      position: fixed; left: 50%; bottom: 92px; transform: translateX(-50%) translateY(20px);
+      width: min(620px, calc(100vw - 48px));
+      background: rgba(7,7,27,0.94);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 26px 30px;
+      transition: opacity 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
+    }
+    #nav-wrap.open #nav-dropdown { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .nd-link {
+      display: block; padding: 14px 0;
+      font-family: var(--font-display); font-size: 26px; font-weight: 300;
+      color: var(--cream); text-decoration: none;
+      border-bottom: 1px solid rgba(242,237,228,0.08);
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo), color 0.3s ease;
+    }
+    .nd-link:first-child { border-top: 1px solid rgba(242,237,228,0.08); }
+    #nav-wrap.open .nd-link { opacity: 1; transform: translateY(0); }
+    #nav-wrap.open .nd-link:nth-child(1) { transition-delay: 0.08s; }
+    #nav-wrap.open .nd-link:nth-child(2) { transition-delay: 0.14s; }
+    #nav-wrap.open .nd-link:nth-child(3) { transition-delay: 0.20s; }
+    #nav-wrap.open .nd-link:nth-child(4) { transition-delay: 0.26s; }
+    .nd-link:hover { color: var(--gold); }
+    .nd-secondary {
+      margin-top: 22px; display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px;
+      font-size: 11px; letter-spacing: 0.04em; color: rgba(242,237,228,0.55);
+    }
+    .nd-sub { color: rgba(242,237,228,0.65); text-decoration: none; transition: color 0.25s ease; }
+    .nd-sub:hover { color: var(--gold); }
+    .nd-sub-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(242,237,228,0.3); display: inline-block; }
+
+    /* ── Section tag ── */
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 10px; font-weight: 400; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .section-tag::before, .section-tag::after { content: ''; width: 28px; height: 1px; background: var(--gold); }
+    .section-tag.is-blue { color: var(--color-blue); }
+    .section-tag.is-blue::before, .section-tag.is-blue::after { background: var(--color-blue); }
+
+    /* ── Buttons ── */
+    .btn-primary, .btn-ghost, .btn-dark-ghost {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 14px 26px; border-radius: 100px;
+      transition: background 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo),
+                  border-color 0.4s var(--ease-out-expo), gap 0.4s var(--ease-out-expo),
+                  color 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+    }
+    .btn-primary { background: var(--color-gold); color: var(--color-midnight); }
+    .btn-primary:hover { background: var(--color-gold-soft); transform: translateY(-2px); box-shadow: var(--shadow-glow-gold); }
+    .btn-ghost { background: transparent; color: var(--cream); border: 1px solid rgba(242,237,228,0.45); }
+    .btn-ghost:hover { border-color: rgba(242,237,228,0.7); gap: 18px; background: rgba(242,237,228,0.04); }
+    .btn-dark-ghost { background: transparent; color: var(--color-midnight); border: 1px solid rgba(7,7,27,0.35); }
+    .btn-dark-ghost:hover { border-color: rgba(7,7,27,0.6); gap: 18px; background: rgba(7,7,27,0.04); }
+
+    /* ── Fade-up animation ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+    .fade-up.d1 { transition-delay: 0.10s; }
+    .fade-up.d2 { transition-delay: 0.20s; }
+    .fade-up.d3 { transition-delay: 0.30s; }
+    .fade-up.d4 { transition-delay: 0.40s; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 1 — HERO
+       ───────────────────────────────────────────────────────────── */
+    #about-hero {
+      position: relative; height: 100vh; min-height: 720px;
+      overflow: hidden;
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    #about-hero .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('/Brand_assets/AWinship-8084-025-High-scaled.jpg');
+      background-size: cover; background-position: center;
+      transform: scale(1.04);
+    }
+    #about-hero .hero-vignette {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        linear-gradient(to bottom, rgba(7,7,26,0.55) 0%, rgba(7,7,26,0.22) 28%, rgba(7,7,26,0.45) 60%, rgba(7,7,26,0.94) 100%);
+    }
+    #about-hero .hero-vignette-2 {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      mix-blend-mode: multiply;
+      background: radial-gradient(120% 80% at 50% 30%, transparent 35%, rgba(7,7,26,0.55) 100%);
+    }
+    #about-hero .side-rule {
+      position: absolute; left: 56px; top: 50%; transform: translateY(-50%);
+      width: 1px; height: 180px; z-index: 2;
+      background: linear-gradient(to bottom, transparent, rgba(200,169,106,0.5), transparent);
+    }
+    #about-hero .eyebrow-corner {
+      position: absolute; right: 56px; top: 130px; z-index: 2;
+      text-align: right; pointer-events: none;
+    }
+    .eyebrow-corner .ec-chapter {
+      font-size: 10px; font-weight: 300; text-transform: uppercase;
+      color: rgba(242,237,228,0.55); letter-spacing: 0.32em;
+    }
+    .eyebrow-corner .ec-tag {
+      margin-top: 10px; font-size: 16px; font-weight: 300; line-height: 1.3;
+      color: rgba(242,237,228,0.8); font-family: var(--font-display); font-style: italic;
+    }
+    #about-hero .hero-content {
+      position: relative; z-index: 3;
+      max-width: 1080px; width: 100%;
+      padding: 160px 56px 120px;
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    #about-hero .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 10px; font-weight: 400; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 30px;
+      opacity: 0; transition: opacity 0.9s var(--ease-out-expo) 0.1s;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after { content:''; width: 28px; height: 1px; background: var(--gold); }
+    body.in .hero-eyebrow { opacity: 1; }
+    #about-hero h1 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-xl); line-height: 0.98; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 36px;
+    }
+    .wipe-line { display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+    .wipe-line > span {
+      display: block; transform: translateY(110%);
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    body.in .wipe-line > span { transform: translateY(0); }
+    body.in #about-hero .wipe-line:nth-child(2) > span { transition-delay: 0.14s; }
+    body.in #about-hero .wipe-line:nth-child(3) > span { transition-delay: 0.28s; }
+    #about-hero .hero-sub {
+      max-width: 600px; font-size: 19px; font-weight: 300; line-height: 1.7;
+      color: rgba(242,237,228,0.65);
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.9s var(--ease-out-expo) 0.42s, transform 0.9s var(--ease-out-expo) 0.42s;
+    }
+    body.in #about-hero .hero-sub { opacity: 1; transform: translateY(0); }
+    #about-hero .hero-actions {
+      margin-top: 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.9s var(--ease-out-expo) 0.55s, transform 0.9s var(--ease-out-expo) 0.55s;
+    }
+    body.in #about-hero .hero-actions { opacity: 1; transform: translateY(0); }
+    #about-hero .scroll-indicator {
+      position: absolute; right: 56px; bottom: 40px; z-index: 3;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    #about-hero .scroll-line {
+      width: 1px; height: 56px;
+      background: linear-gradient(to bottom, transparent, rgba(242,237,228,0.4));
+      animation: scrollDrop 2s ease-in-out infinite;
+    }
+    @keyframes scrollDrop {
+      0%,100% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    }
+    #about-hero .scroll-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,237,228,0.3); }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 2 — STORY (cream)
+       ───────────────────────────────────────────────────────────── */
+    #story { background: var(--cream); padding: 140px 56px; position: relative; }
+    #story .grid { max-width: 1240px; margin: 0 auto; display: grid; gap: 80px; grid-template-columns: 5fr 7fr; align-items: start; }
+    #story .left { position: sticky; top: 120px; align-self: start; }
+    #story h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-lg); line-height: 1.04;
+      color: var(--midnight); letter-spacing: -0.02em;
+    }
+    #story h2 .accent { color: var(--color-blue); font-style: italic; }
+    #story .est {
+      margin-top: 36px; display: inline-flex; align-items: center; gap: 12px;
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(7,7,27,0.45);
+    }
+    #story .est::before { content: ''; width: 36px; height: 1px; background: rgba(7,7,27,0.25); display: inline-block; }
+    #story .right p.lead {
+      font-size: 22px; font-weight: 300; line-height: 1.6; color: var(--midnight);
+    }
+    #story .right p.body {
+      margin-top: 36px; font-size: 17px; font-weight: 300; line-height: 1.85;
+      color: rgba(7,7,27,0.7);
+    }
+    #story .quote {
+      margin-top: 56px; padding: 44px 48px; border-radius: var(--radius-lg);
+      background: var(--midnight); color: var(--cream); position: relative; overflow: hidden;
+    }
+    #story .quote .quotemark {
+      position: absolute; top: 18px; right: 32px;
+      font-family: var(--font-display); font-style: italic; font-size: 140px; line-height: 1;
+      color: var(--gold); opacity: 0.25;
+    }
+    #story .quote blockquote {
+      font-family: var(--font-display); font-style: italic; font-weight: 300;
+      font-size: 28px; line-height: 1.35; position: relative;
+    }
+    #story .quote figcaption {
+      margin-top: 32px; display: flex; align-items: center; gap: 12px;
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); position: relative;
+    }
+    #story .quote figcaption::before { content:''; width: 36px; height: 1px; background: var(--gold); display: inline-block; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 3 — NUMBERS (navy + midnight timeline)
+       ───────────────────────────────────────────────────────────── */
+    #numbers {
+      background: var(--color-navy-deep);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .stats-strip { padding: 80px 56px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .stats-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-cell { text-align: center; padding: 10px 32px; border-right: 1px solid rgba(255,255,255,0.18); }
+    .stat-cell:last-child { border-right: none; }
+    .stat-value { font-family: var(--font-display); font-size: var(--fs-display-lg); font-weight: 700; line-height: 1; color: var(--cream); letter-spacing: -0.02em; }
+    .stat-label { margin-top: 14px; font-size: 10px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+
+    .timeline-wrap { padding: 96px 56px; background: var(--midnight); }
+    .timeline-grid { max-width: 1240px; margin: 0 auto; display: grid; gap: 64px; grid-template-columns: 5fr 7fr; }
+    .timeline-grid h2 {
+      margin-top: 22px;
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-md); line-height: 1.1;
+      color: var(--cream); letter-spacing: -0.01em;
+    }
+    .timeline-grid h2 .accent { font-style: italic; color: var(--gold); }
+    .timeline-list { position: relative; }
+    .timeline-list::before {
+      content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+      width: 1px; background: var(--line);
+    }
+    .timeline-item { position: relative; padding-left: 48px; margin-bottom: 48px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: 0; top: 6px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--midnight); border: 1px solid var(--gold);
+    }
+    .timeline-year { font-family: var(--font-display); font-size: 14px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .timeline-text { font-size: 18px; font-weight: 300; line-height: 1.6; color: rgba(242,237,228,0.78); max-width: 540px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 4 — PRINCIPLES
+       ───────────────────────────────────────────────────────────── */
+    #principles { background: var(--midnight); padding: 120px 56px; border-top: 1px solid var(--line); }
+    .principles-inner { max-width: 1240px; margin: 0 auto; }
+    .principles-head { margin-bottom: 80px; display: grid; gap: 40px; grid-template-columns: 1fr 1fr; align-items: end; }
+    .principles-head h2 {
+      margin-top: 22px;
+      font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
+      line-height: 1.06; color: var(--cream); letter-spacing: -0.02em;
+    }
+    .principles-head h2 .accent { font-style: italic; color: var(--gold); }
+    .principles-head p { font-size: 19px; font-weight: 300; line-height: 1.7; color: rgba(242,237,228,0.6); max-width: 460px; }
+    .principles-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--line); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+    }
+    .principle-card { background: var(--midnight); padding: 48px 44px 52px; min-height: 260px; display: flex; flex-direction: column; }
+    .principle-top { display: flex; align-items: baseline; justify-content: space-between; }
+    .principle-num { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.22em; color: var(--gold); }
+    .principle-rule { display: block; height: 1px; width: 36px; background: rgba(217,188,128,0.4); transition: background 0.4s ease; }
+    .principle-card:hover .principle-rule { background: var(--gold); }
+    .principle-card h3 {
+      margin-top: 36px;
+      font-family: var(--font-display); font-weight: 300; font-size: 28px;
+      line-height: 1.2; color: var(--cream); letter-spacing: -0.01em;
+    }
+    .principle-card p { margin-top: 18px; font-size: 15.5px; font-weight: 300; line-height: 1.75; color: rgba(242,237,228,0.65); max-width: 460px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 5 — EDITORIAL FULL BLEED
+       ───────────────────────────────────────────────────────────── */
+    #editorial {
+      position: relative; height: 560px; overflow: hidden;
+    }
+    #editorial img.bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center 40%;
+    }
+    #editorial .ed-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(7,7,27,0.7) 0%, rgba(7,7,27,0.35) 50%, rgba(7,7,27,0.7) 100%);
+    }
+    #editorial .ed-rule {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      height: 120px; width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(200,169,106,0.5), transparent);
+    }
+    #editorial .ed-rule.l { left: 56px; }
+    #editorial .ed-rule.r { right: 56px; }
+    #editorial .ed-content {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 0 56px;
+    }
+    #editorial .section-tag { justify-content: center; margin-bottom: 28px; }
+    #editorial h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-lg); color: var(--cream);
+      line-height: 1.14; letter-spacing: -0.01em; margin-bottom: 22px;
+    }
+    #editorial h2 .accent { font-style: italic; color: var(--gold); }
+    #editorial p { font-size: 18px; font-weight: 300; line-height: 1.7; color: rgba(242,237,228,0.7); max-width: 620px; margin: 0 auto; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 6 — MARQUEE
+       ───────────────────────────────────────────────────────────── */
+    #marquee {
+      background: var(--color-navy-deep);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding: 22px 0; overflow: hidden;
+    }
+    .marquee-track { display: flex; gap: 56px; width: max-content; animation: marqueeScroll 38s linear infinite; }
+    @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-item { display: inline-flex; align-items: center; gap: 56px; white-space: nowrap; }
+    .marquee-label { font-size: 12.5px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.78); }
+    .marquee-dot { color: var(--gold); font-size: 9px; opacity: 0.8; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 7 — TEAM (cream)
+       ───────────────────────────────────────────────────────────── */
+    #team-section { background: var(--cream); padding: 120px 56px; border-top: 1px solid rgba(7,7,27,0.06); }
+    .team-inner { max-width: 1240px; margin: 0 auto; }
+    .team-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 64px; }
+    .team-head h2 {
+      margin-top: 22px;
+      font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
+      line-height: 1.06; color: var(--navy); letter-spacing: -0.02em;
+    }
+    .team-head h2 .accent { font-style: italic; }
+    .team-head p { max-width: 360px; font-size: 18px; font-weight: 300; line-height: 1.75; color: var(--navy); }
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .team-card { position: relative; overflow: hidden; border-radius: 14px; }
+    .team-img { position: relative; aspect-ratio: 4 / 3.75; background: var(--surface); overflow: hidden; }
+    .team-img img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s var(--ease-out-expo), filter 0.7s var(--ease-out-expo);
+      will-change: transform;
+    }
+    .team-card:hover .team-img img { transform: scale(1.04); filter: none !important; }
+    .team-info {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 28px 28px 32px;
+      background: rgba(10,9,30,0.42);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-top: 1px solid rgba(255,255,255,0.10);
+    }
+    .team-name { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--cream); letter-spacing: -0.005em; }
+    .team-role { margin-top: 6px; font-size: 10px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+    .team-bio { margin-top: 14px; font-size: 13px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.65); max-width: 480px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 8 — PROCESS (4 steps)
+       ───────────────────────────────────────────────────────────── */
+    #process {
+      position: relative; background: var(--midnight); overflow: hidden;
+    }
+    #process::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(60% 50% at 80% 0%, rgba(217,188,128,0.10), transparent 60%),
+        radial-gradient(50% 50% at 20% 100%, rgba(11,2,82,0.4), transparent 60%);
+    }
+    .process-inner { position: relative; max-width: 1240px; margin: 0 auto; padding: 120px 56px; }
+    .process-head { display: grid; gap: 40px; grid-template-columns: 1fr 1fr; align-items: end; margin-bottom: 64px; }
+    .process-head h2 {
+      margin-top: 22px;
+      font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
+      line-height: 1.06; color: var(--cream); letter-spacing: -0.02em;
+    }
+    .process-head h2 .accent { font-style: italic; color: var(--gold); }
+    .process-head p { font-size: 18px; font-weight: 300; line-height: 1.7; color: rgba(242,237,228,0.6); max-width: 460px; }
+    .process-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--line);
+    }
+    .process-card { background: var(--midnight); padding: 44px 32px 48px; min-height: 280px; display: flex; flex-direction: column; }
+    .process-top { display: flex; align-items: baseline; justify-content: space-between; }
+    .process-step { font-family: var(--font-display); font-size: 10.5px; font-weight: 700; letter-spacing: 0.32em; color: var(--gold); }
+    .process-numlg { font-family: var(--font-display); font-style: italic; font-size: 30px; font-weight: 300; color: rgba(242,237,228,0.18); line-height: 1; }
+    .process-card h3 {
+      margin-top: 48px;
+      font-family: var(--font-display); font-weight: 300; font-size: 26px;
+      color: var(--cream); letter-spacing: -0.01em;
+    }
+    .process-card p { margin-top: 16px; font-size: 14.5px; line-height: 1.7; font-weight: 300; color: rgba(242,237,228,0.6); }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 9 — CTA (cream)
+       ───────────────────────────────────────────────────────────── */
+    #cta { background: var(--cream); padding: 140px 56px; border-top: 1px solid rgba(7,7,27,0.06); }
+    .cta-inner { max-width: 1100px; margin: 0 auto; }
+    .cta-grid { display: grid; gap: 48px; grid-template-columns: 1.1fr 1fr; align-items: end; }
+    .cta-grid h2 {
+      margin-top: 26px;
+      font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-lg);
+      line-height: 1; color: var(--midnight); letter-spacing: -0.02em;
+    }
+    .cta-grid h2 .accent { font-style: italic; color: var(--color-blue); }
+    .cta-grid .cta-copy { font-size: 18px; font-weight: 300; line-height: 1.75; color: rgba(7,7,27,0.6); }
+    .cta-actions { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+    .cta-detail { margin-top: 96px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 48px; border-top: 1px solid rgba(7,7,27,0.12); }
+    .cta-detail .head { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-blue); margin-bottom: 14px; }
+    .cta-detail .body { font-family: var(--font-display); font-size: 19px; font-weight: 400; line-height: 1.55; color: var(--midnight); white-space: pre-line; }
+
+    /* ─────────────────────────────────────────────────────────────
+       FOOTER
+       ───────────────────────────────────────────────────────────── */
+    footer { background: var(--midnight); border-top: 1px solid var(--line); padding: 68px 56px 36px; }
+    .footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 56px; }
+    .foot-brand img { height: 36px; margin-bottom: 18px; }
+    .foot-brand p { font-size: 13px; font-weight: 300; line-height: 1.75; color: rgba(242,237,228,0.55); max-width: 280px; }
+    .foot-head { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream); margin-bottom: 22px; }
+    .foot-link { display: block; padding: 6px 0; font-size: 12.5px; font-weight: 300; letter-spacing: 0.04em; color: var(--muted); text-decoration: none; transition: color 0.22s ease; }
+    .foot-link:hover { color: var(--cream); }
+    .foot-base { max-width: 1240px; margin: 56px auto 0; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; font-size: 11px; letter-spacing: 0.06em; color: rgba(242,237,228,0.45); }
+    .foot-base a { margin-left: 22px; color: rgba(242,237,228,0.55); text-decoration: none; }
+    .foot-base a:hover { color: var(--cream); }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESPONSIVE
+       ───────────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      #story, #principles, #team-section, #cta, .timeline-wrap { padding-left: 40px !important; padding-right: 40px !important; }
+      .stats-strip, .process-inner, #editorial .ed-content { padding-left: 40px !important; padding-right: 40px !important; }
+      #story .grid, .timeline-grid { grid-template-columns: 1fr; gap: 56px; }
+      #story .left { position: static; }
+      .principles-head, .process-head { grid-template-columns: 1fr; }
+      .principles-grid, .team-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding-left: 40px; padding-right: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      #story, #principles, #team-section, #cta, .timeline-wrap, .stats-strip { padding: 80px 24px !important; }
+      .process-inner, #editorial .ed-content { padding-left: 24px !important; padding-right: 24px !important; }
+      #about-hero { min-height: 580px; }
+      #about-hero .hero-content { padding: 130px 24px 96px; }
+      #about-hero .side-rule, #about-hero .eyebrow-corner, #about-hero .scroll-indicator { display: none; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat-cell { padding: 24px 16px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.18); }
+      .stat-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.18); }
+      .stat-cell:nth-child(3), .stat-cell:nth-child(4) { border-bottom: none; }
+      .principles-grid, .team-grid, .process-grid { grid-template-columns: 1fr; }
+      .cta-grid { grid-template-columns: 1fr; }
+      .cta-detail { grid-template-columns: 1fr; gap: 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      #editorial { height: 480px; }
+      #story .quote { padding: 32px 28px; }
+      #story .quote blockquote { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<div id="nav-wrap" role="navigation" aria-label="Main">
+  <div id="nav-pill">
+    <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-dropdown">
+      <span class="burger-icon" aria-hidden="true">
+        <span class="burger-line b1"></span>
+        <span class="burger-line b2"></span>
+      </span>
+      <span class="burger-label">Menu</span>
+    </button>
+    <a href="/" id="nav-logo" aria-label="Designer Recruitment home">
+      <img id="logo-white" src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+    </a>
+    <a href="#cta" class="nav-contact-btn">Contact</a>
+  </div>
+
+  <div id="nav-dropdown" aria-hidden="true">
+    <nav aria-label="Site links">
+      <a href="/about/"      class="nd-link">About Us</a>
+      <a href="/#services"   class="nd-link">Services</a>
+      <a href="/#expertise"  class="nd-link">Sectors</a>
+      <a href="#cta"         class="nd-link">Get in Touch</a>
+    </nav>
+    <div class="nd-secondary">
+      <a href="/#insights" class="nd-sub">KBB Insights</a>
+      <span class="nd-sub-dot" aria-hidden="true"></span>
+      <a href="mailto:hello@designerrecruitment.co.uk?subject=Post%20a%20role" class="nd-sub">Post a Role</a>
+      <span class="nd-sub-dot" aria-hidden="true"></span>
+      <a href="#cta" class="nd-sub">Find a Role</a>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="about-hero" aria-label="About Designer Recruitment">
+    <div class="hero-bg" role="img" aria-label="Premium kitchen interior"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
+    <div class="hero-vignette-2" aria-hidden="true"></div>
+
+    <div class="side-rule" aria-hidden="true"></div>
+    <div class="eyebrow-corner" aria-hidden="true">
+      <p class="ec-chapter">Chapter 01</p>
+      <p class="ec-tag">The story behind<br>the agency.</p>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">About Designer Recruitment</div>
+      <h1>
+        <span class="wipe-line"><span>Quietly building</span></span>
+        <span class="wipe-line"><span class="serif-i">the industry's</span></span>
+        <span class="wipe-line"><span>most trusted network.</span></span>
+      </h1>
+      <p class="hero-sub">
+        A specialist recruitment studio for the KBB &amp; Builders Merchant industry — founded on the belief that craft, character, and culture should be matched with the same precision as skill.
+      </p>
+      <div class="hero-actions">
+        <a href="#story" class="btn-primary">
+          Read our story
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2v8M2.5 6.5l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#team-section" class="btn-ghost">
+          Meet the team
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span class="scroll-label">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ STORY ═══════════ -->
+  <section id="story" aria-label="Our story">
+    <div class="grid">
+      <div class="left">
+        <div class="section-tag is-blue fade-up" style="margin-bottom:22px;">Our Story</div>
+        <h2 class="fade-up d1">
+          Built by the<br>
+          <span class="accent">industry,</span><br>
+          for the industry.
+        </h2>
+        <div class="est fade-up d2">Est. 2014 — Manchester, UK</div>
+      </div>
+
+      <div class="right">
+        <p class="lead fade-up d1">
+          Designer Recruitment was founded on a single, stubborn belief — that the KBB industry deserves recruiters who understand it from the inside. Not generalists with a database, but specialists with a network, an eye for craft, and a genuine respect for the work.
+        </p>
+        <p class="body fade-up d2">
+          Ben Paine founded the agency in 2014 after a decade inside KBB retail and design. He had watched too many brilliant designers funnelled into the wrong studios, and too many great showrooms sold "the next CV" rather than the right person. The brief he set himself was simple: build an agency that would behave more like a curator than a broker.
+        </p>
+        <p class="body fade-up d3">
+          Today we're a small, deliberately specialist team. We don't cover everything — we cover one industry, exceptionally well. That focus is the entire offer: a network deep enough to know who's quietly looking, an eye trained on craft, and the patience to make introductions that compound over years rather than quarters.
+        </p>
+
+        <figure class="quote fade-up d3">
+          <span class="quotemark" aria-hidden="true">"</span>
+          <blockquote>
+            We don't fill roles. We build careers and teams that last — the kind that compound a studio's reputation over years, not quarters.
+          </blockquote>
+          <figcaption>Ben Paine, Managing Director</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ NUMBERS + TIMELINE ═══════════ -->
+  <section id="numbers" aria-label="By the numbers">
+    <div class="stats-strip">
+      <div class="stats-grid">
+        <div class="stat-cell fade-up d1"><div class="stat-value">10+</div><div class="stat-label">Years in KBB</div></div>
+        <div class="stat-cell fade-up d2"><div class="stat-value">500+</div><div class="stat-label">Placements made</div></div>
+        <div class="stat-cell fade-up d3"><div class="stat-value">200+</div><div class="stat-label">Active clients</div></div>
+        <div class="stat-cell fade-up d4"><div class="stat-value">98%</div><div class="stat-label">Client retention</div></div>
+      </div>
+    </div>
+
+    <div class="timeline-wrap">
+      <div class="timeline-grid">
+        <div>
+          <div class="section-tag fade-up">Milestones</div>
+          <h2 class="fade-up d1">A decade<br><span class="accent">in the making.</span></h2>
+        </div>
+
+        <div class="timeline-list">
+          <div class="timeline-item fade-up d1">
+            <div class="timeline-year">2014</div>
+            <p class="timeline-text">Designer Recruitment is founded with a focus on independent KBB studios.</p>
+          </div>
+          <div class="timeline-item fade-up d2">
+            <div class="timeline-year">2017</div>
+            <p class="timeline-text">Network expands across the UK; first executive placements with luxury showroom groups.</p>
+          </div>
+          <div class="timeline-item fade-up d3">
+            <div class="timeline-year">2020</div>
+            <p class="timeline-text">Consultancy practice launches — talent mapping and structure work for high-growth retailers.</p>
+          </div>
+          <div class="timeline-item fade-up d4">
+            <div class="timeline-year">2024</div>
+            <p class="timeline-text">Tenth anniversary; 500+ placements and a community programme for designers in transition.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PRINCIPLES ═══════════ -->
+  <section id="principles" aria-label="Our principles">
+    <div class="principles-inner">
+      <div class="principles-head">
+        <div>
+          <div class="section-tag fade-up">Principles</div>
+          <h2 class="fade-up d1">Four ideas<br><span class="accent">we won't compromise on.</span></h2>
+        </div>
+        <p class="fade-up d2">These aren't marketing lines. They're the rules we sign briefs against, the way we choose which candidates to represent, and the standard we hold the business to internally.</p>
+      </div>
+
+      <div class="principles-grid">
+        <div class="principle-card fade-up d1">
+          <div class="principle-top">
+            <span class="principle-num">01</span>
+            <span class="principle-rule"></span>
+          </div>
+          <h3>Specialist, not generalist.</h3>
+          <p>We work in one industry — the KBB &amp; Builders Merchant sector — and we know it from the design floor up. That depth is the entire product.</p>
+        </div>
+        <div class="principle-card fade-up d2">
+          <div class="principle-top">
+            <span class="principle-num">02</span>
+            <span class="principle-rule"></span>
+          </div>
+          <h3>Curate, don't broker.</h3>
+          <p>Every introduction is considered. We'd rather present three exceptional candidates than ten plausible ones. The same goes for the briefs we accept.</p>
+        </div>
+        <div class="principle-card fade-up d3">
+          <div class="principle-top">
+            <span class="principle-num">03</span>
+            <span class="principle-rule"></span>
+          </div>
+          <h3>Match for craft &amp; character.</h3>
+          <p>Skills get someone through the door. Character keeps them in the building. We hire the way the best studios hire — for the long arc of a career.</p>
+        </div>
+        <div class="principle-card fade-up d4">
+          <div class="principle-top">
+            <span class="principle-num">04</span>
+            <span class="principle-rule"></span>
+          </div>
+          <h3>Stay close, stay honest.</h3>
+          <p>We tell candidates what they need to hear, not what they want to hear. We tell clients the same. The results compound over years of trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ EDITORIAL ═══════════ -->
+  <section id="editorial" aria-label="Our promise">
+    <img class="bg" src="/Brand_assets/AWinship-8084-025-High-scaled.jpg" alt="" aria-hidden="true" loading="lazy">
+    <div class="ed-overlay" aria-hidden="true"></div>
+    <div class="ed-rule l" aria-hidden="true"></div>
+    <div class="ed-rule r" aria-hidden="true"></div>
+
+    <div class="ed-content">
+      <div>
+        <div class="section-tag fade-up">Our Promise</div>
+        <h2 class="fade-up d1">Specialists by choice.<br><span class="accent">Generalists never.</span></h2>
+        <p class="fade-up d2">Designer Recruitment exists to do one thing exceptionally well: place KBB talent inside the industry's most respected showrooms and studios. We decline briefs outside our remit, and we're unapologetic about it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MARQUEE ═══════════ -->
+  <div id="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">
+        <span class="marquee-label">Specialist Search</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Executive Placement</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Talent Mapping</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Showroom Recruitment</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Designer Placement</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Strategic Consultancy</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Industry Advisory</span><span class="marquee-dot">✦</span>
+      </span>
+      <span class="marquee-item">
+        <span class="marquee-label">Specialist Search</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Executive Placement</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Talent Mapping</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Showroom Recruitment</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Designer Placement</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Strategic Consultancy</span><span class="marquee-dot">✦</span>
+        <span class="marquee-label">Industry Advisory</span><span class="marquee-dot">✦</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ═══════════ TEAM ═══════════ -->
+  <section id="team-section" aria-label="The team">
+    <div class="team-inner">
+      <div class="team-head">
+        <div>
+          <div class="section-tag is-blue fade-up">The Team</div>
+          <h2 class="fade-up d1">People who<br><span class="accent">know people.</span></h2>
+        </div>
+        <p class="fade-up d2">Our consultants are industry insiders — with direct experience in KBB retail, design studios, and trade.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card fade-up d1">
+          <div class="team-img">
+            <img src="/Brand_assets/Ben-Paine-Managing Director.jpg" alt="Ben Paine, Managing Director" loading="lazy" style="object-position:center 35%;filter:grayscale(20%) brightness(0.95);">
+            <div class="team-info">
+              <p class="team-name">Ben Paine</p>
+              <p class="team-role">Managing Director</p>
+              <p class="team-bio">With over a decade of experience in KBB recruitment, Ben leads the team with deep industry knowledge and a passion for matching exceptional talent with exceptional brands.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-card fade-up d2">
+          <div class="team-img">
+            <img src="/Brand_assets/Chris-Designer-.jpeg" alt="Expert KBB Consultants" loading="lazy" style="object-position:center 5%;filter:grayscale(10%) brightness(0.85);">
+            <div class="team-info">
+              <p class="team-name">Expert Consultants</p>
+              <p class="team-role">KBB Specialists</p>
+              <p class="team-bio">Our team of dedicated recruitment consultants brings specialist knowledge across every role — from design floor to boardroom.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROCESS ═══════════ -->
+  <section id="process" aria-label="How we work">
+    <div class="process-inner">
+      <div class="process-head">
+        <div>
+          <div class="section-tag fade-up">How We Work</div>
+          <h2 class="fade-up d1">A four-step<br><span class="accent">deliberate process.</span></h2>
+        </div>
+        <p class="fade-up d2">We move slowly on purpose. The work that protects a placement — long-form briefing, real conversations, considered shortlists — happens before any CV changes hands. Speed is a by-product of fit, not a goal in itself.</p>
+      </div>
+
+      <ol class="process-grid">
+        <li class="process-card fade-up d1">
+          <div class="process-top"><span class="process-step">STEP 01</span><span class="process-numlg">/01</span></div>
+          <h3>Discover</h3>
+          <p>We start with a conversation, not a brief. What does the studio actually need? What does the candidate actually want? The interesting work happens here.</p>
+        </li>
+        <li class="process-card fade-up d2">
+          <div class="process-top"><span class="process-step">STEP 02</span><span class="process-numlg">/02</span></div>
+          <h3>Curate</h3>
+          <p>We open the network. Three to five carefully matched candidates per role. Long-form context on each: craft, character, motivation, fit.</p>
+        </li>
+        <li class="process-card fade-up d3">
+          <div class="process-top"><span class="process-step">STEP 03</span><span class="process-numlg">/03</span></div>
+          <h3>Place</h3>
+          <p>We coach the process — from first interview to negotiation. Both sides come out feeling chosen, not sold to. That's how placements stick.</p>
+        </li>
+        <li class="process-card fade-up d4">
+          <div class="process-top"><span class="process-step">STEP 04</span><span class="process-numlg">/04</span></div>
+          <h3>Stay</h3>
+          <p>We keep showing up after the offer is signed. First-90-day check-ins, future career planning, talent mapping for the next hire.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA ═══════════ -->
+  <section id="cta" aria-label="Begin a conversation">
+    <div class="cta-inner">
+      <div class="cta-grid">
+        <div>
+          <div class="section-tag is-blue fade-up">Begin a Conversation</div>
+          <h2 class="fade-up d1">Hire well.<br><span class="accent">Be hired well.</span></h2>
+        </div>
+        <div class="cta-copy fade-up d2">
+          <p>Whether you're a studio looking for someone exceptional, or a designer ready for the next chapter — we'd like to hear from you.</p>
+          <div class="cta-actions">
+            <a href="mailto:hello@designerrecruitment.co.uk" class="btn-primary">
+              Start a search
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="mailto:hello@designerrecruitment.co.uk?subject=CV%20submission" class="btn-dark-ghost">
+              Submit your CV
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-detail">
+        <div class="fade-up d1">
+          <div class="head">Studio</div>
+          <p class="body">Manchester, UK
+By appointment</p>
+        </div>
+        <div class="fade-up d2">
+          <div class="head">General</div>
+          <p class="body">hello@designerrecruitment.co.uk</p>
+        </div>
+        <div class="fade-up d3">
+          <div class="head">Press &amp; Partnerships</div>
+          <p class="body">press@designerrecruitment.co.uk</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="foot-brand">
+      <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+      <p>The UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom &amp; Builders Merchant industry.</p>
+    </div>
+    <div>
+      <div class="foot-head">Company</div>
+      <a href="/about/" class="foot-link">About</a>
+      <a href="#story" class="foot-link">Our Story</a>
+      <a href="#principles" class="foot-link">Principles</a>
+      <a href="#process" class="foot-link">Process</a>
+      <a href="#cta" class="foot-link">Contact</a>
+    </div>
+    <div>
+      <div class="foot-head">For Candidates</div>
+      <a href="/#services" class="foot-link">Find a Role</a>
+      <a href="mailto:hello@designerrecruitment.co.uk?subject=CV%20submission" class="foot-link">Submit your CV</a>
+      <a href="/#insights" class="foot-link">Career Advice</a>
+      <a href="mailto:hello@designerrecruitment.co.uk" class="foot-link">Request a Salary Guide</a>
+    </div>
+    <div>
+      <div class="foot-head">For Clients</div>
+      <a href="/#services" class="foot-link">Hire Talent</a>
+      <a href="mailto:hello@designerrecruitment.co.uk?subject=Post%20a%20role" class="foot-link">Post a Job</a>
+      <a href="/#expertise" class="foot-link">Consultancy</a>
+      <a href="/#expertise" class="foot-link">Sectors</a>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>© <span id="year">2026</span> Designer Recruitment®. All rights reserved.</div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Hero in-class once mounted
+  requestAnimationFrame(() => document.body.classList.add('in'));
+
+  // Burger menu toggle
+  (function() {
+    const wrap = document.getElementById('nav-wrap');
+    const burger = document.getElementById('burger');
+    const dropdown = document.getElementById('nav-dropdown');
+    function toggle() {
+      const isOpen = wrap.classList.toggle('open');
+      burger.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
+      dropdown.setAttribute('aria-hidden', !isOpen);
+    }
+    burger.addEventListener('click', toggle);
+    dropdown.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (wrap.classList.contains('open')) toggle();
+    }));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && wrap.classList.contains('open')) toggle();
+    });
+  })();
+
+  // Fade-up Intersection Observer
+  (function() {
+    const els = document.querySelectorAll('.fade-up');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(e => e.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(e => io.observe(e));
+  })();
+</script>
+
+</body>
+</html>

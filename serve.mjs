@@ -28,10 +28,26 @@ const mimeTypes = {
 
 createServer(async (req, res) => {
   const urlPath = req.url.split('?')[0];
-  const filePath = join(__dirname, urlPath === '/' ? 'index.html' : decodeURIComponent(urlPath));
+  const decoded = decodeURIComponent(urlPath);
+  // Resolve "/" or any path ending in "/" to its index.html (matches Netlify default)
+  const resolved = (decoded === '/' || decoded.endsWith('/'))
+    ? join(decoded, 'index.html')
+    : decoded;
+  let filePath = join(__dirname, resolved);
 
   try {
-    const data = await readFile(filePath);
+    let data;
+    try {
+      data = await readFile(filePath);
+    } catch {
+      // Fall back to /<path>/index.html if the bare path 404s and has no extension
+      if (!extname(filePath)) {
+        filePath = join(__dirname, decoded, 'index.html');
+        data = await readFile(filePath);
+      } else {
+        throw new Error('not found');
+      }
+    }
     const ext = extname(filePath).toLowerCase();
     const contentType = mimeTypes[ext] || 'application/octet-stream';
     res.writeHead(200, { 'Content-Type': contentType, 'Cache-Control': 'no-cache' });
