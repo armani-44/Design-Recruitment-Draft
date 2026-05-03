@@ -35,7 +35,7 @@ export default function Team() {
       style={{
         background: "var(--cream)",
         padding: "120px 56px",
-        borderTop: "1px solid rgba(7,7,26,0.06)",
+        borderTop: "1px solid rgba(7,7,27,0.06)",
       }}
     >
       <div className="mx-auto" style={{ maxWidth: 1240 }}>
@@ -47,7 +47,7 @@ export default function Team() {
             <h2
               className="serif"
               style={{
-                fontSize: "clamp(34px, 4vw, 60px)",
+                fontSize: "var(--fs-display-md)",
                 fontWeight: 300,
                 lineHeight: 1.06,
                 color: "var(--navy)",

@@ -1,14 +1,21 @@
 {
   "name": "designer-recruitment-website",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Designer Recruitment® — UK KBB specialist recruitment agency website",
+  "main": "serve.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node serve.mjs",
+    "about:dev": "cd about-page && npm run dev",
+    "about:build": "cd about-page && npm run build",
+    "about:install": "cd about-page && npm install"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "designer-recruitment",
+    "kbb",
+    "recruitment"
+  ],
+  "author": "Designer Recruitment",
+  "license": "UNLICENSED",
   "type": "commonjs",
   "dependencies": {
     "puppeteer": "^24.40.0"

@@ -8,7 +8,7 @@ export default function Cta() {
       style={{
         background: "var(--cream)",
         padding: "140px 56px",
-        borderTop: "1px solid rgba(7,7,26,0.06)",
+        borderTop: "1px solid rgba(7,7,27,0.06)",
       }}
     >
       <div className="mx-auto" style={{ maxWidth: 1100 }}>
@@ -44,7 +44,7 @@ export default function Cta() {
                 fontSize: 18,
                 fontWeight: 300,
                 lineHeight: 1.75,
-                color: "rgba(7,7,26,0.6)",
+                color: "rgba(7,7,27,0.6)",
               }}
             >
               <p>
@@ -84,7 +84,7 @@ export default function Cta() {
         {/* Detail row */}
         <div
           className="mt-24 grid gap-10 border-t pt-12 sm:grid-cols-3"
-          style={{ borderColor: "rgba(7,7,26,0.12)" }}
+          style={{ borderColor: "rgba(7,7,27,0.12)" }}
         >
           {[
             { head: "Studio", body: "Manchester, UK\nBy appointment" },

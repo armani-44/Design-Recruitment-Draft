@@ -9,10 +9,10 @@ const PRIMARY_LINKS = [
 ];
 
 const SECONDARY_LINKS = [
-  { label: "KBB News", href: "/#news" },
-  { label: "Post a Job", href: "/#post-job" },
-  { label: "Find a Role", href: "/#search-jobs" },
-  { label: "Login", href: "/#login" },
+  { label: "KBB Insights", href: "/#insights" },
+  { label: "Post a Role", href: "mailto:hello@designerrecruitment.co.uk?subject=Post%20a%20role" },
+  { label: "Find a Role", href: "/#contact" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/designer-recruitment/" },
 ];
 
 export default function Nav() {
@@ -70,19 +70,20 @@ export default function Nav() {
         <button
           aria-label="Toggle menu"
           aria-expanded={open}
+          aria-controls="nav-dropdown"
           onClick={() => setOpen((o) => !o)}
           className="flex items-center gap-2.5 justify-self-start rounded-full bg-transparent px-3 py-2 text-[13px] font-light tracking-[0.05em] text-cream"
         >
           <span className="relative block h-3 w-[18px]">
             <span
-              className="absolute left-0 right-0 h-px origin-center bg-cream transition-all duration-500"
+              className="absolute left-0 right-0 h-px origin-center bg-cream transition-[top,transform] duration-500 ease-out-expo"
               style={{
                 top: open ? "5.5px" : "2px",
                 transform: open ? "rotate(45deg)" : "none",
               }}
             />
             <span
-              className="absolute left-0 right-0 h-px origin-center bg-cream transition-all duration-500"
+              className="absolute left-0 right-0 h-px origin-center bg-cream transition-[top,transform] duration-500 ease-out-expo"
               style={{
                 top: open ? "5.5px" : "9px",
                 transform: open ? "rotate(-45deg)" : "none",
@@ -115,8 +116,9 @@ export default function Nav() {
 
       {/* Dropdown card — opens upward */}
       <div
+        id="nav-dropdown"
         aria-hidden={!open}
-        className="absolute bottom-[calc(100%+8px)] left-0 right-0 rounded-[20px] border p-8 transition-[clip-path,opacity] duration-500 ease-out-expo"
+        className="absolute bottom-[calc(100%+8px)] left-0 right-0 rounded-lg border p-8 transition-[clip-path,opacity] duration-500 ease-out-expo"
         style={{
           background: "rgba(14,13,35,0.96)",
           backdropFilter: "blur(28px)",
@@ -148,7 +150,7 @@ export default function Nav() {
         </nav>
 
         <div
-          className="flex flex-wrap items-center gap-5 pt-5 transition-all"
+          className="flex flex-wrap items-center gap-5 pt-5 transition-[opacity,transform] duration-500 ease-out-expo"
           style={{
             opacity: open ? 1 : 0,
             transform: open ? "translateY(0)" : "translateY(8px)",

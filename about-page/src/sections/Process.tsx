@@ -40,7 +40,7 @@ export default function Process() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(60% 50% at 80% 0%, rgba(200,169,106,0.10), transparent 60%), radial-gradient(50% 50% at 20% 100%, rgba(27,45,79,0.4), transparent 60%)",
+            "radial-gradient(60% 50% at 80% 0%, rgba(217,188,128,0.10), transparent 60%), radial-gradient(50% 50% at 20% 100%, rgba(11,2,82,0.4), transparent 60%)",
         }}
       />
 

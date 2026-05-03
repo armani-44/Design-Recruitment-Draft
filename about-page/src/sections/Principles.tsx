@@ -105,7 +105,7 @@ export default function Principles() {
                 <span
                   aria-hidden
                   className="block h-px w-9 transition-colors group-hover:bg-gold"
-                  style={{ background: "rgba(200,169,106,0.4)" }}
+                  style={{ background: "rgba(217,188,128,0.4)" }}
                 />
               </div>
 

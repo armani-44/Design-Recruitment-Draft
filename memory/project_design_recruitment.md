@@ -43,12 +43,12 @@ All design tokens live in `tokens.css` at repo root. Both surfaces (`index.html`
 - `Chris-Designer-.jpeg` — Scandinavian wood-tone kitchen (candidate card)
 - `recruitment-concept-male-employer-read-cv-resume-*.jpg` — interview scene (employer card)
 
-`Luxury BBK Imagery/` is a duplicate of certain Brand_assets webps — slated for removal.
-
 ## Stack
 
-- **Homepage** — single `index.html`, all CSS inline + Tailwind via CDN. Dev-served by `serve.mjs` on port 3000.
-- **About page** — `about-page/` Vite + React 18 + TypeScript + Tailwind workspace. Dev-served on port 5174. HLS video via `hls.js`.
+- **Homepage** — single `index.html`, all CSS inline (no Tailwind — every utility class is custom). Brand tokens via `<link rel="stylesheet" href="tokens.css">`. Lenis smooth-scroll loaded `defer`. Dev-served by `serve.mjs` on port 3000.
+- **About page** — `about-page/` Vite + React 18 + TypeScript + Tailwind workspace. Dev-served on port 5174. `HlsVideo.tsx` exists for a future brand reel; the hero currently renders a static AWinship still until `BRAND_REEL_HLS_URL` is set.
+- **Legal stubs** — `privacy.html`, `terms.html`, `cookies.html` at repo root, all rendered through `tokens.css`. Final policies still need legal review.
+- **Crawlers** — `robots.txt` + `sitemap.xml` at repo root. Canonical URLs use `https://designerrecruitment.co.uk/` as a placeholder; search-replace if production domain differs.
 - `screenshot.mjs` — Puppeteer screenshot helper (output → `temporary screenshots/`).
 - `node_modules/puppeteer` installed at repo root.
 

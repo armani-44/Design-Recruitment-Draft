@@ -40,9 +40,9 @@ export default function Story() {
           <Reveal delay={200}>
             <div
               className="mt-10 flex items-center gap-3 text-[11px] uppercase"
-              style={{ letterSpacing: "0.22em", color: "rgba(7,7,26,0.45)" }}
+              style={{ letterSpacing: "0.22em", color: "rgba(7,7,27,0.45)" }}
             >
-              <span className="block h-px w-9" style={{ background: "rgba(7,7,26,0.25)" }} />
+              <span className="block h-px w-9" style={{ background: "rgba(7,7,27,0.25)" }} />
               Est. 2014 — Manchester, UK
             </div>
           </Reveal>
@@ -72,7 +72,7 @@ export default function Story() {
                 fontSize: 17,
                 fontWeight: 300,
                 lineHeight: 1.85,
-                color: "rgba(7,7,26,0.7)",
+                color: "rgba(7,7,27,0.7)",
               }}
             >
               Ben Paine founded the agency in 2014 after a decade inside KBB retail and
@@ -89,7 +89,7 @@ export default function Story() {
                 fontSize: 17,
                 fontWeight: 300,
                 lineHeight: 1.85,
-                color: "rgba(7,7,26,0.7)",
+                color: "rgba(7,7,27,0.7)",
               }}
             >
               Today we&rsquo;re a small, deliberately specialist team. We don&rsquo;t cover everything &mdash;

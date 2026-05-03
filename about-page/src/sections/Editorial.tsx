@@ -30,7 +30,7 @@ export default function Editorial() {
           position: "absolute",
           inset: 0,
           background:
-            "linear-gradient(to right, rgba(7,7,26,0.7) 0%, rgba(7,7,26,0.35) 50%, rgba(7,7,26,0.7) 100%)",
+            "linear-gradient(to right, rgba(7,7,27,0.7) 0%, rgba(7,7,27,0.35) 50%, rgba(7,7,27,0.7) 100%)",
         }}
       />
 
