@@ -354,14 +354,33 @@
     .principles-head h2 .accent { font-style: italic; color: var(--gold); }
     .principles-head p { font-size: 19px; font-weight: 300; line-height: 1.7; color: rgba(242,237,228,0.6); max-width: 460px; }
     .principles-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-      background: var(--line); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
     }
-    .principle-card { background: var(--midnight); padding: 48px 44px 52px; min-height: 260px; display: flex; flex-direction: column; }
+    .principle-card {
+      background: var(--bg-elevated);
+      border: 1px solid rgba(242,237,228,0.06);
+      border-radius: 18px;
+      padding: 48px 44px 52px; min-height: 260px;
+      display: flex; flex-direction: column;
+      transition:
+        transform 0.55s var(--ease-out-expo),
+        border-color 0.55s var(--ease-out-expo),
+        box-shadow 0.55s var(--ease-out-expo),
+        background 0.55s var(--ease-out-expo);
+    }
+    .principle-card:hover {
+      transform: translateY(-6px);
+      background: #181746;
+      border-color: rgba(217,188,128,0.28);
+      box-shadow:
+        0 4px 12px rgba(0,0,0,0.18),
+        0 18px 40px rgba(0,0,0,0.32),
+        0 0 0 1px rgba(217,188,128,0.06);
+    }
     .principle-top { display: flex; align-items: baseline; justify-content: space-between; }
     .principle-num { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.22em; color: var(--gold); }
-    .principle-rule { display: block; height: 1px; width: 36px; background: rgba(217,188,128,0.4); transition: background 0.4s ease; }
-    .principle-card:hover .principle-rule { background: var(--gold); }
+    .principle-rule { display: block; height: 1px; width: 36px; background: rgba(217,188,128,0.4); transition: background 0.55s var(--ease-out-expo), width 0.55s var(--ease-out-expo); }
+    .principle-card:hover .principle-rule { background: var(--gold); width: 52px; }
     .principle-card h3 {
       margin-top: 36px;
       font-family: var(--font-display); font-weight: 300; font-size: 28px;
