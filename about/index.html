@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/Brand_assets/AWinship-8084-025-High-scaled.jpg" as="image" fetchpriority="high">
+  <link rel="preload" href="/Brand_assets/AdobeStock_1981538230.jpeg" as="image" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
   <!-- Shared brand tokens -->
@@ -187,7 +187,7 @@
     }
     #about-hero .hero-bg {
       position: absolute; inset: 0; z-index: 0;
-      background-image: url('/Brand_assets/AWinship-8084-025-High-scaled.jpg');
+      background-image: url('/Brand_assets/AdobeStock_1981538230.jpeg');
       background-size: cover; background-position: center;
       transform: scale(1.04);
     }
@@ -206,24 +206,16 @@
       width: 1px; height: 180px; z-index: 2;
       background: linear-gradient(to bottom, transparent, rgba(200,169,106,0.5), transparent);
     }
-    #about-hero .eyebrow-corner {
-      position: absolute; right: 56px; top: 130px; z-index: 2;
-      text-align: right; pointer-events: none;
-    }
-    .eyebrow-corner .ec-chapter {
-      font-size: 10px; font-weight: 300; text-transform: uppercase;
-      color: rgba(242,237,228,0.55); letter-spacing: 0.32em;
-    }
-    .eyebrow-corner .ec-tag {
-      margin-top: 10px; font-size: 16px; font-weight: 300; line-height: 1.3;
-      color: rgba(242,237,228,0.8); font-family: var(--font-display); font-style: italic;
-    }
     #about-hero .hero-content {
       position: relative; z-index: 3;
-      max-width: 1080px; width: 100%;
+      max-width: 1320px; width: 100%;
       padding: 160px 56px 120px;
       text-align: center;
       display: flex; flex-direction: column; align-items: center;
+    }
+    /* Desktop: keep "most trusted network." on a single line (3 visual lines total) */
+    @media (min-width: 1024px) {
+      #about-hero h1 .wipe-line:nth-child(3) > span { white-space: nowrap; }
     }
     #about-hero .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 14px;
@@ -260,21 +252,6 @@
       transition: opacity 0.9s var(--ease-out-expo) 0.55s, transform 0.9s var(--ease-out-expo) 0.55s;
     }
     body.in #about-hero .hero-actions { opacity: 1; transform: translateY(0); }
-    #about-hero .scroll-indicator {
-      position: absolute; right: 56px; bottom: 40px; z-index: 3;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-    }
-    #about-hero .scroll-line {
-      width: 1px; height: 56px;
-      background: linear-gradient(to bottom, transparent, rgba(242,237,228,0.4));
-      animation: scrollDrop 2s ease-in-out infinite;
-    }
-    @keyframes scrollDrop {
-      0%,100% { transform: scaleY(0); transform-origin: top; opacity: 0; }
-      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-    }
-    #about-hero .scroll-label { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,237,228,0.3); }
-
     /* ─────────────────────────────────────────────────────────────
        SECTION 2 — STORY (cream)
        ───────────────────────────────────────────────────────────── */
@@ -557,7 +534,7 @@
       .process-inner, #editorial .ed-content { padding-left: 24px !important; padding-right: 24px !important; }
       #about-hero { min-height: 580px; }
       #about-hero .hero-content { padding: 130px 24px 96px; }
-      #about-hero .side-rule, #about-hero .eyebrow-corner, #about-hero .scroll-indicator { display: none; }
+      #about-hero .side-rule { display: none; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .stat-cell { padding: 24px 16px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.18); }
       .stat-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.18); }
@@ -619,10 +596,6 @@
     <div class="hero-vignette-2" aria-hidden="true"></div>
 
     <div class="side-rule" aria-hidden="true"></div>
-    <div class="eyebrow-corner" aria-hidden="true">
-      <p class="ec-chapter">Chapter 01</p>
-      <p class="ec-tag">The story behind<br>the agency.</p>
-    </div>
 
     <div class="hero-content">
       <div class="hero-eyebrow">About Designer Recruitment</div>
@@ -646,10 +619,6 @@
       </div>
     </div>
 
-    <div class="scroll-indicator" aria-hidden="true">
-      <div class="scroll-line"></div>
-      <span class="scroll-label">Scroll</span>
-    </div>
   </section>
 
   <!-- ═══════════ STORY ═══════════ -->
