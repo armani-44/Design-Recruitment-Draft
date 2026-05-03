@@ -310,31 +310,23 @@
       color: rgba(7,7,27,0.45);
     }
     #story .est::before { content: ''; width: 36px; height: 1px; background: rgba(7,7,27,0.25); display: inline-block; }
+    #story .right .story-subhead {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(24px, 2.4vw, 30px); line-height: 1.2;
+      color: var(--midnight); letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
     #story .right p.lead {
       font-size: 22px; font-weight: 300; line-height: 1.6; color: var(--midnight);
     }
     #story .right p.body {
-      margin-top: 36px; font-size: 17px; font-weight: 300; line-height: 1.85;
+      margin-top: 28px; font-size: 17px; font-weight: 300; line-height: 1.85;
       color: rgba(7,7,27,0.7);
     }
-    #story .quote {
-      margin-top: 56px; padding: 44px 48px; border-radius: var(--radius-lg);
-      background: var(--midnight); color: var(--cream); position: relative; overflow: hidden;
+    #story .story-actions {
+      margin-top: 48px;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
     }
-    #story .quote .quotemark {
-      position: absolute; top: 18px; right: 32px;
-      font-family: var(--font-display); font-style: italic; font-size: 140px; line-height: 1;
-      color: var(--gold); opacity: 0.25;
-    }
-    #story .quote blockquote {
-      font-family: var(--font-display); font-style: italic; font-weight: 300;
-      font-size: 28px; line-height: 1.35; position: relative;
-    }
-    #story .quote figcaption {
-      margin-top: 32px; display: flex; align-items: center; gap: 12px;
-      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); position: relative;
-    }
-    #story .quote figcaption::before { content:''; width: 36px; height: 1px; background: var(--gold); display: inline-block; }
 
     /* ─────────────────────────────────────────────────────────────
        SECTION 3 — NUMBERS (stats strip)
@@ -616,32 +608,33 @@
       </div>
 
       <div class="right">
-        <p class="lead fade-up d1">
-          Home to arguably the best KBB and Merchant Recruiters available.
-        </p>
-        <p class="body fade-up d2">
-          We strive to service your accounts to a luxury standard and are contactable round the clock.
+        <h3 class="story-subhead fade-up d1">
+          Designer Recruitment KBB recruitment across the UK.
+        </h3>
+        <p class="lead fade-up d2">
+          We place designers, sales staff and managers into kitchen, bedroom and bathroom businesses — from independent showrooms to merchants and manufacturers.
         </p>
         <p class="body fade-up d3">
-          We have some excellent recruitment morals and a fantastic work ethic.
+          For candidates: confidential conversations, honest market advice, roles that aren't on the open job boards. For hiring managers: sector-specialist shortlists, direct access to passive candidates, and a single point of contact who knows the industry.
         </p>
         <p class="body fade-up">
-          KBB candidates and job vacancies across the United Kingdom. Here at Designer Recruitment we pride ourselves on supplying the very best KBB candidates for the most important KBB jobs. Whether you are a designer in the KBB industry or a company seeking your next KBB professional to add value to your business, get in touch today and one of our KBB specialists will be in touch with you.
-        </p>
-        <p class="body fade-up">
-          Managing Director and Founder of Designer Recruitment, Ben Paine, is an established KBB Recruiter and absolute specialist in the KBB, Merchant and Manufacturing industries. Ben has placed hundreds of KBB, Merchant and Manufacturing staff across the United Kingdom and is well known for his accessibility and availability to all candidates and hiring managers.
-        </p>
-        <p class="body fade-up">
-          Ben enjoys attending events and networking in the KBB industry and believes it is a fantastic and thriving industry to be in.
+          Founder, Ben Paine has spent his career in KBB recruitment and has placed hundreds of designers, sales staff and managers across the UK.
         </p>
 
-        <figure class="quote fade-up">
-          <span class="quotemark" aria-hidden="true">"</span>
-          <blockquote>
-            The KBB market is absolutely bustling and I feel privileged to be able to offer services to the rest of the KBB industry. If you have a recruitment need or are seeking a new role, I will always have time to speak with. Get in touch!
-          </blockquote>
-          <figcaption>Ben Paine, Managing Director</figcaption>
-        </figure>
+        <div class="story-actions fade-up">
+          <a href="mailto:hello@designerrecruitment.co.uk" class="btn-primary">
+            Get in touch
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="mailto:hello@designerrecruitment.co.uk?subject=Post%20a%20role" class="btn-dark-ghost">
+            Submit a vacancy
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="mailto:hello@designerrecruitment.co.uk?subject=CV%20submission" class="btn-dark-ghost">
+            Send your CV
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
