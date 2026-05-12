@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News & Insights, Designer Recruitment® | Stories from the KBB industry</title>
+  <meta name="description" content="News, designer spotlights, and live updates from Designer Recruitment, the UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom and Builders Merchant industry.">
+  <meta name="theme-color" content="#07071B">
+  <link rel="canonical" href="https://designerrecruitment.co.uk/news-and-insights/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://designerrecruitment.co.uk/news-and-insights/">
+  <meta property="og:title" content="News & Insights, Designer Recruitment® | Stories from the KBB industry">
+  <meta property="og:description" content="News, designer spotlights, and live updates from Designer Recruitment, the UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom and Builders Merchant industry.">
+  <meta property="og:image" content="https://designerrecruitment.co.uk/Brand_assets/AdobeStock_1981538230.jpeg">
+  <meta property="og:image:alt" content="A KBB showroom in the world Designer Recruitment® serves.">
+  <meta property="og:site_name" content="Designer Recruitment®">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="News & Insights, Designer Recruitment® | Stories from the KBB industry">
+  <meta name="twitter:description" content="News, designer spotlights, and live updates from Designer Recruitment, the UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom and Builders Merchant industry.">
+  <meta name="twitter:image" content="https://designerrecruitment.co.uk/Brand_assets/AdobeStock_1981538230.jpeg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/Brand_assets/DR-Logo-Blue-2.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Brand_assets/DR-Logo-Blue-2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/Brand_assets/zecchinon-cucine-img2-L.webp" as="image" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Shared brand tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <style>
+    /* Legacy aliases — match homepage so .midnight, .gold etc resolve */
+    :root {
+      --midnight:  var(--color-midnight);
+      --dark:      var(--bg-surface);
+      --surface:   var(--bg-surface);
+      --surface2:  var(--bg-elevated);
+      --gold:      var(--color-gold);
+      --gold-dim:  var(--accent-soft);
+      --cream:     var(--color-cream);
+      --warm:      var(--color-cream);
+      --muted:     var(--fg-muted);
+      --navy:      var(--color-navy-deep);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: auto; }
+    body {
+      font-family: var(--font-body);
+      font-weight: var(--fw-light);
+      background: var(--bg-base);
+      color: var(--fg-base);
+      overflow-x: hidden;
+    }
+
+    .serif   { font-family: var(--font-display); }
+    .serif-i { font-family: var(--font-display); font-style: italic; }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    /* ── Skip link ── */
+    .skip-link {
+      position: absolute; top: 8px; left: 8px; z-index: 10000;
+      padding: 12px 22px; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--color-midnight); background: var(--color-gold);
+      border-radius: var(--radius-full); text-decoration: none;
+      transform: translateY(-150%);
+      transition: transform 0.2s var(--ease-out-expo);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    /* ── Grain ── */
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+      opacity: 0.05; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+    }
+
+    /* ── NAV — Floating pill (canonical) ── */
+    #nav-wrap {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 200; width: min(460px, calc(100vw - 48px));
+    }
+    #nav-pill {
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 7px 7px 7px 6px;
+      backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius-full);
+      position: relative; z-index: 2;
+      transition: background 0.45s ease, border-color 0.45s ease;
+    }
+    #nav-wrap.open #nav-pill {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.10);
+    }
+    #nav-wrap.on-light #nav-pill {
+      background: rgba(7,7,27,0.55);
+      border-color: rgba(255,255,255,0.14);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.10),
+        inset 0 -1px 0 rgba(0,0,0,0.18),
+        0 8px 32px rgba(7,7,27,0.22);
+    }
+    #nav-wrap.on-light.open #nav-pill {
+      background: rgba(7,7,27,0.68);
+      border-color: rgba(255,255,255,0.12);
+    }
+    #burger {
+      display: flex; align-items: center; gap: 10px;
+      background: none; border: none; cursor: pointer;
+      color: var(--cream); padding: 8px 12px 8px 10px;
+      font-size: 13px; font-family: var(--font-body);
+      font-weight: 300; letter-spacing: 0.05em;
+      justify-self: start;
+    }
+    .burger-icon { width: 18px; height: 12px; position: relative; flex-shrink: 0; }
+    .burger-line {
+      position: absolute; left: 0; right: 0; height: 1px;
+      background: var(--cream); transform-origin: center;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease, top 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .b1 { top: 2px; }
+    .b2 { top: 9px; }
+    #burger.open .b1 { top: 5.5px; transform: rotate(45deg); }
+    #burger.open .b2 { top: 5.5px; transform: rotate(-45deg); }
+    .burger-label { color: var(--cream); }
+    #nav-logo {
+      display: block; text-decoration: none;
+      transition: opacity 0.22s ease; position: relative;
+      justify-self: center;
+    }
+    #nav-logo:hover { opacity: 0.75; }
+    #nav-logo img { height: 30px; display: block; transition: opacity 0.4s ease; }
+    .nav-contact-btn {
+      padding: 10px 22px;
+      font-size: 11px; font-family: var(--font-body);
+      font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--midnight); background: var(--cream);
+      border-radius: var(--radius-full); text-decoration: none; white-space: nowrap;
+      transition: opacity 0.22s ease, transform 0.22s cubic-bezier(.16,1,.3,1);
+      justify-self: end;
+    }
+    .nav-contact-btn:hover { opacity: 0.84; transform: scale(0.96); }
+    #nav-dropdown {
+      position: absolute; bottom: calc(100% + 8px); top: auto; left: 0; right: 0;
+      background: rgba(14, 13, 35, 0.96);
+      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(242,237,228,0.1);
+      border-radius: var(--radius-lg);
+      padding: 22px 28px 18px;
+      clip-path: inset(100% 0 0 0 round 20px);
+      opacity: 0; pointer-events: none;
+      transition: clip-path 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease;
+    }
+    #nav-wrap.open #nav-dropdown {
+      clip-path: inset(0 0 0 0 round 20px);
+      opacity: 1; pointer-events: auto;
+    }
+    .nd-link {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.6vw, 28px);
+      font-weight: 300; line-height: 1.2; letter-spacing: -0.01em;
+      color: var(--cream); text-decoration: none;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(242,237,228,0.08);
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.45s cubic-bezier(0.16,1,0.3,1),
+                  color 0.2s ease;
+    }
+    .nd-link:first-child { border-top: 1px solid rgba(242,237,228,0.08); }
+    #nav-wrap.open .nd-link { opacity: 1; transform: translateY(0); }
+    #nav-wrap.open .nd-link:nth-child(1) { transition-delay: 0.06s; }
+    #nav-wrap.open .nd-link:nth-child(2) { transition-delay: 0.10s; }
+    #nav-wrap.open .nd-link:nth-child(3) { transition-delay: 0.14s; }
+    #nav-wrap.open .nd-link:nth-child(4) { transition-delay: 0.18s; }
+    #nav-wrap.open .nd-link:nth-child(5) { transition-delay: 0.22s; }
+    #nav-wrap.open .nd-link:nth-child(6) { transition-delay: 0.26s; }
+    #nav-wrap.open .nd-link:nth-child(7) { transition-delay: 0.30s; }
+    #nav-wrap.open .nd-link:nth-child(8) { transition-delay: 0.34s; }
+    .nd-link:hover { color: var(--gold); }
+    @media (max-width: 640px) {
+      #nav-wrap { bottom: 14px; width: calc(100vw - 32px); }
+      .nd-link { font-size: clamp(18px, 5vw, 24px); padding: 10px 0; }
+    }
+
+    /* Section tag pill style is defined globally in tokens.css. */
+
+    /* ── Buttons ── */
+    .btn-primary, .btn-ghost, .btn-dark-ghost {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 14px 26px; border-radius: 100px;
+      transition: background 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo),
+                  border-color 0.4s var(--ease-out-expo), gap 0.4s var(--ease-out-expo),
+                  color 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+    }
+    .btn-primary { background: var(--color-gold); color: var(--color-midnight); }
+    .btn-primary:hover { background: var(--color-gold-soft); transform: translateY(-2px); box-shadow: var(--shadow-glow-gold); }
+    .btn-ghost { background: transparent; color: var(--cream); border: 1px solid rgba(242,237,228,0.45); }
+    .btn-ghost:hover { border-color: rgba(242,237,228,0.7); gap: 18px; background: rgba(242,237,228,0.04); }
+    .btn-dark-ghost { background: transparent; color: var(--color-midnight); border: 1px solid rgba(7,7,27,0.35); }
+    .btn-dark-ghost:hover { border-color: rgba(7,7,27,0.6); gap: 18px; background: rgba(7,7,27,0.04); }
+
+    /* ── Fade-up animation ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+    .fade-up.d1 { transition-delay: 0.10s; }
+    .fade-up.d2 { transition-delay: 0.20s; }
+    .fade-up.d3 { transition-delay: 0.30s; }
+    .fade-up.d4 { transition-delay: 0.40s; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 1 — HERO
+       ───────────────────────────────────────────────────────────── */
+    #hero {
+      position: relative; height: 100vh; min-height: 720px;
+      overflow: hidden;
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    #hero .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('/Brand_assets/zecchinon-cucine-img2-L.webp');
+      background-size: cover; background-position: center;
+      transform: scale(1.04);
+    }
+    #hero .hero-vignette {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        linear-gradient(to bottom, rgba(7,7,27,0.78) 0%, rgba(7,7,27,0.46) 28%, rgba(7,7,27,0.62) 60%, rgba(7,7,27,1) 100%);
+    }
+    #hero .hero-vignette-2 {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      mix-blend-mode: multiply;
+      background: radial-gradient(120% 80% at 50% 30%, transparent 35%, rgba(7,7,27,0.7) 100%);
+    }
+    #hero .side-rule {
+      position: absolute; left: 56px; top: 50%; transform: translateY(-50%);
+      width: 1px; height: 180px; z-index: 2;
+      background: linear-gradient(to bottom, transparent, rgba(200,169,106,0.5), transparent);
+    }
+    #hero .hero-content {
+      position: relative; z-index: 3;
+      max-width: 1320px; width: 100%;
+      padding: 160px 56px 120px;
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    @media (min-width: 1024px) {
+      #hero h1 .wipe-line > span { white-space: nowrap; }
+    }
+    #hero .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 10px; font-weight: 400; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 30px;
+      opacity: 0; transition: opacity 0.9s var(--ease-out-expo) 0.1s;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after { content:''; width: 28px; height: 1px; background: var(--gold); }
+    body.in .hero-eyebrow { opacity: 1; }
+    #hero h1 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-xl); line-height: 0.98; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 36px;
+    }
+    .wipe-line { display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+    .wipe-line > span {
+      display: block; transform: translateY(110%);
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    body.in .wipe-line > span { transform: translateY(0); }
+    body.in #hero .wipe-line:nth-child(2) > span { transition-delay: 0.14s; }
+    body.in #hero .wipe-line:nth-child(3) > span { transition-delay: 0.28s; }
+    #hero .hero-sub {
+      max-width: 720px; font-size: 18px; font-weight: 300; line-height: 1.7;
+      color: rgba(242,237,228,0.65);
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.9s var(--ease-out-expo) 0.42s, transform 0.9s var(--ease-out-expo) 0.42s;
+    }
+    body.in #hero .hero-sub { opacity: 1; transform: translateY(0); }
+    #hero .hero-actions {
+      margin-top: 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.9s var(--ease-out-expo) 0.55s, transform 0.9s var(--ease-out-expo) 0.55s;
+    }
+    body.in #hero .hero-actions { opacity: 1; transform: translateY(0); }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 2 — NEWS & HIGHLIGHTS (cream)
+       ───────────────────────────────────────────────────────────── */
+    #news {
+      background: var(--cream);
+      padding: 140px 56px 140px;
+      position: relative;
+      overflow: hidden;
+    }
+    #news::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(60% 40% at 90% 0%, rgba(35,83,232,0.05), transparent 60%),
+        radial-gradient(50% 50% at 0% 100%, rgba(217,188,128,0.07), transparent 65%);
+    }
+    .news-inner { position: relative; max-width: 1240px; margin: 0 auto; }
+
+    .news-head {
+      display: grid; gap: 56px;
+      grid-template-columns: 5fr 7fr;
+      align-items: end;
+      margin-bottom: 80px;
+    }
+    .news-head h2 {
+      margin-top: 22px;
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-lg); line-height: 1.04;
+      color: var(--midnight); letter-spacing: -0.02em;
+    }
+    .news-head h2 .accent { font-style: italic; color: var(--color-blue); }
+    .news-head p {
+      font-size: 17px; font-weight: 300; line-height: 1.85;
+      color: rgba(7,7,27,0.65); max-width: 520px;
+    }
+
+    /* Featured story */
+    .news-featured {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 56px;
+      align-items: stretch;
+      margin-bottom: 96px;
+      padding-bottom: 72px;
+      border-bottom: 1px solid rgba(7,7,27,0.10);
+    }
+    .news-featured-media {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 11;
+      border-radius: 2px;
+    }
+    .news-featured-media img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 1.2s var(--ease-out-expo);
+    }
+    .news-featured:hover .news-featured-media img { transform: scale(1.025); }
+    .news-featured-media::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(7,7,27,0.18));
+      pointer-events: none;
+    }
+    .news-featured-body {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 8px 0;
+    }
+    .news-cat {
+      display: inline-block;
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-blue);
+      margin-bottom: 22px;
+    }
+    .news-featured-body h3 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(28px, 3vw, 38px);
+      line-height: 1.08; letter-spacing: -0.02em;
+      color: var(--midnight);
+      margin-bottom: 22px;
+    }
+    .news-featured-body h3 .accent { font-style: italic; color: var(--color-navy-deep); }
+    .news-featured-body p {
+      font-size: 16px; font-weight: 300; line-height: 1.78;
+      color: rgba(7,7,27,0.66); max-width: 46ch;
+      margin-bottom: 28px;
+    }
+    .news-meta {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+      margin-bottom: 32px;
+      font-size: 12px; font-weight: 400;
+      color: rgba(7,7,27,0.50);
+      letter-spacing: 0.02em;
+    }
+    .news-meta-dot {
+      width: 3px; height: 3px; border-radius: 50%;
+      background: rgba(7,7,27,0.30);
+    }
+    .news-link {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--midnight);
+      text-decoration: none;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(7,7,27,0.30);
+      align-self: flex-start;
+      transition: gap 0.45s var(--ease-out-expo), border-color 0.45s var(--ease-out-expo);
+    }
+    .news-link:hover { gap: 18px; border-color: var(--midnight); }
+    .news-link svg { width: 12px; height: 12px; }
+
+    /* Card grid */
+    .news-grid-head {
+      display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 44px;
+    }
+    .news-grid-head h3 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(22px, 2.4vw, 30px); line-height: 1.1;
+      letter-spacing: -0.02em; color: var(--midnight);
+    }
+    .news-grid-head h3 .accent { font-style: italic; color: var(--color-blue); }
+    .news-grid-count {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(7,7,27,0.45);
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px 36px;
+    }
+    .news-card {
+      display: flex; flex-direction: column;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .news-card-media {
+      position: relative; overflow: hidden;
+      aspect-ratio: 4 / 3;
+      margin-bottom: 22px;
+      border-radius: 2px;
+    }
+    .news-card-media img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 1.2s var(--ease-out-expo);
+    }
+    .news-card:hover .news-card-media img { transform: scale(1.04); }
+    .news-card-cat {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-blue);
+      margin-bottom: 14px;
+    }
+    .news-card-title {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: 22px; line-height: 1.18; letter-spacing: -0.015em;
+      color: var(--midnight);
+      margin-bottom: 14px;
+      transition: color 0.45s var(--ease-out-expo);
+    }
+    .news-card:hover .news-card-title { color: var(--color-blue); }
+    .news-card-meta {
+      margin-top: auto;
+      font-size: 12px; font-weight: 400;
+      color: rgba(7,7,27,0.50); letter-spacing: 0.02em;
+    }
+
+    /* Pagination */
+    .news-pagination {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
+      margin-top: 72px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(7,7,27,0.10);
+    }
+    .news-page-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 22px;
+      border: 1px solid rgba(7,7,27,0.20);
+      background: transparent;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 10.5px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--midnight);
+      cursor: pointer;
+      transition: background 0.45s var(--ease-out-expo),
+                  border-color 0.45s var(--ease-out-expo),
+                  color 0.45s var(--ease-out-expo),
+                  gap 0.45s var(--ease-out-expo);
+    }
+    .news-page-btn:not(:disabled):hover {
+      background: var(--midnight); color: var(--color-cream);
+      border-color: var(--midnight); gap: 14px;
+    }
+    .news-page-btn:disabled {
+      opacity: 0.35; cursor: not-allowed;
+    }
+    .news-page-btn:focus-visible {
+      outline: 2px solid var(--color-blue);
+      outline-offset: 3px;
+    }
+    .news-page-btn svg { width: 12px; height: 12px; }
+    .news-page-counter {
+      display: inline-flex; align-items: baseline; gap: 10px;
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(7,7,27,0.50);
+    }
+    .news-page-counter .current {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 24px; font-weight: 400;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: var(--midnight);
+    }
+    .news-page-counter .sep {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: 16px; color: rgba(7,7,27,0.25);
+      text-transform: none;
+    }
+    .news-page-counter .total {
+      font-family: var(--font-display);
+      font-size: 16px; font-weight: 300;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: rgba(7,7,27,0.45);
+    }
+    @media (max-width: 640px) {
+      .news-pagination { flex-direction: column; gap: 18px; }
+      .news-page-btn { width: 100%; justify-content: center; }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 3 — DESIGNER SPOTLIGHT (white)
+       ───────────────────────────────────────────────────────────── */
+    #spotlight {
+      background: #ffffff;
+      padding: 140px 56px 160px;
+      position: relative;
+      overflow: hidden;
+    }
+    .spotlight-inner {
+      position: relative; max-width: 1240px; margin: 0 auto;
+    }
+    .spotlight-head {
+      display: grid; gap: 56px;
+      grid-template-columns: 5fr 7fr;
+      align-items: end;
+      margin-bottom: 100px;
+    }
+    .spotlight-head h2 {
+      margin-top: 22px;
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-lg); line-height: 1.04;
+      color: var(--midnight); letter-spacing: -0.02em;
+    }
+    .spotlight-head h2 .accent { font-style: italic; color: var(--color-navy-deep); }
+    .spotlight-head p {
+      font-size: 17px; font-weight: 300; line-height: 1.85;
+      color: rgba(7,7,27,0.65); max-width: 520px;
+    }
+
+    /* Carousel stage — slides stacked in a single grid cell */
+    .spotlight-stage {
+      position: relative;
+    }
+    .spotlight-track {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+    .spotlight-feature {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 88px;
+      align-items: center;
+      padding: 0 0 24px;
+      opacity: 0;
+      transform: translateX(40px);
+      pointer-events: none;
+      transition: opacity 0.9s var(--ease-out-expo),
+                  transform 0.9s var(--ease-out-expo);
+    }
+    .spotlight-feature.is-active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+    .spotlight-feature.is-prev {
+      transform: translateX(-40px);
+    }
+    .spotlight-feature.is-reverse { grid-template-columns: 7fr 5fr; }
+    .spotlight-feature.is-reverse .spotlight-media { order: 2; }
+    .spotlight-feature.is-reverse .spotlight-body { order: 1; }
+
+    .spotlight-media {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+    .spotlight-media img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 1.4s var(--ease-out-expo);
+    }
+    .spotlight-feature.is-active:hover .spotlight-media img { transform: scale(1.03); }
+    .spotlight-media::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(160deg, transparent 50%, rgba(7,7,27,0.16));
+    }
+
+    .spotlight-num {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 14px; font-weight: 400;
+      color: var(--color-blue); letter-spacing: 0.04em;
+      margin-bottom: 18px;
+    }
+    .spotlight-name {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(32px, 3.6vw, 46px);
+      line-height: 1.04; letter-spacing: -0.02em;
+      color: var(--midnight);
+      margin-bottom: 8px;
+    }
+    .spotlight-name .accent { font-style: italic; color: var(--color-navy-deep); }
+    .spotlight-role {
+      font-size: 13px; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(7,7,27,0.55);
+      margin-bottom: 32px;
+    }
+    .spotlight-quote {
+      font-family: var(--font-display); font-style: italic;
+      font-weight: 300;
+      font-size: clamp(20px, 2vw, 26px);
+      line-height: 1.36; letter-spacing: -0.015em;
+      color: var(--midnight);
+      margin-bottom: 28px;
+      padding-left: 22px;
+      border-left: 1px solid var(--color-gold);
+    }
+    .spotlight-body p {
+      font-size: 16px; font-weight: 300; line-height: 1.85;
+      color: rgba(7,7,27,0.66);
+      margin-bottom: 30px;
+      max-width: 50ch;
+    }
+
+    /* Carousel nav */
+    .spotlight-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
+      margin-top: 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(7,7,27,0.10);
+    }
+    .spotlight-counter {
+      display: inline-flex; align-items: baseline; gap: 14px;
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(7,7,27,0.40);
+    }
+    .spotlight-counter .current {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 28px; font-weight: 400;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: var(--midnight);
+    }
+    .spotlight-counter .sep {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: 18px; color: rgba(7,7,27,0.25);
+    }
+    .spotlight-counter .total {
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 300;
+      letter-spacing: 0.02em; text-transform: none;
+      color: rgba(7,7,27,0.45);
+    }
+    .spotlight-arrows {
+      display: inline-flex; align-items: center; gap: 12px;
+    }
+    .spotlight-arrow {
+      width: 52px; height: 52px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: transparent;
+      border: 1px solid rgba(7,7,27,0.20);
+      border-radius: 100px;
+      color: var(--midnight);
+      cursor: pointer;
+      transition: background 0.45s var(--ease-out-expo),
+                  border-color 0.45s var(--ease-out-expo),
+                  color 0.45s var(--ease-out-expo),
+                  transform 0.45s var(--ease-out-expo);
+    }
+    .spotlight-arrow:hover {
+      background: var(--midnight);
+      color: var(--cream);
+      border-color: var(--midnight);
+    }
+    .spotlight-arrow:focus-visible {
+      outline: 2px solid var(--color-blue);
+      outline-offset: 3px;
+    }
+    .spotlight-arrow svg { width: 16px; height: 16px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 4 — LINKEDIN LIVE FEED (cream/dark hybrid)
+       ───────────────────────────────────────────────────────────── */
+    #linkedin {
+      background: var(--midnight);
+      padding: 140px 56px 160px;
+      position: relative; overflow: hidden;
+    }
+    #linkedin::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(60% 50% at 100% 0%, rgba(35,83,232,0.18), transparent 65%),
+        radial-gradient(55% 45% at 0% 100%, rgba(217,188,128,0.06), transparent 65%);
+    }
+    .linkedin-inner {
+      position: relative; max-width: 1240px; margin: 0 auto;
+    }
+    .linkedin-head {
+      display: grid; gap: 56px;
+      grid-template-columns: 6fr 6fr;
+      align-items: end;
+      margin-bottom: 80px;
+    }
+    .linkedin-head h2 {
+      margin-top: 22px;
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-lg); line-height: 1.04;
+      color: var(--cream); letter-spacing: -0.02em;
+    }
+    .linkedin-head h2 .accent { font-style: italic; color: var(--gold); }
+    .linkedin-head p {
+      font-size: 17px; font-weight: 300; line-height: 1.85;
+      color: rgba(242,237,228,0.62); max-width: 480px;
+    }
+    .linkedin-live {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 6px 14px;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--cream);
+      background: rgba(242,237,228,0.06);
+      border: 1px solid rgba(242,237,228,0.18);
+      border-radius: 100px;
+      margin-bottom: 22px;
+    }
+    .linkedin-live-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #2bd476;
+      box-shadow: 0 0 0 0 rgba(43,212,118,0.55);
+      animation: pulse-dot 2.4s var(--ease-out-expo) infinite;
+    }
+    @keyframes pulse-dot {
+      0%   { box-shadow: 0 0 0 0 rgba(43,212,118,0.55); }
+      70%  { box-shadow: 0 0 0 9px rgba(43,212,118,0); }
+      100% { box-shadow: 0 0 0 0 rgba(43,212,118,0); }
+    }
+
+    .linkedin-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .li-card {
+      display: flex; flex-direction: column;
+      padding: 26px 28px 22px;
+      background: rgba(242,237,228,0.04);
+      border: 1px solid rgba(242,237,228,0.10);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.45s var(--ease-out-expo),
+                  border-color 0.45s var(--ease-out-expo),
+                  transform 0.6s var(--ease-out-expo);
+    }
+    .li-card:hover {
+      background: rgba(242,237,228,0.07);
+      border-color: rgba(242,237,228,0.22);
+      transform: translateY(-3px);
+    }
+    .li-head {
+      display: flex; align-items: center; gap: 12px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(242,237,228,0.10);
+      margin-bottom: 18px;
+    }
+    .li-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .li-avatar img { width: 70%; height: auto; }
+    .li-meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .li-name {
+      font-size: 13px; font-weight: 500; color: var(--cream);
+      letter-spacing: 0.005em;
+    }
+    .li-sub {
+      font-size: 11px; font-weight: 400;
+      color: rgba(242,237,228,0.45);
+      letter-spacing: 0.01em;
+    }
+    .li-icon {
+      margin-left: auto;
+      width: 22px; height: 22px;
+      color: rgba(242,237,228,0.55);
+      flex-shrink: 0;
+    }
+    .li-icon svg { width: 100%; height: 100%; }
+
+    .li-body {
+      font-size: 14.5px; font-weight: 300;
+      line-height: 1.65;
+      color: rgba(242,237,228,0.80);
+      margin-bottom: 22px;
+    }
+    .li-body strong { font-weight: 500; color: var(--cream); }
+    .li-body .accent { color: var(--gold); font-style: italic; }
+    .li-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 22px;
+    }
+    .li-tag {
+      font-size: 11px; font-weight: 400;
+      color: rgba(242,237,228,0.55);
+      letter-spacing: 0.005em;
+    }
+    .li-foot {
+      display: flex; align-items: center; gap: 18px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid rgba(242,237,228,0.08);
+      font-size: 11.5px; font-weight: 400;
+      color: rgba(242,237,228,0.55);
+    }
+    .li-stat { display: inline-flex; align-items: center; gap: 6px; }
+    .li-stat svg { width: 12px; height: 12px; }
+    .li-go {
+      margin-left: auto;
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--gold);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      font-size: 10px; text-transform: uppercase;
+      transition: gap 0.45s var(--ease-out-expo);
+    }
+    .li-card:hover .li-go { gap: 12px; }
+
+    .linkedin-foot {
+      margin-top: 64px;
+      display: flex; justify-content: center;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 5 — CTA BAND (cream)
+       ───────────────────────────────────────────────────────────── */
+    #cta-band {
+      position: relative; background: var(--cream); overflow: hidden;
+      padding: 120px 56px;
+    }
+    #cta-band::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(70% 60% at 80% 0%, rgba(35,83,232,0.06), transparent 60%),
+        radial-gradient(60% 50% at 0% 100%, rgba(217,188,128,0.10), transparent 65%);
+    }
+    .cta-band-inner {
+      position: relative;
+      max-width: 1100px; margin: 0 auto;
+      display: grid; gap: 56px;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+    }
+    .cta-band-inner h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-md); line-height: 1.06;
+      letter-spacing: -0.02em; color: var(--midnight);
+    }
+    .cta-band-inner h2 .accent { font-style: italic; color: var(--color-blue); }
+    .cta-band-inner p {
+      margin-top: 22px;
+      font-size: 17px; font-weight: 300; line-height: 1.8;
+      color: rgba(7,7,27,0.62); max-width: 480px;
+    }
+    .cta-band-actions {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      justify-self: end;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESPONSIVE
+       ───────────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      #news { padding: 100px 40px; }
+      #spotlight { padding: 100px 40px; }
+      #linkedin { padding: 100px 40px; }
+      #cta-band { padding: 100px 40px; }
+      .news-head, .spotlight-head, .linkedin-head { grid-template-columns: 1fr; gap: 28px; }
+      .news-featured { grid-template-columns: 1fr; gap: 32px; }
+      .news-grid { grid-template-columns: repeat(2, 1fr); }
+      .spotlight-feature, .spotlight-feature.is-reverse {
+        grid-template-columns: 1fr; gap: 40px;
+      }
+      .spotlight-feature.is-reverse .spotlight-media { order: 0; }
+      .spotlight-feature.is-reverse .spotlight-body { order: 0; }
+      .linkedin-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-band-inner { grid-template-columns: 1fr; }
+      .cta-band-actions { justify-self: start; }
+    }
+    @media (max-width: 768px) {
+      #news { padding: 80px 24px; }
+      #spotlight { padding: 80px 24px; }
+      #linkedin { padding: 80px 24px; }
+      #cta-band { padding: 80px 24px; }
+      #hero { min-height: 580px; }
+      #hero .hero-content { padding: 130px 24px 96px; }
+      #hero .side-rule { display: none; }
+      .news-grid { grid-template-columns: 1fr; gap: 36px; }
+      .linkedin-grid { grid-template-columns: 1fr; }
+      .news-featured { padding-bottom: 56px; margin-bottom: 64px; }
+      .spotlight-feature { padding: 56px 0; }
+      .spotlight-quote { font-size: 19px; padding-left: 18px; }
+    }
+    @media (max-width: 640px) {
+      .news-head h2, .spotlight-head h2, .linkedin-head h2 { font-size: clamp(34px, 9vw, 44px); }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<div id="nav-wrap" role="navigation" aria-label="Main">
+
+  <div id="nav-pill">
+    <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-dropdown">
+      <span class="burger-icon" aria-hidden="true">
+        <span class="burger-line b1"></span>
+        <span class="burger-line b2"></span>
+      </span>
+      <span class="burger-label">Menu</span>
+    </button>
+    <a href="/" id="nav-logo" aria-label="Designer Recruitment home">
+      <img id="logo-white" src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+    </a>
+    <a href="/contact/" class="nav-contact-btn">Contact</a>
+  </div>
+
+  <div id="nav-dropdown" aria-hidden="true">
+    <nav aria-label="Site links">
+      <a href="/"                       class="nd-link">Home</a>
+      <a href="/about/"                 class="nd-link">About Us</a>
+      <a href="/candidates/"            class="nd-link">For Candidates</a>
+      <a href="/clients/"               class="nd-link">For Clients</a>
+      <a href="/who-we-recruit-for/"    class="nd-link">Who we recruit for</a>
+      <a href="/news-and-insights/"     class="nd-link">News &amp; Insights</a>
+      <a href="/contact/"               class="nd-link">Contact</a>
+    </nav>
+  </div>
+
+</div><!-- /nav-wrap -->
+
+<main id="main">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="hero" aria-label="News and insights from Designer Recruitment">
+    <div class="hero-bg" role="img" aria-label="Studio detail"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
+    <div class="hero-vignette-2" aria-hidden="true"></div>
+
+    <div class="side-rule" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">News &amp; Insights</div>
+      <h1>
+        <span class="wipe-line"><span>Stories from</span></span>
+        <span class="wipe-line"><span><span class="serif-i">the studio</span> floor.</span></span>
+        <span class="wipe-line"><span>And the field.</span></span>
+      </h1>
+      <p class="hero-sub">
+        Industry news, designer features, and live updates from the desk. A running record of the people, the placements, and the conversations shaping the KBB and Builders Merchant industry.
+      </p>
+      <div class="hero-actions">
+        <a href="#news" class="btn-primary">
+          Latest news
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2v8M2.5 6.5l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener" class="btn-ghost">
+          Follow on LinkedIn
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ NEWS & HIGHLIGHTS ═══════════ -->
+  <section id="news" data-bg="light" aria-label="News and highlights">
+    <div class="news-inner">
+
+      <div class="news-head">
+        <div>
+          <div class="section-tag is-blue fade-up" style="margin-bottom:22px;">News</div>
+          <h2 class="fade-up d1">
+            News &amp;<br><span class="accent">highlights.</span>
+          </h2>
+        </div>
+        <p class="fade-up d2">
+          The headlines from across our network, showroom openings, sponsored events, hiring trends, and the conversations clients and candidates are bringing to us this quarter.
+        </p>
+      </div>
+
+      <!-- Card grid head -->
+      <div class="news-grid-head">
+        <h3 class="fade-up">Recent <span class="accent">highlights.</span></h3>
+        <div class="news-grid-count fade-up d1">Showing 6 of 06</div>
+      </div>
+
+      <div class="news-grid">
+
+        <a href="/news-and-insights/news/why-use-designer-recruitment/" class="news-card fade-up">
+          <div class="news-card-media">
+            <img src="/Brand_assets/AdobeStock_1981538230.jpeg" alt="KBB showroom" loading="lazy">
+          </div>
+          <span class="news-card-cat">Industry</span>
+          <h4 class="news-card-title">Why use Designer Recruitment?</h4>
+          <div class="news-card-meta">11 October 2023 · 2 min read</div>
+        </a>
+
+        <a href="/news-and-insights/news/who-runs-designer-recruitment/" class="news-card fade-up d1">
+          <div class="news-card-media">
+            <img src="/Brand_assets/Ben-Paine-Managing%20Director.jpg" alt="Ben Paine" loading="lazy">
+          </div>
+          <span class="news-card-cat">Team</span>
+          <h4 class="news-card-title">Who runs Designer Recruitment?</h4>
+          <div class="news-card-meta">11 October 2023 · 2 min read</div>
+        </a>
+
+        <a href="/news-and-insights/news/overseas-recruitment/" class="news-card fade-up d2">
+          <div class="news-card-media">
+            <img src="https://placehold.co/800x600/2353E8/F2EDE4?text=Overseas+Recruitment" alt="Overseas recruitment placeholder" loading="lazy">
+          </div>
+          <span class="news-card-cat">Service Launch</span>
+          <h4 class="news-card-title">Overseas Recruitment, into Australia.</h4>
+          <div class="news-card-meta">29 September 2023 · 2 min read</div>
+        </a>
+
+        <a href="/news-and-insights/news/baczac-cricket-day/" class="news-card fade-up">
+          <div class="news-card-media">
+            <img src="https://placehold.co/800x600/0B0252/F2EDE4?text=BacZac+Cricket+Day" alt="BacZac Cricket Day" loading="lazy">
+          </div>
+          <span class="news-card-cat">Charity</span>
+          <h4 class="news-card-title">BacZac Charity 6-a-side Cricket Day.</h4>
+          <div class="news-card-meta">24 August 2023 · 2 min read</div>
+        </a>
+
+        <a href="/news-and-insights/news/baczac-golf-day/" class="news-card fade-up d1">
+          <div class="news-card-media">
+            <img src="https://placehold.co/800x600/0B0252/F2EDE4?text=BacZac+Golf+Day" alt="BacZac Golf Day" loading="lazy">
+          </div>
+          <span class="news-card-cat">Charity</span>
+          <h4 class="news-card-title">BacZac His Legacy Golf Day.</h4>
+          <div class="news-card-meta">25 June 2023 · 2 min read</div>
+        </a>
+
+        <a href="/news-and-insights/news/our-charity-partner/" class="news-card fade-up d2">
+          <div class="news-card-media">
+            <img src="https://placehold.co/800x600/0B0252/F2EDE4?text=BacZac" alt="BacZac charity partner" loading="lazy">
+          </div>
+          <span class="news-card-cat">Charity</span>
+          <h4 class="news-card-title">Our charity partner.</h4>
+          <div class="news-card-meta">5 June 2023 · 2 min read</div>
+        </a>
+
+      </div>
+
+      <nav class="news-pagination fade-up" aria-label="News pagination">
+        <button type="button" class="news-page-btn prev" aria-disabled="true" disabled>
+          <svg viewBox="0 0 13 13" fill="none"><path d="M11.5 6.5h-10M5.5 2.5l-4 4 4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Previous</span>
+        </button>
+        <div class="news-page-counter" aria-live="polite">
+          <span>Page</span>
+          <span class="current">01</span>
+          <span class="sep">/</span>
+          <span class="total">01</span>
+        </div>
+        <button type="button" class="news-page-btn next" aria-disabled="true" disabled>
+          <span>Next</span>
+          <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ═══════════ DESIGNER SPOTLIGHT ═══════════ -->
+  <section id="spotlight" data-bg="light" aria-label="Designer Spotlight Series">
+    <div class="spotlight-inner">
+
+      <div class="spotlight-head">
+        <div>
+          <div class="section-tag fade-up" style="margin-bottom:22px;">Spotlight Series</div>
+          <h2 class="fade-up d1">
+            Designer<br><span class="accent">Spotlight Series.</span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="spotlight-stage fade-up" aria-roledescription="carousel" aria-label="Designer Spotlight features">
+        <div class="spotlight-track" aria-live="polite">
+
+          <!-- Spotlight 01 — Chris Mitchell -->
+          <article class="spotlight-feature is-active" aria-roledescription="slide" aria-label="1 of 4">
+            <div class="spotlight-media">
+              <img src="/Brand_assets/1-Chris-Mitchell/Designer-Spotlight-Chris-Mitchell.avif" alt="Chris Mitchell" loading="lazy">
+            </div>
+            <div class="spotlight-body">
+              <h3 class="spotlight-name">Chris <span class="accent">Mitchell.</span></h3>
+              <div class="spotlight-role">Independent Kitchen Design Consultant · 720studio.co.uk</div>
+              <blockquote class="spotlight-quote">
+                "Technology, especially design software like Compusoft Winner, is a game-changer. It allows me to bring design concepts to life in 3D."
+              </blockquote>
+              <p>
+                Chris's love for design started at school, where he built a skatepark using early 3D software. He went on to study architectural drawing and now consults independently on European and handmade kitchen furniture, recognised across the industry as a Compusoft Winner expert.
+              </p>
+              <a href="/news-and-insights/spotlight/chris-mitchell/" class="news-link">
+                Read the feature
+                <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Spotlight 02 — Faye Newman -->
+          <article class="spotlight-feature" aria-roledescription="slide" aria-label="2 of 4">
+            <div class="spotlight-media">
+              <img src="/Brand_assets/2-faye-newman/faye-newman-lifestyle.jpg" alt="Faye Newman" loading="lazy">
+            </div>
+            <div class="spotlight-body">
+              <h3 class="spotlight-name">Faye <span class="accent">Newman.</span></h3>
+              <div class="spotlight-role">Designer · Faye Newman Design</div>
+              <blockquote class="spotlight-quote">
+                "My favourite part about designing has to be the clients I get to meet. I find so much joy in being part of such an important aspect of their home project."
+              </blockquote>
+              <p>
+                Faye specialises in in-frame kitchens, a style she's drawn to for its timeless quality and the intricate detail it allows. Every project is built around the client, with bespoke accessory and furniture choices that turn each kitchen into something genuinely personal.
+              </p>
+              <a href="/news-and-insights/spotlight/faye-newman/" class="news-link">
+                Read the feature
+                <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Spotlight 03 — Darren Morgan -->
+          <article class="spotlight-feature" aria-roledescription="slide" aria-label="3 of 4">
+            <div class="spotlight-media">
+              <img src="/Brand_assets/3-Darren-Morgan/Darren+Morgan+Award+Winning+Luxury+Kitchen+Design.webp" alt="Darren Morgan" loading="lazy">
+            </div>
+            <div class="spotlight-body">
+              <h3 class="spotlight-name">Darren <span class="accent">Morgan.</span></h3>
+              <div class="spotlight-role">Designer · Darren Morgan Design</div>
+              <blockquote class="spotlight-quote">
+                "He is absolutely fantastic at what he does, and well worth a call should you need additional design support."
+              </blockquote>
+              <p>
+                Darren is an award-winning designer working across kitchens, bathrooms, bedrooms, and interiors. He partners with Designer Recruitment to give businesses on-demand access to high-calibre design expertise without the overhead of an in-house hire.
+              </p>
+              <a href="/news-and-insights/spotlight/darren-morgan/" class="news-link">
+                Read the feature
+                <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Spotlight 04 — Langstaff-Ellis -->
+          <article class="spotlight-feature" aria-roledescription="slide" aria-label="4 of 4">
+            <div class="spotlight-media">
+              <img src="/Brand_assets/4-Langstaff-Ellis/Chelsea-047.webp" alt="A Langstaff-Ellis Chelsea interior" loading="lazy">
+            </div>
+            <div class="spotlight-body">
+              <h3 class="spotlight-name">Langstaff <span class="accent">-Ellis.</span></h3>
+              <div class="spotlight-role">Bespoke Interiors · Oxfordshire</div>
+              <blockquote class="spotlight-quote">
+                "A truly bespoke, luxury lifestyle business at every turn, with a seamless process from brief to execution."
+              </blockquote>
+              <p>
+                Langstaff-Ellis has been crafting luxury bespoke interiors from Oxfordshire since 2008. Bringing together dedicated teams in design, craft, technical, and sales, they collaborate with leading architects and interior designers on exclusive residential projects across the UK.
+              </p>
+              <a href="/news-and-insights/spotlight/langstaff-ellis/" class="news-link">
+                Read the feature
+                <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="spotlight-nav">
+          <div class="spotlight-counter" aria-live="polite">
+            <span class="current">01</span>
+            <span class="sep">/</span>
+            <span class="total">04</span>
+          </div>
+          <div class="spotlight-arrows">
+            <button type="button" class="spotlight-arrow prev" aria-label="Previous spotlight">
+              <svg viewBox="0 0 13 13" fill="none"><path d="M11.5 6.5h-10M5.5 2.5l-4 4 4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" class="spotlight-arrow next" aria-label="Next spotlight">
+              <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════ LINKEDIN LIVE FEED ═══════════ -->
+  <section id="linkedin" aria-label="LinkedIn live post feed">
+    <div class="linkedin-inner">
+
+      <div class="linkedin-head">
+        <div>
+          <span class="linkedin-live fade-up"><span class="linkedin-live-dot"></span>Live feed</span>
+          <div class="section-tag on-dark fade-up" style="margin-bottom:22px;">LinkedIn</div>
+          <h2 class="fade-up d1">
+            Live from <span class="accent">LinkedIn.</span>
+          </h2>
+        </div>
+        <p class="fade-up d2">
+          A running selection of the latest posts from our LinkedIn page, hiring updates, market notes, and the daily working rhythm of the desk. Updated as we publish.
+        </p>
+      </div>
+
+      <div class="linkedin-grid">
+
+        <a href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener" class="li-card fade-up">
+          <div class="li-head">
+            <div class="li-avatar"><img src="/Brand_assets/DR-Logo-Blue-2.png" alt="Designer Recruitment"></div>
+            <div class="li-meta">
+              <span class="li-name">Designer Recruitment</span>
+              <span class="li-sub">2d · KBB recruitment</span>
+            </div>
+            <span class="li-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></span>
+          </div>
+          <p class="li-body">
+            <strong>Now hiring →</strong> Senior Kitchen Designer, Chelsea Harbour. £45–55k + commission for a designer with 5+ years in luxury bespoke. <span class="accent">DM Cara if interested.</span>
+          </p>
+          <div class="li-tags">
+            <span class="li-tag">#KBB</span>
+            <span class="li-tag">#KitchenDesign</span>
+            <span class="li-tag">#London</span>
+          </div>
+          <div class="li-foot">
+            <span class="li-stat"><svg viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="5"/></svg>148</span>
+            <span class="li-stat">22 comments</span>
+            <span class="li-go">View<svg width="10" height="10" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener" class="li-card fade-up d1">
+          <div class="li-head">
+            <div class="li-avatar"><img src="/Brand_assets/DR-Logo-Blue-2.png" alt="Designer Recruitment"></div>
+            <div class="li-meta">
+              <span class="li-name">Designer Recruitment</span>
+              <span class="li-sub">5d · Insight</span>
+            </div>
+            <span class="li-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></span>
+          </div>
+          <p class="li-body">
+            Three patterns we're seeing in Q2 hiring across the KBB sector — base salaries holding flat, commission structures rebalancing, and contract roles up <span class="accent">+18% YoY.</span>
+          </p>
+          <div class="li-tags">
+            <span class="li-tag">#Hiring</span>
+            <span class="li-tag">#MarketUpdate</span>
+            <span class="li-tag">#Recruitment</span>
+          </div>
+          <div class="li-foot">
+            <span class="li-stat"><svg viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="5"/></svg>96</span>
+            <span class="li-stat">14 comments</span>
+            <span class="li-go">View<svg width="10" height="10" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener" class="li-card fade-up d2">
+          <div class="li-head">
+            <div class="li-avatar"><img src="/Brand_assets/DR-Logo-Blue-2.png" alt="Designer Recruitment"></div>
+            <div class="li-meta">
+              <span class="li-name">Designer Recruitment</span>
+              <span class="li-sub">1w · Placement</span>
+            </div>
+            <span class="li-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></span>
+          </div>
+          <p class="li-body">
+            Congratulations to <strong>Aimee Holloway</strong> on her new role as Showroom Manager at one of the UK's leading luxury kitchen brands. Eight weeks from first conversation to start date.
+          </p>
+          <div class="li-tags">
+            <span class="li-tag">#Placed</span>
+            <span class="li-tag">#KBB</span>
+          </div>
+          <div class="li-foot">
+            <span class="li-stat"><svg viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="5"/></svg>312</span>
+            <span class="li-stat">47 comments</span>
+            <span class="li-go">View<svg width="10" height="10" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener" class="li-card fade-up">
+          <div class="li-head">
+            <div class="li-avatar"><img src="/Brand_assets/DR-Logo-Blue-2.png" alt="Designer Recruitment"></div>
+            <div class="li-meta">
+              <span class="li-name">Designer Recruitment</span>
+              <span class="li-sub">1w · Now hiring</span>
+            </div>
+            <span class="li-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></span>
+          </div>
+          <p class="li-body">
+            <strong>Two roles open in Dubai →</strong> Senior Kitchen Designer (£55k OTE + relocation) and Showroom Manager (£60k OTE + accommodation). Sponsorship covered.
+          </p>
+          <div class="li-tags">
+            <span class="li-tag">#Dubai</span>
+            <span class="li-tag">#UAE</span>
+            <span class="li-tag">#Relocation</span>
+          </div>
+          <div class="li-foot">
+            <span class="li-stat"><svg viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="5"/></svg>211</span>
+            <span class="li-stat">36 comments</span>
+            <span class="li-go">View<svg width="10" height="10" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener" class="li-card fade-up d1">
+          <div class="li-head">
+            <div class="li-avatar"><img src="/Brand_assets/DR-Logo-Blue-2.png" alt="Designer Recruitment"></div>
+            <div class="li-meta">
+              <span class="li-name">Designer Recruitment</span>
+              <span class="li-sub">2w · Note</span>
+            </div>
+            <span class="li-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></span>
+          </div>
+          <p class="li-body">
+            A short note on <span class="accent">counter-offers.</span> If you accept one, the average tenure afterwards is 9 months. Worth thinking about why you started looking in the first place.
+          </p>
+          <div class="li-tags">
+            <span class="li-tag">#CareerAdvice</span>
+            <span class="li-tag">#KBB</span>
+          </div>
+          <div class="li-foot">
+            <span class="li-stat"><svg viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="5"/></svg>184</span>
+            <span class="li-stat">29 comments</span>
+            <span class="li-go">View<svg width="10" height="10" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener" class="li-card fade-up d2">
+          <div class="li-head">
+            <div class="li-avatar"><img src="/Brand_assets/DR-Logo-Blue-2.png" alt="Designer Recruitment"></div>
+            <div class="li-meta">
+              <span class="li-name">Designer Recruitment</span>
+              <span class="li-sub">3w · Event</span>
+            </div>
+            <span class="li-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></span>
+          </div>
+          <p class="li-body">
+            We're at <strong>KBB Live Birmingham</strong> next month, stand B14. Drop by for a coffee and a candid chat about what's hiring well, what isn't, and where the market is heading.
+          </p>
+          <div class="li-tags">
+            <span class="li-tag">#KBBLive</span>
+            <span class="li-tag">#Birmingham</span>
+          </div>
+          <div class="li-foot">
+            <span class="li-stat"><svg viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="5"/></svg>72</span>
+            <span class="li-stat">8 comments</span>
+            <span class="li-go">View<svg width="10" height="10" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="linkedin-foot fade-up">
+        <a href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener" class="btn-ghost">
+          See all on LinkedIn
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA BAND ═══════════ -->
+  <section id="cta-band" data-bg="light" aria-label="Get in touch">
+    <div class="cta-band-inner">
+      <div class="fade-up">
+        <div class="section-tag is-blue" style="margin-bottom:22px;">Subscribe</div>
+        <h2>
+          Get the next story<br>in your <span class="accent">inbox.</span>
+        </h2>
+        <p>
+          A short, monthly note from Ben and Cara. New roles, market notes, and the spotlight features as we publish them. No noise.
+        </p>
+      </div>
+      <div class="cta-band-actions fade-up d2">
+        <a href="/contact/" class="btn-primary">
+          Subscribe
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/contact/" class="btn-dark-ghost">
+          Suggest a story
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="foot-brand">
+      <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+      <p>The UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom &amp; Builders Merchant industry.</p>
+      <a class="foot-social" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+    <div>
+      <div class="foot-head">Company</div>
+      <a href="/about/" class="foot-link">About</a>
+      <a href="/about/#story" class="foot-link">Our Story</a>
+      <a href="/about/#principles" class="foot-link">Principles</a>
+      <a href="/about/#process" class="foot-link">Process</a>
+      <a href="/contact/" class="foot-link">Contact</a>
+    </div>
+    <div>
+      <div class="foot-head">For Candidates</div>
+      <a href="/candidates/" class="foot-link">Find a Role</a>
+      <a href="/candidates/apply/" class="foot-link">Submit your CV</a>
+      <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
+      <a href="mailto:hello@designerrecruitment.co.uk" class="foot-link">Request a Salary Guide</a>
+    </div>
+    <div>
+      <div class="foot-head">For Clients</div>
+      <a href="/clients/" class="foot-link">Hire Talent</a>
+      <a href="/clients/#post-a-job" class="foot-link">Post a Job</a>
+      <a href="/#expertise" class="foot-link">Consultancy</a>
+      <a href="/who-we-recruit-for/" class="foot-link">Who we recruit for</a>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>© <span id="year">2026</span> Designer Recruitment Ltd. All rights reserved.<br>
+      Registered in England &amp; Wales.
+      <a href="https://flowfortyfour.com" target="_blank" rel="noopener" class="ff-credit" aria-label="Built by flowfortyfour.com (opens in new tab)">Built by <span class="ff-credit-name">flowfortyfour.com</span></a>
+    </div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Hero in-class once mounted
+  requestAnimationFrame(() => document.body.classList.add('in'));
+
+  // Floating pill nav (matches homepage)
+  (function() {
+    const navWrap     = document.getElementById('nav-wrap');
+    const burger      = document.getElementById('burger');
+    const navDropdown = document.getElementById('nav-dropdown');
+    let menuOpen = false;
+
+    function openMenu() {
+      menuOpen = true;
+      navWrap.classList.add('open');
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      navDropdown.setAttribute('aria-hidden', 'false');
+    }
+    function closeMenu() {
+      menuOpen = false;
+      navWrap.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      navDropdown.setAttribute('aria-hidden', 'true');
+    }
+
+    burger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+    navDropdown.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click', e => {
+      if (menuOpen && !navWrap.contains(e.target)) closeMenu();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && menuOpen) closeMenu();
+    });
+
+    // Pill goes dark-glass when over a light section
+    function checkPillBg() {
+      const pillY = window.innerHeight - 40;
+      const anyLight = [...document.querySelectorAll('[data-bg="light"]')].some(el => {
+        const r = el.getBoundingClientRect();
+        return r.top < pillY && r.bottom > pillY;
+      });
+      navWrap.classList.toggle('on-light', anyLight);
+    }
+    window.addEventListener('scroll', checkPillBg, { passive: true });
+    checkPillBg();
+  })();
+
+  // Fade-up Intersection Observer
+  (function() {
+    const els = document.querySelectorAll('.fade-up');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(e => e.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(e => io.observe(e));
+  })();
+
+  // Spotlight carousel
+  (function() {
+    const slides  = document.querySelectorAll('#spotlight .spotlight-feature');
+    const prevBtn = document.querySelector('#spotlight .spotlight-arrow.prev');
+    const nextBtn = document.querySelector('#spotlight .spotlight-arrow.next');
+    const counter = document.querySelector('#spotlight .spotlight-counter .current');
+    if (!slides.length || !prevBtn || !nextBtn) return;
+
+    const total = slides.length;
+    let idx = 0;
+
+    function activate(newIdx) {
+      newIdx = (newIdx + total) % total;
+      slides.forEach((s, i) => {
+        s.classList.remove('is-active', 'is-prev');
+        if (i === newIdx) s.classList.add('is-active');
+        else if (i < newIdx) s.classList.add('is-prev');
+      });
+      idx = newIdx;
+      if (counter) counter.textContent = String(newIdx + 1).padStart(2, '0');
+    }
+
+    prevBtn.addEventListener('click', () => activate(idx - 1));
+    nextBtn.addEventListener('click', () => activate(idx + 1));
+    activate(0);
+  })();
+</script>
+
+</body>
+</html>

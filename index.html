@@ -366,13 +366,7 @@
     }
     .btn-ghost:hover { border-color: rgba(242,237,228,0.7); gap: 18px; background: rgba(242,237,228,0.04); }
 
-    /* ── Section label ── */
-    .section-tag {
-      display: flex; align-items: center; gap: 14px;
-      font-size: 10px; font-weight: 400; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--gold);
-    }
-    .section-tag::before, .section-tag::after { content: ''; width: 28px; height: 1px; background: var(--gold); }
+    /* Section tag pill style is defined globally in tokens.css. */
 
     /* ── Fade-up animation ── */
     .fade-up {
@@ -663,9 +657,6 @@
       .hero-sub { font-size: 17px !important; }
       .scroll-indicator { display: none; }
 
-      /* Testimonials portraits — reduce overlap on mobile */
-      #testimonials { padding: 80px 0 !important; min-height: 520px !important; }
-
       /* Services — single column stacked */
       .services-grid {
         grid-template-columns: 1fr !important;
@@ -734,13 +725,6 @@
         width: 100% !important;
         max-width: 100% !important;
       }
-      /* Left-align the section-tag gold lines + text */
-      #about .section-tag,
-      #services .section-tag,
-      #spotlight .section-tag {
-        justify-content: flex-start;
-      }
-
       /* Hero — strengthen text legibility on mobile */
       .hero-headline { text-shadow: 0 2px 32px rgba(7,7,27,0.6); }
       .hero-sub { text-shadow: 0 1px 16px rgba(7,7,27,0.55); }
@@ -853,6 +837,8 @@
       body, a, button, .svc-card, .exp-row, .team-card, #burger { cursor: auto !important; }
       .cursor-dot, .cursor-ring { display: none !important; }
     }
+
+    /* Built-by credit + footer-shared styles live in tokens.css. */
   </style>
 </head>
 <body>
@@ -883,7 +869,7 @@
       <img id="logo-white" src="Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
       <img id="logo-blue"  src="Brand_assets/DR-Logo-Blue-2.png"  alt="">
     </a>
-    <a href="#contact" class="nav-contact-btn">Contact</a>
+    <a href="/contact/" class="nav-contact-btn">Contact</a>
   </div>
 
   <!-- Dropdown card -->
@@ -891,12 +877,12 @@
     <nav aria-label="Site links">
       <a href="/"             class="nd-link">Home</a>
       <a href="/about/"       class="nd-link">About Us</a>
-      <a href="/#candidates"  class="nd-link">For Candidates</a>
-      <a href="/#clients"     class="nd-link">For Clients</a>
-      <a href="/#expertise"   class="nd-link">Sectors</a>
-      <a href="/#testimonials" class="nd-link">Testimonials</a>
-      <a href="/#insights"    class="nd-link">News &amp; Insights</a>
-      <a href="/#contact"     class="nd-link">Contact</a>
+      <a href="/candidates/"  class="nd-link">For Candidates</a>
+      <a href="/clients/"     class="nd-link">For Clients</a>
+      <a href="/who-we-recruit-for/" class="nd-link">Who we recruit for</a>
+      <a href="/about/#testimonials-about" class="nd-link">Testimonials</a>
+      <a href="/news-and-insights/" class="nd-link">News &amp; Insights</a>
+      <a href="/contact/"     class="nd-link">Contact</a>
     </nav>
   </div>
 
@@ -917,11 +903,11 @@
       The KBB industry's most trusted recruitment partner, connecting exceptional talent with the studios and showrooms that define design excellence.
     </p>
     <div class="hero-actions" id="h-act">
-      <a href="#services" class="btn-primary">
+      <a href="/candidates/" class="btn-primary">
         Find Roles
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="#clients" class="btn-ghost">
+      <a href="/clients/" class="btn-ghost">
         Hire Talent
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -949,7 +935,7 @@
     </div>
     <div class="fade-up d2">
       <p style="font-size:20px;font-weight:300;line-height:1.7;color:rgba(7,7,27,0.55);">
-        Designer Recruitment is an industry specific agency who specialise in the KBB and Builders Merchant industry. We help you find KBB staff at all levels and provide a quality service for your business.
+        Designer Recruitment are specialists in the KBB and Builders Merchant industry, helping you find KBB staff at all levels and providing a quality service for your business.
       </p>
     </div>
   </div>
@@ -1026,101 +1012,6 @@
   </div>
 </div>
 
-<!-- ═══════════ TESTIMONIALS — Floating portraits ═══════════ -->
-<section id="testimonials" data-bg="light" style="background:var(--color-white);position:relative;overflow:hidden;padding:120px 0;min-height:680px;">
-
-  <!-- Floating portrait images -->
-  <div id="testimonial-portraits" style="position:absolute;inset:0;pointer-events:none;" aria-hidden="true"></div>
-
-  <!-- Central content -->
-  <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 48px;max-width:640px;margin:0 auto;">
-    <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;">
-      <span style="display:block;flex:0 0 28px;height:1px;background:var(--color-blue);"></span>
-      <span style="font-size:10px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;color:var(--color-blue);">Testimonials</span>
-      <span style="display:block;flex:0 0 28px;height:1px;background:var(--color-blue);"></span>
-    </div>
-    <h2 class="serif-i" style="font-size:var(--fs-display-md);font-weight:300;line-height:1.12;color:var(--color-midnight);margin-bottom:24px;letter-spacing:-0.02em;">
-      Trusted by designers<br>across the industry.
-    </h2>
-    <p style="font-size:18px;font-weight:300;line-height:1.75;color:rgba(7,7,27,0.5);margin-bottom:44px;max-width:440px;">
-      Hear from the KBB professionals we've placed, and the studios that trust us to find exceptional talent.
-    </p>
-    <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-midnight);border:1px solid rgba(7,7,27,0.25);border-radius:var(--radius-full);padding:14px 28px;text-decoration:none;transition:border-color 0.22s,background 0.22s;" onmouseover="this.style.borderColor='var(--color-gold)';this.style.color='var(--color-gold)';" onmouseout="this.style.borderColor='rgba(7,7,27,0.25)';this.style.color='var(--color-midnight)';">
-      Read Success Stories
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;"><path d="M1 7h12M8 3l4 4-4 4" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </div>
-</section>
-
-<script>
-(function() {
-  const portraits = [
-    'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300',
-    'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=300',
-    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300',
-    'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=300',
-    'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300',
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300',
-    'https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=300',
-    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300',
-    'https://images.unsplash.com/photo-1619895862022-09114b41f16f?q=80&w=300',
-    'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=300',
-    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=300',
-  ];
-
-  // Positions: [top%, left%, size(px), floatRange(px), floatDuration(s), showOnMobile]
-  const positions = [
-    [6,  4,  72, 10, 6.2, true],   // top-left — safe corner
-    [18, 22, 72, 8,  7.8, false],
-    [5,  42, 64, 12, 5.5, false],
-    [6,  76, 72, 9,  8.1, true],   // top-right — safe corner
-    [22, 88, 72, 11, 6.7, false],
-    [46, 92, 88, 8,  7.2, false],
-    [52, 2,  96, 10, 6.9, false],
-    [70, 12, 72, 9,  8.4, false],
-    [75, 38, 64, 11, 5.8, false],
-    [76, 76, 72, 8,  7.5, true],   // bottom-right — safe corner
-    [78, 4,  64, 10, 6.3, true],   // bottom-left — safe corner
-  ];
-
-  const isMobile = window.innerWidth < 768;
-  const container = document.getElementById('testimonial-portraits');
-  if (!container) return;
-
-  positions.forEach(([top, left, size, range, dur, showOnMobile], i) => {
-    if (isMobile && !showOnMobile) return;
-    const wrap = document.createElement('div');
-    wrap.style.cssText = `position:absolute;top:${top}%;left:${left}%;width:${size}px;height:${size}px;border-radius:var(--radius-sm);overflow:hidden;box-shadow:0 8px 32px rgba(7,7,27,0.10);opacity:0;transform:scale(0.6);transition:opacity 0.6s ease ${i*0.06}s, transform 0.6s cubic-bezier(0.34,1.56,0.64,1) ${i*0.06}s;`;
-
-    const img = document.createElement('img');
-    img.src = portraits[i % portraits.length];
-    img.alt = '';
-    img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
-    wrap.appendChild(img);
-    container.appendChild(wrap);
-
-    // Staggered entrance
-    setTimeout(() => {
-      wrap.style.opacity = '1';
-      wrap.style.transform = 'scale(1)';
-    }, 100 + i * 60);
-
-    // Float animation — skip if user prefers reduced motion
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const delay = Math.random() * dur * 1000;
-    let start = null;
-    const offset = Math.random() * Math.PI * 2;
-    function tick(ts) {
-      if (!start) start = ts - delay;
-      const elapsed = (ts - start) / 1000;
-      const y = Math.sin((elapsed / dur) * Math.PI * 2 + offset) * range;
-      wrap.style.transform = `scale(1) translateY(${y}px)`;
-      requestAnimationFrame(tick);
-    }
-    setTimeout(() => requestAnimationFrame(tick), 700 + i * 60);
-  });
-})();
-</script>
 
 <!-- ═══════════ SERVICES — Zecchinon "Your Moments" style 3-col grid ═══════════ -->
 <section id="services" data-bg="light" class="rsp-sec" style="background:var(--color-cream);padding:96px 56px;">
@@ -1141,7 +1032,7 @@
     <!-- 3 cards with 25px gap -->
     <div class="services-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:25px;">
       <!-- Card 1: Candidates -->
-      <a href="mailto:hello@designerrecruitment.co.uk?subject=Looking%20for%20a%20role" class="svc-card" style="height:580px;display:block;text-decoration:none;">
+      <a href="/candidates/" class="svc-card" style="height:580px;display:block;text-decoration:none;">
         <img src="Brand_assets/AWinship-8084-025-High-scaled.jpg" alt="Find Your Next Role" loading="lazy">
         <div class="svc-overlay"></div>
         <div class="svc-content">
@@ -1154,7 +1045,7 @@
         </div>
       </a>
       <!-- Card 2: Clients -->
-      <a href="mailto:hello@designerrecruitment.co.uk?subject=Hiring%20enquiry" class="svc-card" style="height:580px;display:block;text-decoration:none;">
+      <a href="/clients/" class="svc-card" style="height:580px;display:block;text-decoration:none;">
         <img src="Brand_assets/recruitment-concept-male-employer-read-cv-resume-2022-11-14-02-23-58-utc-scaled.jpg" alt="Hire Top Talent" loading="lazy" style="object-position:center top;">
         <div class="svc-overlay"></div>
         <div class="svc-content">
@@ -1167,7 +1058,7 @@
         </div>
       </a>
       <!-- Card 3: Consultancy -->
-      <a href="mailto:hello@designerrecruitment.co.uk?subject=Consultancy%20enquiry" class="svc-card" style="height:580px;display:block;text-decoration:none;">
+      <a href="/cv-career-services/" class="svc-card" style="height:580px;display:block;text-decoration:none;">
         <img src="Brand_assets/law-firm-26.jpg" alt="Strategic Consultancy" loading="lazy" style="object-position:center;">
         <div class="svc-overlay"></div>
         <div class="svc-content">
@@ -1226,7 +1117,7 @@
           Our deep network across the KBB sector means we deliver pre-qualified candidates who hit the ground running, reducing time-to-hire and protecting your reputation.
         </p>
         <a href="#contact" class="btn-primary fade-up d3">
-          Start a Search
+          Hire Talent
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -1251,7 +1142,7 @@
           Your aspirations are our brief. We listen, advise, and advocate, so your next move is the right one.
         </p>
         <a href="#contact" class="btn-primary fade-up d3">
-          Submit Your CV
+          Find out how we can help you get hired
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -1268,7 +1159,7 @@
   <div class="expertise-grid" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:5fr 7fr;gap:88px;align-items:start;">
     <!-- Left: heading -->
     <div>
-      <div class="section-tag fade-up" style="margin-bottom:24px;">Sectors</div>
+      <div class="section-tag on-dark fade-up" style="margin-bottom:24px;">Who we recruit for</div>
       <h2 class="serif-i fade-up d1" style="font-size:var(--fs-display-md);font-weight:300;line-height:1.18;color:var(--warm);margin-bottom:20px;">
         Industry-specific<br>expertise.
       </h2>
@@ -1307,174 +1198,321 @@
   </div>
 </section>
 
-<!-- ═══════════ CLIENT SPOTLIGHT ═══════════ -->
-<section id="spotlight" data-bg="light" class="rsp-sec" style="background:var(--color-cream);padding:96px 56px;border-top:1px solid rgba(7,7,27,0.1);">
-  <div style="max-width:1240px;margin:0 auto;">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;gap:40px;flex-wrap:wrap;">
-      <div class="fade-up">
-        <div class="section-tag" style="margin-bottom:20px;">Designer Spotlight</div>
-        <h2 class="serif-i" style="font-size:var(--fs-display-md);font-weight:300;line-height:1.14;color:var(--color-navy-deep);">
-          Spaces we've helped<br>shape and staff.
+<!-- ═══════════ DESIGNER SPOTLIGHT SERIES (carousel) ═══════════ -->
+<section id="spotlight" data-bg="light" aria-label="Designer Spotlight Series">
+  <div class="spotlight-inner">
+
+    <div class="spotlight-head">
+      <div>
+        <div class="section-tag fade-up" style="margin-bottom:22px;">Spotlight Series</div>
+        <h2 class="fade-up d1">
+          Designer<br><span class="accent">Spotlight Series.</span>
         </h2>
       </div>
-      <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);max-width:360px;">
-        The talent we place works inside some of the most beautiful KBB showrooms and studios in the industry.
-      </p>
     </div>
-    <div class="spotlight-gallery">
 
-      <div class="spotlight-item">
-        <img src="Brand_assets/zecchinon-cucine-img1-L.webp" alt="Kitchen project by Chris Mitchell" loading="lazy" decoding="async">
-        <div class="spotlight-content">
-          <div class="spotlight-name">Chris Mitchell</div>
-          <p class="spotlight-bio">Designer Recruitment recently caught up with Chris this week for a brief interview. Chris operates as an independent kitchen design consultant, offering specialised assistance to retail clients. His expertise lies in European and handmade furniture, and is...</p>
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=Enquiry%20about%20Chris%20Mitchell" class="spotlight-read">Enquire <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
+    <div class="spotlight-stage fade-up" aria-roledescription="carousel" aria-label="Designer Spotlight features">
+      <div class="spotlight-track" aria-live="polite">
+
+        <!-- Spotlight 01 — Chris Mitchell -->
+        <article class="spotlight-feature is-active" aria-roledescription="slide" aria-label="1 of 4">
+          <div class="spotlight-media">
+            <img src="/Brand_assets/1-Chris-Mitchell/Designer-Spotlight-Chris-Mitchell.avif" alt="Chris Mitchell" loading="lazy">
+          </div>
+          <div class="spotlight-body">
+            <h3 class="spotlight-name">Chris <span class="accent">Mitchell.</span></h3>
+            <div class="spotlight-role">Independent Kitchen Design Consultant · 720studio.co.uk</div>
+            <blockquote class="spotlight-quote">
+              "Technology, especially design software like Compusoft Winner, is a game-changer. It allows me to bring design concepts to life in 3D."
+            </blockquote>
+            <p>
+              Chris's love for design started at school, where he built a skatepark using early 3D software. He went on to study architectural drawing and now consults independently on European and handmade kitchen furniture, recognised across the industry as a Compusoft Winner expert.
+            </p>
+            <a href="/news-and-insights/spotlight/chris-mitchell/" class="news-link">
+              Read the feature
+              <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Spotlight 02 — Faye Newman -->
+        <article class="spotlight-feature" aria-roledescription="slide" aria-label="2 of 4">
+          <div class="spotlight-media">
+            <img src="/Brand_assets/2-faye-newman/faye-newman-lifestyle.jpg" alt="Faye Newman" loading="lazy">
+          </div>
+          <div class="spotlight-body">
+            <h3 class="spotlight-name">Faye <span class="accent">Newman.</span></h3>
+            <div class="spotlight-role">Designer · Faye Newman Design</div>
+            <blockquote class="spotlight-quote">
+              "My favourite part about designing has to be the clients I get to meet. I find so much joy in being part of such an important aspect of their home project."
+            </blockquote>
+            <p>
+              Faye specialises in in-frame kitchens, a style she's drawn to for its timeless quality and the intricate detail it allows. Every project is built around the client, with bespoke accessory and furniture choices that turn each kitchen into something genuinely personal.
+            </p>
+            <a href="/news-and-insights/spotlight/faye-newman/" class="news-link">
+              Read the feature
+              <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Spotlight 03 — Darren Morgan -->
+        <article class="spotlight-feature" aria-roledescription="slide" aria-label="3 of 4">
+          <div class="spotlight-media">
+            <img src="/Brand_assets/3-Darren-Morgan/Darren+Morgan+Award+Winning+Luxury+Kitchen+Design.webp" alt="Darren Morgan" loading="lazy">
+          </div>
+          <div class="spotlight-body">
+            <h3 class="spotlight-name">Darren <span class="accent">Morgan.</span></h3>
+            <div class="spotlight-role">Designer · Darren Morgan Design</div>
+            <blockquote class="spotlight-quote">
+              "He is absolutely fantastic at what he does, and well worth a call should you need additional design support."
+            </blockquote>
+            <p>
+              Darren is an award-winning designer working across kitchens, bathrooms, bedrooms, and interiors. He partners with Designer Recruitment to give businesses on-demand access to high-calibre design expertise without the overhead of an in-house hire.
+            </p>
+            <a href="/news-and-insights/spotlight/darren-morgan/" class="news-link">
+              Read the feature
+              <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Spotlight 04 — Langstaff-Ellis -->
+        <article class="spotlight-feature" aria-roledescription="slide" aria-label="4 of 4">
+          <div class="spotlight-media">
+            <img src="/Brand_assets/4-Langstaff-Ellis/Chelsea-047.webp" alt="A Langstaff-Ellis Chelsea interior" loading="lazy">
+          </div>
+          <div class="spotlight-body">
+            <h3 class="spotlight-name">Langstaff <span class="accent">-Ellis.</span></h3>
+            <div class="spotlight-role">Bespoke Interiors · Oxfordshire</div>
+            <blockquote class="spotlight-quote">
+              "A truly bespoke, luxury lifestyle business at every turn, with a seamless process from brief to execution."
+            </blockquote>
+            <p>
+              Langstaff-Ellis has been crafting luxury bespoke interiors from Oxfordshire since 2008. Bringing together dedicated teams in design, craft, technical, and sales, they collaborate with leading architects and interior designers on exclusive residential projects across the UK.
+            </p>
+            <a href="/news-and-insights/spotlight/langstaff-ellis/" class="news-link">
+              Read the feature
+              <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </article>
+
       </div>
 
-      <div class="spotlight-item">
-        <img src="Brand_assets/zecchinon-cucine-img2-L.webp" alt="Kitchen project by Faye Newman" loading="lazy" decoding="async">
-        <div class="spotlight-content">
-          <div class="spotlight-name">Faye Newman</div>
-          <p class="spotlight-bio">Ben says "The KBB market is absolutely bustling and I feel privileged to be able to offer services to the rest of the KBB industry. If you have a recruitment need or are seeking a new role, I will always have time to speak with you. Get in touch!" Designer...</p>
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=Enquiry%20about%20Faye%20Newman" class="spotlight-read">Enquire <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="spotlight-nav">
+        <div class="spotlight-counter" aria-live="polite">
+          <span class="current">01</span>
+          <span class="sep">/</span>
+          <span class="total">04</span>
+        </div>
+        <div class="spotlight-arrows">
+          <button type="button" class="spotlight-arrow prev" aria-label="Previous spotlight">
+            <svg viewBox="0 0 13 13" fill="none"><path d="M11.5 6.5h-10M5.5 2.5l-4 4 4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button type="button" class="spotlight-arrow next" aria-label="Next spotlight">
+            <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
       </div>
-
-      <div class="spotlight-item">
-        <img src="Brand_assets/zecchinon-cucine-img3-L.webp" alt="Kitchen project by Darren Morgan" loading="lazy" decoding="async">
-        <div class="spotlight-content">
-          <div class="spotlight-name">Darren Morgan</div>
-          <p class="spotlight-bio">Designer Recruitment are proud to be working alongside Darren. He is absolutely fantastic at what he does and is well worth arranging a call with should you have the need for additional design support! Part 1/5 Design Brilliance Redefines HR: A Pioneering Choice for...</p>
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=Enquiry%20about%20Darren%20Morgan" class="spotlight-read">Enquire <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-
-      <div class="spotlight-item">
-        <img src="Brand_assets/zecchinon-cucine-img4-L.webp" alt="Living space by Langstaff-Ellis" loading="lazy" decoding="async">
-        <div class="spotlight-content">
-          <div class="spotlight-name">Langstaff-Ellis</div>
-          <p class="spotlight-bio">Langstaff-Ellis has been crafting the finest living spaces from their workshop in Oxfordshire, since 2008. Dedicated teams across design, craft, technical and sales work together to bring every concept and vision to life. Langstaff-Ellis is a truly bespoke, luxury...</p>
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=Enquiry%20about%20Langstaff-Ellis" class="spotlight-read">Enquire <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-
-      <div class="spotlight-item">
-        <img src="Brand_assets/made-in-italy-kitchen-XL.webp" alt="Kitchen project by Oliver Grant" loading="lazy" decoding="async">
-        <div class="spotlight-content">
-          <div class="spotlight-name">Oliver Grant</div>
-          <p class="spotlight-bio">Designer Recruitment recently connected with Oliver to discuss his journey within the KBB sector. With a strong background in contemporary kitchen design and space optimisation, Oliver supports clients in delivering functional yet beautifully refined interiors...</p>
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=Enquiry%20about%20Oliver%20Grant" class="spotlight-read">Enquire <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-
-      <div class="spotlight-item">
-        <img src="Brand_assets/zecchinon-cucine-img5-L.webp" alt="Interior by Harrison Cole Interiors" loading="lazy" decoding="async">
-        <div class="spotlight-content">
-          <div class="spotlight-name">Harrison Cole Interiors</div>
-          <p class="spotlight-bio">Harrison Cole Interiors are known for delivering sophisticated, high-end living environments tailored to each client's lifestyle. With a focus on premium materials, detailed craftsmanship and timeless design, their team brings a considered and collaborative approach...</p>
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=Enquiry%20about%20Harrison%20Cole%20Interiors" class="spotlight-read">Enquire <svg width="11" height="11" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
 <style>
-  .spotlight-gallery {
-    display: flex;
-    align-items: stretch;
-    gap: 8px;
-    height: 480px;
-    overflow: hidden;
-    border-radius: var(--radius-md);
-  }
-  .spotlight-item {
+  /* ── Designer Spotlight Series (carousel) ── */
+  #spotlight {
+    background: #ffffff;
+    padding: 140px 56px 160px;
     position: relative;
-    flex: 1;
-    min-width: 0;
     overflow: hidden;
-    border-radius: var(--radius-sm);
-    transition: flex 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    cursor: pointer;
   }
-  .spotlight-item:hover { flex: 5; }
-  .spotlight-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    display: block;
+  #spotlight .spotlight-inner {
+    position: relative; max-width: 1240px; margin: 0 auto;
   }
-  .spotlight-item:hover img { transform: scale(1.04); }
-  .spotlight-content {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 24px 22px 28px;
-    background: rgba(10,9,30,0.48);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-top: 1px solid rgba(255,255,255,0.10);
+  #spotlight .spotlight-head {
+    display: grid; gap: 56px;
+    grid-template-columns: 5fr 7fr;
+    align-items: end;
+    margin-bottom: 100px;
+  }
+  #spotlight .spotlight-head h2 {
+    margin-top: 22px;
+    font-family: var(--font-display); font-weight: 300;
+    font-size: var(--fs-display-lg); line-height: 1.04;
+    color: var(--color-midnight); letter-spacing: -0.02em;
+  }
+  #spotlight .spotlight-head h2 .accent { font-style: italic; color: var(--color-navy-deep); }
+  #spotlight .spotlight-head p {
+    font-size: 17px; font-weight: 300; line-height: 1.85;
+    color: rgba(7,7,27,0.65); max-width: 520px;
+  }
+
+  /* Carousel stage — slides stacked in a single grid cell */
+  .spotlight-stage { position: relative; }
+  .spotlight-track {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .spotlight-feature {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 88px;
+    align-items: center;
+    padding: 0 0 24px;
     opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.45s,
-                transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.45s;
+    transform: translateX(40px);
     pointer-events: none;
+    transition: opacity 0.9s var(--ease-out-expo),
+                transform 0.9s var(--ease-out-expo);
   }
-  .spotlight-item:hover .spotlight-content {
+  .spotlight-feature.is-active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
     pointer-events: auto;
   }
+  .spotlight-feature.is-prev { transform: translateX(-40px); }
+  .spotlight-feature.is-reverse { grid-template-columns: 7fr 5fr; }
+  .spotlight-feature.is-reverse .spotlight-media { order: 2; }
+  .spotlight-feature.is-reverse .spotlight-body { order: 1; }
+
+  .spotlight-media {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .spotlight-media img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 1.4s var(--ease-out-expo);
+  }
+  .spotlight-feature.is-active:hover .spotlight-media img { transform: scale(1.03); }
+  .spotlight-media::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(160deg, transparent 50%, rgba(7,7,27,0.16));
+  }
+
   .spotlight-name {
-    font-family: var(--font-display);
-    font-size: 18px; font-weight: 400; color: var(--warm);
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(32px, 3.6vw, 46px);
+    line-height: 1.04; letter-spacing: -0.02em;
+    color: var(--color-midnight);
     margin-bottom: 8px;
   }
-  .spotlight-bio {
-    font-size: 12px; font-weight: 300; line-height: 1.65;
-    color: rgba(255,255,255,0.72); margin-bottom: 14px;
-    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  .spotlight-name .accent { font-style: italic; color: var(--color-navy-deep); }
+  .spotlight-role {
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(7,7,27,0.55);
+    margin-bottom: 32px;
   }
-  .spotlight-read {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 9px; font-weight: 400; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--gold);
+  .spotlight-quote {
+    font-family: var(--font-display); font-style: italic;
+    font-weight: 300;
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.36; letter-spacing: -0.015em;
+    color: var(--color-midnight);
+    margin-bottom: 28px;
+    padding-left: 22px;
+    border-left: 1px solid var(--color-gold);
+  }
+  .spotlight-body p {
+    font-size: 16px; font-weight: 300; line-height: 1.85;
+    color: rgba(7,7,27,0.66);
+    margin-bottom: 30px;
+    max-width: 50ch;
+  }
+
+  /* "Read the feature" link */
+  #spotlight .news-link {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--color-midnight);
     text-decoration: none;
-    transition: gap 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.45s ease;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(7,7,27,0.30);
+    align-self: flex-start;
+    transition: gap 0.45s var(--ease-out-expo), border-color 0.45s var(--ease-out-expo);
   }
-  .spotlight-read:hover { gap: 10px; opacity: 0.8; }
+  #spotlight .news-link:hover { gap: 18px; border-color: var(--color-midnight); }
+  #spotlight .news-link svg { width: 12px; height: 12px; }
 
-  /* ── Spotlight: tablet — 2×3 grid ── */
+  /* Carousel nav */
+  .spotlight-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px;
+    margin-top: 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(7,7,27,0.10);
+  }
+  .spotlight-counter {
+    display: inline-flex; align-items: baseline; gap: 14px;
+    font-family: var(--font-body);
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(7,7,27,0.40);
+  }
+  .spotlight-counter .current {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 28px; font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--color-midnight);
+  }
+  .spotlight-counter .sep {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: 18px; color: rgba(7,7,27,0.25);
+  }
+  .spotlight-counter .total {
+    font-family: var(--font-display);
+    font-size: 18px; font-weight: 300;
+    letter-spacing: 0.02em; text-transform: none;
+    color: rgba(7,7,27,0.45);
+  }
+  .spotlight-arrows { display: inline-flex; align-items: center; gap: 12px; }
+  .spotlight-arrow {
+    width: 52px; height: 52px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: transparent;
+    border: 1px solid rgba(7,7,27,0.20);
+    border-radius: 100px;
+    color: var(--color-midnight);
+    cursor: pointer;
+    transition: background 0.45s var(--ease-out-expo),
+                border-color 0.45s var(--ease-out-expo),
+                color 0.45s var(--ease-out-expo),
+                transform 0.45s var(--ease-out-expo);
+  }
+  .spotlight-arrow:hover {
+    background: var(--color-midnight);
+    color: var(--color-cream);
+    border-color: var(--color-midnight);
+  }
+  .spotlight-arrow:focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 3px;
+  }
+  .spotlight-arrow svg { width: 16px; height: 16px; }
+
   @media (max-width: 1024px) {
-    .spotlight-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      height: auto;
-      gap: 12px;
+    #spotlight { padding: 100px 40px; }
+    #spotlight .spotlight-head { grid-template-columns: 1fr; gap: 28px; margin-bottom: 64px; }
+    .spotlight-feature, .spotlight-feature.is-reverse {
+      grid-template-columns: 1fr; gap: 40px;
     }
-    .spotlight-item { height: 320px; flex: none; }
-    .spotlight-item:hover { flex: none; }
-    .spotlight-content {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-      transition: none;
-    }
-    .spotlight-item img { transform: none !important; transition: transform 1.6s cubic-bezier(0.25,0.46,0.45,0.94); }
-    .spotlight-item:hover img { transform: scale(1.04) !important; }
+    .spotlight-feature.is-reverse .spotlight-media { order: 0; }
+    .spotlight-feature.is-reverse .spotlight-body { order: 0; }
   }
-
-  /* ── Spotlight: mobile — single column ── */
+  @media (max-width: 768px) {
+    #spotlight { padding: 80px 24px; }
+    .spotlight-feature { padding: 0 0 40px; }
+    .spotlight-quote { font-size: 19px; padding-left: 18px; }
+  }
   @media (max-width: 640px) {
-    .spotlight-gallery {
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-    .spotlight-item { height: 260px; }
-    .spotlight-name { font-size: 16px; }
-    .spotlight-bio  { font-size: 11.5px; }
+    #spotlight .spotlight-head h2 { font-size: clamp(34px, 9vw, 44px); }
   }
 </style>
 
@@ -1525,14 +1563,14 @@
         </div>
       </div>
 
-      <!-- Placeholder consultant -->
+      <!-- Cara Tomkins -->
       <div class="team-card fade-up d1">
-        <div class="team-img" style="background:var(--surface);">
-          <img src="Brand_assets/Chris-Designer-.jpeg" alt="KBB Specialists" loading="lazy" decoding="async" style="object-position:center 5%;filter:grayscale(10%) brightness(0.85);">
+        <div class="team-img">
+          <img src="Brand_assets/Cara-Tomkins.jpg" alt="Cara Tomkins, Head of Recruitment" loading="lazy" decoding="async" style="object-position:center top;">
           <div class="team-info">
-            <div class="team-name">Expert Consultants</div>
-            <div class="team-role">KBB Specialists</div>
-            <p class="team-bio">Our team of dedicated recruitment consultants brings specialist knowledge across every role, from design floor to boardroom.</p>
+            <div class="team-name">Cara Tomkins</div>
+            <div class="team-role">Head of Recruitment</div>
+            <p class="team-bio">An experienced, results-driven Head of Recruitment with a passion for connecting talented professionals with leading organisations and driving sales success through strategic talent acquisition.</p>
           </div>
         </div>
       </div>
@@ -2033,7 +2071,7 @@
 <!-- ═══════════ CONTACT CTA ═══════════ -->
 <section id="contact" class="rsp-sec" style="background:var(--surface);padding:100px 56px;border-top:1px solid var(--line);">
   <div style="max-width:820px;margin:0 auto;text-align:center;">
-    <div class="section-tag fade-up" style="justify-content:center;margin-bottom:24px;">Get in Touch</div>
+    <div class="section-tag on-dark fade-up" style="margin-bottom:24px;">Get in Touch</div>
     <h2 class="serif-i fade-up d1" style="font-size:var(--fs-display-lg);font-weight:300;line-height:1.1;color:var(--warm);margin-bottom:22px;">
       Begin your journey<br>with us today.
     </h2>
@@ -2041,7 +2079,11 @@
       Whether you're a candidate seeking a new challenge or a client building an exceptional team, we'd love to hear from you.
     </p>
     <div class="fade-up d3" style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
-      <a href="mailto:hello@designerrecruitment.co.uk" class="btn-primary">
+      <a href="/contact/" class="btn-primary">
+        Send a Message
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="mailto:hello@designerrecruitment.co.uk" class="btn-ghost">
         Email Us
         <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -2053,62 +2095,54 @@
   </div>
 </section>
 
-<!-- ═══════════ FOOTER ═══════════ -->
-<footer style="background:var(--midnight);border-top:1px solid var(--line);padding:68px 56px 36px;">
-  <div style="max-width:1240px;margin:0 auto;">
-    <div class="footer-grid" style="display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:56px;margin-bottom:64px;">
-      <!-- Brand col -->
-      <div>
-        <img src="Brand_assets/DR-Logo-White.png" alt="Designer Recruitment" loading="lazy" decoding="async" style="height:30px;display:block;margin-bottom:22px;">
-        <p style="font-size:13px;font-weight:300;line-height:1.8;color:var(--muted);max-width:240px;margin-bottom:28px;">
-          The KBB industry's specialist recruitment partner. Placing exceptional talent since 2014.
-        </p>
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/company/designer-recruitment/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn" style="width:36px;height:36px;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:border-color 0.22s,color 0.22s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--muted)'">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-      </div>
-      <!-- Candidates -->
-      <div>
-        <div class="foot-head">Candidates</div>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <a href="#contact" class="foot-link">Find a Role</a>
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=CV%20submission" class="foot-link">Submit Your CV</a>
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=Career%20advice%20request" class="foot-link">Career Advice</a>
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=Salary%20guide%20request" class="foot-link">Request a Salary Guide</a>
-        </div>
-      </div>
-      <!-- Clients -->
-      <div>
-        <div class="foot-head">Clients</div>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=Hiring%20enquiry" class="foot-link">Start a Search</a>
-          <a href="/about-page/#process" class="foot-link">Our Process</a>
-          <a href="#expertise" class="foot-link">Sectors</a>
-          <a href="#spotlight" class="foot-link">Designer Spotlight</a>
-        </div>
-      </div>
-      <!-- Company -->
-      <div>
-        <div class="foot-head">Company</div>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <a href="/about-page/" class="foot-link">About Us</a>
-          <a href="/about-page/#team" class="foot-link">Meet the Team</a>
-          <a href="#insights" class="foot-link">News &amp; Insights</a>
-          <a href="#contact" class="foot-link">Contact</a>
-        </div>
-      </div>
+<!-- ═══════════ FOOTER (canonical, see /partials/footer.html) ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <div class="foot-brand">
+      <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+      <p>The UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom &amp; Builders Merchant industry.</p>
+      <a class="foot-social" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
     </div>
-    <!-- Bottom bar -->
-    <div style="display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--line);flex-wrap:wrap;gap:14px;">
-      <p style="font-size:11px;color:var(--muted);font-weight:300;letter-spacing:0.04em;">
-        © 2026 Designer Recruitment Ltd. All rights reserved. Registered in England &amp; Wales.
-      </p>
-      <div style="display:flex;gap:24px;">
-        <a href="/privacy.html" class="foot-link" style="font-size:11px;">Privacy Policy</a>
-        <a href="/terms.html" class="foot-link" style="font-size:11px;">Terms of Service</a>
-        <a href="/cookies.html" class="foot-link" style="font-size:11px;">Cookie Policy</a>
-      </div>
+
+    <div>
+      <div class="foot-head">Company</div>
+      <a href="/about/" class="foot-link">About</a>
+      <a href="/about/#story" class="foot-link">Our Story</a>
+      <a href="/about/#principles" class="foot-link">Principles</a>
+      <a href="/about/#process" class="foot-link">Process</a>
+      <a href="/contact/" class="foot-link">Contact</a>
+    </div>
+
+    <div>
+      <div class="foot-head">For Candidates</div>
+      <a href="/candidates/" class="foot-link">Find a Role</a>
+      <a href="/candidates/apply/" class="foot-link">Submit your CV</a>
+      <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
+      <a href="mailto:ben@designerrecruitment.co.uk" class="foot-link">Request a Salary Guide</a>
+    </div>
+
+    <div>
+      <div class="foot-head">For Clients</div>
+      <a href="/clients/" class="foot-link">Hire Talent</a>
+      <a href="/clients/#post-a-job" class="foot-link">Post a Job</a>
+      <a href="/#expertise" class="foot-link">Consultancy</a>
+      <a href="/who-we-recruit-for/" class="foot-link">Who we recruit for</a>
+    </div>
+
+  </div>
+
+  <div class="foot-base">
+    <div>© <span id="year">2026</span> Designer Recruitment Ltd. All rights reserved.<br>
+      Registered in England &amp; Wales.
+      <a href="https://flowfortyfour.com" target="_blank" rel="noopener" class="ff-credit" aria-label="Built by flowfortyfour.com (opens in new tab)">Built by <span class="ff-credit-name">flowfortyfour.com</span></a>
+    </div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/terms.html">Terms</a>
     </div>
   </div>
 </footer>
@@ -2116,6 +2150,10 @@
 <!-- ═══════════ SCRIPTS ═══════════ -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+  // Year in footer
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   // Reduced-motion preference — gate motion-heavy features
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -2289,6 +2327,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
 
   document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+  // ── Spotlight carousel ──
+  (function() {
+    const slides  = document.querySelectorAll('#spotlight .spotlight-feature');
+    const prevBtn = document.querySelector('#spotlight .spotlight-arrow.prev');
+    const nextBtn = document.querySelector('#spotlight .spotlight-arrow.next');
+    const counter = document.querySelector('#spotlight .spotlight-counter .current');
+    if (!slides.length || !prevBtn || !nextBtn) return;
+
+    const total = slides.length;
+    let idx = 0;
+
+    function activate(newIdx) {
+      newIdx = (newIdx + total) % total;
+      slides.forEach((s, i) => {
+        s.classList.remove('is-active', 'is-prev');
+        if (i === newIdx) s.classList.add('is-active');
+        else if (i < newIdx) s.classList.add('is-prev');
+      });
+      idx = newIdx;
+      if (counter) counter.textContent = String(newIdx + 1).padStart(2, '0');
+    }
+
+    prevBtn.addEventListener('click', () => activate(idx - 1));
+    nextBtn.addEventListener('click', () => activate(idx + 1));
+    activate(0);
+  })();
 
   // ── Stat counter ──
   document.querySelectorAll('.stat-count[data-target]').forEach(el => {

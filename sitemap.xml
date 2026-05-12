@@ -1,33 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Top-level pages -->
   <url>
     <loc>https://designerrecruitment.co.uk/</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://designerrecruitment.co.uk/about-page/</loc>
-    <lastmod>2026-05-02</lastmod>
+    <loc>https://designerrecruitment.co.uk/about/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/candidates/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/candidates/apply/</loc>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://designerrecruitment.co.uk/clients/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/cv-career-services/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/who-we-recruit-for/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/contact/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- News & Insights index + articles -->
+  <url>
+    <loc>https://designerrecruitment.co.uk/news-and-insights/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/news-and-insights/news/why-use-designer-recruitment/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/news-and-insights/news/who-runs-designer-recruitment/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/news-and-insights/news/overseas-recruitment/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/news-and-insights/news/baczac-cricket-day/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/news-and-insights/news/baczac-golf-day/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/news-and-insights/news/our-charity-partner/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Designer Spotlight series -->
+  <url>
+    <loc>https://designerrecruitment.co.uk/news-and-insights/spotlight/chris-mitchell/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/news-and-insights/spotlight/faye-newman/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/news-and-insights/spotlight/darren-morgan/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://designerrecruitment.co.uk/news-and-insights/spotlight/langstaff-ellis/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Legal -->
+  <url>
     <loc>https://designerrecruitment.co.uk/privacy.html</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://designerrecruitment.co.uk/terms.html</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://designerrecruitment.co.uk/cookies.html</loc>
-    <lastmod>2026-05-02</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
 </urlset>

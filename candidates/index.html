@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidates, Designer Recruitment® | Live KBB Roles &amp; Vacancies</title>
+  <meta name="description" content="Browse live roles curated by Designer Recruitment, the UK's specialist studio for the Kitchen, Bedroom, Bathroom and Builders Merchant industry.">
+  <meta name="theme-color" content="#07071B">
+  <link rel="canonical" href="https://designerrecruitment.co.uk/candidates/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://designerrecruitment.co.uk/candidates/">
+  <meta property="og:title" content="Candidates, Designer Recruitment® | Live KBB Roles & Vacancies">
+  <meta property="og:description" content="Browse live roles curated by Designer Recruitment, the UK's specialist studio for the Kitchen, Bedroom, Bathroom and Builders Merchant industry.">
+  <meta property="og:image" content="https://designerrecruitment.co.uk/Brand_assets/AWinship-8084-025-High-scaled.jpg">
+  <meta property="og:image:alt" content="A premium kitchen, the world Designer Recruitment® places candidates into.">
+  <meta property="og:site_name" content="Designer Recruitment®">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Candidates, Designer Recruitment® | Live KBB Roles & Vacancies">
+  <meta name="twitter:description" content="Browse live roles curated by Designer Recruitment, the UK's specialist studio for KBB and Builders Merchant talent.">
+  <meta name="twitter:image" content="https://designerrecruitment.co.uk/Brand_assets/AWinship-8084-025-High-scaled.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/Brand_assets/DR-Logo-Blue-2.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Brand_assets/DR-Logo-Blue-2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../tokens.css">
+
+  <style>
+    :root {
+      --midnight:  var(--color-midnight);
+      --gold:      var(--color-gold);
+      --cream:     var(--color-cream);
+      --muted:     var(--fg-muted);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-weight: var(--fw-light);
+      background: var(--color-cream);
+      color: var(--color-midnight);
+      overflow-x: hidden;
+    }
+
+    .serif   { font-family: var(--font-display); font-weight: 300; }
+    .serif-i { font-family: var(--font-display); font-weight: 300; font-style: italic; }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    button { font: inherit; }
+
+    /* ── Skip link ── */
+    .skip-link {
+      position: absolute; top: 8px; left: 8px; z-index: 10000;
+      padding: 12px 22px; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--color-midnight); background: var(--color-gold);
+      border-radius: var(--radius-full); text-decoration: none;
+      transform: translateY(-150%);
+      transition: transform 0.2s var(--ease-out-expo);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    /* ── Grain overlay ── */
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+      opacity: 0.05; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+    }
+
+    /* ── NAV pill (canonical, matches sitewide) ── */
+    #nav-wrap {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 200; width: min(460px, calc(100vw - 48px));
+    }
+    #nav-pill {
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 7px 7px 7px 6px;
+      backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius-full);
+      position: relative; z-index: 2;
+      transition: background 0.45s ease, border-color 0.45s ease;
+    }
+    #nav-wrap.open #nav-pill {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.10);
+    }
+    #nav-wrap.on-light #nav-pill {
+      background: rgba(7,7,27,0.55);
+      border-color: rgba(255,255,255,0.14);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.10),
+        inset 0 -1px 0 rgba(0,0,0,0.18),
+        0 8px 32px rgba(7,7,27,0.22);
+    }
+    #nav-wrap.on-light.open #nav-pill {
+      background: rgba(7,7,27,0.68);
+      border-color: rgba(255,255,255,0.12);
+    }
+    #burger {
+      display: flex; align-items: center; gap: 10px;
+      background: none; border: none; cursor: pointer;
+      color: var(--cream); padding: 8px 12px 8px 10px;
+      font-size: 13px; font-family: var(--font-body);
+      font-weight: 300; letter-spacing: 0.05em;
+      justify-self: start;
+    }
+    .burger-icon { width: 18px; height: 12px; position: relative; flex-shrink: 0; }
+    .burger-line {
+      position: absolute; left: 0; right: 0; height: 1px;
+      background: var(--cream); transform-origin: center;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease, top 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .b1 { top: 2px; }
+    .b2 { top: 9px; }
+    #burger.open .b1 { top: 5.5px; transform: rotate(45deg); }
+    #burger.open .b2 { top: 5.5px; transform: rotate(-45deg); }
+    .burger-label { color: var(--cream); }
+    #nav-logo {
+      display: block; text-decoration: none;
+      transition: opacity 0.22s ease; position: relative;
+      justify-self: center;
+    }
+    #nav-logo:hover { opacity: 0.75; }
+    #nav-logo img { height: 30px; display: block; transition: opacity 0.4s ease; }
+    .nav-contact-btn {
+      padding: 10px 22px;
+      font-size: 11px; font-family: var(--font-body);
+      font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--midnight); background: var(--cream);
+      border-radius: var(--radius-full); text-decoration: none; white-space: nowrap;
+      transition: opacity 0.22s ease, transform 0.22s cubic-bezier(.16,1,.3,1);
+      justify-self: end;
+    }
+    .nav-contact-btn:hover { opacity: 0.84; transform: scale(0.96); }
+    #nav-dropdown {
+      position: absolute; bottom: calc(100% + 8px); top: auto; left: 0; right: 0;
+      background: rgba(14, 13, 35, 0.96);
+      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(242,237,228,0.1);
+      border-radius: var(--radius-lg);
+      padding: 22px 28px 18px;
+      clip-path: inset(100% 0 0 0 round 20px);
+      opacity: 0; pointer-events: none;
+      transition: clip-path 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease;
+    }
+    #nav-wrap.open #nav-dropdown {
+      clip-path: inset(0 0 0 0 round 20px);
+      opacity: 1; pointer-events: auto;
+    }
+    .nd-link {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.6vw, 28px);
+      font-weight: 300; line-height: 1.2; letter-spacing: -0.01em;
+      color: var(--cream); text-decoration: none;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(242,237,228,0.08);
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.45s cubic-bezier(0.16,1,0.3,1),
+                  color 0.2s ease;
+    }
+    .nd-link:first-child { border-top: 1px solid rgba(242,237,228,0.08); }
+    #nav-wrap.open .nd-link { opacity: 1; transform: translateY(0); }
+    #nav-wrap.open .nd-link:nth-child(1) { transition-delay: 0.06s; }
+    #nav-wrap.open .nd-link:nth-child(2) { transition-delay: 0.10s; }
+    #nav-wrap.open .nd-link:nth-child(3) { transition-delay: 0.14s; }
+    #nav-wrap.open .nd-link:nth-child(4) { transition-delay: 0.18s; }
+    #nav-wrap.open .nd-link:nth-child(5) { transition-delay: 0.22s; }
+    #nav-wrap.open .nd-link:nth-child(6) { transition-delay: 0.26s; }
+    #nav-wrap.open .nd-link:nth-child(7) { transition-delay: 0.30s; }
+    #nav-wrap.open .nd-link:nth-child(8) { transition-delay: 0.34s; }
+    .nd-link:hover { color: var(--gold); }
+    .nd-link.is-active { color: var(--gold); }
+    @media (max-width: 640px) {
+      #nav-wrap { bottom: 14px; width: calc(100vw - 32px); }
+      .nd-link { font-size: clamp(18px, 5vw, 24px); padding: 10px 0; }
+    }
+
+    /* Section tag pill style is defined globally in tokens.css. */
+
+    /* ── Buttons ── */
+    .btn-primary, .btn-dark-ghost {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 14px 26px; border-radius: 100px;
+      transition: background 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo),
+                  border-color 0.4s var(--ease-out-expo), gap 0.4s var(--ease-out-expo),
+                  color 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+      cursor: pointer; font-family: var(--font-body);
+      border: none;
+    }
+    .btn-primary { background: var(--color-midnight); color: var(--cream); }
+    .btn-primary:hover { background: var(--color-navy-deep); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(7,7,27,0.18); gap: 18px; }
+    .btn-dark-ghost { background: transparent; color: var(--color-midnight); border: 1px solid rgba(7,7,27,0.35); }
+    .btn-dark-ghost:hover { border-color: rgba(7,7,27,0.6); gap: 18px; background: rgba(7,7,27,0.04); }
+
+    /* ── Fade-up ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+    .fade-up.d1 { transition-delay: 0.10s; }
+    .fade-up.d2 { transition-delay: 0.20s; }
+    .fade-up.d3 { transition-delay: 0.30s; }
+
+    /* ─────────────────────────────────────────────────────────────
+       HERO HEADER (dark band, sits above the cream listings section)
+       ───────────────────────────────────────────────────────────── */
+    #hero {
+      background: var(--color-midnight);
+      color: var(--cream);
+      padding: clamp(140px, 15vw, 180px) clamp(24px, 5vw, 56px) clamp(72px, 9vw, 110px);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(242,237,228,0.06);
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 12% 22%, rgba(217,188,128,0.10), transparent 55%),
+        radial-gradient(ellipse at 88% 78%, rgba(35,83,232,0.10), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: var(--container-max); margin: 0 auto; position: relative; }
+    .hero-tag { margin-bottom: 28px; }
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(40px, 6vw, 84px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+    .hero-title .accent { font-style: italic; color: var(--color-gold); }
+    .hero-lead {
+      font-size: clamp(16px, 1.5vw, 19px);
+      font-weight: 300; line-height: 1.7;
+      color: rgba(242,237,228,0.7);
+      max-width: 56ch;
+    }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 28px; align-items: center;
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(242,237,228,0.12);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(242,237,228,0.55);
+    }
+    .hero-meta strong {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      text-transform: none;
+      color: var(--cream);
+      margin-right: 8px;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       JOBS SECTION
+       ───────────────────────────────────────────────────────────── */
+    #jobs {
+      background: var(--cream);
+      padding: clamp(64px, 8vw, 100px) clamp(24px, 5vw, 56px) clamp(80px, 10vw, 120px);
+    }
+    .jobs-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+
+    /* Section sub-header that anchors the listings */
+    .jobs-head {
+      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .jobs-head-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-midnight);
+      margin-top: 14px;
+    }
+    .jobs-head-title .accent { font-style: italic; color: var(--color-navy-deep); }
+    .jobs-head-note {
+      font-size: 12.5px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: rgba(7,7,27,0.55);
+      max-width: 38ch;
+    }
+
+    /* Filter row */
+    .filter-row {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      padding: 0 0 28px;
+    }
+    .filter-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px;
+      font-size: 11.5px; font-weight: 500;
+      letter-spacing: 0.10em; text-transform: uppercase;
+      color: var(--color-midnight);
+      background: transparent;
+      border: 1px solid rgba(7,7,27,0.18);
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.4s var(--ease-out-expo),
+                  border-color 0.4s var(--ease-out-expo),
+                  color 0.4s var(--ease-out-expo);
+    }
+    .filter-chip:hover { border-color: rgba(7,7,27,0.4); background: rgba(7,7,27,0.04); }
+    .filter-chip[aria-pressed="true"] {
+      background: var(--color-midnight);
+      color: var(--cream);
+      border-color: var(--color-midnight);
+    }
+    .filter-chip .chip-count {
+      font-size: 10.5px;
+      font-weight: 400;
+      opacity: 0.6;
+    }
+
+    /* Two-pane layout */
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 0;
+      border: 1px solid rgba(7,7,27,0.12);
+      background: var(--color-white);
+      border-radius: 0;
+      overflow: hidden;
+      min-height: 720px;
+    }
+
+    /* List pane */
+    .jobs-list-pane {
+      border-right: 1px solid rgba(7,7,27,0.10);
+      background: rgba(255,255,255,0.6);
+      max-height: 820px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(7,7,27,0.20) transparent;
+    }
+    .jobs-list-pane::-webkit-scrollbar { width: 8px; }
+    .jobs-list-pane::-webkit-scrollbar-thumb { background: rgba(7,7,27,0.18); border-radius: 4px; }
+    .jobs-list-pane::-webkit-scrollbar-track { background: transparent; }
+
+    .list-head {
+      position: sticky; top: 0; z-index: 2;
+      padding: 18px 28px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(7,7,27,0.10);
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(7,7,27,0.55);
+      display: flex; align-items: baseline; justify-content: space-between;
+    }
+    .list-head strong {
+      font-family: var(--font-display);
+      font-weight: 400; font-size: 16px;
+      letter-spacing: -0.01em; text-transform: none;
+      color: var(--color-midnight);
+    }
+
+    .job-card {
+      display: block; width: 100%;
+      text-align: left;
+      background: transparent; border: none;
+      padding: 22px 28px 22px 28px;
+      border-bottom: 1px solid rgba(7,7,27,0.08);
+      cursor: pointer;
+      position: relative;
+      transition: background 0.4s var(--ease-out-expo);
+    }
+    .job-card::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--color-gold);
+      transform: scaleY(0);
+      transform-origin: top center;
+      transition: transform 0.5s var(--ease-out-expo);
+    }
+    .job-card:hover { background: rgba(7,7,27,0.025); }
+    .job-card[aria-selected="true"] {
+      background: rgba(217,188,128,0.08);
+    }
+    .job-card[aria-selected="true"]::before { transform: scaleY(1); }
+    .job-card:focus-visible { outline: 2px solid var(--color-blue); outline-offset: -3px; }
+
+    .job-cat {
+      display: inline-block;
+      font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 10px;
+    }
+    .job-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--color-midnight);
+      margin-bottom: 8px;
+    }
+    .job-meta {
+      display: flex; flex-wrap: wrap; gap: 6px 14px;
+      font-size: 12.5px; font-weight: 400;
+      color: rgba(7,7,27,0.62);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+    .job-meta-dot {
+      display: inline-block; width: 3px; height: 3px;
+      background: rgba(7,7,27,0.30);
+      border-radius: 50%;
+      align-self: center;
+    }
+    .job-salary {
+      font-size: 13px; font-weight: 500;
+      color: var(--color-midnight);
+      margin-top: 4px;
+    }
+    .job-date {
+      font-size: 11px; font-weight: 400;
+      letter-spacing: 0.06em;
+      color: rgba(7,7,27,0.45);
+      margin-top: 8px;
+    }
+    .job-description-data { display: none; }
+
+    /* Detail pane */
+    .jobs-detail-pane {
+      background: #ffffff;
+      max-height: 820px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(7,7,27,0.20) transparent;
+      position: relative;
+    }
+    .jobs-detail-pane::-webkit-scrollbar { width: 8px; }
+    .jobs-detail-pane::-webkit-scrollbar-thumb { background: rgba(7,7,27,0.18); border-radius: 4px; }
+
+    .detail-back {
+      display: none;
+      width: 100%;
+      padding: 14px 24px;
+      background: rgba(7,7,27,0.04);
+      border: none; border-bottom: 1px solid rgba(7,7,27,0.10);
+      text-align: left;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--color-midnight);
+      cursor: pointer;
+    }
+    .detail-back svg { transform: translateY(1px); margin-right: 8px; }
+
+    .detail-body {
+      padding: 44px 48px 56px;
+    }
+    .detail-cat {
+      display: inline-block;
+      font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+    }
+    .detail-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(28px, 3.4vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-midnight);
+      margin-bottom: 20px;
+    }
+    .detail-title .accent { font-style: italic; color: var(--color-navy-deep); }
+    .detail-meta {
+      display: flex; flex-wrap: wrap; gap: 8px 16px;
+      font-size: 13px; font-weight: 400;
+      color: rgba(7,7,27,0.66);
+      margin-bottom: 28px;
+    }
+    .detail-meta-dot {
+      display: inline-block; width: 3px; height: 3px;
+      background: rgba(7,7,27,0.30);
+      border-radius: 50%;
+      align-self: center;
+    }
+    .detail-salary {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 1.3;
+      color: var(--color-midnight);
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(7,7,27,0.10);
+    }
+
+    .detail-actions {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    /* Share row */
+    .detail-share {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 40px;
+    }
+    .detail-share-label {
+      font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(7,7,27,0.50);
+      margin-right: 4px;
+    }
+    .share-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px;
+      color: var(--color-midnight);
+      border: 1px solid rgba(7,7,27,0.18);
+      border-radius: 50%;
+      text-decoration: none;
+      transition: border-color 0.4s var(--ease-out-expo),
+                  color 0.4s var(--ease-out-expo),
+                  background 0.4s var(--ease-out-expo),
+                  transform 0.4s var(--ease-out-expo);
+    }
+    .share-btn:hover {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+      background: rgba(217,188,128,0.08);
+      transform: translateY(-2px);
+    }
+    .share-btn:focus-visible {
+      outline: 2px solid var(--color-blue);
+      outline-offset: 2px;
+    }
+    .share-btn svg { width: 14px; height: 14px; }
+
+    .detail-section-head {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 14px;
+    }
+    .detail-description {
+      font-size: 16px; font-weight: 300;
+      line-height: 1.75;
+      color: rgba(7,7,27,0.82);
+      margin-bottom: 36px;
+    }
+    .detail-description p + p { margin-top: 14px; }
+    .detail-description h4 {
+      font-family: var(--font-body);
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-gold);
+      margin: 32px 0 16px;
+    }
+    .detail-description > h4:first-child,
+    .detail-description > p:first-child + h4 { margin-top: 28px; }
+    .detail-description ul {
+      list-style: none;
+      margin: 0 0 8px;
+      padding: 0;
+    }
+    .detail-description li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 10px;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: rgba(7,7,27,0.78);
+    }
+    .detail-description li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0.72em;
+      width: 10px; height: 1px;
+      background: var(--color-gold);
+    }
+    .detail-description .closing {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(7,7,27,0.10);
+      font-size: 13px;
+      font-style: italic;
+      color: rgba(7,7,27,0.55);
+    }
+
+    .detail-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 28px;
+      padding: 26px 0;
+      border-top: 1px solid rgba(7,7,27,0.10);
+      border-bottom: 1px solid rgba(7,7,27,0.10);
+      margin-bottom: 36px;
+    }
+    .detail-fact-label {
+      font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(7,7,27,0.50);
+      margin-bottom: 6px;
+    }
+    .detail-fact-value {
+      font-family: var(--font-display);
+      font-weight: 400; font-size: 16px;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: var(--color-midnight);
+    }
+
+    .detail-external {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--color-navy-deep);
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--color-navy-deep);
+      transition: gap 0.4s var(--ease-out-expo), color 0.4s var(--ease-out-expo);
+    }
+    .detail-external:hover { gap: 14px; color: var(--color-blue); border-bottom-color: var(--color-blue); }
+
+    /* Empty / no-results */
+    .empty-state {
+      padding: 80px 28px;
+      text-align: center;
+      color: rgba(7,7,27,0.55);
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       CTA BAND
+       ───────────────────────────────────────────────────────────── */
+    #cta {
+      background: var(--color-cream);
+      padding: clamp(72px, 10vw, 120px) clamp(24px, 5vw, 56px);
+      color: var(--midnight);
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(7,7,27,0.06);
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(217,188,128,0.16), transparent 55%),
+        radial-gradient(ellipse at 80% 70%, rgba(35,83,232,0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .cta-inner .section-tag {
+      color: var(--color-blue);
+      border-color: rgba(35,83,232,0.30);
+      background: rgba(35,83,232,0.05);
+      margin-bottom: 26px;
+    }
+    .cta-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(32px, 4.6vw, 56px);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: var(--midnight);
+      margin-bottom: 22px;
+    }
+    .cta-title .accent { font-style: italic; color: var(--color-blue); }
+    .cta-lead {
+      font-size: 17px; font-weight: 300; line-height: 1.75;
+      color: rgba(7,7,27,0.65);
+      max-width: 56ch;
+    }
+    .cta-actions {
+      display: flex; flex-wrap: wrap; gap: 14px;
+      justify-self: end;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       CV & CAREER SERVICES
+       ───────────────────────────────────────────────────────────── */
+    #cv-services {
+      background: var(--color-white);
+      padding: clamp(72px, 10vw, 120px) clamp(24px, 5vw, 56px);
+      color: var(--midnight);
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(7,7,27,0.06);
+      border-bottom: 1px solid rgba(7,7,27,0.06);
+    }
+    #cv-services::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(50% 40% at 100% 0%, rgba(35,83,232,0.04), transparent 60%),
+        radial-gradient(45% 50% at 0% 100%, rgba(217,188,128,0.04), transparent 65%);
+    }
+    .cv-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      position: relative;
+    }
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .cv-inner .section-tag { margin-bottom: 22px; }
+    .cv-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(32px, 4.4vw, 52px);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: var(--midnight);
+    }
+    .cv-title .accent { font-style: italic; color: var(--color-blue); }
+    .cv-body {
+      font-size: 17px; font-weight: 300; line-height: 1.85;
+      color: rgba(7,7,27,0.7);
+      max-width: 56ch;
+    }
+    .cv-body + .cv-body { margin-top: 22px; }
+    .cv-actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 14px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESPONSIVE
+       ───────────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .jobs-grid { grid-template-columns: 1fr; min-height: auto; }
+      .jobs-list-pane { border-right: none; border-bottom: 1px solid rgba(7,7,27,0.10); max-height: none; }
+      .jobs-detail-pane { max-height: none; }
+      .detail-body { padding: 36px 32px 48px; }
+      .cta-inner { grid-template-columns: 1fr; gap: 32px; }
+      .cta-actions { justify-self: start; }
+      .cv-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 768px) {
+      /* Mobile: list <-> detail single-pane swap */
+      body.candidates-detail-open .jobs-list-pane { display: none; }
+      body:not(.candidates-detail-open) .jobs-detail-pane { display: none; }
+      body.candidates-detail-open .detail-back { display: flex; align-items: center; }
+      .detail-body { padding: 28px 24px 44px; }
+      .filter-row { padding: 16px 0 20px; gap: 6px; }
+      .filter-chip { padding: 8px 14px; font-size: 10.5px; }
+      .list-head { padding: 16px 22px; }
+      .job-card { padding: 18px 22px; }
+      .detail-facts { grid-template-columns: 1fr; gap: 16px; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-meta { gap: 18px; }
+      .hero-meta strong { font-size: 18px; }
+      .detail-title { font-size: 26px; }
+      .detail-salary { font-size: 18px; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { transition: none; opacity: 1; transform: none; }
+      .job-card, .job-card::before, .filter-chip, .btn-primary, .btn-dark-ghost, .detail-external { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#jobs" class="skip-link">Skip to roles</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<div id="nav-wrap" role="navigation" aria-label="Main">
+
+  <div id="nav-pill">
+    <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-dropdown">
+      <span class="burger-icon" aria-hidden="true">
+        <span class="burger-line b1"></span>
+        <span class="burger-line b2"></span>
+      </span>
+      <span class="burger-label">Menu</span>
+    </button>
+    <a href="/" id="nav-logo" aria-label="Designer Recruitment home">
+      <img id="logo-white" src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+    </a>
+    <a href="/contact/" class="nav-contact-btn">Contact</a>
+  </div>
+
+  <div id="nav-dropdown" aria-hidden="true">
+    <nav aria-label="Site links">
+      <a href="/"             class="nd-link">Home</a>
+      <a href="/about/"       class="nd-link">About Us</a>
+      <a href="/candidates/"  class="nd-link is-active" aria-current="page">For Candidates</a>
+      <a href="/clients/"     class="nd-link">For Clients</a>
+      <a href="/who-we-recruit-for/" class="nd-link">Who we recruit for</a>
+      <a href="/about/#testimonials-about" class="nd-link">Testimonials</a>
+      <a href="/news-and-insights/" class="nd-link">News &amp; Insights</a>
+      <a href="/contact/"     class="nd-link">Contact</a>
+    </nav>
+  </div>
+
+</div><!-- /nav-wrap -->
+
+<main id="main">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <div class="section-tag on-dark hero-tag fade-up">For Candidates</div>
+      <h1 id="hero-title" class="hero-title fade-up d1">
+        Live roles, <span class="accent">curated<br>for the trade.</span>
+      </h1>
+      <p class="hero-lead fade-up d2">
+        Every role on the list below is briefed by us in person, then matched with the right candidates from our network. Use the filters to narrow by discipline, then read the full brief on the right.
+      </p>
+      <div class="hero-meta fade-up d3">
+        <span><strong id="hero-count">28</strong> open roles</span>
+        <span><strong>UK &amp; international</strong></span>
+        <span><strong>Updated weekly</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ JOBS BROWSER ═══════════ -->
+  <section id="jobs" data-bg="light" aria-label="Browse open roles">
+    <div class="jobs-inner">
+
+      <!-- Section sub-header -->
+      <div class="jobs-head fade-up">
+        <div>
+          <div class="section-tag">Browse</div>
+          <h2 class="jobs-head-title">All open <span class="accent">roles.</span></h2>
+        </div>
+        <p class="jobs-head-note">Filter by discipline, then tap a role on the left to read the full brief on the right.</p>
+      </div>
+
+      <!-- Filter chips -->
+      <div class="filter-row" role="group" aria-label="Filter by discipline">
+        <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All <span class="chip-count">28</span></button>
+        <button class="filter-chip" type="button" data-filter="designer" aria-pressed="false">Designer <span class="chip-count">19</span></button>
+        <button class="filter-chip" type="button" data-filter="showroom" aria-pressed="false">Showroom Manager <span class="chip-count">3</span></button>
+        <button class="filter-chip" type="button" data-filter="sales" aria-pressed="false">Area Sales <span class="chip-count">2</span></button>
+        <button class="filter-chip" type="button" data-filter="installations" aria-pressed="false">Installations &amp; Projects <span class="chip-count">2</span></button>
+        <button class="filter-chip" type="button" data-filter="marketing" aria-pressed="false">Marketing <span class="chip-count">1</span></button>
+        <button class="filter-chip" type="button" data-filter="purchasing" aria-pressed="false">Purchasing <span class="chip-count">1</span></button>
+      </div>
+
+      <!-- Two-pane grid -->
+      <div class="jobs-grid">
+
+        <!-- LEFT: list -->
+        <div class="jobs-list-pane" role="listbox" aria-label="Open roles list" tabindex="0">
+          <div class="list-head">
+            <span><strong id="list-count">28</strong> roles match</span>
+            <span>Sorted by date</span>
+          </div>
+
+          <!-- 1 -->
+          <button class="job-card" role="option" type="button"
+            data-id="213" data-filter="designer"
+            data-title="Kitchen Designer"
+            data-cat="Designer"
+            data-location="Warwickshire"
+            data-type="Permanent"
+            data-salary="£33,000 + Commission"
+            data-posted="7 May 2026"
+            data-ref="213"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-213/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-213.aspx"
+            aria-selected="true">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer</h3>
+            <div class="job-meta"><span>Warwickshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£33,000 + Commission</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Sales Designer for a well-known kitchen retailer and manufacturer in Stratford Upon Avon. This permanent role offers up to £33,000 per annum plus Commission for the right candidate.</p><h4>Responsibilities</h4><ul><li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li><li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li><li>Support with showroom marketing activities</li><li>Engaging with walk in customers and ensuring our clients/customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li><li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Drawing new plans/designs based on customer/client brief</li><li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li><li>Supporting the Dual Site Showroom Manager with ordering processes/liaising with our manufacturing colleagues in Germany and completion of technical drawings for customer/client projects</li><li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li><li>Ensuring the showroom is maintained to high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>At least 3 years' previous experience with design in a luxury kitchen retail or showroom environment</li><li>German kitchen experience preferred and desired</li><li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li><li>Knowledge of design using CAD software</li><li>Training on the product design system will also be provided</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence</li></ul><h4>Benefits</h4><ul><li>Commission based on sales (uncapped)</li><li>Company pension (after three months)</li><li>Discount scheme for hundreds of high street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 2 -->
+          <button class="job-card" role="option" type="button"
+            data-id="230" data-filter="showroom"
+            data-title="Business Development Manager"
+            data-cat="Showroom Manager"
+            data-location="London Area"
+            data-type="Permanent"
+            data-salary="£50,000 + Commission"
+            data-posted="7 May 2026"
+            data-ref="230"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/business-development-manager-230/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/business-development-manager-230.aspx"
+            aria-selected="false">
+            <span class="job-cat">Showroom Manager</span>
+            <h3 class="job-title">Business Development Manager</h3>
+            <div class="job-meta"><span>London Area</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£50,000 + Commission</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment seeks a Business Development &amp; Showroom Manager for a global, high-end Italian furniture brand at Chelsea Harbour Design Centre in London. This permanent role offers £50,000 + Commission, splitting roughly 70/30 between business development and showroom management.</p><h4>Responsibilities</h4><ul><li>Actively develop the company's presence in the UK market by building and maintaining strong relationships with interior designers, architects, developers, and selected trade partners</li><li>Conduct regular outside calls and face-to-face meetings with design studios and key accounts</li><li>Identify, qualify, and pursue new business opportunities in both residential and contract sectors</li><li>Act as a brand ambassador, promoting values, collections, and custom capabilities within the design community</li><li>Generate and manage a pipeline of opportunities, from initial contact through project development, in coordination with HQ</li><li>Monitor market trends, competitors, and key players, providing market intelligence and feedback to management</li><li>Prepare regular activity and opportunity reports, ensuring visibility and accountability on business development efforts</li><li>Ensure the day-to-day management of the London showroom, maintaining a high standard of presentation, client experience, and brand consistency</li><li>Manage client visits, appointments, and showroom events in coordination with HQ and marketing</li><li>Act as the local point of contact for incoming inquiries and showroom-based opportunities</li><li>Coordinate operational aspects related to samples, materials, displays, and basic showroom logistics</li><li>Support marketing and communication initiatives at local level</li></ul><h4>Requirements</h4><ul><li>Proven experience in business development, sales, or commercial roles within high-end furniture, luxury interiors, design brands, or related industries</li><li>Strong existing network within the UK design and architecture community</li><li>Strong ethic and self-discipline</li><li>Demonstrated ability to work autonomously, proactively, and with a strong external focus</li><li>Commercial mindset with sensitivity to luxury brand positioning</li><li>Excellent communication and relationship-building skills</li><li>Structured, disciplined, and results-oriented approach</li><li>Fluency in English; Italian is a plus</li><li>Permit to work in the UK</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 3 -->
+          <button class="job-card" role="option" type="button"
+            data-id="217" data-filter="designer"
+            data-title="Kitchen Designer"
+            data-cat="Designer"
+            data-location="Nottinghamshire"
+            data-type="Permanent"
+            data-salary="£30,000 – £33,000 + Commission"
+            data-posted="7 May 2026"
+            data-ref="217"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-217/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-217.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer</h3>
+            <div class="job-meta"><span>Nottinghamshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£30,000 – £33,000 + Commission</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Sales Designer for a well-known kitchen retailer and manufacturer in Nottingham. This permanent role offers up to £33,000 per annum plus commission.</p><h4>Responsibilities</h4><ul><li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li><li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li><li>Support with showroom marketing activities</li><li>Engaging with walk in customers and ensuring our clients/customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li><li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Drawing new plans/designs based on customer/client brief</li><li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li><li>Supporting the Dual Site Showroom Manager with ordering processes/liaising with our manufacturing colleagues in Germany and completion of technical drawings for customer/client projects</li><li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li><li>Ensuring the showroom is maintained to high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>At least 4 years' previous experience with design in a luxury kitchen retail or showroom environment</li><li>German kitchen experience preferred and desired</li><li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li><li>Knowledge of design using CAD software</li><li>Training on the product design system will also be provided</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence</li></ul><h4>Benefits</h4><ul><li>Commission based on sales (uncapped)</li><li>Company pension (after three months)</li><li>Discount scheme for hundreds of high street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 4 -->
+          <button class="job-card" role="option" type="button"
+            data-id="214" data-filter="installations"
+            data-title="Design Engineer"
+            data-cat="Installations &amp; Projects"
+            data-location="Cambridgeshire"
+            data-type="Permanent"
+            data-salary="£60,000 – £75,000"
+            data-posted="7 May 2026"
+            data-ref="214"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/design-engineer-214/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/design-engineer-214.aspx"
+            aria-selected="false">
+            <span class="job-cat">Installations &amp; Projects</span>
+            <h3 class="job-title">Design Engineer</h3>
+            <div class="job-meta"><span>Cambridgeshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£60,000 – £75,000</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment seeks a Building Services Design Engineer in Cambridgeshire to support energy, food processing, and pharmaceutical clients. This permanent role offers £60,000 – £75,000 for the right candidate.</p><h4>Responsibilities</h4><ul><li>Manage and deliver a wide range of projects including low-temperature hot water systems and their site-wide distribution, Steam &amp; Condensate within energy centres, ASHP &amp; WSHP installations, Combined Heat &amp; Power projects and their integration, across commercial, industrial, and healthcare settings</li><li>Prepare high quality information including technical specifications, designs, drawings, equipment schedules, survey reports, and contract documentation</li><li>Produce energy efficient designs and be able to demonstrate financial benefits to clients</li><li>Attend meetings with clients and multidisciplinary design teams as the MEP project lead</li><li>Develop and present project design proposals to the project team and client</li><li>Undertake project surveys including site inspections, stock condition, refurbishment and post-occupancy performance evaluations</li><li>Develop new and repeat business and maintain regular contact with all clients</li><li>Monitor and review junior staff performance</li><li>Report resource and financial information to group Partners</li><li>Identify opportunities for new services and company development</li><li>Ensure accurate mark-ups for CAD, liaising with drawing office to ensure project designs are reflected clearly &amp; accurately in construction drawings</li><li>Responsibility as design lead on client projects, including attendance and representation of the company at all necessary design meetings</li><li>Responsibility for design co-ordination &amp; design audits through project installation</li></ul><h4>Requirements</h4><ul><li>8 years minimum experience as a Building Services Design Engineer or similar</li><li>HNC or a degree in either Mechanical, Building Services or related Engineering discipline</li><li>Experience working on projects such as energy centres, CHP &amp; energy projects or healthcare sector also desirable</li><li>Hold, or working towards, membership with relevant industry body (CIBSE, IMechE, IET)</li><li>Conscientious, enthusiastic, well organised and professional</li><li>Be proactive with developing your own and others' knowledge while driving standards and quality throughout the team</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 5 -->
+          <button class="job-card" role="option" type="button"
+            data-id="141" data-filter="showroom"
+            data-title="Showroom Manager"
+            data-cat="Showroom Manager"
+            data-location="London / Australia"
+            data-type="Permanent"
+            data-salary="£40,000 – £70,000"
+            data-posted="7 May 2026"
+            data-ref="141"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/showroom-manager-141/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/showroom-manager-141.aspx"
+            aria-selected="false">
+            <span class="job-cat">Showroom Manager</span>
+            <h3 class="job-title">Showroom Manager</h3>
+            <div class="job-meta"><span>London / Australia</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£40,000 – £70,000</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are offering Showroom Managers in the UK an exciting opportunity to work in Australia on a fully sponsored basis. This permanent role offers a salary of A$80,000 – A$140,000 OTE plus additional allowances.</p><h4>Responsibilities</h4><ul><li>Manage kitchen designers</li><li>Present and sell in customers' homes</li><li>Work autonomously within a team environment</li><li>Meet KPIs and deadlines</li><li>Work flexible hours including weekends to accommodate customers</li></ul><h4>Requirements</h4><ul><li>Proven sales individual with successful history in retail selling</li><li>Experience managing kitchen designers</li><li>Passion for retail selling and closing deals</li><li>Experience utilising proven sales tracks to close deals</li><li>Strong commitment to meet KPIs and deadlines</li><li>Ability to work autonomously within a team environment</li><li>Ability to work flexible hours including weekends</li><li>Must be a citizen of Great Britain and under the age of 45</li></ul><h4>Benefits</h4><ul><li>Bereavement leave</li><li>Company pension</li><li>Employee assistance programme</li><li>Employee discount</li><li>Flexible schedule</li><li>Free flu jabs</li><li>Health &amp; wellbeing programme</li><li>On-site parking</li><li>Referral programme</li><li>Relocation assistance</li><li>Sick pay</li><li>UK visa sponsorship</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 6 -->
+          <button class="job-card" role="option" type="button"
+            data-id="52" data-filter="showroom"
+            data-title="Regional Showroom Manager"
+            data-cat="Showroom Manager"
+            data-location="Sydney, Australia"
+            data-type="Permanent"
+            data-salary="£50,000 – £60,000"
+            data-posted="7 May 2026"
+            data-ref="52"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/regional-showroom-manager-52/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/regional-showroom-manager-52.aspx"
+            aria-selected="false">
+            <span class="job-cat">Showroom Manager</span>
+            <h3 class="job-title">Regional Showroom Manager</h3>
+            <div class="job-meta"><span>Sydney, Australia</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£50,000 – £60,000</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment seeks a Regional Showroom Manager for a Sydney-based client. This permanent role offers £50,000 – £60,000 per annum plus bonuses.</p><h4>Responsibilities</h4><ul><li>Working with each Showroom Manager to achieve a consistent performance across all key metrics of the region</li><li>Leading, coaching and mentoring showroom managers to drive accountability around their daily activities to achieve their budgeted KPIs</li><li>Working with the leadership team to recruit and train staff as required to ensure showrooms are adequately staffed and well-trained</li><li>Being responsible for the preparation and communication of plans and strategies as laid out by the State Sales Manager and the National Retail Manager</li><li>Conducting weekly regional sales meetings with Showroom Managers and Designers</li><li>Ensuring full attendance of all regional staff at the Monthly Promotion Launch meetings</li><li>Evaluating showroom performance</li><li>Reviewing staff performance with showroom manager</li><li>Analysing the region's order book weekly, ensuring all files are authentic and meet the KPI for each status</li><li>Ensuring the showroom's sales and merchandising materials are adequately stocked and correctly displayed, as per showroom guidelines</li><li>Ensuring all regional staff operate within the company and showroom policies and procedures guidelines</li><li>Encouraging showroom managers to keep strong channels of communication between designers and sales consultants so conflicts are resolved quickly</li><li>Reviewing work rosters weekly to ensure maximum staffing efficiencies across all showrooms</li><li>Covering showrooms when showroom managers are on leave</li></ul><h4>Requirements</h4><ul><li>Multi-showroom management experience is essential</li></ul><h4>Benefits</h4><ul><li>Accommodation</li><li>Flight to Sydney</li><li>Car</li><li>Phone</li><li>Pathway to citizenship</li><li>Ongoing settling-in support</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 7 -->
+          <button class="job-card" role="option" type="button"
+            data-id="27" data-filter="designer"
+            data-title="Kitchen Designer (Australia)"
+            data-cat="Designer"
+            data-location="UK → Australia"
+            data-type="Permanent (sponsored)"
+            data-salary="A$50,000 – A$80,000"
+            data-posted="7 May 2026"
+            data-ref="27"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-(australia)-27/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-(australia)-27.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer (Australia)</h3>
+            <div class="job-meta"><span>UK → Australia</span><span class="job-meta-dot"></span><span>Permanent (sponsored)</span></div>
+            <div class="job-salary">A$50,000 – A$80,000</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are offering Kitchen Designers in the UK a fully sponsored opportunity to work in Australia. Base salary ranges from A$50,000 to A$80,000 plus commission, with an average take-home of A$150,000 per designer.</p><h4>Responsibilities</h4><ul><li>Translating customer preferences into a three-dimensional plan and gaining their commitment to the purchase of a new kitchen</li><li>Conducting in-home design appointments</li><li>Ensuring the plans and contracts are completed and signed by the customer</li><li>Collecting the deposit from the customer</li><li>Working closely with the Assistant Showroom Manager and Showroom Consultants for their success</li><li>Creating leads and qualifying kitchen customers</li><li>Ensuring an effective conversion of leads to contracts by conducting professional customer presentations</li><li>Completing and signing plans and contracts</li><li>Ensuring customer satisfaction and optimising gross profit, in a manner that supports company values, policies and objectives and the development of teamwork</li><li>Achieving monthly orders and design conversions KPIs as directed by the showroom manager</li><li>Arranging follow-up appointments as and when required</li><li>Attending sales meetings weekly as and when required</li><li>Participating in monthly promotional launch meetings as advised</li><li>Visiting Home Shows, shopping centre displays and relevant trade shows</li><li>Vetting the lead sheet with the Showroom Manager and Consultant</li><li>Adhering to the Company's Kitchen Designer's "7 Step Sales" process</li><li>Providing effective solutions that align with customer expectations</li><li>Closing the sale in the in-home design appointment</li><li>Gaining and securing a precise understanding of customer needs/requirements</li><li>Providing a creative solution to meet customer needs/requirements</li><li>Committing to a design plan that can be delivered from the company's standard product range</li><li>Managing customer expectations including outlining any related conditions of sale</li><li>Providing rationale to support the inclusion and exclusion of different design features</li><li>Spending the time necessary with the customer, so as to address any queries and/or objections that may arise</li><li>Providing and maintaining exceptional company internal customer service</li><li>Maintaining current product knowledge together with a current knowledge of company policies and procedures</li><li>Forwarding all messages to appropriate people and employees</li><li>Attending all appointments on time</li><li>Ensuring that measurements and plans are accurate and completed in a manner that will avoid rework</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 8 -->
+          <button class="job-card" role="option" type="button"
+            data-id="174" data-filter="designer"
+            data-title="Kitchen Designer"
+            data-cat="Designer"
+            data-location="South West London"
+            data-type="Permanent"
+            data-salary="£25,000 – £30,000"
+            data-posted="7 May 2026"
+            data-ref="174"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-174/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-174.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer</h3>
+            <div class="job-meta"><span>South West London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£25,000 – £30,000</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are working with a bespoke kitchen company in South West London seeking a Kitchen Designer to join their showroom team. This permanent position pays £30,000 – £40,000 plus commission.</p><h4>Responsibilities</h4><ul><li>Designing and selling bespoke kitchens</li><li>Maintaining showroom standards at all times</li><li>Ensuring customers and clients are well looked after with a huge focus on the customer journey</li><li>Liaising with other departments and support to ensure communication is kept to the highest level</li><li>Producing high-quality renders with their design software</li><li>Promoting the company brand and acting as an ambassador for the business</li><li>Attending events put on by the business or that the business requires representation for</li></ul><h4>Requirements</h4><ul><li>Knowledge of Virtual Worlds, Fusion 2020, AutoCAD, Compusoft or ArtiCAD preferred</li><li>Saturday working required with a day off in the week</li><li>A proven sales background</li><li>Kitchen Design experience essential</li></ul><h4>Benefits</h4><ul><li>25 days holiday + bank holiday</li><li>Birthday holiday extra</li><li>Private medical insurance after 6 months probation</li><li>Alternate Saturdays</li><li>Other staff bonuses</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 9 -->
+          <button class="job-card" role="option" type="button"
+            data-id="233" data-filter="marketing"
+            data-title="Marketing Manager – Dubai"
+            data-cat="Marketing"
+            data-location="Dubai (relocation)"
+            data-type="Permanent"
+            data-salary="£40,000 – £50,000"
+            data-posted="7 May 2026"
+            data-ref="233"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/marketing-manager-dubai-233/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/marketing-manager-dubai-233.aspx"
+            aria-selected="false">
+            <span class="job-cat">Marketing</span>
+            <h3 class="job-title">Marketing Manager – Dubai</h3>
+            <div class="job-meta"><span>Dubai (relocation)</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£40,000 – £50,000</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment seeks a Marketing Manager in Dubai for a fast-growing, luxury furniture brand offering AED 15,000 – 20,000 per month or £40,000 – £50,000 annually, with relocation support available.</p><h4>Responsibilities</h4><ul><li>Leading all marketing strategy and execution</li><li>Managing and growing social media channels</li><li>Driving lead generation campaigns (retail &amp; contracts)</li><li>Directing video and photoshoots</li><li>Overseeing brand positioning and creative output</li><li>Supporting both retail showrooms and contract projects</li><li>Reporting directly to Heads of Department and Directors</li><li>Building and scaling a marketing team around you</li></ul><h4>Requirements</h4><ul><li>Commercially minded, creative marketing leader</li><li>Understands both brand and performance marketing</li><li>Can confidently manage shoots and creative direction</li><li>Has experience in lead generation and digital growth</li><li>Is comfortable reporting at senior level</li><li>Wants to build something, not just manage it</li></ul><h4>Benefits</h4><ul><li>Join a fast-growing, premium design brand</li><li>Shape the marketing direction of an established international name</li><li>Autonomy to build your own team</li><li>Direct access to senior leadership</li><li>Real influence on growth strategy</li><li>Relocation package available for the right candidate</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 10 -->
+          <button class="job-card" role="option" type="button"
+            data-id="240" data-filter="designer"
+            data-title="Design Assistant (Part-time)"
+            data-cat="Designer"
+            data-location="West Midlands"
+            data-type="Part-time"
+            data-salary="£25,000 – £30,000 (pro rata)"
+            data-posted="7 May 2026"
+            data-ref="240"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/design-assistant-(parttime)-240/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/design-assistant-(parttime)-240.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Design Assistant (Part-time)</h3>
+            <div class="job-meta"><span>West Midlands</span><span class="job-meta-dot"></span><span>Part-time</span></div>
+            <div class="job-salary">£25,000 – £30,000 (pro rata)</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment seeks a Part-Time Design Assistant for a prominent kitchen retailer in the West Midlands. This permanent role offers £27,000 – £29,000 pro rata for 3–4 days weekly, ideal for a graduate designer with home/kitchen design retail experience.</p><h4>Responsibilities</h4><ul><li>Using internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Supporting the Showroom Manager with ordering processes/liaising with the manufacturing facility and completion of technical drawings for customer/client projects</li><li>Lead taking, booking design appointments and presenting designs to clients/customers</li><li>Administration support for showroom lead marketing activities</li><li>Engaging with walk-in customers and ensuring customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquiries and customer/client enquiries throughout a project</li><li>Ensuring the showroom is maintained to a high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>Customer service experience</li><li>Basic knowledge of design using CAD software</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence (preferred)</li></ul><h4>Benefits</h4><ul><li>Salary: £27,000 – £29,000 pro rata to 3–4 days</li><li>Company pension (after three months)</li><li>Perkbox discount scheme for hundreds of high-street retailers</li><li>25 days' holiday a year plus bank holidays pro rata 3–4 days</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 11 -->
+          <button class="job-card" role="option" type="button"
+            data-id="133" data-filter="designer"
+            data-title="Kitchen Designer"
+            data-cat="Designer"
+            data-location="Sevenoaks, Kent"
+            data-type="Permanent"
+            data-salary="£30,000 – £35,000 + Commission"
+            data-posted="7 May 2026"
+            data-ref="133"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-133/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-133.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer</h3>
+            <div class="job-meta"><span>Sevenoaks, Kent</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£30,000 – £35,000 + Commission</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Designer for a well-established kitchen retailer in the Sevenoaks area. This permanent role offers £30,000 – £35,000 per annum plus commission.</p><h4>Responsibilities</h4><ul><li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li><li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li><li>Support with showroom marketing activities</li><li>Engaging with walk-in customers and ensuring our clients/customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li><li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Drawing new plans/designs based on customer/client brief</li><li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li><li>Supporting the Showroom Manager with ordering processes/liaising with manufacturing colleagues in Germany and completion of technical drawings for customer/client projects</li><li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li><li>Ensuring the showroom is maintained to a high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>At least 4 years' previous experience with design in a luxury kitchen retail or showroom environment</li><li>German kitchen experience preferred and desired</li><li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li><li>Knowledge of design using CAD software</li><li>Training on the product design system (Winner) will also be provided</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence</li></ul><h4>Benefits</h4><ul><li>Basic salary: £30,000 – £35,000 DOE</li><li>Commission based on sales (uncapped)</li><li>Company pension (after three months)</li><li>Discount scheme for hundreds of high street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li><li>Full time. 5 days a week to include late night on Thursday (7pm close) and Saturday working on a rota system (flexible day off in lieu during the week)</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 12 -->
+          <button class="job-card" role="option" type="button"
+            data-id="239" data-filter="designer"
+            data-title="Design Assistant"
+            data-cat="Designer"
+            data-location="North Kent"
+            data-type="Permanent"
+            data-salary="£26,000 – £30,000"
+            data-posted="7 May 2026"
+            data-ref="239"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/design-assistant-239/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/design-assistant-239.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Design Assistant</h3>
+            <div class="job-meta"><span>North Kent</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£26,000 – £30,000</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are seeking a Design Assistant for a well-known kitchen retailer in North Kent. This permanent position offers £27,000 – £29,000 with ongoing training.</p><h4>Responsibilities</h4><ul><li>Using internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Supporting the Showroom Manager with ordering processes/liaising with the manufacturing facility and completion of technical drawings for customer/client projects</li><li>Lead taking, booking design appointments and presenting designs to clients/customers</li><li>Administration support for showroom lead marketing activities</li><li>Engaging with walk-in customers and ensuring customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquiries and customer/client enquiries throughout a project</li><li>Ensuring the showroom is maintained to a high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>Customer service experience</li><li>Basic knowledge of design using CAD software</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence (preferred)</li></ul><h4>Benefits</h4><ul><li>Salary: £27,000 – £29,000</li><li>Company pension (after three months)</li><li>Perkbox discount scheme for hundreds of high-street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 13 -->
+          <button class="job-card" role="option" type="button"
+            data-id="224" data-filter="designer"
+            data-title="Project Kitchen Designer"
+            data-cat="Designer"
+            data-location="London"
+            data-type="Permanent"
+            data-salary="£35,000 – £45,000"
+            data-posted="7 May 2026"
+            data-ref="224"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/project-kitchen-designer-224/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/project-kitchen-designer-224.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Project Kitchen Designer</h3>
+            <div class="job-meta"><span>London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£35,000 – £45,000</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are seeking a Project Kitchen Designer to work with a luxury Italian kitchen company in London. This permanent position pays £35,000 – £45,000 for the right candidate.</p><h4>Responsibilities</h4><ul><li>Analyse floor plans and classify unit types, wardrobes, and appliances to generate quantity take-offs</li><li>Prepare and organise kitchen and wardrobe typologies, based on spec tiers and layout similarities</li><li>Prepare tender documents: layouts, specification breakdowns, palette proposals, and pricing summaries</li><li>Work closely with the Italian factory and internal commercial team to request and review pricing</li><li>Coordinate with the internal team, suppliers and clients</li><li>Use spreadsheets to manage pricing, quantities, and revisions across multiple projects</li><li>Prepare and present project-specific presentation packs for clients (developers, architects, PMs)</li><li>Cross-check specs with appliances, worktops, and finishes to ensure technical and cost compatibility</li><li>Prepare high-quality client presentations and support design team meetings with relevant visuals</li><li>Organise and update project folders with layouts, finishes, and product codes for each unit type</li><li>Coordinate with relevant team leads to flag service clashes, missing drawings, or scope inconsistencies</li><li>Ensure accuracy across all documents shared with clients</li></ul><h4>Requirements</h4><ul><li>Minimum 2–3 years' experience in kitchen design, ideally for large-scale projects</li><li>Strong proficiency in Excel — comfortable working with formulas, quantities, and structured data</li><li>Good working knowledge of kitchen detailing — especially units, internal fittings, appliance integration, and service zones</li><li>Familiarity with appliances (Neff, Siemens, Bosch etc.) and worktop materials (laminate, quartz, compact etc.)</li><li>Experience using kitchen design software such as Metron, Winner Design, Revit (preferred for layouts and coordination)</li><li>Ability to work across multiple live projects with shifting priorities</li><li>Structured mindset with strong attention to detail and accuracy</li><li>Organised, proactive, and able to juggle multiple project timelines</li><li>Commercial awareness — understanding how design choices affect pricing and lead times</li><li>Fluent in preparing clear, structured documents and presentations for client review</li><li>Excellent written and spoken English</li><li>Highly responsible and takes full ownership of assigned tasks, showing initiative in identifying issues, proposing solutions, and pushing projects forward</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 14 -->
+          <button class="job-card" role="option" type="button"
+            data-id="20" data-filter="designer"
+            data-title="Kitchen Designer"
+            data-cat="Designer"
+            data-location="London"
+            data-type="Permanent"
+            data-salary="£22,000 – £40,000 basic + Commission"
+            data-posted="7 May 2026"
+            data-ref="20"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-20/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-20.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer</h3>
+            <div class="job-meta"><span>London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£22,000 – £40,000 basic + Commission</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are working with an award-winning bespoke kitchen company in South West London seeking a Kitchen Designer to join their showroom team. This permanent position pays £22,000 – £26,000 for Junior Designers and £30,000 – £40,000 + Commission for Senior Kitchen Designers.</p><h4>Responsibilities</h4><ul><li>Designing and selling bespoke kitchens</li><li>Maintaining showroom standards at all times</li><li>Ensuring customers and clients are well looked after with a huge focus on the customer journey</li><li>Liaising with other departments and support to ensure communication is kept to the highest level</li><li>Producing high-quality renders with their design software</li><li>Promoting the company brand and acting as an ambassador for the business</li><li>Attending events put on by the business or that the business requires representation for</li></ul><h4>Requirements</h4><ul><li>Knowledge of Virtual Worlds, Fusion 2020, AutoCAD, Compusoft or ArtiCAD preferred</li><li>Saturday working required with a day off in the week</li><li>A proven sales background</li><li>Kitchen Design experience essential</li></ul><h4>Benefits</h4><ul><li>25 days holiday + bank holiday</li><li>Birthday holiday extra</li><li>Private medical insurance after 6 months probation</li><li>Alternate Saturdays</li><li>Other staff bonuses</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 15 -->
+          <button class="job-card" role="option" type="button"
+            data-id="242" data-filter="designer"
+            data-title="Design Assistant"
+            data-cat="Designer"
+            data-location="Nottinghamshire"
+            data-type="Permanent"
+            data-salary="£25,000 – £30,000"
+            data-posted="7 May 2026"
+            data-ref="242"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/design-assistant-242/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/design-assistant-242.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Design Assistant</h3>
+            <div class="job-meta"><span>Nottinghamshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£25,000 – £30,000</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are seeking a Design Assistant for a well-known kitchen retailer in Nottingham. This permanent position offers £27,000 – £29,000 with ongoing training, ideal for a graduate designer with initial home/kitchen design retail experience.</p><h4>Responsibilities</h4><ul><li>Using internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Supporting the Showroom Manager with ordering processes/liaising with the manufacturing facility and completion of technical drawings for customer/client projects</li><li>Lead taking, booking design appointments and presenting designs to clients/customers</li><li>Administration support for showroom lead marketing activities</li><li>Engaging with walk-in customers and ensuring customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquiries and customer/client enquiries throughout a project</li><li>Ensuring the showroom is maintained to a high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>Customer service experience</li><li>Basic knowledge of design using CAD software</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence (preferred)</li></ul><h4>Benefits</h4><ul><li>Salary: £27,000 – £29,000</li><li>Company pension (after three months)</li><li>Perkbox discount scheme for hundreds of high-street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 16 -->
+          <button class="job-card" role="option" type="button"
+            data-id="247" data-filter="sales"
+            data-title="Business Development Manager"
+            data-cat="Area Sales"
+            data-location="Gloucestershire / South West"
+            data-type="Permanent"
+            data-salary="£50,000 – £60,000 + Bonus"
+            data-posted="7 May 2026"
+            data-ref="247"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/business-development-manager-247/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/business-development-manager-247.aspx"
+            aria-selected="false">
+            <span class="job-cat">Area Sales</span>
+            <h3 class="job-title">Business Development Manager</h3>
+            <div class="job-meta"><span>Gloucestershire / South West</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£50,000 – £60,000 + Bonus</div>
+            <div class="job-date">Posted 7 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment seeks a Business Development Manager for the South West Region to support a leading kitchen designer's franchise network. This permanent role offers £50,000 – £56,000 per annum plus bonus and a company car.</p><h4>Responsibilities</h4><ul><li>Acting as the key link between Showroom Business Owners and Head Office, ensuring each franchise operates in line with agreed standards and best practice</li><li>Driving sustainable growth across the franchise network by supporting franchisees with day-to-day business development, operational guidance, and long-term strategic planning</li><li>Working as part of a wider BDM team, analysing sales performance, financial metrics, and operational processes to provide informed advice, motivation, and training</li><li>Helping franchisees understand their KPIs, improve efficiency, and submit accurate reports to the wider business</li><li>Managing your own portfolio of showrooms, supporting them from initial training and launch through to ongoing development and business success</li><li>Analyse franchisee profit, margins, and financial performance</li><li>Identify barriers to growth and develop strategies to improve profitability</li><li>Monitor progress against business plans and ensure actions are followed</li><li>Support franchisees in maximising efficiency and overall performance</li><li>Provide professional advice and guidance on operational issues</li><li>Set and review sales, growth, and customer service targets</li><li>Support franchisees through start-up, launch, and ongoing development</li><li>Coordinate with franchisees, Head Office, and suppliers during setup</li><li>Deliver training and mentoring both on-site and at Head Office</li><li>Assist with business planning and customer appointment preparation</li><li>Train franchisees on internal systems, including CRM tools</li><li>Ensure franchisees operate in line with company standards</li><li>Share best practice and contribute to continuous improvement</li><li>Produce reports for Senior Management and flag concerns</li><li>Promote company policies and values</li></ul><h4>Requirements</h4><ul><li>Understanding of sales, marketing, and P&amp;L management</li><li>Strong track record of achieving targets</li><li>Proficiency in Microsoft Teams, Excel and PowerPoint</li><li>Commercial acumen and operational experience</li><li>Full UK driving licence, RTW in the UK, and satisfactory references</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 17 -->
+          <button class="job-card" role="option" type="button"
+            data-id="249" data-filter="designer"
+            data-title="Project Kitchen Designer"
+            data-cat="Designer"
+            data-location="London"
+            data-type="Permanent"
+            data-salary="£35,000 – £45,000"
+            data-posted="5 May 2026"
+            data-ref="249"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/project-kitchen-designer-249/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/project-kitchen-designer-249.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Project Kitchen Designer</h3>
+            <div class="job-meta"><span>London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£35,000 – £45,000</div>
+            <div class="job-date">Posted 5 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment seeks a Project Kitchen Designer for a luxury Italian kitchen company in London. This permanent position offers £35,000 – £45,000 for someone experienced with large-scale kitchen projects.</p><h4>Responsibilities</h4><ul><li>Analyse floor plans and classify unit types, wardrobes, and appliances to generate quantity take-offs</li><li>Prepare and organise kitchen and wardrobe typologies, based on spec tiers and layout similarities</li><li>Prepare tender documents: layouts, specification breakdowns, palette proposals, and pricing summaries</li><li>Work closely with the Italian factory and internal commercial team to request and review pricing</li><li>Coordinate with the internal team, suppliers and clients</li><li>Use spreadsheets to manage pricing, quantities, and revisions across multiple projects</li><li>Prepare and present project-specific presentation packs for clients (developers, architects, PMs)</li><li>Cross-check specs with appliances, worktops, and finishes to ensure technical and cost compatibility</li><li>Prepare high-quality client presentations and support design team meetings with relevant visuals</li><li>Organise and update project folders with layouts, finishes, and product codes for each unit type</li><li>Coordinate with relevant team leads to flag service clashes, missing drawings, or scope inconsistencies</li><li>Ensure accuracy across all documents shared with clients</li></ul><h4>Requirements</h4><ul><li>Minimum 2–3 years' experience in kitchen design, ideally for large-scale projects</li><li>Strong proficiency in Excel — comfortable working with formulas, quantities, and structured data</li><li>Good working knowledge of kitchen detailing — especially units, internal fittings, appliance integration, and service zones</li><li>Familiarity with appliances (Neff, Siemens, Bosch etc.) and worktop materials (laminate, quartz, compact etc.)</li><li>Experience using kitchen design software such as Metron (desired but not essential), Winner Design, Revit (preferred for layouts and coordination)</li><li>Ability to work across multiple live projects with shifting priorities</li><li>Structured mindset with strong attention to detail and accuracy</li><li>Organised, proactive, and able to juggle multiple project timelines</li><li>Commercial awareness — understanding how design choices affect pricing and lead times</li><li>Fluent in preparing clear, structured documents and presentations for client review</li><li>Excellent written and spoken English</li><li>Highly responsible and takes full ownership of assigned tasks, showing initiative in identifying issues, proposing solutions, and pushing projects forward</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 18 -->
+          <button class="job-card" role="option" type="button"
+            data-id="248" data-filter="designer"
+            data-title="Kitchen Designer"
+            data-cat="Designer"
+            data-location="West London"
+            data-type="Permanent"
+            data-salary="£33,000 – £40,000 + Commission"
+            data-posted="1 May 2026"
+            data-ref="248"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-248/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-248.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer</h3>
+            <div class="job-meta"><span>West London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£33,000 – £40,000 + Commission</div>
+            <div class="job-date">Posted 1 May 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Sales Designer for a well-known kitchen retailer and manufacturer in West London. This permanent role offers £33,000 – £40,000 per annum plus Commission.</p><h4>Responsibilities</h4><ul><li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li><li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li><li>Support with showroom marketing activities</li><li>Engaging with walk in customers and ensuring our clients/customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li><li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Drawing new plans/designs based on customer/client brief</li><li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li><li>Supporting the Dual Site Showroom Manager with ordering processes/liaising with our manufacturing colleagues in Germany and completion of technical drawings for customer/client projects</li><li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li><li>Ensuring the showroom is maintained to high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>At least 4 years' previous experience with design in a luxury kitchen retail or showroom environment</li><li>German kitchen experience preferred and desired</li><li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li><li>Knowledge of design using CAD software</li><li>Training on the product design system will also be provided</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence</li></ul><h4>Benefits</h4><ul><li>Commission based on sales (uncapped)</li><li>Company pension (after three months)</li><li>Discount scheme for hundreds of high street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 19 -->
+          <button class="job-card" role="option" type="button"
+            data-id="154" data-filter="designer"
+            data-title="Senior Kitchen Designer"
+            data-cat="Designer"
+            data-location="West London"
+            data-type="Permanent"
+            data-salary="£40,000 – £45,000 + Commission"
+            data-posted="28 Apr 2026"
+            data-ref="154"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/senior-kitchen-designer-154/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/senior-kitchen-designer-154.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Senior Kitchen Designer</h3>
+            <div class="job-meta"><span>West London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£40,000 – £45,000 + Commission + Benefits</div>
+            <div class="job-date">Posted 28 Apr 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Designer for an award-winning luxury retailer in the West London area. This permanent position pays £40,000 – £45,000 per annum plus commission and company benefits.</p><h4>Responsibilities</h4><ul><li>Driving sales through the design of bespoke kitchens, engaging with clients from initial consultation through to final installation</li><li>Engaging with clients to understand their needs, preferences, and budgets, offering expert design advice and tailored kitchen and furniture solutions</li><li>Leading the creation of stunning, functional kitchen designs, producing detailed plans and 3D renderings using design software (e.g. Vectorworks, or similar)</li><li>Managing the full sales process, from generating leads to closing deals, providing accurate quotes, and ensuring all details of the client's project are captured and priced effectively</li><li>Overseeing the progress of client projects, from design approval through to the final installation, ensuring high standards of quality, on-time delivery, and budget adherence</li><li>Maintaining an up-to-date knowledge of kitchen products, materials, and trends to provide expert advice to clients and create the best solutions for their homes</li><li>Building and maintaining strong client relationships, providing excellent customer service throughout the sales and design process, including aftercare</li><li>Working towards and exceeding individual and team sales targets, contributing to the overall success of the business</li><li>Building a network of clients using various lead generation techniques and sources to create sales opportunities, referrals and repeat clients</li><li>Collaborating with other members of the sales and design team, as well as with the installation team, to ensure smooth project execution</li><li>Representing the company at trade events, shows, and client meetings, acting as an ambassador for the brand and helping to build its reputation in the marketplace</li><li>Managing client records, sales documentation, and progress reports, ensuring accurate and up-to-date information is kept within the company systems</li></ul><h4>Requirements</h4><ul><li>Proven experience in kitchen design and sales, with a strong portfolio of completed projects and a successful track record of achieving sales targets</li><li>Proficiency in kitchen design software such as Vectorworks, SketchUp, or similar, with the ability to produce detailed floor plans</li><li>Strong sales skills with the ability to close deals, upsell products, and deliver solutions tailored to clients' needs and budgets</li><li>Excellent interpersonal and communication skills, with a strong emphasis on providing outstanding customer service and building lasting client relationships</li><li>The ability to manage multiple projects simultaneously, ensuring timely completion and quality standards are met</li><li>An in-depth understanding of kitchen products, appliances, finishes, and current design trends</li><li>The ability to collaborate effectively with colleagues across departments to achieve company goals</li><li>A background in interior design, architecture, or a related field is preferred</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 20 -->
+          <button class="job-card" role="option" type="button"
+            data-id="72" data-filter="designer"
+            data-title="Senior Designer"
+            data-cat="Designer"
+            data-location="Central London"
+            data-type="Permanent"
+            data-salary="£35,000 – £45,000 + Commission"
+            data-posted="28 Apr 2026"
+            data-ref="72"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/senior-designer-72/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/senior-designer-72.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Senior Designer</h3>
+            <div class="job-meta"><span>Central London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£35,000 – £45,000 + Commission</div>
+            <div class="job-date">Posted 28 Apr 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are seeking a Senior Designer for one of the luxury design industry's most prestigious companies in Central London. This permanent role offers £35,000 – £45,000 + Commission per annum.</p><h4>Responsibilities</h4><ul><li>Managing a portfolio of clients and designing bespoke interiors</li><li>Working out of the Central London Showroom</li><li>Managing interior projects from concept to completion</li><li>Designing interiors on the company's in-house CAD system</li><li>Liaising with Project Managers, Installers and the Purchasing department to ensure a smooth running of projects</li><li>Dealing with customers via walk-ins, appointments, repeat business and referrals</li><li>Overcoming objections with customers</li><li>Working with the wider teams in the company to handle projects to a high standard</li><li>Introducing customers to a range of products and appliances</li><li>Upselling where possible and ensuring a smooth sale</li><li>Attending company events and award shows for networking opportunities</li><li>Being a brand ambassador for the company at all times</li></ul><h4>Requirements</h4><ul><li>Minimum 5 years' experience in high-end sales and design</li><li>Proficiency in CAD</li><li>Excellent attention to detail</li><li>A strong character</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 21 -->
+          <button class="job-card" role="option" type="button"
+            data-id="245" data-filter="installations"
+            data-title="Warehouse Manager"
+            data-cat="Installations &amp; Projects"
+            data-location="London"
+            data-type="Permanent"
+            data-salary="£40,000 – £45,000"
+            data-posted="28 Apr 2026"
+            data-ref="245"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/warehouse-manager-245/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/warehouse-manager-245.aspx"
+            aria-selected="false">
+            <span class="job-cat">Installations &amp; Projects</span>
+            <h3 class="job-title">Warehouse Manager</h3>
+            <div class="job-meta"><span>London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£40,000 – £45,000</div>
+            <div class="job-date">Posted 28 Apr 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment seeks a Warehouse Manager for a luxury furniture specialist in Dartford. This permanent position offers £40,000 – £45,000 per annum with working hours 8am – 4pm.</p><h4>Responsibilities</h4><ul><li>Oversee receiving, storage, and dispatch of furniture products</li><li>Ensure proper handling of large, fragile, and high-value items</li><li>Optimize warehouse layout for space utilization and accessibility</li><li>Maintain accurate inventory records using warehouse management systems</li><li>Conduct regular stock checks and audits</li><li>Monitor stock levels and coordinate reordering</li><li>Supervise warehouse staff, including loaders, pickers, and forklift operators</li><li>Schedule shifts and assign daily tasks</li><li>Train staff on handling furniture safely and efficiently</li><li>Coordinate deliveries and dispatch schedules</li><li>Work closely with outsourced transport teams and drivers</li><li>Ensure timely and accurate order fulfillment</li><li>Enforce workplace safety standards, especially for heavy lifting and equipment use</li><li>Ensure compliance with regulations and company policies</li><li>Conduct safety training and inspections</li><li>Inspect incoming and outgoing furniture for damage</li><li>Manage returns, repairs, or replacements</li><li>Identify inefficiencies and implement improvements</li><li>Introduce best practices in warehouse operations</li></ul><h4>Requirements</h4><ul><li>Proven experience as a Warehouse Manager (preferably in furniture or appliances)</li><li>Strong knowledge of warehouse operations and inventory systems</li><li>Leadership and team management skills</li><li>Understanding of health &amp; safety regulations</li><li>Ability to handle physically demanding environments</li><li>Good organizational and problem-solving skills</li><li>Familiarity with forklifts and warehouse equipment (certification preferred)</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <!-- 22 -->
+          <button class="job-card" role="option" type="button"
+            data-id="243" data-filter="sales"
+            data-title="Sales Designer"
+            data-cat="Area Sales"
+            data-location="London"
+            data-type="Self-employed"
+            data-salary="£60,000 – £100,000 OTE"
+            data-posted="27 Apr 2026"
+            data-ref="243"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/sales-designer-243/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/sales-designer-243.aspx"
+            aria-selected="false">
+            <span class="job-cat">Area Sales</span>
+            <h3 class="job-title">Sales Designer</h3>
+            <div class="job-meta"><span>London</span><span class="job-meta-dot"></span><span>Self-employed</span></div>
+            <div class="job-salary">£60,000 – £100,000 OTE</div>
+            <div class="job-date">Posted 27 Apr 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are seeking a driven Sales Designer to work with premium, made-to-measure timber design solutions in the London area, offering £60,000 – £100,000 OTE as a self-employed professional with a high-end bespoke timber design business.</p><h4>Responsibilities</h4><ul><li>Creating and selling tailored, high-quality timber design solutions</li><li>Consulting with clients to understand their vision and deliver the right outcome</li><li>Maintaining exceptional standards in both design and customer experience</li></ul><h4>Requirements</h4><ul><li>Experience in a design-led, sales-focused role</li><li>Strong interpersonal and communication skills</li><li>Self-motivation and a positive, professional approach</li><li>A full UK driving licence and access to your own vehicle</li></ul><h4>Benefits</h4><ul><li>Uncapped earning potential with a realistic £60,000 – £80,000 OTE</li><li>Pre-qualified leads provided, so you can focus on designing and closing</li><li>Full flexibility with a self-employed setup and control of your schedule</li><li>Opportunity to represent an established brand with over 40 years of experience</li><li>Ongoing investment in marketing, innovation, and product development</li><li>A business with a strong 4.5-star Trustpilot rating</li></ul><p class="closing">Designer Recruitment are acting as the representative for this opportunity.</p></div>
+          </button>
+
+          <!-- 23 -->
+          <button class="job-card" role="option" type="button"
+            data-id="185" data-filter="purchasing"
+            data-title="Buyer / Stock Controller"
+            data-cat="Purchasing"
+            data-location="Surrey"
+            data-type="Permanent"
+            data-salary="On request"
+            data-posted="27 Apr 2026"
+            data-ref="185"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/buyer--stock-controller-185/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/buyer--stock-controller-185.aspx"
+            aria-selected="false">
+            <span class="job-cat">Purchasing</span>
+            <h3 class="job-title">Buyer / Stock Controller</h3>
+            <div class="job-meta"><span>Surrey</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">On request</div>
+            <div class="job-date">Posted 27 Apr 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment seeks an experienced Buyer / Stock Controller for a leading plumbing and heating merchant in Surrey. This role offers up to £36,000 per annum and the opportunity to join a well-established, growing business.</p><h4>Responsibilities</h4><ul><li>Managing stock control processes, ensuring accurate levels and availability of key products</li><li>Sourcing, purchasing, and negotiating with suppliers to ensure competitive pricing and reliable supply</li><li>Monitoring sales trends to forecast demand and maintain efficient inventory levels</li><li>Building and maintaining strong relationships with suppliers and internal teams</li><li>Supporting day-to-day operations to ensure a smooth supply chain process</li></ul><h4>Requirements</h4><ul><li>Previous experience as a Buyer, Stock Controller, or Purchasing Assistant within the plumbing, heating, or wider merchant sector</li><li>Strong commercial awareness and negotiation skills</li><li>Excellent organisational skills with attention to detail</li><li>A proactive, hands-on approach and ability to work effectively in a fast-paced environment</li></ul><h4>Benefits</h4><ul><li>Salary: up to £36,000 per annum, depending on experience</li><li>Hours: Monday – Friday, 8am – 5pm</li><li>Friendly and supportive working environment with long-term stability</li></ul><p class="closing">Designer Recruitment are acting as the representative for this position.</p></div>
+          </button>
+
+          <!-- 24 -->
+          <button class="job-card" role="option" type="button"
+            data-id="228" data-filter="designer"
+            data-title="Kitchen Designer"
+            data-cat="Designer"
+            data-location="Cumbria (remote)"
+            data-type="Permanent"
+            data-salary="On request"
+            data-posted="27 Apr 2026"
+            data-ref="228"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-228/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-228.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer</h3>
+            <div class="job-meta"><span>Cumbria (remote)</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">On request</div>
+            <div class="job-date">Posted 27 Apr 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment represents a prestigious luxury kitchen company seeking an exceptional Remote Kitchen Sales Designer to manage and convert leads across the Cumbria region. The role offers an OTE of £65K – £100K+.</p><h4>Responsibilities</h4><ul><li>Manage and convert regional leads across Cumbria while working predominantly remotely</li><li>Conduct customer consultations remotely, in customers' homes, and in-showroom when required</li><li>Understand customer lifestyle, needs, preferences, and budget</li><li>Build strong relationships with clients, acting as a trusted advisor throughout the process</li><li>Present and sell bespoke kitchens, boot-rooms, utilities, bedrooms, appliances, worktops, and accessories</li><li>Achieve or exceed individual sales targets aligned with company KPIs</li><li>Upsell complementary products and services where appropriate</li><li>Handle customer objections professionally and close sales confidently</li><li>Manage client expectations from initial order through to final sign-off</li><li>Complete customer site surveys and final contracts</li></ul><h4>Requirements</h4><ul><li>Strong sales ability with a consultative approach</li><li>Creative design flair with excellent attention to detail</li><li>Excellent communication and interpersonal skills</li><li>Highly organised with strong time-management skills</li><li>Comfortable working remotely and managing your own workload</li><li>Experienced in using CAD design software</li><li>Ability to manage multiple projects simultaneously</li><li>Experience designing and selling luxury kitchens preferred</li><li>Knowledge of appliances, worktops, and cabinetry construction</li><li>Confident in negotiation and closing orders</li><li>Strong team player who can also work independently</li><li>Ambitious, target-driven, and self-motivated</li><li>Positive, solution-focused attitude</li></ul><h4>Benefits</h4><ul><li>Cycle to Work Scheme</li><li>Contributory pension</li><li>Access to discounts across hundreds of well-known retailers</li><li>Wellbeing platform offering fitness resources, mindfulness tools, nutritional guidance, and financial support</li><li>Employee Assistance Programme</li><li>Mortgage advice and education through partnered specialists</li><li>Additional employee benefits currently being developed</li></ul><p class="closing">Designer Recruitment are acting as the representative for this opportunity.</p></div>
+          </button>
+
+          <!-- 25 -->
+          <button class="job-card" role="option" type="button"
+            data-id="200" data-filter="designer"
+            data-title="Kitchen Designer"
+            data-cat="Designer"
+            data-location="West Midlands"
+            data-type="Permanent"
+            data-salary="£30,000 – £40,000 + Commission"
+            data-posted="27 Apr 2026"
+            data-ref="200"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-200/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-200.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer</h3>
+            <div class="job-meta"><span>West Midlands</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£30,000 – £40,000 + Commission</div>
+            <div class="job-date">Posted 27 Apr 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are representing a growing, premium kitchen specialist based in the West Midlands seeking a Kitchen Designer. The role offers a salary of £30,000 – £40,000 plus commission.</p><h4>Responsibilities</h4><ul><li>Guide customers through their full design journey, from initial consultation to final presentation</li><li>Create beautiful, functional kitchen designs tailored to each client's lifestyle</li><li>Build rapport, deliver exceptional service, and confidently close sales</li><li>Work collaboratively with the team to maintain the showroom's exceptional standards</li></ul><h4>Requirements</h4><ul><li>Has experience in kitchen design and sales</li><li>Is creative, commercially minded, and confident with customers</li><li>Delivers a high level of service and enjoys working towards sales targets</li><li>Is motivated, organised, and passionate about interiors</li><li>Experience using Winner software is preferable but not essential</li></ul><h4>Benefits</h4><ul><li>Work with a stunning product offering that includes a mix of high-end European and British made kitchen ranges</li><li>Join an award-winning company recognised for design excellence, customer service, and installation quality</li><li>Be part of a friendly, supportive team with a strong reputation and a loyal client base</li><li>Enjoy a competitive basic salary up to £40,000, plus a commission structure that rewards performance</li></ul><p class="closing">Designer Recruitment are acting as the recruitment agency for this vacancy.</p></div>
+          </button>
+
+          <!-- 26 -->
+          <button class="job-card" role="option" type="button"
+            data-id="201" data-filter="designer"
+            data-title="Kitchen Designer"
+            data-cat="Designer"
+            data-location="Warwickshire"
+            data-type="Permanent"
+            data-salary="£30,000 – £40,000 + Commission"
+            data-posted="27 Apr 2026"
+            data-ref="201"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-201/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-201.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer</h3>
+            <div class="job-meta"><span>Warwickshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£30,000 – £40,000 + Commission</div>
+            <div class="job-date">Posted 27 Apr 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are representing a growing, premium kitchen specialist based in Warwickshire seeking a Kitchen Designer. The role offers a salary of £30,000 – £40,000 plus commission.</p><h4>Responsibilities</h4><ul><li>Guide customers through their full design journey, from initial consultation to final presentation</li><li>Create beautiful, functional kitchen designs tailored to each client's lifestyle</li><li>Build rapport, deliver exceptional service, and confidently close sales</li><li>Work collaboratively with the team to maintain the showroom's exceptional standards</li></ul><h4>Requirements</h4><ul><li>Has experience in kitchen design and sales</li><li>Is creative, commercially minded, and confident with customers</li><li>Delivers a high level of service and enjoys working towards sales targets</li><li>Is motivated, organised, and passionate about interiors</li><li>Experience using Winner software is preferable but not essential</li></ul><h4>Benefits</h4><ul><li>Work with a stunning product offering that includes a mix of high-end European and British made kitchen ranges</li><li>Join an award-winning company recognised for design excellence, customer service, and installation quality</li><li>Be part of a friendly, supportive team with a strong reputation and a loyal client base</li><li>Enjoy a competitive basic salary up to £40,000, plus a commission structure that rewards performance</li></ul><p class="closing">Designer Recruitment are acting as the recruitment agency for this vacancy.</p></div>
+          </button>
+
+          <!-- 27 -->
+          <button class="job-card" role="option" type="button"
+            data-id="237" data-filter="designer"
+            data-title="Kitchen Designer (Luxury)"
+            data-cat="Designer"
+            data-location="Cambridgeshire"
+            data-type="Permanent"
+            data-salary="OTE £80,000 – £110,000+"
+            data-posted="27 Apr 2026"
+            data-ref="237"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-237/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-237.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer (Luxury)</h3>
+            <div class="job-meta"><span>Cambridgeshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">OTE £80,000 – £110,000+</div>
+            <div class="job-date">Posted 27 Apr 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment represents a prestigious luxury kitchen company seeking an exceptional Kitchen Sales Designer in Cambridgeshire. The role offers an OTE of £80K – £110K+ and combines creative design skills with strong sales ability.</p><h4>Responsibilities</h4><ul><li>Work closely with the Showroom Manager to deliver an excellent customer experience</li><li>Consult with customers in both their homes and the showroom to understand lifestyle, needs, preferences, and budget</li><li>Build strong relationships with clients, acting as a trusted advisor throughout</li><li>Present and sell bespoke kitchens, boot-rooms, utilities, bedrooms, appliances, worktops, and accessories</li><li>Achieve or exceed individual sales targets aligned with company KPIs</li><li>Upsell complementary products and services where appropriate</li><li>Handle customer objections professionally and close sales confidently</li><li>Manage client expectations from initial order to final sign-off</li><li>Complete customer site surveys and final contracts</li></ul><h4>Requirements</h4><ul><li>Strong sales ability with a consultative approach</li><li>Creative design flair with attention to detail</li><li>Excellent communication and interpersonal skills</li><li>High level of organisation and time management</li><li>Experienced in using CAD design software</li><li>Ability to manage multiple projects simultaneously</li><li>Experience in designing &amp; selling luxury kitchens preferred</li><li>Knowledge of appliances, worktops, and cabinetry construction</li><li>Confident in negotiation and closing orders</li><li>Strong team player who can also work independently</li><li>Ambitious and target-driven</li><li>Positive attitude with an ability to provide solutions</li></ul><h4>Benefits</h4><ul><li>Cycle to Work Scheme</li><li>Contributory pension</li><li>Access to discounts across hundreds of well-known retailers</li><li>Wellbeing platform offering fitness resources, mindfulness tools, nutritional guidance, and financial support</li><li>Employee Assistance Programme</li><li>Mortgage advice and education through partnered specialists</li><li>Additional employee benefits currently being developed</li></ul><p class="closing">Designer Recruitment are acting as the representative for this opportunity.</p></div>
+          </button>
+
+          <!-- 28 -->
+          <button class="job-card" role="option" type="button"
+            data-id="246" data-filter="designer"
+            data-title="Kitchen Designer"
+            data-cat="Designer"
+            data-location="Crewe, Cheshire"
+            data-type="Permanent"
+            data-salary="£27,000 + Commission (OTE £50,000)"
+            data-posted="23 Apr 2026"
+            data-ref="246"
+            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-246/apply.aspx"
+            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-246.aspx"
+            aria-selected="false">
+            <span class="job-cat">Designer</span>
+            <h3 class="job-title">Kitchen Designer</h3>
+            <div class="job-meta"><span>Crewe, Cheshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
+            <div class="job-salary">£27,000 + Commission (OTE £50,000)</div>
+            <div class="job-date">Posted 23 Apr 2026</div>
+            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Designer for an established kitchen retailer in Crewe, Cheshire. This permanent role offers up to £27,000 per annum plus Commission, with realistic OTEs of circa £50,000 per annum.</p><h4>Responsibilities</h4><ul><li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li><li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li><li>Support with showroom marketing activities</li><li>Engaging with walk in customers and ensuring our clients/customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li><li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Drawing new plans/designs based on customer/client brief</li><li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li><li>Supporting the wider management with ordering processes/liaising with their manufacturing colleagues in the completion of technical drawings for customer/client projects</li><li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li><li>Ensuring the showroom is maintained to high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>At least 2 years' previous experience with design in a kitchen retail or showroom environment</li><li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li><li>Knowledge of design using CAD software</li><li>Training on the product design system will also be provided</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence</li></ul><h4>Benefits</h4><ul><li>Commission based on sales (uncapped)</li><li>Company pension</li><li>Opportunity for ongoing training and development</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
+          </button>
+
+          <div class="empty-state" id="empty-state" hidden>
+            No roles match this filter right now. <a href="mailto:ben@designerrecruitment.co.uk?subject=Speculative%20application" style="color:var(--color-navy-deep);text-decoration:underline;">Send us a speculative note</a> and we'll keep you in mind.
+          </div>
+        </div>
+
+        <!-- RIGHT: detail -->
+        <div class="jobs-detail-pane" aria-live="polite">
+          <button class="detail-back" type="button" id="detail-back" aria-label="Back to roles list">
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M5 1 1 5l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            All roles
+          </button>
+
+          <div class="detail-body" id="detail-body">
+            <div class="detail-cat" id="d-cat">Designer</div>
+            <h2 class="detail-title" id="d-title">
+              Kitchen Designer
+            </h2>
+            <div class="detail-meta" id="d-meta">
+              <span id="d-location">Warwickshire</span>
+              <span class="detail-meta-dot"></span>
+              <span id="d-type">Permanent</span>
+              <span class="detail-meta-dot"></span>
+              <span id="d-posted">Posted 7 May 2026</span>
+            </div>
+            <div class="detail-salary" id="d-salary">£33,000 + Commission</div>
+
+            <div class="detail-actions">
+              <a class="btn-primary" id="d-apply" href="/candidates/apply/?ref=213&amp;title=Kitchen+Designer&amp;location=Warwickshire&amp;salary=%C2%A333%2C000+%2B+Commission">
+                Apply now
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a class="btn-dark-ghost" href="mailto:ben@designerrecruitment.co.uk?subject=Question%20about%20a%20role">
+                Ask a question
+              </a>
+            </div>
+
+            <div class="detail-share" role="group" aria-label="Share this role">
+              <span class="detail-share-label">Share</span>
+              <a class="share-btn" id="d-share-linkedin" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a class="share-btn" id="d-share-facebook" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a class="share-btn" id="d-share-x" href="#" target="_blank" rel="noopener" aria-label="Share on X">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.522 7.452L22 22h-6.844l-5.36-7.005L3.6 22H1l7.001-8L1.5 2h6.997l4.85 6.4L18.244 2zm-1.205 18h1.85L7.092 4H5.106l11.933 16z"/></svg>
+              </a>
+            </div>
+
+            <div class="detail-section-head">Role overview</div>
+            <div class="detail-description" id="d-description">
+              <p>Designer Recruitment are seeking a Kitchen Sales Designer for a well-known kitchen retailer and manufacturer in Stratford Upon Avon. This permanent role offers up to £33,000 per annum plus Commission for the right candidate.</p>
+              <h4>Responsibilities</h4>
+              <ul>
+                <li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li>
+                <li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li>
+                <li>Support with showroom marketing activities</li>
+                <li>Engaging with walk in customers and ensuring our clients/customers receive the highest level of customer service</li>
+                <li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li>
+                <li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li>
+                <li>Drawing new plans/designs based on customer/client brief</li>
+                <li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li>
+                <li>Supporting the Dual Site Showroom Manager with ordering processes/liaising with our manufacturing colleagues in Germany and completion of technical drawings for customer/client projects</li>
+                <li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li>
+                <li>Ensuring the showroom is maintained to high level of cleanliness</li>
+              </ul>
+              <h4>Requirements</h4>
+              <ul>
+                <li>At least 3 years' previous experience with design in a luxury kitchen retail or showroom environment</li>
+                <li>German kitchen experience preferred and desired</li>
+                <li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li>
+                <li>Knowledge of design using CAD software</li>
+                <li>Training on the product design system will also be provided</li>
+                <li>Proactive with a desire to learn and develop in the role</li>
+                <li>Strong attention to detail</li>
+                <li>Ability to prioritise work and manage multiple tasks</li>
+                <li>Good communication and presentation skills and IT literate</li>
+                <li>Ability to work as part of a team and independently</li>
+                <li>Personable, friendly and confident with a can do attitude</li>
+                <li>Driving Licence</li>
+              </ul>
+              <h4>Benefits</h4>
+              <ul>
+                <li>Commission based on sales (uncapped)</li>
+                <li>Company pension (after three months)</li>
+                <li>Discount scheme for hundreds of high street retailers</li>
+                <li>25 days' holiday a year plus bank holidays</li>
+                <li>Free hot drinks</li>
+                <li>Opportunity for ongoing training and development</li>
+                <li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li>
+              </ul>
+              <p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p>
+            </div>
+
+            <div class="detail-facts">
+              <div>
+                <div class="detail-fact-label">Discipline</div>
+                <div class="detail-fact-value" id="d-fact-cat">Designer</div>
+              </div>
+              <div>
+                <div class="detail-fact-label">Reference</div>
+                <div class="detail-fact-value" id="d-fact-ref">213</div>
+              </div>
+              <div>
+                <div class="detail-fact-label">Type</div>
+                <div class="detail-fact-value" id="d-fact-type">Permanent</div>
+              </div>
+              <div>
+                <div class="detail-fact-label">Posted</div>
+                <div class="detail-fact-value" id="d-fact-posted">7 May 2026</div>
+              </div>
+            </div>
+
+            <a class="detail-external" id="d-detail" href="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-213.aspx" target="_blank" rel="noopener">
+              View full posting on Designer Recruitment
+              <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M3 8 8 3M4 3h4v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CV & CAREER SERVICES ═══════════ -->
+  <section id="cv-services" data-bg="light" aria-labelledby="cv-services-title">
+    <div class="cv-inner">
+      <div class="cv-grid">
+        <div class="cv-left">
+          <div class="section-tag fade-up">CV &amp; Career Services</div>
+          <h2 id="cv-services-title" class="cv-title fade-up d1">
+            Presented at your<br><span class="accent">absolute best.</span>
+          </h2>
+        </div>
+        <div class="cv-right">
+          <p class="cv-body fade-up d1">
+            We offer a dedicated CV and career support service designed to help candidates present themselves at their absolute best within the design industry.
+          </p>
+          <p class="cv-body fade-up d2">
+            Whether actively job seeking or preparing for future opportunities, we can create a professionally written CV tailored specifically to experience and career goals.
+          </p>
+          <p class="cv-body fade-up d3">
+            Choose the level of support that fits where you are now, from a focused refresh through to a fully crafted profile and ongoing career guidance. See what's included at each tier and the price packages available.
+          </p>
+          <div class="cv-actions fade-up d3">
+            <a class="btn-primary" href="/cv-career-services/">
+              View services &amp; packages
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA BAND ═══════════ -->
+  <section id="cta" data-bg="light" aria-labelledby="cta-title">
+    <div class="cta-inner">
+      <div>
+        <div class="section-tag">Speculative</div>
+        <h2 id="cta-title" class="cta-title">
+          Don't see <span class="accent">the right one?</span>
+        </h2>
+        <p class="cta-lead">
+          A lot of our work happens off the open list. If your background fits the KBB or builders merchant world and you're open to a confidential conversation, send a CV. We'll keep you in mind for the right brief.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn-primary" href="/candidates/apply/">
+          Submit a CV
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn-dark-ghost" href="/contact/">
+          Contact studio
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="foot-brand">
+      <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+      <p>The UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom &amp; Builders Merchant industry.</p>
+      <a class="foot-social" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+    <div>
+      <div class="foot-head">Company</div>
+      <a href="/about/" class="foot-link">About</a>
+      <a href="/about/#story" class="foot-link">Our Story</a>
+      <a href="/about/#principles" class="foot-link">Principles</a>
+      <a href="/about/#process" class="foot-link">Process</a>
+      <a href="/contact/" class="foot-link">Contact</a>
+    </div>
+    <div>
+      <div class="foot-head">For Candidates</div>
+      <a href="/candidates/" class="foot-link">Find a Role</a>
+      <a href="/candidates/apply/" class="foot-link">Submit your CV</a>
+      <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
+      <a href="mailto:ben@designerrecruitment.co.uk" class="foot-link">Request a Salary Guide</a>
+    </div>
+    <div>
+      <div class="foot-head">For Clients</div>
+      <a href="/clients/" class="foot-link">Hire Talent</a>
+      <a href="/clients/#post-a-job" class="foot-link">Post a Job</a>
+      <a href="/#expertise" class="foot-link">Consultancy</a>
+      <a href="/who-we-recruit-for/" class="foot-link">Who we recruit for</a>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>© <span id="year">2026</span> Designer Recruitment Ltd. All rights reserved.<br>
+      Registered in England &amp; Wales.
+      <a href="https://flowfortyfour.com" target="_blank" rel="noopener" class="ff-credit" aria-label="Built by flowfortyfour.com (opens in new tab)">Built by <span class="ff-credit-name">flowfortyfour.com</span></a>
+    </div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── Floating pill nav (canonical) ── */
+  (function() {
+    const navWrap     = document.getElementById('nav-wrap');
+    const burger      = document.getElementById('burger');
+    const navDropdown = document.getElementById('nav-dropdown');
+    let menuOpen = false;
+
+    function openMenu()  { menuOpen = true;  navWrap.classList.add('open');    burger.classList.add('open');    burger.setAttribute('aria-expanded','true');  navDropdown.setAttribute('aria-hidden','false'); }
+    function closeMenu() { menuOpen = false; navWrap.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded','false'); navDropdown.setAttribute('aria-hidden','true');  }
+
+    burger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+    navDropdown.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click',   e => { if (menuOpen && !navWrap.contains(e.target)) closeMenu(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) closeMenu(); });
+
+    function checkPillBg() {
+      const pillY = window.innerHeight - 40;
+      const anyLight = [...document.querySelectorAll('[data-bg="light"]')].some(el => {
+        const r = el.getBoundingClientRect();
+        return r.top < pillY && r.bottom > pillY;
+      });
+      navWrap.classList.toggle('on-light', anyLight);
+    }
+    checkPillBg();
+    window.addEventListener('scroll', checkPillBg, { passive: true });
+    window.addEventListener('resize', checkPillBg);
+  })();
+
+  /* ── Fade-up reveal ── */
+  (function() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  })();
+
+  /* ── Jobs browser: filter + select + mobile back ── */
+  (function() {
+    const cards    = Array.from(document.querySelectorAll('.job-card'));
+    const chips    = Array.from(document.querySelectorAll('.filter-chip'));
+    const empty    = document.getElementById('empty-state');
+    const listCnt  = document.getElementById('list-count');
+    const detailEl = {
+      cat:        document.getElementById('d-cat'),
+      title:      document.getElementById('d-title'),
+      location:   document.getElementById('d-location'),
+      type:       document.getElementById('d-type'),
+      posted:     document.getElementById('d-posted'),
+      salary:     document.getElementById('d-salary'),
+      apply:      document.getElementById('d-apply'),
+      detail:     document.getElementById('d-detail'),
+      desc:       document.getElementById('d-description'),
+      factCat:    document.getElementById('d-fact-cat'),
+      factRef:    document.getElementById('d-fact-ref'),
+      factType:   document.getElementById('d-fact-type'),
+      factPosted: document.getElementById('d-fact-posted'),
+      shareLi:    document.getElementById('d-share-linkedin'),
+      shareFb:    document.getElementById('d-share-facebook'),
+      shareX:     document.getElementById('d-share-x'),
+    };
+    const detailBack = document.getElementById('detail-back');
+    const detailPane = document.querySelector('.jobs-detail-pane');
+    const listPane   = document.querySelector('.jobs-list-pane');
+
+    function selectCard(card, options = { openMobileDetail: false }) {
+      cards.forEach(c => c.setAttribute('aria-selected', c === card ? 'true' : 'false'));
+
+      detailEl.cat.textContent       = card.dataset.cat;
+      detailEl.title.textContent     = card.dataset.title;
+      detailEl.location.textContent  = card.dataset.location;
+      detailEl.type.textContent      = card.dataset.type;
+      detailEl.posted.textContent    = 'Posted ' + card.dataset.posted;
+      detailEl.salary.textContent    = card.dataset.salary;
+      detailEl.apply.href            = '/candidates/apply/?' + new URLSearchParams({
+                                          ref:      card.dataset.ref,
+                                          title:    card.dataset.title,
+                                          location: card.dataset.location,
+                                          salary:   card.dataset.salary,
+                                        }).toString();
+      detailEl.detail.href           = card.dataset.detail;
+      detailEl.factCat.textContent   = card.dataset.cat;
+      detailEl.factRef.textContent   = card.dataset.ref;
+      detailEl.factType.textContent  = card.dataset.type;
+      detailEl.factPosted.textContent= card.dataset.posted;
+
+      const descSrc = card.querySelector('.job-description-data');
+      detailEl.desc.innerHTML = descSrc ? descSrc.innerHTML : '';
+
+      // Share URLs — pre-fill the post with title, location, salary + the source posting link
+      const shareUrl  = encodeURIComponent(card.dataset.detail);
+      const shareText = encodeURIComponent(
+        `${card.dataset.title} — ${card.dataset.location} (${card.dataset.salary}). Live role with Designer Recruitment.`
+      );
+      detailEl.shareLi.href = `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`;
+      detailEl.shareFb.href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${shareText}`;
+      detailEl.shareX.href  = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+
+      // Reset detail scroll on selection
+      if (detailPane) detailPane.scrollTop = 0;
+
+      // Mobile: enter detail view
+      if (options.openMobileDetail && window.matchMedia('(max-width: 768px)').matches) {
+        document.body.classList.add('candidates-detail-open');
+        window.scrollTo({ top: detailPane.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+      }
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => selectCard(card, { openMobileDetail: true }));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectCard(card, { openMobileDetail: true });
+        }
+      });
+    });
+
+    detailBack.addEventListener('click', () => {
+      document.body.classList.remove('candidates-detail-open');
+      window.scrollTo({ top: listPane.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+    });
+
+    function applyFilter(filter) {
+      let visibleCount = 0;
+      let firstVisible = null;
+      cards.forEach(card => {
+        const match = (filter === 'all') || (card.dataset.filter === filter);
+        card.style.display = match ? '' : 'none';
+        if (match) {
+          visibleCount += 1;
+          if (!firstVisible) firstVisible = card;
+        }
+      });
+      listCnt.textContent = visibleCount;
+      empty.hidden = visibleCount > 0;
+      if (firstVisible) selectCard(firstVisible);
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'));
+        applyFilter(chip.dataset.filter);
+      });
+    });
+
+    // Initial: ensure first card is selected
+    const initial = cards.find(c => c.getAttribute('aria-selected') === 'true') || cards[0];
+    if (initial) selectCard(initial);
+  })();
+
+  // ── JobPosting JSON-LD: emit schema.org markup for every job card.
+  //    Lets Google Jobs surface roles in the rich jobs widget on SERPs.
+  (function() {
+    function parseDate(str) {
+      const m = /(\d+)\s+(\w+)\s+(\d{4})/.exec(str || '');
+      if (!m) return new Date().toISOString().slice(0, 10);
+      const months = {jan:'01',feb:'02',mar:'03',apr:'04',may:'05',jun:'06',jul:'07',aug:'08',sep:'09',oct:'10',nov:'11',dec:'12'};
+      const mm = months[m[2].slice(0, 3).toLowerCase()] || '01';
+      return `${m[3]}-${mm}-${String(m[1]).padStart(2, '0')}`;
+    }
+    function parseSalary(str) {
+      if (!str) return null;
+      const range = /£\s*([\d,]+)\s*[–\-]\s*£?\s*([\d,]+)/.exec(str);
+      const single = /£\s*([\d,]+)/.exec(str);
+      const toNum = s => parseInt(s.replace(/,/g, ''), 10);
+      if (range) return { minValue: toNum(range[1]), maxValue: toNum(range[2]) };
+      if (single) return { minValue: toNum(single[1]), maxValue: toNum(single[1]) };
+      return null;
+    }
+    const cards = document.querySelectorAll('.job-card');
+    cards.forEach(card => {
+      const title    = card.dataset.title || '';
+      const location = card.dataset.location || '';
+      const salary   = card.dataset.salary || '';
+      const posted   = card.dataset.posted || '';
+      const type     = (card.dataset.type || 'Permanent').toUpperCase();
+      const ref      = card.dataset.ref || '';
+      const detail   = card.dataset.detail || '';
+      const sal      = parseSalary(salary);
+      const job = {
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title,
+        identifier: { '@type': 'PropertyValue', name: 'Designer Recruitment', value: ref },
+        datePosted: parseDate(posted),
+        employmentType: type === 'PERMANENT' ? 'FULL_TIME' : type,
+        hiringOrganization: {
+          '@type': 'Organization',
+          name: 'Designer Recruitment',
+          sameAs: 'https://designerrecruitment.co.uk/',
+          logo: 'https://designerrecruitment.co.uk/Brand_assets/DR-Logo-Blue.png'
+        },
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: location,
+            addressCountry: 'GB'
+          }
+        },
+        directApply: false,
+        url: detail || `https://designerrecruitment.co.uk/candidates/#job-${ref}`
+      };
+      if (sal) {
+        job.baseSalary = {
+          '@type': 'MonetaryAmount',
+          currency: 'GBP',
+          value: { '@type': 'QuantitativeValue', minValue: sal.minValue, maxValue: sal.maxValue, unitText: 'YEAR' }
+        };
+      }
+      const desc = card.querySelector('.job-description-data');
+      if (desc) job.description = desc.innerHTML.trim();
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.textContent = JSON.stringify(job);
+      document.head.appendChild(s);
+    });
+  })();
+</script>
+
+</body>
+</html>

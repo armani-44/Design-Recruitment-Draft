@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who we recruit for, Designer Recruitment® | KBB roles across the UK</title>
+  <meta name="description" content="From showroom and field-based sales through to operations, head office, executive, and temporary roles, the full breakdown of who Designer Recruitment recruits for across the KBB and Builders Merchant industry.">
+  <meta name="theme-color" content="#07071B">
+  <link rel="canonical" href="https://designerrecruitment.co.uk/who-we-recruit-for/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://designerrecruitment.co.uk/who-we-recruit-for/">
+  <meta property="og:title" content="Who we recruit for, Designer Recruitment® | KBB roles across the UK">
+  <meta property="og:description" content="From showroom and field-based sales through to operations, head office, executive, and temporary roles, the full breakdown of who Designer Recruitment recruits for across the KBB and Builders Merchant industry.">
+  <meta property="og:image" content="https://designerrecruitment.co.uk/Brand_assets/AWinship-8084-025-High-scaled.jpg">
+  <meta property="og:image:alt" content="A premium kitchen interior typical of the studios Designer Recruitment® works with.">
+  <meta property="og:site_name" content="Designer Recruitment®">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Who we recruit for, Designer Recruitment® | KBB roles across the UK">
+  <meta name="twitter:description" content="From showroom and field-based sales through to operations, head office, executive, and temporary roles, the full breakdown of who Designer Recruitment recruits for across the KBB and Builders Merchant industry.">
+  <meta name="twitter:image" content="https://designerrecruitment.co.uk/Brand_assets/AWinship-8084-025-High-scaled.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/Brand_assets/DR-Logo-Blue-2.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Brand_assets/DR-Logo-Blue-2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/Brand_assets/AWinship-8084-025-High-scaled.jpg" as="image" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Shared brand tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <style>
+    /* Legacy aliases — match homepage so .midnight, .gold etc resolve */
+    :root {
+      --midnight:  var(--color-midnight);
+      --dark:      var(--bg-surface);
+      --surface:   var(--bg-surface);
+      --surface2:  var(--bg-elevated);
+      --gold:      var(--color-gold);
+      --gold-dim:  var(--accent-soft);
+      --cream:     var(--color-cream);
+      --warm:      var(--color-cream);
+      --muted:     var(--fg-muted);
+      --navy:      var(--color-navy-deep);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: auto; }
+    body {
+      font-family: var(--font-body);
+      font-weight: var(--fw-light);
+      background: var(--bg-base);
+      color: var(--fg-base);
+      overflow-x: hidden;
+    }
+
+    .serif   { font-family: var(--font-display); }
+    .serif-i { font-family: var(--font-display); font-style: italic; }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    /* ── Skip link ── */
+    .skip-link {
+      position: absolute; top: 8px; left: 8px; z-index: 10000;
+      padding: 12px 22px; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--color-midnight); background: var(--color-gold);
+      border-radius: var(--radius-full); text-decoration: none;
+      transform: translateY(-150%);
+      transition: transform 0.2s var(--ease-out-expo);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    /* ── Grain ── */
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+      opacity: 0.05; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+    }
+
+    /* ── NAV — Floating pill (canonical, matches homepage) ── */
+    #nav-wrap {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 200; width: min(460px, calc(100vw - 48px));
+    }
+    #nav-pill {
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 7px 7px 7px 6px;
+      backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius-full);
+      position: relative; z-index: 2;
+      transition: background 0.45s ease, border-color 0.45s ease;
+    }
+    #nav-wrap.open #nav-pill {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.10);
+    }
+    #nav-wrap.on-light #nav-pill {
+      background: rgba(7,7,27,0.55);
+      border-color: rgba(255,255,255,0.14);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.10),
+        inset 0 -1px 0 rgba(0,0,0,0.18),
+        0 8px 32px rgba(7,7,27,0.22);
+    }
+    #nav-wrap.on-light.open #nav-pill {
+      background: rgba(7,7,27,0.68);
+      border-color: rgba(255,255,255,0.12);
+    }
+    #burger {
+      display: flex; align-items: center; gap: 10px;
+      background: none; border: none; cursor: pointer;
+      color: var(--cream); padding: 8px 12px 8px 10px;
+      font-size: 13px; font-family: var(--font-body);
+      font-weight: 300; letter-spacing: 0.05em;
+      justify-self: start;
+    }
+    .burger-icon { width: 18px; height: 12px; position: relative; flex-shrink: 0; }
+    .burger-line {
+      position: absolute; left: 0; right: 0; height: 1px;
+      background: var(--cream); transform-origin: center;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease, top 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .b1 { top: 2px; }
+    .b2 { top: 9px; }
+    #burger.open .b1 { top: 5.5px; transform: rotate(45deg); }
+    #burger.open .b2 { top: 5.5px; transform: rotate(-45deg); }
+    .burger-label { color: var(--cream); }
+    #nav-logo {
+      display: block; text-decoration: none;
+      transition: opacity 0.22s ease; position: relative;
+      justify-self: center;
+    }
+    #nav-logo:hover { opacity: 0.75; }
+    #nav-logo img { height: 30px; display: block; transition: opacity 0.4s ease; }
+    .nav-contact-btn {
+      padding: 10px 22px;
+      font-size: 11px; font-family: var(--font-body);
+      font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--midnight); background: var(--cream);
+      border-radius: var(--radius-full); text-decoration: none; white-space: nowrap;
+      transition: opacity 0.22s ease, transform 0.22s cubic-bezier(.16,1,.3,1);
+      justify-self: end;
+    }
+    .nav-contact-btn:hover { opacity: 0.84; transform: scale(0.96); }
+    #nav-dropdown {
+      position: absolute; bottom: calc(100% + 8px); top: auto; left: 0; right: 0;
+      background: rgba(14, 13, 35, 0.96);
+      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(242,237,228,0.1);
+      border-radius: var(--radius-lg);
+      padding: 22px 28px 18px;
+      clip-path: inset(100% 0 0 0 round 20px);
+      opacity: 0; pointer-events: none;
+      transition: clip-path 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease;
+    }
+    #nav-wrap.open #nav-dropdown {
+      clip-path: inset(0 0 0 0 round 20px);
+      opacity: 1; pointer-events: auto;
+    }
+    .nd-link {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.6vw, 28px);
+      font-weight: 300; line-height: 1.2; letter-spacing: -0.01em;
+      color: var(--cream); text-decoration: none;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(242,237,228,0.08);
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.45s cubic-bezier(0.16,1,0.3,1),
+                  color 0.2s ease;
+    }
+    .nd-link:first-child { border-top: 1px solid rgba(242,237,228,0.08); }
+    #nav-wrap.open .nd-link { opacity: 1; transform: translateY(0); }
+    #nav-wrap.open .nd-link:nth-child(1) { transition-delay: 0.06s; }
+    #nav-wrap.open .nd-link:nth-child(2) { transition-delay: 0.10s; }
+    #nav-wrap.open .nd-link:nth-child(3) { transition-delay: 0.14s; }
+    #nav-wrap.open .nd-link:nth-child(4) { transition-delay: 0.18s; }
+    #nav-wrap.open .nd-link:nth-child(5) { transition-delay: 0.22s; }
+    #nav-wrap.open .nd-link:nth-child(6) { transition-delay: 0.26s; }
+    #nav-wrap.open .nd-link:nth-child(7) { transition-delay: 0.30s; }
+    #nav-wrap.open .nd-link:nth-child(8) { transition-delay: 0.34s; }
+    .nd-link:hover { color: var(--gold); }
+    @media (max-width: 640px) {
+      #nav-wrap { bottom: 14px; width: calc(100vw - 32px); }
+      .nd-link { font-size: clamp(18px, 5vw, 24px); padding: 10px 0; }
+    }
+
+    /* Section tag pill style is defined globally in tokens.css. */
+
+    /* ── Buttons ── */
+    .btn-primary, .btn-ghost, .btn-dark-ghost {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 14px 26px; border-radius: 100px;
+      transition: background 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo),
+                  border-color 0.4s var(--ease-out-expo), gap 0.4s var(--ease-out-expo),
+                  color 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+    }
+    .btn-primary { background: var(--color-gold); color: var(--color-midnight); }
+    .btn-primary:hover { background: var(--color-gold-soft); transform: translateY(-2px); box-shadow: var(--shadow-glow-gold); }
+    .btn-ghost { background: transparent; color: var(--cream); border: 1px solid rgba(242,237,228,0.45); }
+    .btn-ghost:hover { border-color: rgba(242,237,228,0.7); gap: 18px; background: rgba(242,237,228,0.04); }
+    .btn-dark-ghost { background: transparent; color: var(--color-midnight); border: 1px solid rgba(7,7,27,0.35); }
+    .btn-dark-ghost:hover { border-color: rgba(7,7,27,0.6); gap: 18px; background: rgba(7,7,27,0.04); }
+
+    /* ── Fade-up animation ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+    .fade-up.d1 { transition-delay: 0.10s; }
+    .fade-up.d2 { transition-delay: 0.20s; }
+    .fade-up.d3 { transition-delay: 0.30s; }
+    .fade-up.d4 { transition-delay: 0.40s; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 1 — HERO
+       ───────────────────────────────────────────────────────────── */
+    #hero {
+      position: relative; height: 100vh; min-height: 720px;
+      overflow: hidden;
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    #hero .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('/Brand_assets/AWinship-8084-025-High-scaled.jpg');
+      background-size: cover; background-position: center;
+      transform: scale(1.04);
+    }
+    #hero .hero-vignette {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        linear-gradient(to bottom, rgba(7,7,27,0.7) 0%, rgba(7,7,27,0.38) 28%, rgba(7,7,27,0.6) 60%, rgba(7,7,27,1) 100%);
+    }
+    #hero .hero-vignette-2 {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      mix-blend-mode: multiply;
+      background: radial-gradient(120% 80% at 50% 30%, transparent 35%, rgba(7,7,27,0.65) 100%);
+    }
+    #hero .side-rule {
+      position: absolute; left: 56px; top: 50%; transform: translateY(-50%);
+      width: 1px; height: 180px; z-index: 2;
+      background: linear-gradient(to bottom, transparent, rgba(200,169,106,0.5), transparent);
+    }
+    #hero .hero-content {
+      position: relative; z-index: 3;
+      max-width: 1320px; width: 100%;
+      padding: 160px 56px 120px;
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    @media (min-width: 1024px) {
+      #hero h1 .wipe-line > span { white-space: nowrap; }
+    }
+    #hero .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-size: 10px; font-weight: 400; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 30px;
+      opacity: 0; transition: opacity 0.9s var(--ease-out-expo) 0.1s;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after { content:''; width: 28px; height: 1px; background: var(--gold); }
+    body.in .hero-eyebrow { opacity: 1; }
+    #hero h1 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-xl); line-height: 0.98; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 36px;
+    }
+    .wipe-line { display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+    .wipe-line > span {
+      display: block; transform: translateY(110%);
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    body.in .wipe-line > span { transform: translateY(0); }
+    body.in #hero .wipe-line:nth-child(2) > span { transition-delay: 0.14s; }
+    body.in #hero .wipe-line:nth-child(3) > span { transition-delay: 0.28s; }
+    #hero .hero-sub {
+      max-width: 720px; font-size: 18px; font-weight: 300; line-height: 1.7;
+      color: rgba(242,237,228,0.65);
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.9s var(--ease-out-expo) 0.42s, transform 0.9s var(--ease-out-expo) 0.42s;
+    }
+    body.in #hero .hero-sub { opacity: 1; transform: translateY(0); }
+    #hero .hero-actions {
+      margin-top: 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.9s var(--ease-out-expo) 0.55s, transform 0.9s var(--ease-out-expo) 0.55s;
+    }
+    body.in #hero .hero-actions { opacity: 1; transform: translateY(0); }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 2 — INTRO + ROLE CATEGORIES (cream)
+       ───────────────────────────────────────────────────────────── */
+    #roles {
+      background: var(--cream);
+      padding: 140px 56px 160px;
+      position: relative;
+      overflow: hidden;
+    }
+    #roles::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(60% 40% at 90% 0%, rgba(35,83,232,0.05), transparent 60%),
+        radial-gradient(50% 50% at 0% 100%, rgba(217,188,128,0.08), transparent 65%);
+    }
+    .roles-inner { position: relative; max-width: 1240px; margin: 0 auto; }
+    .roles-head {
+      display: grid; gap: 56px;
+      grid-template-columns: 5fr 7fr;
+      align-items: end;
+      margin-bottom: 88px;
+    }
+    .roles-head h2 {
+      margin-top: 22px;
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-lg); line-height: 1.04;
+      color: var(--midnight); letter-spacing: -0.02em;
+    }
+    .roles-head h2 .accent { font-style: italic; color: var(--color-blue); }
+    .roles-head p {
+      font-size: 18px; font-weight: 300; line-height: 1.85;
+      color: rgba(7,7,27,0.65); max-width: 540px;
+    }
+
+    /* Tab navigation */
+    .tab-nav {
+      display: flex; flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 64px;
+      padding-bottom: 0;
+      border-bottom: 1px solid rgba(7,7,27,0.12);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .tab-nav::-webkit-scrollbar { display: none; }
+
+    .tab {
+      position: relative;
+      display: inline-flex; align-items: baseline; gap: 12px;
+      padding: 14px 24px 18px;
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-body);
+      color: rgba(7,7,27,0.55);
+      white-space: nowrap;
+      transition: color 0.45s var(--ease-out-expo);
+    }
+    .tab:hover { color: var(--midnight); }
+    .tab .tab-num {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 13px; font-weight: 400; letter-spacing: 0.04em;
+      color: rgba(7,7,27,0.4);
+      transition: color 0.45s var(--ease-out-expo);
+    }
+    .tab .tab-label {
+      font-size: 14px; font-weight: 400; letter-spacing: 0.02em;
+    }
+    .tab::after {
+      content: '';
+      position: absolute; left: 24px; right: 24px; bottom: -1px;
+      height: 1px; background: var(--color-blue);
+      transform: scaleX(0); transform-origin: left center;
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .tab.is-active { color: var(--midnight); }
+    .tab.is-active .tab-num { color: var(--color-blue); }
+    .tab.is-active::after { transform: scaleX(1); }
+    .tab:focus-visible {
+      outline: 2px solid var(--color-blue); outline-offset: -2px;
+      border-radius: 2px;
+    }
+
+    /* Panels */
+    .panels { position: relative; }
+    .panel {
+      display: none;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+    }
+    .panel.is-active {
+      display: block;
+    }
+    .panel.is-active.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 88px;
+      align-items: start;
+    }
+
+    .panel-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-display-md); font-weight: 300;
+      line-height: 1.06; letter-spacing: -0.02em;
+      color: var(--midnight);
+      font-style: italic;
+      display: flex; align-items: baseline; gap: 0.32em;
+      flex-wrap: wrap;
+    }
+    .panel-title .panel-num {
+      color: rgba(7,7,27,0.28);
+      font-weight: 300;
+    }
+    .panel-desc {
+      margin-top: 24px;
+      font-size: 17px; font-weight: 300; line-height: 1.85;
+      color: rgba(7,7,27,0.62);
+      max-width: 420px;
+    }
+
+    .panel-roles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 56px;
+    }
+    .role-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 22px;
+      padding: 20px 4px;
+      border-bottom: 1px solid rgba(7,7,27,0.10);
+      transition: padding-left 0.45s var(--ease-out-expo);
+    }
+    .role-row:hover { padding-left: 12px; }
+    .role-num {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 13px; font-weight: 400;
+      color: rgba(7,7,27,0.42);
+      letter-spacing: 0.04em;
+    }
+    .role-name {
+      font-size: 16px; font-weight: 400;
+      color: var(--midnight);
+      letter-spacing: -0.005em;
+    }
+    .role-arrow {
+      width: 24px; height: 24px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--color-blue);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.45s var(--ease-out-expo), transform 0.45s var(--ease-out-expo);
+    }
+    .role-row:hover .role-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .role-arrow svg { width: 14px; height: 14px; }
+
+    /* Single-column panels (small lists) */
+    .panel-roles.is-single {
+      grid-template-columns: 1fr;
+      max-width: 560px;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 3 — CTA (midnight)
+       ───────────────────────────────────────────────────────────── */
+    #cta-band {
+      position: relative; background: var(--midnight); overflow: hidden;
+      padding: 120px 56px;
+    }
+    #cta-band::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(70% 60% at 80% 0%, rgba(217,188,128,0.10), transparent 60%),
+        radial-gradient(60% 50% at 0% 100%, rgba(11,2,82,0.45), transparent 65%);
+    }
+    .cta-band-inner {
+      position: relative;
+      max-width: 1100px; margin: 0 auto;
+      display: grid; gap: 56px;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+    }
+    .cta-band-inner h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-md); line-height: 1.06;
+      letter-spacing: -0.02em; color: var(--cream);
+    }
+    .cta-band-inner h2 .accent { font-style: italic; color: var(--gold); }
+    .cta-band-inner p {
+      margin-top: 22px;
+      font-size: 17px; font-weight: 300; line-height: 1.8;
+      color: rgba(242,237,228,0.62); max-width: 480px;
+    }
+    .cta-band-actions {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      justify-self: end;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       RESPONSIVE
+       ───────────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      #roles { padding: 100px 40px; }
+      #cta-band { padding: 100px 40px; }
+      .roles-head { grid-template-columns: 1fr; gap: 28px; }
+      .panel-grid { grid-template-columns: 1fr; gap: 56px; }
+      .panel-roles { grid-template-columns: 1fr 1fr; }
+      .cta-band-inner { grid-template-columns: 1fr; }
+      .cta-band-actions { justify-self: start; }
+    }
+    @media (max-width: 768px) {
+      #roles { padding: 80px 24px; }
+      #cta-band { padding: 80px 24px; }
+      #hero { min-height: 580px; }
+      #hero .hero-content { padding: 130px 24px 96px; }
+      #hero .side-rule { display: none; }
+      .panel-roles { grid-template-columns: 1fr; }
+      .tab-nav { gap: 0; }
+      .tab { padding: 12px 16px 16px; }
+      .tab::after { left: 16px; right: 16px; }
+      .role-row { gap: 16px; padding: 18px 4px; }
+      .role-name { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<div id="nav-wrap" role="navigation" aria-label="Main">
+
+  <!-- Pill bar: burger | logo | contact -->
+  <div id="nav-pill">
+    <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-dropdown">
+      <span class="burger-icon" aria-hidden="true">
+        <span class="burger-line b1"></span>
+        <span class="burger-line b2"></span>
+      </span>
+      <span class="burger-label">Menu</span>
+    </button>
+    <a href="/" id="nav-logo" aria-label="Designer Recruitment home">
+      <img id="logo-white" src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+    </a>
+    <a href="/contact/" class="nav-contact-btn">Contact</a>
+  </div>
+
+  <!-- Dropdown card -->
+  <div id="nav-dropdown" aria-hidden="true">
+    <nav aria-label="Site links">
+      <a href="/"                       class="nd-link">Home</a>
+      <a href="/about/"                 class="nd-link">About Us</a>
+      <a href="/candidates/"            class="nd-link">For Candidates</a>
+      <a href="/clients/"               class="nd-link">For Clients</a>
+      <a href="/who-we-recruit-for/"    class="nd-link">Who we recruit for</a>
+      <a href="/about/#testimonials-about"          class="nd-link">Testimonials</a>
+      <a href="/news-and-insights/"     class="nd-link">News &amp; Insights</a>
+      <a href="/contact/"               class="nd-link">Contact</a>
+    </nav>
+  </div>
+
+</div><!-- /nav-wrap -->
+
+<main id="main">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="hero" aria-label="Who Designer Recruitment recruits for">
+    <div class="hero-bg" role="img" aria-label="Workshop and craft detail"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
+    <div class="hero-vignette-2" aria-hidden="true"></div>
+
+    <div class="side-rule" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Who we recruit for</div>
+      <h1>
+        <span class="wipe-line"><span>Every role inside</span></span>
+        <span class="wipe-line"><span><span class="serif-i">a design-led</span></span></span>
+        <span class="wipe-line"><span>business.</span></span>
+      </h1>
+      <p class="hero-sub">
+        We recruit across the full infrastructure of design-led businesses, from showroom and field-based sales through to operations, technical, commercial, head office, and executive leadership roles.
+      </p>
+      <div class="hero-actions">
+        <a href="#roles" class="btn-primary">
+          Explore the roles
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2v8M2.5 6.5l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/contact/" class="btn-ghost">
+          Speak to us
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ROLE CATEGORIES (tabs) ═══════════ -->
+  <section id="roles" data-bg="light" aria-label="Role categories">
+    <div class="roles-inner">
+
+      <div class="roles-head">
+        <div>
+          <div class="section-tag is-blue fade-up" style="margin-bottom:22px;">Categories</div>
+          <h2 class="fade-up d1">
+            Six pillars of<br>
+            <span class="accent">design-led</span> talent.
+          </h2>
+        </div>
+        <p class="fade-up d2">
+          Every business we work with depends on a different mix of these six. Use the tabs to see exactly which roles we recruit for in each part of the operation.
+        </p>
+      </div>
+
+      <!-- Tab navigation -->
+      <nav class="tab-nav fade-up" role="tablist" aria-label="Role categories">
+        <button class="tab is-active" data-target="showroom"   role="tab" aria-selected="true"  aria-controls="panel-showroom">
+          <span class="tab-num">01</span><span class="tab-label">Showroom</span>
+        </button>
+        <button class="tab"           data-target="field"      role="tab" aria-selected="false" aria-controls="panel-field">
+          <span class="tab-num">02</span><span class="tab-label">Field-Based</span>
+        </button>
+        <button class="tab"           data-target="operations" role="tab" aria-selected="false" aria-controls="panel-operations">
+          <span class="tab-num">03</span><span class="tab-label">Operations</span>
+        </button>
+        <button class="tab"           data-target="head-office" role="tab" aria-selected="false" aria-controls="panel-head-office">
+          <span class="tab-num">04</span><span class="tab-label">Head Office</span>
+        </button>
+        <button class="tab"           data-target="executive"  role="tab" aria-selected="false" aria-controls="panel-executive">
+          <span class="tab-num">05</span><span class="tab-label">Executive</span>
+        </button>
+        <button class="tab"           data-target="temp"       role="tab" aria-selected="false" aria-controls="panel-temp">
+          <span class="tab-num">06</span><span class="tab-label">Temp</span>
+        </button>
+      </nav>
+
+      <div class="panels">
+
+        <!-- 01 SHOWROOM -->
+        <div class="panel is-active in" id="panel-showroom" role="tabpanel" aria-labelledby="tab-showroom">
+          <div class="panel-grid">
+            <div class="panel-side">
+              <h3 class="panel-title"><span class="panel-num">01</span><span>Showroom</span></h3>
+              <p class="panel-desc">Front-of-house design and sales talent for retail showrooms, from lead-takers through to studio managers.</p>
+            </div>
+            <div class="panel-roles">
+              <div class="role-row"><span class="role-num">01</span><span class="role-name">Lead Taker</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">02</span><span class="role-name">Showroom Host</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">03</span><span class="role-name">Design Assistant</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">04</span><span class="role-name">CAD Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">05</span><span class="role-name">Technical Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">06</span><span class="role-name">Interior Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">07</span><span class="role-name">Bedroom Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">08</span><span class="role-name">Bathroom Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">09</span><span class="role-name">Kitchen Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">10</span><span class="role-name">Contract Kitchen Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">11</span><span class="role-name">Assistant Showroom Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">12</span><span class="role-name">Design Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">13</span><span class="role-name">Showroom Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">14</span><span class="role-name">Studio Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 FIELD-BASED -->
+        <div class="panel" id="panel-field" role="tabpanel" aria-labelledby="tab-field">
+          <div class="panel-grid">
+            <div class="panel-side">
+              <h3 class="panel-title"><span class="panel-num">02</span><span>Field-Based</span></h3>
+              <p class="panel-desc">Sales-led roles operating across territories and accounts, from regional designers through to national sales leadership.</p>
+            </div>
+            <div class="panel-roles">
+              <div class="role-row"><span class="role-num">01</span><span class="role-name">Regional Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">02</span><span class="role-name">Account Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">03</span><span class="role-name">Business Development Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">04</span><span class="role-name">Area Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">05</span><span class="role-name">Contract Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">06</span><span class="role-name">Regional Showroom Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">07</span><span class="role-name">Regional Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">08</span><span class="role-name">National Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 OPERATIONS -->
+        <div class="panel" id="panel-operations" role="tabpanel" aria-labelledby="tab-operations">
+          <div class="panel-grid">
+            <div class="panel-side">
+              <h3 class="panel-title"><span class="panel-num">03</span><span>Operations</span></h3>
+              <p class="panel-desc">The teams who turn design into delivery. Fitters, surveyors, project managers, and the logistics function behind them.</p>
+            </div>
+            <div class="panel-roles">
+              <div class="role-row"><span class="role-num">01</span><span class="role-name">Fitter</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">02</span><span class="role-name">Bench Joiner</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">03</span><span class="role-name">Cabinet Maker</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">04</span><span class="role-name">Surveyor</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">05</span><span class="role-name">Project Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">06</span><span class="role-name">Installations Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">07</span><span class="role-name">Warehouse Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">08</span><span class="role-name">Logistics Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">09</span><span class="role-name">Transport Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">10</span><span class="role-name">Distribution Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">11</span><span class="role-name">Operations Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 HEAD OFFICE -->
+        <div class="panel" id="panel-head-office" role="tabpanel" aria-labelledby="tab-head-office">
+          <div class="panel-grid">
+            <div class="panel-side">
+              <h3 class="panel-title"><span class="panel-num">04</span><span>Head Office</span></h3>
+              <p class="panel-desc">Support functions that keep the business moving, including customer service, marketing, finance, and people leadership.</p>
+            </div>
+            <div class="panel-roles">
+              <div class="role-row"><span class="role-num">01</span><span class="role-name">Customer Service</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">02</span><span class="role-name">Administration</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">03</span><span class="role-name">HR (People &amp; Culture)</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">04</span><span class="role-name">Purchasing / Procurement</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">05</span><span class="role-name">Marketing</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">06</span><span class="role-name">Media / Content</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">07</span><span class="role-name">IT (Information Technology)</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">08</span><span class="role-name">Finance</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 EXECUTIVE -->
+        <div class="panel" id="panel-executive" role="tabpanel" aria-labelledby="tab-executive">
+          <div class="panel-grid">
+            <div class="panel-side">
+              <h3 class="panel-title"><span class="panel-num">05</span><span>Executive</span></h3>
+              <p class="panel-desc">Director-level appointments shaping the strategic direction of design-led businesses.</p>
+            </div>
+            <div class="panel-roles">
+              <div class="role-row"><span class="role-num">01</span><span class="role-name">Design Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">02</span><span class="role-name">Marketing Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">03</span><span class="role-name">Sales Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">04</span><span class="role-name">Commercial Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">05</span><span class="role-name">Finance Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">06</span><span class="role-name">Operations Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">07</span><span class="role-name">Managing Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">08</span><span class="role-name">CEO</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 TEMP -->
+        <div class="panel" id="panel-temp" role="tabpanel" aria-labelledby="tab-temp">
+          <div class="panel-grid">
+            <div class="panel-side">
+              <h3 class="panel-title"><span class="panel-num">06</span><span>Temp</span></h3>
+              <p class="panel-desc">Freelance, contract, and interim talent for short-term and project-based requirements.</p>
+            </div>
+            <div class="panel-roles">
+              <div class="role-row"><span class="role-num">01</span><span class="role-name">Freelance</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">02</span><span class="role-name">Self-Employed</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">03</span><span class="role-name">Fixed Term Contracts</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">04</span><span class="role-name">Maternity Cover</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">05</span><span class="role-name">Interim Roles</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="role-row"><span class="role-num">06</span><span class="role-name">Warehouse and Logistics</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /panels -->
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA BAND ═══════════ -->
+  <section id="cta-band" aria-label="Speak to us">
+    <div class="cta-band-inner">
+      <div class="fade-up">
+        <div class="section-tag on-dark" style="margin-bottom:22px;">Get in touch</div>
+        <h2>
+          Hiring for one<br>of these <span class="accent">roles?</span>
+        </h2>
+        <p>
+          Tell us what you're looking for and we'll come back with a shortlist that fits the brief and the business.
+        </p>
+      </div>
+      <div class="cta-band-actions fade-up d2">
+        <a href="/clients/" class="btn-primary">
+          Submit a vacancy
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/candidates/apply/" class="btn-ghost">
+          Send your CV
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="foot-brand">
+      <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+      <p>The UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom &amp; Builders Merchant industry.</p>
+      <a class="foot-social" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+    <div>
+      <div class="foot-head">Company</div>
+      <a href="/about/" class="foot-link">About</a>
+      <a href="/about/#story" class="foot-link">Our Story</a>
+      <a href="/about/#principles" class="foot-link">Principles</a>
+      <a href="/about/#process" class="foot-link">Process</a>
+      <a href="/contact/" class="foot-link">Contact</a>
+    </div>
+    <div>
+      <div class="foot-head">For Candidates</div>
+      <a href="/candidates/" class="foot-link">Find a Role</a>
+      <a href="/candidates/apply/" class="foot-link">Submit your CV</a>
+      <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
+      <a href="mailto:hello@designerrecruitment.co.uk" class="foot-link">Request a Salary Guide</a>
+    </div>
+    <div>
+      <div class="foot-head">For Clients</div>
+      <a href="/clients/" class="foot-link">Hire Talent</a>
+      <a href="/clients/#post-a-job" class="foot-link">Post a Job</a>
+      <a href="/#expertise" class="foot-link">Consultancy</a>
+      <a href="/who-we-recruit-for/" class="foot-link">Who we recruit for</a>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>© <span id="year">2026</span> Designer Recruitment Ltd. All rights reserved.<br>
+      Registered in England &amp; Wales.
+      <a href="https://flowfortyfour.com" target="_blank" rel="noopener" class="ff-credit" aria-label="Built by flowfortyfour.com (opens in new tab)">Built by <span class="ff-credit-name">flowfortyfour.com</span></a>
+    </div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Hero in-class once mounted
+  requestAnimationFrame(() => document.body.classList.add('in'));
+
+  // Floating pill nav (matches homepage)
+  (function() {
+    const navWrap     = document.getElementById('nav-wrap');
+    const burger      = document.getElementById('burger');
+    const navDropdown = document.getElementById('nav-dropdown');
+    let menuOpen = false;
+
+    function openMenu() {
+      menuOpen = true;
+      navWrap.classList.add('open');
+      burger.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      navDropdown.setAttribute('aria-hidden', 'false');
+    }
+    function closeMenu() {
+      menuOpen = false;
+      navWrap.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      navDropdown.setAttribute('aria-hidden', 'true');
+    }
+
+    burger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+    navDropdown.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click', e => {
+      if (menuOpen && !navWrap.contains(e.target)) closeMenu();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && menuOpen) closeMenu();
+    });
+
+    // Pill goes dark-glass when over a light section
+    function checkPillBg() {
+      const pillY = window.innerHeight - 40;
+      const anyLight = [...document.querySelectorAll('[data-bg="light"]')].some(el => {
+        const r = el.getBoundingClientRect();
+        return r.top < pillY && r.bottom > pillY;
+      });
+      navWrap.classList.toggle('on-light', anyLight);
+    }
+    window.addEventListener('scroll', checkPillBg, { passive: true });
+    checkPillBg();
+  })();
+
+  // Fade-up Intersection Observer
+  (function() {
+    const els = document.querySelectorAll('.fade-up');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(e => e.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(e => io.observe(e));
+  })();
+
+  // Tabs
+  (function() {
+    const tabs   = document.querySelectorAll('.tab-nav .tab');
+    const panels = document.querySelectorAll('.panels .panel');
+    if (!tabs.length) return;
+
+    function activate(target) {
+      tabs.forEach(t => {
+        const isMatch = t.dataset.target === target;
+        t.classList.toggle('is-active', isMatch);
+        t.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+      });
+      panels.forEach(p => {
+        const id = 'panel-' + target;
+        if (p.id === id) {
+          p.classList.add('is-active');
+          // Force reflow so the transition runs each time
+          // eslint-disable-next-line no-unused-expressions
+          p.offsetWidth;
+          p.classList.add('in');
+        } else {
+          p.classList.remove('in');
+          p.classList.remove('is-active');
+        }
+      });
+    }
+
+    tabs.forEach(t => {
+      t.addEventListener('click', () => activate(t.dataset.target));
+      t.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        const arr = [...tabs];
+        const i = arr.indexOf(t);
+        const next = e.key === 'ArrowRight' ? (i + 1) % arr.length : (i - 1 + arr.length) % arr.length;
+        arr[next].focus();
+        activate(arr[next].dataset.target);
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

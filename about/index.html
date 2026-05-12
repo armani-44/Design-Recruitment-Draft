@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About, Designer Recruitment® | UK KBB Specialist Recruitment</title>
-  <meta name="description" content="The story behind Designer Recruitment, a specialist recruitment studio for the KBB & Builders Merchant industry, founded on craft, character, and culture.">
+  <title>About, Designer Recruitment® | Specialist KBB, Interiors &amp; Design Recruitment</title>
+  <meta name="description" content="A specialist recruitment consultancy connecting top talent with leading brands across KBB, interiors, and design. Meet the team behind Designer Recruitment.">
   <meta name="theme-color" content="#07071B">
   <link rel="canonical" href="https://designerrecruitment.co.uk/about/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://designerrecruitment.co.uk/about/">
+  <meta property="og:title" content="About, Designer Recruitment® | Specialist KBB & Design Recruitment">
+  <meta property="og:description" content="A specialist recruitment consultancy connecting top talent with leading brands across KBB, interiors, and design. Meet the team behind Designer Recruitment.">
+  <meta property="og:image" content="https://designerrecruitment.co.uk/Brand_assets/AdobeStock_1981538230.jpeg">
+  <meta property="og:image:alt" content="The world Designer Recruitment® places talent into.">
+  <meta property="og:site_name" content="Designer Recruitment®">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About, Designer Recruitment® | Specialist KBB & Design Recruitment">
+  <meta name="twitter:description" content="A specialist recruitment consultancy connecting top talent with leading brands across KBB, interiors, and design.">
+  <meta name="twitter:image" content="https://designerrecruitment.co.uk/Brand_assets/AdobeStock_1981538230.jpeg">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/Brand_assets/DR-Logo-Blue-2.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/Brand_assets/DR-Logo-Blue-2.png">
@@ -32,7 +48,7 @@
       --cream:     var(--color-cream);
       --warm:      var(--color-cream);
       --muted:     var(--fg-muted);
-      --navy:      #1B2D4F;
+      --navy:      var(--color-navy-deep);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -182,15 +198,28 @@
       .nd-link { font-size: clamp(18px, 5vw, 24px); padding: 10px 0; }
     }
 
-    /* ── Section tag ── */
+    /* ── Section tag — pill, high-contrast for accessibility ── */
     .section-tag {
-      display: inline-flex; align-items: center; gap: 14px;
-      font-size: 10px; font-weight: 400; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--gold);
+      display: inline-flex; align-items: center;
+      padding: 5px 16px;
+      border: 1px solid rgba(7,7,27,0.20);
+      background: rgba(7,7,27,0.025);
+      border-radius: 100px;
+      font-size: 10.5px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--midnight);
+      white-space: nowrap;
     }
-    .section-tag::before, .section-tag::after { content: ''; width: 28px; height: 1px; background: var(--gold); }
-    .section-tag.is-blue { color: var(--color-blue); }
-    .section-tag.is-blue::before, .section-tag.is-blue::after { background: var(--color-blue); }
+    .section-tag.is-blue {
+      color: var(--color-blue);
+      border-color: rgba(35,83,232,0.30);
+      background: rgba(35,83,232,0.05);
+    }
+    .section-tag.on-dark {
+      color: var(--cream);
+      border-color: rgba(242,237,228,0.28);
+      background: rgba(242,237,228,0.05);
+    }
 
     /* ── Buttons ── */
     .btn-primary, .btn-ghost, .btn-dark-ghost {
@@ -216,6 +245,7 @@
     .fade-up.d2 { transition-delay: 0.20s; }
     .fade-up.d3 { transition-delay: 0.30s; }
     .fade-up.d4 { transition-delay: 0.40s; }
+    .fade-up.d5 { transition-delay: 0.50s; }
 
     /* ─────────────────────────────────────────────────────────────
        SECTION 1 — HERO
@@ -234,12 +264,12 @@
     #about-hero .hero-vignette {
       position: absolute; inset: 0; z-index: 1; pointer-events: none;
       background:
-        linear-gradient(to bottom, rgba(7,7,26,0.65) 0%, rgba(7,7,26,0.32) 28%, rgba(7,7,26,0.55) 60%, rgba(7,7,26,1) 100%);
+        linear-gradient(to bottom, rgba(7,7,27,0.65) 0%, rgba(7,7,27,0.32) 28%, rgba(7,7,27,0.55) 60%, rgba(7,7,27,1) 100%);
     }
     #about-hero .hero-vignette-2 {
       position: absolute; inset: 0; z-index: 1; pointer-events: none;
       mix-blend-mode: multiply;
-      background: radial-gradient(120% 80% at 50% 30%, transparent 35%, rgba(7,7,26,0.65) 100%);
+      background: radial-gradient(120% 80% at 50% 30%, transparent 35%, rgba(7,7,27,0.65) 100%);
     }
     #about-hero .side-rule {
       position: absolute; left: 56px; top: 50%; transform: translateY(-50%);
@@ -253,7 +283,6 @@
       text-align: center;
       display: flex; flex-direction: column; align-items: center;
     }
-    /* Desktop: keep both lines on one row each (2 visual lines total) */
     @media (min-width: 1024px) {
       #about-hero h1 .wipe-line > span { white-space: nowrap; }
     }
@@ -280,7 +309,7 @@
     body.in #about-hero .wipe-line:nth-child(2) > span { transition-delay: 0.14s; }
     body.in #about-hero .wipe-line:nth-child(3) > span { transition-delay: 0.28s; }
     #about-hero .hero-sub {
-      max-width: 600px; font-size: 19px; font-weight: 300; line-height: 1.7;
+      max-width: 640px; font-size: 19px; font-weight: 300; line-height: 1.7;
       color: rgba(242,237,228,0.65);
       opacity: 0; transform: translateY(20px);
       transition: opacity 0.9s var(--ease-out-expo) 0.42s, transform 0.9s var(--ease-out-expo) 0.42s;
@@ -292,76 +321,384 @@
       transition: opacity 0.9s var(--ease-out-expo) 0.55s, transform 0.9s var(--ease-out-expo) 0.55s;
     }
     body.in #about-hero .hero-actions { opacity: 1; transform: translateY(0); }
+
     /* ─────────────────────────────────────────────────────────────
-       SECTION 2 — STORY (cream)
+       SECTION 2 — ABOUT (cream)
        ───────────────────────────────────────────────────────────── */
-    #story { background: var(--cream); padding: 140px 56px; position: relative; }
-    #story .grid { max-width: 1240px; margin: 0 auto; display: grid; gap: 80px; grid-template-columns: 5fr 7fr; align-items: start; }
-    #story .left { align-self: start; }
-    #story h2 {
+    #about-intro { background: var(--cream); padding: 140px 56px; position: relative; }
+    #about-intro .grid { max-width: 1240px; margin: 0 auto; display: grid; gap: 80px; grid-template-columns: 5fr 7fr; align-items: start; }
+    #about-intro h2 {
       font-family: var(--font-display); font-weight: 300;
       font-size: var(--fs-display-lg); line-height: 1.04;
-      color: var(--midnight); letter-spacing: -0.02em;
+      color: var(--midnight); letter-spacing: -0.02em; margin-top: 22px;
     }
-    #story h2 .accent { color: var(--color-blue); font-style: italic; }
-    #story .est {
-      margin-top: 36px; display: inline-flex; align-items: center; gap: 12px;
+    #about-intro h2 .accent { color: var(--color-blue); font-style: italic; }
+    #about-intro .est {
+      margin-top: 36px; display: inline-flex; align-items: center;
       font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
       color: rgba(7,7,27,0.45);
     }
-    #story .est::before { content: ''; width: 36px; height: 1px; background: rgba(7,7,27,0.25); display: inline-block; }
-    #story .right p.lead {
+    #about-intro .right p.lead {
       font-size: 22px; font-weight: 300; line-height: 1.6; color: var(--midnight);
     }
-    #story .right p.body strong {
-      font-weight: 500; color: var(--midnight);
-    }
-    #story .right p.body {
+    #about-intro .right p.body {
       margin-top: 28px; font-size: 17px; font-weight: 300; line-height: 1.85;
       color: rgba(7,7,27,0.7);
     }
-    #story .story-actions {
-      margin-top: 48px;
-      display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+
+    /* Section tag sits in its own row above the grid so the right column
+       aligns with the headline rather than the eyebrow. */
+    .ai-tag { max-width: 1240px; margin: 0 auto 40px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       TEAM — merged into #about-intro
+       ───────────────────────────────────────────────────────────── */
+    .team-grid {
+      max-width: 1240px; margin: 120px auto 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    }
+    .team-card { display: flex; flex-direction: column; gap: 22px; }
+    .team-img-frame {
+      position: relative; aspect-ratio: 4 / 4.2; overflow: hidden;
+      border-radius: 14px;
+      background: var(--surface);
+      margin-bottom: 8px;
+    }
+    .team-img-frame img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.95s var(--ease-out-expo), filter 0.95s var(--ease-out-expo);
+      will-change: transform;
+      filter: grayscale(15%) brightness(0.97);
+    }
+    .team-card:hover .team-img-frame img { transform: scale(1.03); filter: none; }
+
+    .team-role {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-blue);
+    }
+    .team-name {
+      font-family: var(--font-display); font-size: 32px; font-weight: 400;
+      color: var(--midnight); letter-spacing: -0.01em; line-height: 1.1;
+      margin-top: -8px;
+    }
+    .team-bio {
+      font-size: 15.5px; font-weight: 300; line-height: 1.85;
+      color: rgba(7,7,27,0.7); max-width: 520px;
+    }
+    .team-aside {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 14.5px; font-weight: 300; line-height: 1.7;
+      color: rgba(7,7,27,0.55);
+    }
+    .team-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--midnight); text-decoration: none;
+      padding-bottom: 4px; border-bottom: 1px solid rgba(7,7,27,0.25);
+      transition: gap 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo), color 0.4s var(--ease-out-expo);
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+    .team-link:hover { gap: 14px; border-color: var(--midnight); color: var(--color-blue); }
+    .team-link svg { width: 11px; height: 11px; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 4 — WHAT WE DO (white, services list)
+       ───────────────────────────────────────────────────────────── */
+    #services {
+      position: relative; background: var(--color-white); overflow: hidden;
+      padding: 140px 56px;
+    }
+    .services-inner { position: relative; max-width: 1240px; margin: 0 auto; }
+    .services-head { display: grid; gap: 40px; grid-template-columns: 1fr 1fr; align-items: end; margin-bottom: 80px; }
+    .services-head h2 {
+      margin-top: 22px;
+      font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
+      line-height: 1.06; color: var(--midnight); letter-spacing: -0.02em;
+    }
+    .services-head h2 .accent { font-style: italic; color: var(--color-blue); }
+    .services-head p { font-size: 18px; font-weight: 300; line-height: 1.75; color: rgba(7,7,27,0.62); max-width: 460px; }
+
+    .services-list {
+      display: grid; grid-template-columns: 1fr 1fr; column-gap: 80px;
+      border-top: 1px solid rgba(7,7,27,0.10);
+    }
+    .service-row {
+      display: grid; grid-template-columns: 56px 1fr; gap: 28px;
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(7,7,27,0.10);
+      transition: background 0.7s var(--ease-out-expo);
+    }
+    .service-row:hover { background: rgba(35,83,232,0.025); }
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 700; color: var(--color-blue);
+      letter-spacing: 0.22em;
+      line-height: 1.7;
+    }
+    .service-body h3 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: 24px; line-height: 1.2; color: var(--midnight);
+      letter-spacing: -0.01em; margin-bottom: 12px;
+    }
+    .service-body p {
+      font-size: 14.5px; font-weight: 300; line-height: 1.7;
+      color: rgba(7,7,27,0.65);
     }
 
     /* ─────────────────────────────────────────────────────────────
-       SECTION 3 — NUMBERS (stats strip)
+       SECTION 5 — HOW WE WORK + OUR MISSION (dark)
        ───────────────────────────────────────────────────────────── */
-    #numbers {
+    #how-mission {
+      position: relative; background: var(--color-navy-deep); overflow: hidden;
+      padding: 130px 56px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+    }
+    #how-mission::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(60% 50% at 20% 30%, rgba(217,188,128,0.06), transparent 60%),
+        radial-gradient(60% 50% at 80% 70%, rgba(35,83,232,0.18), transparent 65%);
+    }
+    .hm-inner {
+      position: relative; max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    }
+    .hm-col { padding: 0 56px; position: relative; }
+    .hm-col + .hm-col { border-left: 1px solid rgba(242,237,228,0.14); }
+    .hm-icon {
+      width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(217,188,128,0.40); border-radius: 50%;
+      color: var(--gold);
+      margin-bottom: 32px;
+    }
+    .hm-icon svg { width: 18px; height: 18px; }
+    .hm-col h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: 36px; line-height: 1.1; color: var(--cream);
+      letter-spacing: -0.01em; margin-bottom: 22px;
+    }
+    .hm-col h2 .accent { font-style: italic; color: var(--gold); }
+    .hm-col p {
+      font-size: 16px; font-weight: 300; line-height: 1.85;
+      color: rgba(242,237,228,0.7); max-width: 460px;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 6 — VALUES (cream, horizontal timeline)
+       ───────────────────────────────────────────────────────────── */
+    #values { background: var(--color-white); padding: 140px 56px; }
+    .values-inner { max-width: 1240px; margin: 0 auto; }
+    .values-head { text-align: center; margin-bottom: 96px; }
+    .values-head h2 {
+      margin-top: 22px;
+      font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
+      line-height: 1.06; color: var(--midnight); letter-spacing: -0.02em;
+    }
+    .values-head h2 .accent { font-style: italic; color: var(--color-blue); }
+    .values-head .section-tag { justify-content: center; }
+    .values-track {
+      position: relative;
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+    .values-track::before {
+      content: ''; position: absolute; top: 8px; left: 8%; right: 8%;
+      height: 1px; background: rgba(7,7,27,0.18);
+    }
+    .value-cell { position: relative; text-align: center; padding-top: 40px; cursor: default; }
+    .value-cell::before {
+      content: ''; position: absolute; top: 0; left: 50%;
+      width: 16px; height: 16px; transform: translate(-50%, 0);
+      border-radius: 50%;
+      background: var(--color-white);
+      border: 1px solid rgba(7,7,27,0.30);
+      transition: background 0.7s var(--ease-out-expo), border-color 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+    }
+    .value-cell:hover::before {
+      background: var(--color-blue);
+      border-color: var(--color-blue);
+      transform: translate(-50%, 0) scale(1.1);
+    }
+    .value-cell h3 {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 22px; color: var(--midnight); letter-spacing: -0.005em;
+      margin-bottom: 16px;
+      transition: color 0.7s var(--ease-out-expo);
+    }
+    .value-cell:hover h3 { color: var(--color-blue); }
+    .value-cell p {
+      font-size: 13.5px; font-weight: 300; line-height: 1.7;
+      color: rgba(7,7,27,0.65); max-width: 200px; margin: 0 auto;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 7 — COVERAGE (cream, regions)
+       ───────────────────────────────────────────────────────────── */
+    #coverage { background: var(--cream); padding: 140px 56px; }
+    .coverage-inner { max-width: 1240px; margin: 0 auto; }
+    .coverage-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: center;
+    }
+    .coverage-copy h2 {
+      margin-top: 22px;
+      font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
+      line-height: 1.06; color: var(--midnight); letter-spacing: -0.02em;
+    }
+    .coverage-copy h2 .accent { font-style: italic; color: var(--color-blue); }
+    .coverage-copy p {
+      margin-top: 24px;
+      font-size: 16.5px; font-weight: 300; line-height: 1.75; color: rgba(7,7,27,0.65);
+      max-width: 480px;
+    }
+    .regions {
+      margin-top: 40px;
+      display: flex; flex-wrap: wrap; gap: 12px;
+    }
+    .region {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 14px 24px;
+      font-size: 12.5px; font-weight: 400; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--midnight);
+      background: var(--color-white);
+      border: 1px solid rgba(7,7,27,0.10);
+      border-radius: 100px;
+      transition: transform 0.5s var(--ease-out-expo), border-color 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+    }
+    .region::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold);
+    }
+    .region:hover {
+      transform: translateY(-2px);
+      border-color: rgba(7,7,27,0.30);
+      box-shadow: 0 6px 20px rgba(7,7,27,0.06);
+    }
+    .coverage-globe {
+      position: relative; width: 100%; max-width: 560px;
+      aspect-ratio: 1 / 1;
+      margin-left: auto;
+    }
+    #globe-canvas {
+      width: 100%; height: 100%;
+      cursor: grab;
+      opacity: 0;
+      transition: opacity 1.4s var(--ease-out-expo);
+      touch-action: pan-y;
+      contain: layout paint size;
+      display: block;
+    }
+    .globe-overlay {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .globe-marker {
+      position: absolute; left: 0; top: 0;
+      transform: translate(-50%, -100%);
+      display: flex; flex-direction: column; align-items: center;
+      opacity: 0;
+      transition: opacity 0.25s var(--ease-out-expo);
+      will-change: left, top, opacity;
+    }
+    .globe-marker.below {
+      transform: translate(-50%, 0);
+    }
+    .globe-marker.below .globe-marker-arrow {
+      border-top-color: transparent;
+      border-bottom-color: var(--midnight);
+      margin-top: 0;
+      margin-bottom: -1px;
+      order: 3;
+    }
+    .globe-marker.below .globe-marker-stem {
+      background: linear-gradient(to bottom, transparent, rgba(7,7,27,0.25));
+    }
+    .globe-marker.visible { opacity: 1; }
+    .globe-marker-label {
+      background: var(--midnight); color: var(--cream);
+      padding: 4px 9px;
+      font-family: var(--font-body); font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.20em; text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(7,7,27,0.10);
+    }
+    .globe-marker-arrow {
+      width: 0; height: 0;
+      border: 4px solid transparent;
+      border-top-color: var(--midnight);
+      margin-top: -1px;
+    }
+    .globe-marker-stem {
+      width: 1px; height: 10px;
+      background: var(--midnight);
+      opacity: 0.55;
+      margin-top: 2px;
+    }
+    .globe-marker-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--color-blue);
+      box-shadow: 0 0 0 2px var(--cream), 0 0 0 4px rgba(35,83,232,0.30);
+      margin-top: -1px;
+    }
+    .globe-arc-label {
+      position: absolute; left: 0; top: 0;
+      transform: translate(-50%, -100%);
+      background: var(--cream); color: var(--midnight);
+      padding: 4px 9px;
+      font-family: var(--font-body); font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.20em; text-transform: uppercase;
+      white-space: nowrap;
+      border: 1px solid rgba(7,7,27,0.10);
+      box-shadow: 0 2px 8px rgba(7,7,27,0.08);
+      opacity: 0;
+      transition: opacity 0.45s var(--ease-out-expo);
+      will-change: left, top, opacity;
+    }
+    .globe-arc-label.visible { opacity: 1; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 8 — WHY CHOOSE US (white)
+       ───────────────────────────────────────────────────────────── */
+    #why {
+      position: relative; overflow: hidden;
       background: var(--color-navy-deep);
-      border-top: 1px solid rgba(255,255,255,0.12);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding: 140px 56px;
+      border-top: 1px solid rgba(255,255,255,0.10);
     }
-    .stats-strip { padding: 80px 56px; }
-    .stats-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
-    .stat-cell { text-align: center; padding: 10px 32px; border-right: 1px solid rgba(255,255,255,0.18); }
-    .stat-cell:last-child { border-right: none; }
-    .stat-value { font-family: var(--font-display); font-size: var(--fs-display-lg); font-weight: 700; line-height: 1; color: var(--cream); letter-spacing: -0.02em; }
-    .stat-label { margin-top: 14px; font-size: 10px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); }
-
-    /* ─────────────────────────────────────────────────────────────
-       SECTION 4 — PRINCIPLES
-       ───────────────────────────────────────────────────────────── */
-    #principles { background: var(--midnight); padding: 120px 56px; border-top: 1px solid var(--line); }
-    .principles-inner { max-width: 1240px; margin: 0 auto; }
-    .principles-head { margin-bottom: 80px; display: grid; gap: 40px; grid-template-columns: 1fr 1fr; align-items: end; }
-    .principles-head h2 {
+    #why::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(60% 50% at 80% 0%, rgba(217,188,128,0.10), transparent 60%),
+        radial-gradient(50% 50% at 10% 100%, rgba(35,83,232,0.18), transparent 65%);
+    }
+    .why-inner { position: relative; max-width: 1240px; margin: 0 auto; }
+    .why-head { display: grid; gap: 40px; grid-template-columns: 1fr 1fr; align-items: end; margin-bottom: 80px; }
+    .why-head h2 {
       margin-top: 22px;
       font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
       line-height: 1.06; color: var(--cream); letter-spacing: -0.02em;
     }
-    .principles-head h2 .accent { font-style: italic; color: var(--gold); }
-    .principles-head p { font-size: 19px; font-weight: 300; line-height: 1.7; color: rgba(242,237,228,0.6); max-width: 460px; }
-    .principles-grid {
+    .why-head h2 .accent { font-style: italic; color: var(--color-gold); }
+    .why-head p {
+      font-family: var(--font-display); font-style: italic; font-weight: 300;
+      font-size: 19px; line-height: 1.55;
+      color: rgba(242,237,228,0.85);
+      max-width: 480px;
+    }
+    .why-head p .accent { color: var(--color-gold); }
+
+    .why-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
     }
-    .principle-card {
-      background: var(--bg-elevated);
-      border: 1px solid rgba(242,237,228,0.06);
+    .why-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(242,237,228,0.16);
       border-radius: 18px;
-      padding: 48px 44px 52px; min-height: 260px;
-      display: flex; flex-direction: column;
+      padding: 36px 36px 40px; min-height: 180px;
+      display: flex; flex-direction: column; gap: 18px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       will-change: transform;
       transition:
         transform 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -369,178 +706,250 @@
         border-color 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94),
         box-shadow 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .principle-card:hover {
-      transform: translateY(-8px);
-      background: #181746;
-      border-color: rgba(217,188,128,0.28);
+    .why-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(217,188,128,0.50);
       box-shadow:
-        0 6px 18px rgba(0,0,0,0.18),
-        0 24px 56px rgba(0,0,0,0.32),
-        0 0 0 1px rgba(217,188,128,0.06);
+        0 2px 6px rgba(7,7,27,0.18),
+        0 24px 50px rgba(7,7,27,0.30),
+        0 0 0 1px rgba(217,188,128,0.16);
     }
-    .principle-top { display: flex; align-items: baseline; justify-content: space-between; }
-    .principle-num { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.22em; color: var(--gold); }
-    .principle-rule {
+    .why-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; }
+    .why-num { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.22em; color: var(--color-gold); }
+    .why-rule {
       display: block; height: 1px; width: 36px;
-      background: rgba(217,188,128,0.4);
+      background: rgba(217,188,128,0.5);
+      transition: background 0.85s var(--ease-out-expo), width 0.95s var(--ease-out-expo);
+    }
+    .why-card:hover .why-rule { background: var(--color-gold); width: 56px; }
+    .why-card p {
+      font-size: 17px; font-weight: 300; line-height: 1.55;
+      color: var(--cream); letter-spacing: -0.005em;
+      font-family: var(--font-display);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION 9 — TESTIMONIALS (cream, card carousel)
+       ───────────────────────────────────────────────────────────── */
+    #testimonials-about {
+      position: relative; background: var(--cream);
+      padding: 140px 56px;
+    }
+    .ta-inner { position: relative; max-width: 1240px; margin: 0 auto; }
+    .ta-head {
+      display: flex; flex-direction: column; align-items: center; gap: 22px;
+      max-width: 560px; margin: 0 auto 80px;
+      text-align: center;
+    }
+    .ta-head h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-md);
+      line-height: 1.06; color: var(--midnight); letter-spacing: -0.02em;
+    }
+    .ta-head h2 .accent { font-style: italic; color: var(--color-blue); }
+    .ta-head p {
+      max-width: 460px;
+      font-size: 16.5px; font-weight: 300; line-height: 1.75;
+      color: rgba(7,7,27,0.55);
+    }
+
+    .ta-carousel {
+      display: flex; align-items: center; gap: 20px;
+    }
+    .ta-arrow {
+      flex-shrink: 0;
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      background: var(--midnight);
+      color: var(--cream);
+      border: 0; padding: 0;
+      cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
       transition:
-        background 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        width 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background 0.4s var(--ease-out-expo),
+        transform 0.4s var(--ease-out-expo),
+        opacity 0.4s var(--ease-out-expo);
     }
-    .principle-card:hover .principle-rule { background: var(--gold); width: 56px; }
-    .principle-card h3 {
-      margin-top: 36px;
-      font-family: var(--font-display); font-weight: 300; font-size: 28px;
-      line-height: 1.2; color: var(--cream); letter-spacing: -0.01em;
-    }
-    .principle-card p { margin-top: 18px; font-size: 15.5px; font-weight: 300; line-height: 1.75; color: rgba(242,237,228,0.65); max-width: 460px; }
+    .ta-arrow:hover { background: var(--color-blue); transform: translateY(-1px); }
+    .ta-arrow:disabled { opacity: 0.3; cursor: not-allowed; transform: none; background: var(--midnight); }
+    .ta-arrow svg { width: 16px; height: 16px; }
 
-    /* ─────────────────────────────────────────────────────────────
-       SECTION 5 — MARQUEE
-       ───────────────────────────────────────────────────────────── */
-    #marquee {
-      background: var(--color-navy-deep);
-      border-top: 1px solid rgba(255,255,255,0.12);
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      padding: 22px 0; overflow: hidden;
+    .ta-viewport {
+      flex: 1; overflow: hidden;
+      padding: 6px 2px; /* room for shadow */
     }
-    .marquee-track { display: flex; gap: 56px; width: max-content; animation: marqueeScroll 38s linear infinite; }
-    @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .marquee-item { display: inline-flex; align-items: center; gap: 56px; white-space: nowrap; }
-    .marquee-label { font-size: 12.5px; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.78); }
-    .marquee-dot { color: var(--gold); font-size: 9px; opacity: 0.8; }
-
-    /* ─────────────────────────────────────────────────────────────
-       SECTION 7 — TEAM (cream)
-       ───────────────────────────────────────────────────────────── */
-    #team-section { background: var(--cream); padding: 120px 56px; border-top: 1px solid rgba(7,7,27,0.06); }
-    .team-inner { max-width: 1240px; margin: 0 auto; }
-    .team-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 64px; }
-    .team-head h2 {
-      margin-top: 22px;
-      font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
-      line-height: 1.06; color: var(--navy); letter-spacing: -0.02em;
-    }
-    .team-head h2 .accent { font-style: italic; }
-    .team-head p { max-width: 360px; font-size: 18px; font-weight: 300; line-height: 1.75; color: var(--navy); }
-    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-    .team-card { position: relative; overflow: hidden; border-radius: 14px; }
-    .team-img { position: relative; aspect-ratio: 4 / 3.75; background: var(--surface); overflow: hidden; }
-    .team-img img {
-      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.7s var(--ease-out-expo), filter 0.7s var(--ease-out-expo);
+    .ta-track {
+      display: flex; gap: 24px;
+      transition: transform 0.65s var(--ease-out-expo);
       will-change: transform;
     }
-    .team-card:hover .team-img img { transform: scale(1.04); filter: none !important; }
-    .team-info {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      padding: 28px 28px 32px;
-      background: rgba(10,9,30,0.42);
-      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-      border-top: 1px solid rgba(255,255,255,0.10);
+    .ta-card {
+      flex: 0 0 calc((100% - 48px) / 3);
+      background: var(--color-white);
+      border: 1px solid rgba(7,7,27,0.08);
+      border-radius: 20px;
+      padding: 24px 24px 22px;
+      box-shadow: 0 1px 2px rgba(7,7,27,0.03);
+      display: flex; flex-direction: column;
     }
-    .team-name { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--cream); letter-spacing: -0.005em; }
-    .team-role { margin-top: 6px; font-size: 10px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
-    .team-bio { margin-top: 14px; font-size: 13px; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.65); max-width: 480px; }
+    .ta-stars {
+      display: flex; gap: 3px;
+      margin-bottom: 18px;
+    }
+    .ta-stars svg { width: 16px; height: 16px; }
+    .ta-stars .ta-star-on { color: var(--midnight); }
+    .ta-stars .ta-star-off { color: rgba(7,7,27,0.15); }
+    .ta-card-text {
+      font-size: 15.5px; font-weight: 400; line-height: 1.55;
+      color: var(--midnight);
+      margin: 0 0 22px;
+      flex: 1;
+    }
+    .ta-card-foot {
+      display: flex; align-items: center; gap: 10px;
+      flex-wrap: wrap;
+    }
+    .ta-avatar {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+      background: var(--color-blue);
+      border: 1px solid rgba(7,7,27,0.10);
+      box-shadow: 0 1px 2px rgba(7,7,27,0.08);
+    }
+    .ta-card.is-gold .ta-avatar { background: var(--color-gold); color: var(--midnight); }
+    .ta-card-name {
+      font-size: 13.5px; font-weight: 500;
+      color: var(--midnight);
+      letter-spacing: -0.005em;
+    }
+    .ta-card-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: rgba(7,7,27,0.25);
+    }
+    .ta-card-role {
+      font-size: 13.5px;
+      color: rgba(7,7,27,0.55);
+    }
 
     /* ─────────────────────────────────────────────────────────────
-       SECTION 8 — PROCESS (4 steps)
+       SECTION 10 — CONTACT CTA (cream)
        ───────────────────────────────────────────────────────────── */
-    #process {
-      position: relative; background: var(--midnight); overflow: hidden;
-    }
-    #process::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background:
-        radial-gradient(60% 50% at 80% 0%, rgba(217,188,128,0.10), transparent 60%),
-        radial-gradient(50% 50% at 20% 100%, rgba(11,2,82,0.4), transparent 60%);
-    }
-    .process-inner { position: relative; max-width: 1240px; margin: 0 auto; padding: 120px 56px; }
-    .process-head { display: grid; gap: 40px; grid-template-columns: 1fr 1fr; align-items: end; margin-bottom: 64px; }
-    .process-head h2 {
-      margin-top: 22px;
-      font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
-      line-height: 1.06; color: var(--cream); letter-spacing: -0.02em;
-    }
-    .process-head h2 .accent { font-style: italic; color: var(--gold); }
-    .process-head p { font-size: 18px; font-weight: 300; line-height: 1.7; color: rgba(242,237,228,0.6); max-width: 460px; }
-    .process-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-      background: var(--line);
-    }
-    .process-card { background: var(--midnight); padding: 44px 32px 48px; min-height: 280px; display: flex; flex-direction: column; }
-    .process-top { display: flex; align-items: baseline; justify-content: space-between; }
-    .process-step { font-family: var(--font-display); font-size: 10.5px; font-weight: 700; letter-spacing: 0.32em; color: var(--gold); }
-    .process-numlg { font-family: var(--font-display); font-style: italic; font-size: 30px; font-weight: 300; color: rgba(242,237,228,0.18); line-height: 1; }
-    .process-card h3 {
-      margin-top: 48px;
-      font-family: var(--font-display); font-weight: 300; font-size: 26px;
-      color: var(--cream); letter-spacing: -0.01em;
-    }
-    .process-card p { margin-top: 16px; font-size: 14.5px; line-height: 1.7; font-weight: 300; color: rgba(242,237,228,0.6); }
-
-    /* ─────────────────────────────────────────────────────────────
-       SECTION 9 — CTA (cream)
-       ───────────────────────────────────────────────────────────── */
-    #cta { background: var(--cream); padding: 140px 56px; border-top: 1px solid rgba(7,7,27,0.06); }
-    .cta-inner { max-width: 1100px; margin: 0 auto; }
-    .cta-grid { display: grid; gap: 48px; grid-template-columns: 1.1fr 1fr; align-items: end; }
-    .cta-grid h2 {
+    #cta { background: var(--color-white); padding: 140px 56px; border-top: 1px solid rgba(7,7,27,0.06); }
+    .cta-inner { max-width: 1240px; margin: 0 auto; }
+    .cta-head { text-align: center; margin-bottom: 80px; }
+    .cta-head .section-tag { justify-content: center; }
+    .cta-head h2 {
       margin-top: 26px;
       font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-lg);
       line-height: 1; color: var(--midnight); letter-spacing: -0.02em;
     }
-    .cta-grid h2 .accent { font-style: italic; color: var(--color-blue); }
-    .cta-grid .cta-copy { font-size: 18px; font-weight: 300; line-height: 1.75; color: rgba(7,7,27,0.6); }
-    .cta-actions { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
-    .cta-detail { margin-top: 96px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 48px; border-top: 1px solid rgba(7,7,27,0.12); }
-    .cta-detail .head { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-blue); margin-bottom: 14px; }
-    .cta-detail .body { font-family: var(--font-display); font-size: 19px; font-weight: 400; line-height: 1.55; color: var(--midnight); white-space: pre-line; }
+    .cta-head h2 .accent { font-style: italic; color: var(--color-blue); }
+    .cta-head p {
+      max-width: 640px; margin: 28px auto 0;
+      font-family: var(--font-display); font-style: italic;
+      font-size: 19px; font-weight: 300; line-height: 1.65;
+      color: rgba(7,7,27,0.65);
+    }
 
-    /* ─────────────────────────────────────────────────────────────
-       FOOTER
-       ───────────────────────────────────────────────────────────── */
-    footer { background: var(--midnight); border-top: 1px solid var(--line); padding: 68px 56px 36px; }
-    .footer-grid { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 56px; }
-    .foot-brand img { height: 36px; margin-bottom: 18px; }
-    .foot-brand p { font-size: 13px; font-weight: 300; line-height: 1.75; color: rgba(242,237,228,0.55); max-width: 280px; }
-    .foot-head { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream); margin-bottom: 22px; }
-    .foot-link { display: block; padding: 6px 0; font-size: 12.5px; font-weight: 300; letter-spacing: 0.04em; color: var(--muted); text-decoration: none; transition: color 0.22s ease; }
-    .foot-link:hover { color: var(--cream); }
-    .foot-base { max-width: 1240px; margin: 56px auto 0; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; font-size: 11px; letter-spacing: 0.06em; color: rgba(242,237,228,0.45); }
-    .foot-base a { margin-left: 22px; color: rgba(242,237,228,0.55); text-decoration: none; }
-    .foot-base a:hover { color: var(--cream); }
+    .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 56px; }
+    .contact-card {
+      background: var(--cream);
+      border: 1px solid rgba(7,7,27,0.06);
+      border-radius: 18px;
+      padding: 40px;
+      transition: transform 0.7s var(--ease-out-expo), box-shadow 0.7s var(--ease-out-expo), border-color 0.7s var(--ease-out-expo);
+    }
+    .contact-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(7,7,27,0.18);
+      box-shadow: 0 18px 40px rgba(7,7,27,0.06);
+    }
+    .contact-name {
+      font-family: var(--font-display); font-weight: 400; font-size: 28px;
+      color: var(--midnight); letter-spacing: -0.01em;
+    }
+    .contact-role {
+      margin-top: 6px;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--color-blue);
+    }
+    .contact-divider {
+      margin: 28px 0; height: 1px; background: rgba(7,7,27,0.10);
+    }
+    .contact-line {
+      display: flex; align-items: center; gap: 14px;
+      padding: 8px 0;
+      font-size: 14.5px; font-weight: 400; color: var(--midnight);
+      text-decoration: none;
+      transition: color 0.4s var(--ease-out-expo);
+    }
+    .contact-line + .contact-line { border-top: 1px solid rgba(7,7,27,0.06); }
+    .contact-line:hover { color: var(--color-blue); }
+    .contact-icon {
+      width: 32px; height: 32px; flex-shrink: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(7,7,27,0.12); border-radius: 50%;
+      color: rgba(7,7,27,0.6);
+      transition: border-color 0.4s var(--ease-out-expo), color 0.4s var(--ease-out-expo);
+    }
+    .contact-line:hover .contact-icon { border-color: var(--color-blue); color: var(--color-blue); }
+    .contact-icon svg { width: 13px; height: 13px; }
+
+    .cta-actions {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px;
+    }
 
     /* ─────────────────────────────────────────────────────────────
        RESPONSIVE
        ───────────────────────────────────────────────────────────── */
     @media (max-width: 1024px) {
-      #story, #principles, #team-section, #cta { padding-left: 40px !important; padding-right: 40px !important; }
-      .stats-strip, .process-inner { padding-left: 40px !important; padding-right: 40px !important; }
-      #story .grid { grid-template-columns: 1fr; gap: 56px; }
-      #story .left { position: static; }
-      .principles-head, .process-head { grid-template-columns: 1fr; }
-      .principles-grid, .team-grid { grid-template-columns: 1fr 1fr; }
-      .process-grid { grid-template-columns: 1fr 1fr; }
-      footer { padding-left: 40px; padding-right: 40px; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      #about-intro, #services, #values, #coverage, #why, #testimonials-about, #cta {
+        padding-left: 40px !important; padding-right: 40px !important;
+      }
+      #about-intro .grid { grid-template-columns: 1fr; gap: 56px; }
+      .team-grid { grid-template-columns: 1fr; gap: 64px; margin-top: 96px; }
+      .services-head, .why-head { grid-template-columns: 1fr; }
+      .services-list { grid-template-columns: 1fr; column-gap: 0; }
+      .hm-inner { grid-template-columns: 1fr; gap: 64px; }
+      .hm-col { padding: 0; }
+      .hm-col + .hm-col { border-left: none; border-top: 1px solid rgba(242,237,228,0.14); padding-top: 64px; }
+      .values-track { grid-template-columns: repeat(5, 1fr); gap: 14px; }
+      .value-cell p { font-size: 12.5px; }
+      .contacts-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .coverage-grid { grid-template-columns: 1fr; gap: 64px; }
+      .coverage-globe { margin: 0 auto; max-width: 440px; }
+      .ta-card { flex: 0 0 calc((100% - 24px) / 2); }
     }
     @media (max-width: 768px) {
-      #story, #principles, #team-section, #cta, .stats-strip { padding: 80px 24px !important; }
-      .process-inner { padding-left: 24px !important; padding-right: 24px !important; }
+      #about-intro, #services, #values, #coverage, #why, #testimonials-about, #cta {
+        padding-top: 90px !important; padding-bottom: 90px !important;
+        padding-left: 24px !important; padding-right: 24px !important;
+      }
       #about-hero { min-height: 580px; }
       #about-hero .hero-content { padding: 130px 24px 96px; }
       #about-hero .side-rule { display: none; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-      .stat-cell { padding: 24px 16px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.18); }
-      .stat-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.18); }
-      .stat-cell:nth-child(3), .stat-cell:nth-child(4) { border-bottom: none; }
-      .principles-grid, .team-grid, .process-grid { grid-template-columns: 1fr; }
-      .cta-grid { grid-template-columns: 1fr; }
-      .cta-detail { grid-template-columns: 1fr; gap: 28px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
-      #story .quote { padding: 32px 28px; }
-      #story .quote blockquote { font-size: 22px; }
+      .team-grid { margin-top: 72px; }
+      .team-name { font-size: 26px; }
+      #how-mission { padding: 90px 24px; }
+      .values-track { grid-template-columns: 1fr; gap: 32px; }
+      .values-track::before { display: none; }
+      .value-cell { padding-top: 0; }
+      .value-cell::before { display: none; }
+      .coverage-globe { max-width: 320px; }
+      .ta-card { flex: 0 0 100%; padding: 22px 22px 20px; }
+      .ta-arrow { width: 40px; height: 40px; }
+      .ta-card-text { font-size: 14.5px; }
+      .contact-card { padding: 32px 28px; }
+      .cta-head h2 { font-size: var(--fs-display-md); }
     }
   </style>
 </head>
@@ -551,8 +960,6 @@
 
 <!-- ═══════════ NAV ═══════════ -->
 <div id="nav-wrap" role="navigation" aria-label="Main">
-
-  <!-- Pill bar: burger | logo | contact -->
   <div id="nav-pill">
     <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-dropdown">
       <span class="burger-icon" aria-hidden="true">
@@ -564,295 +971,487 @@
     <a href="/" id="nav-logo" aria-label="Designer Recruitment home">
       <img id="logo-white" src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
     </a>
-    <a href="/#contact" class="nav-contact-btn">Contact</a>
+    <a href="/contact/" class="nav-contact-btn">Contact</a>
   </div>
-
-  <!-- Dropdown card -->
   <div id="nav-dropdown" aria-hidden="true">
     <nav aria-label="Site links">
       <a href="/"             class="nd-link">Home</a>
       <a href="/about/"       class="nd-link">About Us</a>
-      <a href="/#candidates"  class="nd-link">For Candidates</a>
-      <a href="/#clients"     class="nd-link">For Clients</a>
-      <a href="/#expertise"   class="nd-link">Sectors</a>
-      <a href="/#testimonials" class="nd-link">Testimonials</a>
-      <a href="/#insights"    class="nd-link">News &amp; Insights</a>
-      <a href="/#contact"     class="nd-link">Contact</a>
+      <a href="/candidates/"  class="nd-link">For Candidates</a>
+      <a href="/clients/"     class="nd-link">For Clients</a>
+      <a href="/who-we-recruit-for/" class="nd-link">Who we recruit for</a>
+      <a href="/about/#testimonials-about" class="nd-link">Testimonials</a>
+      <a href="/news-and-insights/" class="nd-link">News &amp; Insights</a>
+      <a href="/contact/"     class="nd-link">Contact</a>
     </nav>
   </div>
-
-</div><!-- /nav-wrap -->
+</div>
 
 <main id="main">
 
-  <!-- ═══════════ HERO ═══════════ -->
+  <!-- ═══════════ 1. HERO ═══════════ -->
   <section id="about-hero" aria-label="About Designer Recruitment">
     <div class="hero-bg" role="img" aria-label="Premium kitchen interior"></div>
     <div class="hero-vignette" aria-hidden="true"></div>
     <div class="hero-vignette-2" aria-hidden="true"></div>
-
     <div class="side-rule" aria-hidden="true"></div>
 
     <div class="hero-content">
-      <div class="hero-eyebrow">About Designer Recruitment</div>
+      <div class="hero-eyebrow">Connecting top talent with leading brands</div>
       <h1>
-        <span class="wipe-line"><span>Quietly building</span></span>
-        <span class="wipe-line"><span><span class="serif-i">the industry's</span> most</span></span>
-        <span class="wipe-line"><span>trusted network.</span></span>
+        <span class="wipe-line"><span>Specialist recruitment,</span></span>
+        <span class="wipe-line"><span><span class="serif-i">built around</span> craft,</span></span>
+        <span class="wipe-line"><span>character &amp; culture.</span></span>
       </h1>
       <p class="hero-sub">
-        A specialist recruitment studio for the KBB &amp; Builders Merchant industry, founded on the belief that craft, character, and culture should be matched with the same precision as skill.
+        Designer Recruitment are a specialist consultancy dedicated to the KBB, interiors, and design sectors, connecting exceptional companies with the very best talent.
       </p>
       <div class="hero-actions">
-        <a href="#story" class="btn-primary">
-          Read our story
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2v8M2.5 6.5l4 4 4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="/contact/" class="btn-primary">
+          Contact Us
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#team-section" class="btn-ghost">
+        <a href="#about-intro" class="btn-ghost">
           Meet the team
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
     </div>
-
   </section>
 
-  <!-- ═══════════ STORY ═══════════ -->
-  <section id="story" data-bg="light" aria-label="Our story">
+  <!-- ═══════════ 2. ABOUT + TEAM ═══════════ -->
+  <section id="about-intro" data-bg="light" aria-label="About us">
+    <div class="ai-tag">
+      <div class="section-tag is-blue fade-up">About Us</div>
+    </div>
     <div class="grid">
       <div class="left">
-        <div class="section-tag is-blue fade-up" style="margin-bottom:22px;">Our Story</div>
-        <h2 class="fade-up d1">
-          We Create<br>
-          <span class="accent">Opportunities</span> for<br>
-          Candidates &amp; Businesses
+        <h2 class="fade-up">
+          A specialist studio for<br>
+          <span class="accent">design-led</span> businesses.
         </h2>
-        <div class="est fade-up d2">Est. 2014, Manchester, UK</div>
+        <div class="est fade-up d1">Est. 2014, Rushden, UK</div>
       </div>
-
       <div class="right">
-        <p class="lead fade-up d1">
-          We place designers, sales staff and managers into kitchen, bedroom and bathroom businesses, from independent showrooms to merchants and manufacturers.
+        <p class="lead fade-up">
+          Designer Recruitment are a specialist recruitment consultancy dedicated to the KBB, interiors, and design sectors. We connect exceptional companies with the very best talent, supporting both clients and candidates throughout the recruitment journey.
         </p>
-        <p class="body fade-up d2">
-          <strong>For candidates:</strong> confidential conversations, honest market advice, roles that aren't on the open job boards. <strong>For hiring managers:</strong> sector-specialist shortlists, direct access to passive candidates, and a single point of contact who knows the industry.
+        <p class="body fade-up d1">
+          With years of industry-specific experience, we understand the nuances of design-led businesses, allowing us to deliver a highly tailored recruitment service.
         </p>
-        <p class="body fade-up">
-          Founder, Ben Paine has spent his career in KBB recruitment and has placed hundreds of designers, sales staff and managers across the UK.
-        </p>
+      </div>
+    </div>
 
-        <div class="story-actions fade-up">
-          <a href="mailto:hello@designerrecruitment.co.uk" class="btn-primary">
-            Get in touch
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=Post%20a%20role" class="btn-dark-ghost">
-            Submit a vacancy
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a href="mailto:hello@designerrecruitment.co.uk?subject=CV%20submission" class="btn-dark-ghost">
-            Send your CV
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+    <div class="team-grid">
+      <article class="team-card fade-up d1">
+        <div class="team-img-frame">
+          <img src="/Brand_assets/Ben-Paine-Managing Director.jpg" alt="Ben Paine, Managing Director" loading="lazy" style="object-position:center 30%;">
         </div>
-      </div>
+        <p class="team-role">Managing Director</p>
+        <p class="team-name">Ben Paine</p>
+        <p class="team-bio">
+          Ben has over 6 years of industry-related recruitment experience, bringing a wealth of knowledge and insight into finding the right people for the right roles. His hands-on approach ensures clients receive the highest level of service and expertise.
+        </p>
+        <p class="team-aside">
+          Outside of work, Ben enjoys playing cricket throughout the summer and spending quality time with his family on weekends.
+        </p>
+        <a class="team-link" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer">
+          Connect on LinkedIn
+          <svg viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="team-card fade-up d2">
+        <div class="team-img-frame">
+          <img src="/Brand_assets/Cara-Tomkins.jpg" alt="Cara Tomkins, Head of Recruitment" loading="lazy" style="object-position:center top;">
+        </div>
+        <p class="team-role">Head of Recruitment</p>
+        <p class="team-name">Cara Tomkins</p>
+        <p class="team-bio">
+          Cara has over 5 years of industry-related recruitment experience, specialising in design, KBB, and luxury home sectors. She is passionate about building lasting relationships and ensuring both clients and candidates have the best possible experience.
+        </p>
+        <p class="team-aside">
+          Outside of work, Cara enjoys going to the gym, running races, and spending time with family and friends.
+        </p>
+        <a class="team-link" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer">
+          Connect on LinkedIn
+          <svg viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
     </div>
   </section>
 
-  <!-- ═══════════ NUMBERS ═══════════ -->
-  <section id="numbers" aria-label="By the numbers">
-    <div class="stats-strip">
-      <div class="stats-grid">
-        <div class="stat-cell fade-up d1"><div class="stat-value">10+</div><div class="stat-label">Years in KBB</div></div>
-        <div class="stat-cell fade-up d2"><div class="stat-value">500+</div><div class="stat-label">Placements made</div></div>
-        <div class="stat-cell fade-up d3"><div class="stat-value">200+</div><div class="stat-label">Active clients</div></div>
-        <div class="stat-cell fade-up d4"><div class="stat-value">98%</div><div class="stat-label">Client retention</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════ PRINCIPLES ═══════════ -->
-  <section id="principles" aria-label="Our principles">
-    <div class="principles-inner">
-      <div class="principles-head">
+  <!-- ═══════════ 4. WHAT WE DO ═══════════ -->
+  <section id="services" aria-label="What we do">
+    <div class="services-inner">
+      <div class="services-head">
         <div>
-          <div class="section-tag fade-up">Principles</div>
-          <h2 class="fade-up d1">Four ideas<br><span class="accent">we won't compromise on.</span></h2>
+          <div class="section-tag fade-up">What We Do</div>
+          <h2 class="fade-up d1">A complete<br><span class="accent">recruitment service.</span></h2>
         </div>
-        <p class="fade-up d2">These aren't marketing lines. They're the rules we sign briefs against, the way we choose which candidates to represent, and the standard we hold the business to internally.</p>
+        <p class="fade-up d2">From advertising and headhunting to vetting, partnership, and the kind of out-of-hours support most agencies don't offer, we work as an extension of your team.</p>
       </div>
 
-      <div class="principles-grid">
-        <div class="principle-card fade-up d1">
-          <div class="principle-top">
-            <span class="principle-num">01</span>
-            <span class="principle-rule"></span>
+      <div class="services-list">
+        <div class="service-row fade-up d1">
+          <span class="service-num">01</span>
+          <div class="service-body">
+            <h3>Advertising Roles</h3>
+            <p>We advertise across our industry-specific database of over 10,000 candidates, alongside platforms such as LinkedIn and Indeed.</p>
           </div>
-          <h3>Specialist, not generalist.</h3>
-          <p>We work in one industry, the KBB &amp; Builders Merchant sector, and we know it from the design floor up. That depth is the entire product.</p>
         </div>
-        <div class="principle-card fade-up d2">
-          <div class="principle-top">
-            <span class="principle-num">02</span>
-            <span class="principle-rule"></span>
+        <div class="service-row fade-up d2">
+          <span class="service-num">02</span>
+          <div class="service-body">
+            <h3>Proactive Headhunting</h3>
+            <p>We leverage our extensive network and industry contacts to find candidates who may not be actively seeking new roles.</p>
           </div>
-          <h3>Curate, don't broker.</h3>
-          <p>Every introduction is considered. We'd rather present three exceptional candidates than ten plausible ones. The same goes for the briefs we accept.</p>
         </div>
-        <div class="principle-card fade-up d3">
-          <div class="principle-top">
-            <span class="principle-num">03</span>
-            <span class="principle-rule"></span>
+        <div class="service-row fade-up d2">
+          <span class="service-num">03</span>
+          <div class="service-body">
+            <h3>Thorough Vetting &amp; Screening</h3>
+            <p>We present only candidates who are a genuine fit for the business and the role, with the diligence to back it up.</p>
           </div>
-          <h3>Match for craft &amp; character.</h3>
-          <p>Skills get someone through the door. Character keeps them in the building. We hire the way the best studios hire, for the long arc of a career.</p>
         </div>
-        <div class="principle-card fade-up d4">
-          <div class="principle-top">
-            <span class="principle-num">04</span>
-            <span class="principle-rule"></span>
+        <div class="service-row fade-up d3">
+          <span class="service-num">04</span>
+          <div class="service-body">
+            <h3>An Extension of Your Team</h3>
+            <p>Honest advice, regular communication, and guidance throughout the recruitment process, integrated like in-house.</p>
           </div>
-          <h3>Stay close, stay honest.</h3>
-          <p>We tell candidates what they need to hear, not what they want to hear. We tell clients the same. The results compound over years of trust.</p>
+        </div>
+        <div class="service-row fade-up d3">
+          <span class="service-num">05</span>
+          <div class="service-body">
+            <h3>Flexibility &amp; Support</h3>
+            <p>We work beyond standard hours when the moment calls for it, recognising the demands of busy, design-led businesses.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════ MARQUEE ═══════════ -->
-  <div id="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="marquee-item">
-        <span class="marquee-label">Specialist Search</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Executive Placement</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Talent Mapping</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Showroom Recruitment</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Designer Placement</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Strategic Consultancy</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Industry Advisory</span><span class="marquee-dot">✦</span>
-      </span>
-      <span class="marquee-item">
-        <span class="marquee-label">Specialist Search</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Executive Placement</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Talent Mapping</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Showroom Recruitment</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Designer Placement</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Strategic Consultancy</span><span class="marquee-dot">✦</span>
-        <span class="marquee-label">Industry Advisory</span><span class="marquee-dot">✦</span>
-      </span>
-    </div>
-  </div>
-
-  <!-- ═══════════ TEAM ═══════════ -->
-  <section id="team-section" data-bg="light" aria-label="The team">
-    <div class="team-inner">
-      <div class="team-head">
-        <div>
-          <div class="section-tag is-blue fade-up">The Team</div>
-          <h2 class="fade-up d1">People who<br><span class="accent">know people.</span></h2>
-        </div>
-        <p class="fade-up d2">Our consultants are industry insiders, with direct experience in KBB retail, design studios, and trade.</p>
+  <!-- ═══════════ 5. HOW WE WORK + OUR MISSION ═══════════ -->
+  <section id="how-mission" aria-label="How we work and our mission">
+    <div class="hm-inner">
+      <div class="hm-col fade-up d1">
+        <span class="hm-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M8 12h8M12 8v8"/>
+          </svg>
+        </span>
+        <h2>How <span class="accent">we work.</span></h2>
+        <p>We take the time to understand your business, culture, and specific recruitment needs. Each search is bespoke, ensuring that every candidate we recommend has been carefully assessed for both skills and fit. Our goal is not just to fill a vacancy, but to deliver lasting, meaningful placements that benefit both client and candidate.</p>
       </div>
+      <div class="hm-col fade-up d2">
+        <span class="hm-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <circle cx="12" cy="12" r="4.5"/>
+            <circle cx="12" cy="12" r="1.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <h2>Our <span class="accent">mission.</span></h2>
+        <p>To provide a recruitment experience that is efficient, transparent, and highly personalised, ensuring that our clients have access to the best talent while building long-term, trusted partnerships.</p>
+      </div>
+    </div>
+  </section>
 
-      <div class="team-grid">
-        <div class="team-card fade-up d1">
-          <div class="team-img">
-            <img src="/Brand_assets/Ben-Paine-Managing Director.jpg" alt="Ben Paine, Managing Director" loading="lazy" style="object-position:center 35%;filter:grayscale(20%) brightness(0.95);">
-            <div class="team-info">
-              <p class="team-name">Ben Paine</p>
-              <p class="team-role">Managing Director</p>
-              <p class="team-bio">With over a decade of experience in KBB recruitment, Ben leads the team with deep industry knowledge and a passion for matching exceptional talent with exceptional brands.</p>
+  <!-- ═══════════ 6. VALUES ═══════════ -->
+  <section id="values" data-bg="light" aria-label="Our values">
+    <div class="values-inner">
+      <div class="values-head">
+        <div class="section-tag is-blue fade-up">Our Values</div>
+        <h2 class="fade-up d1">Five ideas, <span class="accent">held closely.</span></h2>
+      </div>
+      <div class="values-track">
+        <div class="value-cell fade-up d1">
+          <h3>Integrity</h3>
+          <p>Honest, practical advice, in the best interest of both clients and candidates.</p>
+        </div>
+        <div class="value-cell fade-up d2">
+          <h3>Excellence</h3>
+          <p>The highest standards in every placement, ensuring quality and professionalism.</p>
+        </div>
+        <div class="value-cell fade-up d3">
+          <h3>Partnership</h3>
+          <p>Working closely with clients to understand their culture, vision, and goals.</p>
+        </div>
+        <div class="value-cell fade-up d4">
+          <h3>Communication</h3>
+          <p>Clear, timely updates throughout the process, building engagement and confidence.</p>
+        </div>
+        <div class="value-cell fade-up d5">
+          <h3>Passion</h3>
+          <p>A genuine commitment to KBB, interiors, and design, in every search we run.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 7. COVERAGE ═══════════ -->
+  <section id="coverage" data-bg="light" aria-label="Our coverage">
+    <div class="coverage-inner">
+      <div class="coverage-grid">
+        <div class="coverage-copy">
+          <div class="section-tag is-blue fade-up">Our Coverage</div>
+          <h2 class="fade-up d1">Working <span class="accent">across borders.</span></h2>
+          <p class="fade-up d2">We specialise in recruitment across the UK interiors, design, luxury kitchens, bathrooms, and lifestyle markets, and also support clients in Australia, the UAE, and Ireland. If your area isn't listed, get in touch, we'd love to see how we can help.</p>
+          <div class="regions">
+            <span class="region fade-up d1">United Kingdom</span>
+            <span class="region fade-up d2">UAE</span>
+            <span class="region fade-up d3">Australia</span>
+            <span class="region fade-up d4">Ireland</span>
+          </div>
+        </div>
+        <div class="coverage-globe fade-up d2" aria-hidden="true">
+          <canvas id="globe-canvas"></canvas>
+          <div class="globe-overlay" id="globe-overlay">
+            <div class="globe-marker" data-marker="uk" data-lat="51.5074" data-lng="-0.1278">
+              <span class="globe-marker-label">United Kingdom</span>
+              <span class="globe-marker-arrow"></span>
+              <span class="globe-marker-stem"></span>
+              <span class="globe-marker-dot"></span>
+            </div>
+            <div class="globe-marker below" data-marker="ie" data-lat="53.3498" data-lng="-6.2603">
+              <span class="globe-marker-dot"></span>
+              <span class="globe-marker-stem"></span>
+              <span class="globe-marker-arrow"></span>
+              <span class="globe-marker-label">Ireland</span>
+            </div>
+            <div class="globe-marker" data-marker="ae" data-lat="25.2048" data-lng="55.2708">
+              <span class="globe-marker-label">UAE</span>
+              <span class="globe-marker-arrow"></span>
+              <span class="globe-marker-stem"></span>
+              <span class="globe-marker-dot"></span>
+            </div>
+            <div class="globe-marker" data-marker="au" data-lat="-33.8688" data-lng="151.2093">
+              <span class="globe-marker-label">Australia</span>
+              <span class="globe-marker-arrow"></span>
+              <span class="globe-marker-stem"></span>
+              <span class="globe-marker-dot"></span>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="team-card fade-up d2">
-          <div class="team-img">
-            <img src="/Brand_assets/Cara-Tomkins.jpg" alt="Cara Tomkins, Head of Recruitment" loading="lazy" style="object-position:center top;">
-            <div class="team-info">
-              <p class="team-name">Cara Tomkins</p>
-              <p class="team-role">Head of Recruitment</p>
-              <p class="team-bio">An experienced, results-driven Head of Recruitment with a passion for connecting talented professionals with leading organisations and driving sales success through strategic talent acquisition.</p>
-            </div>
+  <!-- ═══════════ 8. WHY CHOOSE US ═══════════ -->
+  <section id="why" aria-label="Why choose us">
+    <div class="why-inner">
+      <div class="why-head">
+        <div>
+          <div class="section-tag on-dark fade-up">Why Choose Us</div>
+          <h2 class="fade-up d1">Why work with<br><span class="accent">Designer Recruitment.</span></h2>
+        </div>
+        <p class="fade-up d2">We genuinely care about the service we provide. We like to call ourselves <span class="accent">a community, not just an agency,</span> working with our clients to ensure lasting, meaningful placements.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card fade-up d1">
+          <div class="why-card-top"><span class="why-num">01</span><span class="why-rule"></span></div>
+          <p>Access to a highly targeted candidate pool, including active and passive talent.</p>
+        </div>
+        <div class="why-card fade-up d2">
+          <div class="why-card-top"><span class="why-num">02</span><span class="why-rule"></span></div>
+          <p>Industry-specific expertise that ensures only relevant candidates are presented.</p>
+        </div>
+        <div class="why-card fade-up d3">
+          <div class="why-card-top"><span class="why-num">03</span><span class="why-rule"></span></div>
+          <p>A bespoke approach for every client, aligning with your business goals and culture.</p>
+        </div>
+        <div class="why-card fade-up d4">
+          <div class="why-card-top"><span class="why-num">04</span><span class="why-rule"></span></div>
+          <p>A commitment to long-term partnerships, not just one-off placements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 9. TESTIMONIALS ═══════════ -->
+  <section id="testimonials-about" data-bg="light" aria-labelledby="testimonials-heading">
+    <div class="ta-inner">
+      <div class="ta-head">
+        <div class="section-tag fade-up">Testimonials</div>
+        <h2 id="testimonials-heading" class="fade-up d1">What our clients <span class="accent">say.</span></h2>
+        <p class="fade-up d2">Long-form notes from the studios, retailers, and brands we've placed talent into.</p>
+      </div>
+
+      <div class="ta-carousel fade-up" id="ta-carousel">
+        <button class="ta-arrow ta-arrow-prev" id="ta-prev" aria-label="Previous testimonial">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4L6 8l4 4"/></svg>
+        </button>
+        <div class="ta-viewport">
+          <div class="ta-track" id="ta-track">
+            <article class="ta-card">
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">Having never been a fan of utilising recruitment consultants, I am now a convert thanks to Ben's ability to quickly produce high-quality candidates for nearly every role tabled to date.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">Cu</span>
+                <span class="ta-card-name">Cutlist</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">Owner &amp; Founder</span>
+              </footer>
+            </article>
+
+            <article class="ta-card is-gold">
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">Cara is proactive, supportive, and highly effective at matching the right talent to the right roles. She has consistently demonstrated exceptional professionalism, dedication, and a genuine commitment to understanding our needs.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">FE</span>
+                <span class="ta-card-name">Fired Earth</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">Regional Manager</span>
+              </footer>
+            </article>
+
+            <article class="ta-card">
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">Ben is a rare recruiter who backs up his promise with real results. The quality of his candidates and speed of turnaround is very impressive. He is my first go-to recruiter for marketing talent.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">PD</span>
+                <span class="ta-card-name">Principal Director</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">KBB &amp; Interiors</span>
+              </footer>
+            </article>
+
+            <article class="ta-card is-gold">
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">I had the pleasure of working with Cara during a significant hiring and growth period. She was supportive, driven, and focused on helping us find the right candidates. Cara has a genuine care for building long-lasting relationships.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">QS</span>
+                <span class="ta-card-name">Quorn Stone</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">Business Ops</span>
+              </footer>
+            </article>
+
+            <article class="ta-card">
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">Ben is a long-standing collaborator of mine, consistently delivering top-notch candidates. Our newly onboarded manager is already leaving her mark, thanks to Ben's spot-on selections.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">La</span>
+                <span class="ta-card-name">Langstaff</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">Managing Director</span>
+              </footer>
+            </article>
+
+            <article class="ta-card is-gold">
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">We have worked with Cara over the last couple of years. We have around some of the best talent in the market, and would recommend her service to anyone.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">SK</span>
+                <span class="ta-card-name">Square Kitchens</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">Managing Director</span>
+              </footer>
+            </article>
           </div>
         </div>
+        <button class="ta-arrow ta-arrow-next" id="ta-next" aria-label="Next testimonial">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4l4 4-4 4"/></svg>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════ PROCESS ═══════════ -->
-  <section id="process" aria-label="How we work">
-    <div class="process-inner">
-      <div class="process-head">
-        <div>
-          <div class="section-tag fade-up">How We Work</div>
-          <h2 class="fade-up d1">A four-step<br><span class="accent">deliberate process.</span></h2>
-        </div>
-        <p class="fade-up d2">We move slowly on purpose. The work that protects a placement, long-form briefing, real conversations, considered shortlists, happens before any CV changes hands. Speed is a by-product of fit, not a goal in itself.</p>
-      </div>
-
-      <ol class="process-grid">
-        <li class="process-card fade-up d1">
-          <div class="process-top"><span class="process-step">STEP 01</span><span class="process-numlg">/01</span></div>
-          <h3>Discover</h3>
-          <p>We start with a conversation, not a brief. What does the studio actually need? What does the candidate actually want? The interesting work happens here.</p>
-        </li>
-        <li class="process-card fade-up d2">
-          <div class="process-top"><span class="process-step">STEP 02</span><span class="process-numlg">/02</span></div>
-          <h3>Curate</h3>
-          <p>We open the network. Three to five carefully matched candidates per role. Long-form context on each: craft, character, motivation, fit.</p>
-        </li>
-        <li class="process-card fade-up d3">
-          <div class="process-top"><span class="process-step">STEP 03</span><span class="process-numlg">/03</span></div>
-          <h3>Place</h3>
-          <p>We coach the process, from first interview to negotiation. Both sides come out feeling chosen, not sold to. That's how placements stick.</p>
-        </li>
-        <li class="process-card fade-up d4">
-          <div class="process-top"><span class="process-step">STEP 04</span><span class="process-numlg">/04</span></div>
-          <h3>Stay</h3>
-          <p>We keep showing up after the offer is signed. First-90-day check-ins, future career planning, talent mapping for the next hire.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ═══════════ CTA ═══════════ -->
-  <section id="cta" data-bg="light" aria-label="Begin a conversation">
+  <!-- ═══════════ 10. CONTACT CTA ═══════════ -->
+  <section id="cta" data-bg="light" aria-label="Get in touch">
     <div class="cta-inner">
-      <div class="cta-grid">
-        <div>
-          <div class="section-tag is-blue fade-up">Begin a Conversation</div>
-          <h2 class="fade-up d1">Hire well.<br><span class="accent">Be hired well.</span></h2>
+      <div class="cta-head">
+        <div class="section-tag is-blue fade-up">Contact Us</div>
+        <h2 class="fade-up d1">Let's start <span class="accent">a conversation.</span></h2>
+        <p class="fade-up d2">Thank you for taking the time to get to know us. We'd welcome the opportunity to support your recruitment needs and help you secure exceptional talent.</p>
+      </div>
+
+      <div class="contacts-grid">
+        <div class="contact-card fade-up d1">
+          <p class="contact-name">Ben Paine</p>
+          <p class="contact-role">Managing Director</p>
+          <div class="contact-divider"></div>
+          <a class="contact-line" href="tel:+447596880046">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            07596 880046
+          </a>
+          <a class="contact-line" href="mailto:ben@designerrecruitment.co.uk">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </span>
+            ben@designerrecruitment.co.uk
+          </a>
         </div>
-        <div class="cta-copy fade-up d2">
-          <p>Whether you're a studio looking for someone exceptional, or a designer ready for the next chapter, we'd like to hear from you.</p>
-          <div class="cta-actions">
-            <a href="mailto:hello@designerrecruitment.co.uk" class="btn-primary">
-              Start a search
-              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="mailto:hello@designerrecruitment.co.uk?subject=CV%20submission" class="btn-dark-ghost">
-              Submit your CV
-              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
+
+        <div class="contact-card fade-up d2">
+          <p class="contact-name">Cara Tomkins</p>
+          <p class="contact-role">Head of Recruitment</p>
+          <div class="contact-divider"></div>
+          <a class="contact-line" href="tel:+447730567903">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            07730 567903
+          </a>
+          <a class="contact-line" href="mailto:cara@designerrecruitment.co.uk">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </span>
+            cara@designerrecruitment.co.uk
+          </a>
         </div>
       </div>
 
-      <div class="cta-detail">
-        <div class="fade-up d1">
-          <div class="head">Studio</div>
-          <p class="body">Manchester, UK
-By appointment</p>
-        </div>
-        <div class="fade-up d2">
-          <div class="head">General</div>
-          <p class="body">hello@designerrecruitment.co.uk</p>
-        </div>
-        <div class="fade-up d3">
-          <div class="head">Press &amp; Partnerships</div>
-          <p class="body">press@designerrecruitment.co.uk</p>
-        </div>
+      <div class="cta-actions fade-up">
+        <a href="/contact/" class="btn-primary">
+          Send us a message
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/candidates/apply/" class="btn-dark-ghost">
+          Submit your CV
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -860,38 +1459,44 @@ By appointment</p>
 </main>
 
 <!-- ═══════════ FOOTER ═══════════ -->
-<footer>
+<footer class="site-footer">
   <div class="footer-grid">
     <div class="foot-brand">
       <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
       <p>The UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom &amp; Builders Merchant industry.</p>
+      <a class="foot-social" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
     </div>
     <div>
       <div class="foot-head">Company</div>
       <a href="/about/" class="foot-link">About</a>
-      <a href="#story" class="foot-link">Our Story</a>
-      <a href="#principles" class="foot-link">Principles</a>
-      <a href="#process" class="foot-link">Process</a>
-      <a href="#cta" class="foot-link">Contact</a>
+      <a href="#about-intro" class="foot-link">About Us</a>
+      <a href="#services" class="foot-link">What We Do</a>
+      <a href="#values" class="foot-link">Our Values</a>
+      <a href="/contact/" class="foot-link">Contact</a>
     </div>
     <div>
       <div class="foot-head">For Candidates</div>
-      <a href="/#services" class="foot-link">Find a Role</a>
-      <a href="mailto:hello@designerrecruitment.co.uk?subject=CV%20submission" class="foot-link">Submit your CV</a>
-      <a href="/#insights" class="foot-link">Career Advice</a>
+      <a href="/candidates/" class="foot-link">Find a Role</a>
+      <a href="/candidates/apply/" class="foot-link">Submit your CV</a>
+      <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
       <a href="mailto:hello@designerrecruitment.co.uk" class="foot-link">Request a Salary Guide</a>
     </div>
     <div>
       <div class="foot-head">For Clients</div>
-      <a href="/#services" class="foot-link">Hire Talent</a>
-      <a href="mailto:hello@designerrecruitment.co.uk?subject=Post%20a%20role" class="foot-link">Post a Job</a>
+      <a href="/clients/" class="foot-link">Hire Talent</a>
+      <a href="/clients/#post-a-job" class="foot-link">Post a Job</a>
       <a href="/#expertise" class="foot-link">Consultancy</a>
-      <a href="/#expertise" class="foot-link">Sectors</a>
+      <a href="/who-we-recruit-for/" class="foot-link">Who we recruit for</a>
     </div>
   </div>
 
   <div class="foot-base">
-    <div>© <span id="year">2026</span> Designer Recruitment®. All rights reserved.</div>
+    <div>© <span id="year">2026</span> Designer Recruitment Ltd. All rights reserved.<br>
+      Registered in England &amp; Wales.
+      <a href="https://flowfortyfour.com" target="_blank" rel="noopener" class="ff-credit" aria-label="Built by flowfortyfour.com (opens in new tab)">Built by <span class="ff-credit-name">flowfortyfour.com</span></a>
+    </div>
     <div>
       <a href="/privacy.html">Privacy</a>
       <a href="/cookies.html">Cookies</a>
@@ -901,16 +1506,14 @@ By appointment</p>
 </footer>
 
 <script>
-  // Year in footer
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Hero in-class once mounted
   requestAnimationFrame(() => document.body.classList.add('in'));
 
-  // Floating pill nav (matches homepage)
+  /* Floating pill nav */
   (function() {
-    const navWrap    = document.getElementById('nav-wrap');
-    const burger     = document.getElementById('burger');
+    const navWrap     = document.getElementById('nav-wrap');
+    const burger      = document.getElementById('burger');
     const navDropdown = document.getElementById('nav-dropdown');
     let menuOpen = false;
 
@@ -928,7 +1531,6 @@ By appointment</p>
       burger.setAttribute('aria-expanded', 'false');
       navDropdown.setAttribute('aria-hidden', 'true');
     }
-
     burger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
     navDropdown.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
     document.addEventListener('click', e => {
@@ -938,7 +1540,6 @@ By appointment</p>
       if (e.key === 'Escape' && menuOpen) closeMenu();
     });
 
-    // Pill goes dark-glass when over a light section
     function checkPillBg() {
       const pillY = window.innerHeight - 40;
       const anyLight = [...document.querySelectorAll('[data-bg="light"]')].some(el => {
@@ -951,7 +1552,53 @@ By appointment</p>
     checkPillBg();
   })();
 
-  // Fade-up Intersection Observer
+  /* Testimonials carousel — translates the track by N card-widths each press,
+     where N matches the number of visible cards at the current breakpoint. */
+  (function() {
+    const track = document.getElementById('ta-track');
+    const prev  = document.getElementById('ta-prev');
+    const next  = document.getElementById('ta-next');
+    if (!track || !prev || !next) return;
+
+    const cards = track.querySelectorAll('.ta-card');
+    const total = cards.length;
+    const gap = 24;
+    let index = 0;
+
+    function visibleCount() {
+      const w = window.innerWidth;
+      if (w < 768) return 1;
+      if (w < 1024) return 2;
+      return 3;
+    }
+
+    function maxIndex() {
+      return Math.max(0, total - visibleCount());
+    }
+
+    function update() {
+      index = Math.max(0, Math.min(maxIndex(), index));
+      const cardW = cards[0].getBoundingClientRect().width;
+      const offset = index * (cardW + gap);
+      track.style.transform = 'translateX(-' + offset + 'px)';
+      prev.disabled = index === 0;
+      next.disabled = index >= maxIndex();
+    }
+
+    prev.addEventListener('click', () => { index -= 1; update(); });
+    next.addEventListener('click', () => { index += 1; update(); });
+
+    let resizeRaf = 0;
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(resizeRaf);
+      resizeRaf = requestAnimationFrame(update);
+    });
+
+    /* Initial layout once cards have been measured. */
+    requestAnimationFrame(update);
+  })();
+
+  /* Fade-up Intersection Observer */
   (function() {
     const els = document.querySelectorAll('.fade-up');
     if (!('IntersectionObserver' in window)) {
@@ -968,6 +1615,207 @@ By appointment</p>
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     els.forEach(e => io.observe(e));
   })();
+</script>
+
+<script type="module">
+  /* Animated globe (cobe). Light cream sphere with dark dot map, brand-blue
+     markers and arcs. Marker / arc labels are projected manually to screen
+     coords each frame so they ride the rotation. */
+  import createGlobe from 'https://esm.sh/cobe@0.6.4';
+
+  const canvas = document.getElementById('globe-canvas');
+  const overlay = document.getElementById('globe-overlay');
+  if (canvas && overlay) {
+    const start = () => {
+      const w = canvas.offsetWidth;
+      if (w === 0) { requestAnimationFrame(start); return; }
+
+      const theta = 0.25;
+      let phi = 0;
+      let isPaused = false;
+      const phiOffset = { current: 0 };
+      const thetaOffset = { current: 0 };
+      const dragOffset = { phi: 0, theta: 0 };
+      const velocity = { phi: 0, theta: 0 };
+      let pointerInteracting = null;
+      let lastPointer = null;
+
+      const markers = [
+        { id: 'uk', location: [51.5074, -0.1278] },
+        { id: 'ie', location: [53.3498, -6.2603] },
+        { id: 'ae', location: [25.2048, 55.2708] },
+        { id: 'au', location: [-33.8688, 151.2093] },
+      ];
+
+      const arcs = [
+        { id: 'uk-ie', from: [51.5074, -0.1278], to: [53.3498, -6.2603] },
+        { id: 'uk-ae', from: [51.5074, -0.1278], to: [25.2048, 55.2708] },
+        { id: 'uk-au', from: [51.5074, -0.1278], to: [-33.8688, 151.2093] },
+      ];
+
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const globe = createGlobe(canvas, {
+        devicePixelRatio: dpr,
+        width: w * dpr,
+        height: w * dpr,
+        phi: 0,
+        theta,
+        dark: 0,
+        diffuse: 0,
+        mapSamples: 18000,
+        mapBrightness: 6,
+        baseColor: [0.94, 0.92, 0.86],
+        markerColor: [0.137, 0.325, 0.91],
+        glowColor: [0.94, 0.92, 0.86],
+        markerElevation: 0.01,
+        markers: markers.map(m => ({ location: m.location, size: 0.045, id: m.id })),
+        arcs: arcs.map(a => ({ from: a.from, to: a.to, id: a.id })),
+        arcColor: [0.137, 0.325, 0.91],
+        arcWidth: 0.6,
+        arcHeight: 0.38,
+        opacity: 1,
+        onRender: (state) => {
+          if (!isPaused) {
+            phi += 0.0028;
+            if (Math.abs(velocity.phi) > 0.0001 || Math.abs(velocity.theta) > 0.0001) {
+              phiOffset.current += velocity.phi;
+              thetaOffset.current += velocity.theta;
+              velocity.phi *= 0.95;
+              velocity.theta *= 0.95;
+            }
+            const tMin = -0.4, tMax = 0.4;
+            if (thetaOffset.current < tMin) thetaOffset.current += (tMin - thetaOffset.current) * 0.1;
+            else if (thetaOffset.current > tMax) thetaOffset.current += (tMax - thetaOffset.current) * 0.1;
+          }
+          const finalPhi = phi + phiOffset.current + dragOffset.phi;
+          const finalTheta = theta + thetaOffset.current + dragOffset.theta;
+          state.phi = finalPhi;
+          state.theta = finalTheta;
+          updateLabels(finalPhi, finalTheta);
+        },
+      });
+
+      /* Project a (lat, lng) point to screen coords. This mirrors cobe's
+         internal projection (see vendor/cobe.esm.js → U & O):
+           - lat/lng → 3D vector with longitude shifted by π so lng=−90
+             (Americas) sits at front-center at phi=0
+           - phi rotates around Y, theta tilts around X (combined matrix) */
+      function project(lat, lng) {
+        const cw = canvas.clientWidth;
+        const ch = canvas.clientHeight;
+        const latR = lat * Math.PI / 180;
+        const lngR = lng * Math.PI / 180 - Math.PI;
+        const cl = Math.cos(latR);
+        // Markers sit on the globe surface — cobe places them at radius
+        // ee + markerElevation = 0.8 + 0.01 = 0.81 (see cobe W function).
+        const R = 0.81;
+        const t0 = R * (-cl * Math.cos(lngR));
+        const t1 = R * Math.sin(latR);
+        const t2 = R * (cl * Math.sin(lngR));
+        const a = Math.cos(currentPhi),  i = Math.sin(currentPhi);
+        const r = Math.cos(currentTheta), o = Math.sin(currentTheta);
+        const c = a * t0 + i * t2;
+        const s = i * o * t0 + r * t1 - a * o * t2;
+        const z = -i * r * t0 + o * t1 + a * r * t2;
+        const x = (c + 1) / 2 * cw;
+        const y = (-s + 1) / 2 * ch;
+        // Front-hemisphere check. Use a small positive threshold so labels
+        // hide just before reaching the silhouette where they'd appear to
+        // ride the rim.
+        return { x, y, visible: z > 0.04 };
+      }
+
+      /* Great-circle midpoint between two lat/lng points. */
+      function greatCircleMid(lat1, lng1, lat2, lng2) {
+        const φ1 = lat1 * Math.PI / 180, φ2 = lat2 * Math.PI / 180;
+        const λ1 = lng1 * Math.PI / 180, λ2 = lng2 * Math.PI / 180;
+        const Bx = Math.cos(φ2) * Math.cos(λ2 - λ1);
+        const By = Math.cos(φ2) * Math.sin(λ2 - λ1);
+        const φm = Math.atan2(
+          Math.sin(φ1) + Math.sin(φ2),
+          Math.sqrt((Math.cos(φ1) + Bx) ** 2 + By ** 2)
+        );
+        const λm = λ1 + Math.atan2(By, Math.cos(φ1) + Bx);
+        return [φm * 180 / Math.PI, λm * 180 / Math.PI];
+      }
+
+      let currentPhi = 0, currentTheta = theta;
+      const markerEls = overlay.querySelectorAll('.globe-marker');
+      const arcLabelEls = overlay.querySelectorAll('.globe-arc-label');
+
+      function updateLabels(p, t) {
+        currentPhi = p;
+        currentTheta = t;
+        markerEls.forEach(el => {
+          const lat = parseFloat(el.dataset.lat);
+          const lng = parseFloat(el.dataset.lng);
+          const proj = project(lat, lng);
+          // Only update screen position while the marker is on the front
+          // hemisphere. When it crosses to the back, freeze its last position
+          // so the label fades out in place instead of sliding across.
+          if (proj.visible) {
+            el.style.left = proj.x + 'px';
+            el.style.top = proj.y + 'px';
+            el.classList.add('visible');
+          } else {
+            el.classList.remove('visible');
+          }
+        });
+        arcLabelEls.forEach(el => {
+          const fLat = parseFloat(el.dataset.fromLat);
+          const fLng = parseFloat(el.dataset.fromLng);
+          const tLat = parseFloat(el.dataset.toLat);
+          const tLng = parseFloat(el.dataset.toLng);
+          const [mLat, mLng] = greatCircleMid(fLat, fLng, tLat, tLng);
+          const proj = project(mLat, mLng);
+          if (proj.visible) {
+            el.style.left = proj.x + 'px';
+            el.style.top = (proj.y - 36) + 'px';
+            el.classList.add('visible');
+          } else {
+            el.classList.remove('visible');
+          }
+        });
+      }
+
+      /* Pointer drag */
+      canvas.addEventListener('pointerdown', (e) => {
+        pointerInteracting = { x: e.clientX, y: e.clientY };
+        canvas.style.cursor = 'grabbing';
+        isPaused = true;
+      });
+      window.addEventListener('pointermove', (e) => {
+        if (pointerInteracting !== null) {
+          const dx = e.clientX - pointerInteracting.x;
+          const dy = e.clientY - pointerInteracting.y;
+          dragOffset.phi = dx / 300;
+          dragOffset.theta = dy / 1000;
+          const now = Date.now();
+          if (lastPointer) {
+            const dt = Math.max(now - lastPointer.t, 1);
+            const max = 0.15;
+            velocity.phi = Math.max(-max, Math.min(max, ((e.clientX - lastPointer.x) / dt) * 0.3));
+            velocity.theta = Math.max(-max, Math.min(max, ((e.clientY - lastPointer.y) / dt) * 0.08));
+          }
+          lastPointer = { x: e.clientX, y: e.clientY, t: now };
+        }
+      }, { passive: true });
+      window.addEventListener('pointerup', () => {
+        if (pointerInteracting !== null) {
+          phiOffset.current += dragOffset.phi;
+          thetaOffset.current += dragOffset.theta;
+          dragOffset.phi = 0; dragOffset.theta = 0;
+          lastPointer = null;
+        }
+        pointerInteracting = null;
+        canvas.style.cursor = 'grab';
+        isPaused = false;
+      }, { passive: true });
+
+      requestAnimationFrame(() => { canvas.style.opacity = '1'; });
+    };
+    start();
+  }
 </script>
 
 </body>

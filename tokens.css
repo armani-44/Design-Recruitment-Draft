@@ -165,3 +165,170 @@
   font-style: italic;
   font-display: swap;
 }
+
+/* ──────────────────────────────────────────────
+   Section tag — canonical pill eyebrow.
+   Defined here so every page picks up the same
+   high-contrast, accessible style. Pages may still
+   override color via more specific selectors.
+   ────────────────────────────────────────────── */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 16px;
+  border: 1px solid rgba(7,7,27,0.20);
+  background: rgba(7,7,27,0.025);
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-midnight);
+  white-space: nowrap;
+}
+.section-tag.is-blue {
+  color: var(--color-blue);
+  border-color: rgba(35,83,232,0.30);
+  background: rgba(35,83,232,0.05);
+}
+.section-tag.is-gold,
+.section-tag.on-dark {
+  color: var(--color-cream);
+  border-color: rgba(242,237,228,0.28);
+  background: rgba(242,237,228,0.05);
+}
+
+/* ──────────────────────────────────────────────
+   Site Footer — global, sitewide styles
+   The canonical footer markup lives in
+   /partials/footer.html. New pages should use the
+   same class names so they pick up these styles.
+   ────────────────────────────────────────────── */
+.site-footer {
+  background: var(--bg-base);
+  border-top: 1px solid var(--line);
+  padding: 68px 56px 36px;
+}
+.footer-grid {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 56px;
+}
+.foot-brand img { height: 60px; margin-bottom: 22px; width: auto; }
+.foot-brand p {
+  font-size: 13px;
+  font-weight: var(--fw-light);
+  line-height: 1.75;
+  color: rgba(242, 237, 228, 0.55);
+  max-width: 280px;
+  margin-bottom: 28px;
+}
+.foot-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  color: var(--fg-muted);
+  text-decoration: none;
+  transition: border-color 0.22s ease, color 0.22s ease;
+}
+.foot-social:hover { border-color: var(--accent); color: var(--accent); }
+.foot-social svg { width: 14px; height: 14px; }
+.foot-head {
+  font-size: 10px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--fg-base);
+  margin-bottom: 22px;
+}
+.foot-link {
+  display: block;
+  padding: 6px 0;
+  font-size: 12.5px;
+  font-weight: var(--fw-light);
+  letter-spacing: 0.04em;
+  color: var(--fg-muted);
+  text-decoration: none;
+  transition: color 0.22s ease;
+}
+.foot-link:hover { color: var(--fg-base); }
+
+.foot-base {
+  max-width: var(--container-max);
+  margin: 56px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(242, 237, 228, 0.45);
+}
+.foot-base > div > a:not(.ff-credit) {
+  margin-left: 22px;
+  color: rgba(242, 237, 228, 0.55);
+  text-decoration: none;
+}
+.foot-base > div > a:not(.ff-credit):hover { color: var(--fg-base); }
+
+/* "Built by …" credit — sitewide, with 5s gold-underline sweep */
+.ff-credit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: var(--fw-light);
+  letter-spacing: 0.08em;
+  color: rgba(242, 237, 228, 0.42);
+  text-decoration: none;
+  transition: color 0.5s var(--ease-out-expo);
+}
+.foot-base .ff-credit { display: flex; margin-top: 6px; }
+.ff-credit:hover,
+.ff-credit:hover .ff-credit-name { color: var(--accent); }
+.ff-credit-name {
+  position: relative;
+  color: rgba(242, 237, 228, 0.65);
+  transition: color 0.5s var(--ease-out-expo);
+}
+.ff-credit-name::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -3px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: ffSweep 5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  pointer-events: none;
+}
+@keyframes ffSweep {
+  0%, 8%   { transform: scaleX(0); transform-origin: left center;  opacity: 0.9; }
+  24%      { transform: scaleX(1); transform-origin: left center;  opacity: 0.9; }
+  30%      { transform: scaleX(1); transform-origin: right center; opacity: 0.9; }
+  46%      { transform: scaleX(0); transform-origin: right center; opacity: 0; }
+  100%     { transform: scaleX(0); transform-origin: right center; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ff-credit-name::after { animation: none; opacity: 0.35; transform: scaleX(1); }
+}
+
+/* Footer responsive */
+@media (max-width: 1024px) {
+  .site-footer { padding-left: 40px; padding-right: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  .site-footer { padding-left: 24px; padding-right: 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+}
