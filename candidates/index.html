@@ -310,36 +310,66 @@
       max-width: 38ch;
     }
 
-    /* Filter row */
-    .filter-row {
-      display: flex; flex-wrap: wrap; gap: 8px;
+    /* Search bar */
+    .search-row {
       padding: 0 0 28px;
     }
-    .filter-chip {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 18px;
-      font-size: 11.5px; font-weight: 500;
-      letter-spacing: 0.10em; text-transform: uppercase;
-      color: var(--color-midnight);
-      background: transparent;
-      border: 1px solid rgba(7,7,27,0.18);
+    .search-field {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: var(--color-white);
+      border: 1px solid rgba(7,7,27,0.14);
       border-radius: 100px;
-      cursor: pointer;
-      transition: background 0.4s var(--ease-out-expo),
-                  border-color 0.4s var(--ease-out-expo),
-                  color 0.4s var(--ease-out-expo);
+      padding: 0 22px 0 56px;
+      transition: border-color 0.4s var(--ease-out-expo),
+                  box-shadow 0.4s var(--ease-out-expo);
     }
-    .filter-chip:hover { border-color: rgba(7,7,27,0.4); background: rgba(7,7,27,0.04); }
-    .filter-chip[aria-pressed="true"] {
-      background: var(--color-midnight);
-      color: var(--cream);
-      border-color: var(--color-midnight);
+    .search-field:focus-within {
+      border-color: rgba(7,7,27,0.55);
+      box-shadow: 0 6px 24px rgba(7,7,27,0.06);
     }
-    .filter-chip .chip-count {
-      font-size: 10.5px;
+    .search-field .search-icon {
+      position: absolute; left: 22px; top: 50%;
+      transform: translateY(-50%);
+      width: 18px; height: 18px;
+      color: rgba(7,7,27,0.45);
+      pointer-events: none;
+    }
+    .search-input {
+      flex: 1;
+      width: 100%;
+      border: 0;
+      background: transparent;
+      padding: 18px 0;
+      font-family: var(--font-body);
+      font-size: 15px;
       font-weight: 400;
-      opacity: 0.6;
+      color: var(--color-midnight);
+      outline: none;
     }
+    .search-input::placeholder { color: rgba(7,7,27,0.40); font-weight: 300; }
+    .search-input::-webkit-search-cancel-button,
+    .search-input::-webkit-search-decoration {
+      -webkit-appearance: none;
+      appearance: none;
+      display: none;
+    }
+    .search-input::-ms-clear { display: none; width: 0; height: 0; }
+    .search-clear {
+      display: none;
+      background: none; border: 0;
+      color: rgba(7,7,27,0.45);
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 100px;
+      font-size: 0;
+      line-height: 0;
+      transition: color 0.22s var(--ease-out-expo), background 0.22s var(--ease-out-expo);
+    }
+    .search-clear:hover { color: var(--color-midnight); background: rgba(7,7,27,0.05); }
+    .search-clear.is-visible { display: inline-flex; }
+    .search-clear svg { width: 14px; height: 14px; }
 
     /* Two-pane layout */
     .jobs-grid {
@@ -780,8 +810,10 @@
       body:not(.candidates-detail-open) .jobs-detail-pane { display: none; }
       body.candidates-detail-open .detail-back { display: flex; align-items: center; }
       .detail-body { padding: 28px 24px 44px; }
-      .filter-row { padding: 16px 0 20px; gap: 6px; }
-      .filter-chip { padding: 8px 14px; font-size: 10.5px; }
+      .search-row { padding: 16px 0 20px; }
+      .search-field { padding: 0 18px 0 48px; }
+      .search-field .search-icon { left: 18px; width: 16px; height: 16px; }
+      .search-input { padding: 14px 0; font-size: 14px; }
       .list-head { padding: 16px 22px; }
       .job-card { padding: 18px 22px; }
       .detail-facts { grid-template-columns: 1fr; gap: 16px; }
@@ -797,7 +829,7 @@
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .fade-up { transition: none; opacity: 1; transform: none; }
-      .job-card, .job-card::before, .filter-chip, .btn-primary, .btn-dark-ghost, .detail-external { transition: none; }
+      .job-card, .job-card::before, .search-field, .search-clear, .btn-primary, .btn-dark-ghost, .detail-external { transition: none; }
     }
   </style>
 </head>
@@ -845,10 +877,10 @@
     <div class="hero-inner">
       <div class="section-tag on-dark hero-tag fade-up">For Candidates</div>
       <h1 id="hero-title" class="hero-title fade-up d1">
-        Live roles, <span class="accent">curated<br>for the trade.</span>
+        Current <span class="accent">Opportunities.</span>
       </h1>
       <p class="hero-lead fade-up d2">
-        Every role on the list below is briefed by us in person, then matched with the right candidates from our network. Use the filters to narrow by discipline, then read the full brief on the right.
+        Every opportunity below has been directly briefed to us by the client. Use the search bar to explore live vacancies and discover full role details.
       </p>
       <div class="hero-meta fade-up d3">
         <span><strong id="hero-count">28</strong> open roles</span>
@@ -868,18 +900,29 @@
           <div class="section-tag">Browse</div>
           <h2 class="jobs-head-title">All open <span class="accent">roles.</span></h2>
         </div>
-        <p class="jobs-head-note">Filter by discipline, then tap a role on the left to read the full brief on the right.</p>
+        <p class="jobs-head-note">Search by job title, keyword, or location, then tap a role on the left to read the full brief on the right.</p>
       </div>
 
       <!-- Filter chips -->
-      <div class="filter-row" role="group" aria-label="Filter by discipline">
-        <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All <span class="chip-count">28</span></button>
-        <button class="filter-chip" type="button" data-filter="designer" aria-pressed="false">Designer <span class="chip-count">19</span></button>
-        <button class="filter-chip" type="button" data-filter="showroom" aria-pressed="false">Showroom Manager <span class="chip-count">3</span></button>
-        <button class="filter-chip" type="button" data-filter="sales" aria-pressed="false">Area Sales <span class="chip-count">2</span></button>
-        <button class="filter-chip" type="button" data-filter="installations" aria-pressed="false">Installations &amp; Projects <span class="chip-count">2</span></button>
-        <button class="filter-chip" type="button" data-filter="marketing" aria-pressed="false">Marketing <span class="chip-count">1</span></button>
-        <button class="filter-chip" type="button" data-filter="purchasing" aria-pressed="false">Purchasing <span class="chip-count">1</span></button>
+      <div class="search-row">
+        <label class="search-field" for="job-search">
+          <svg class="search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="9" r="6"/>
+            <path d="m18 18-4.5-4.5"/>
+          </svg>
+          <input
+            id="job-search"
+            type="search"
+            class="search-input"
+            placeholder="Search by job title, keyword or location…"
+            autocomplete="off"
+            aria-label="Search live roles">
+          <button type="button" class="search-clear" aria-label="Clear search">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <path d="m3 3 8 8M11 3l-8 8"/>
+            </svg>
+          </button>
+        </label>
       </div>
 
       <!-- Two-pane grid -->
@@ -1511,9 +1554,6 @@
                 Apply now
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
-              <a class="btn-dark-ghost" href="mailto:ben@designerrecruitment.co.uk?subject=Question%20about%20a%20role">
-                Ask a question
-              </a>
             </div>
 
             <div class="detail-share" role="group" aria-label="Share this role">
@@ -1752,10 +1792,11 @@
     document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
   })();
 
-  /* ── Jobs browser: filter + select + mobile back ── */
+  /* ── Jobs browser: search + select + mobile back ── */
   (function() {
     const cards    = Array.from(document.querySelectorAll('.job-card'));
-    const chips    = Array.from(document.querySelectorAll('.filter-chip'));
+    const search   = document.getElementById('job-search');
+    const clearBtn = document.querySelector('.search-clear');
     const empty    = document.getElementById('empty-state');
     const listCnt  = document.getElementById('list-count');
     const detailEl = {
@@ -1838,11 +1879,78 @@
       window.scrollTo({ top: listPane.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
     });
 
-    function applyFilter(filter) {
+    // Parse a salary token into a number. Handles £/$/€, commas, and k/K suffix.
+    //   "30000" → 30000   "£30,000" → 30000   "30k" → 30000   "£35K" → 35000
+    // Returns null if not a salary-looking number.
+    function parseSalaryNumber(raw) {
+      if (!raw) return null;
+      const cleaned = String(raw).replace(/[£$€,\s]/g, '');
+      const m = /^(\d+(?:\.\d+)?)([kK])?$/.exec(cleaned);
+      if (!m) return null;
+      const n = parseFloat(m[1]);
+      if (!isFinite(n)) return null;
+      return m[2] ? n * 1000 : n;
+    }
+
+    // Pull every salary-shaped number out of a string. Used to derive {min, max}
+    // for range matching from the raw data-salary text.
+    function extractSalaryNumbers(str) {
+      if (!str) return [];
+      const nums = [];
+      const re = /[£$€]?\s*(\d{1,3}(?:,\d{3})+|\d{2,7})\s*([kK])?/g;
+      let m;
+      while ((m = re.exec(str)) !== null) {
+        const value = parseFloat(m[1].replace(/,/g, ''));
+        if (!isFinite(value)) continue;
+        const final = m[2] ? value * 1000 : value;
+        // Filter out obvious non-salaries (years, percentages — < 1000 with no k suffix)
+        if (final >= 1000) nums.push(final);
+      }
+      return nums;
+    }
+
+    // Build the searchable index for each card.
+    // _haystack: lowercased text with commas stripped from numbers so "30000" matches "£30,000".
+    // _salaryRange: { min, max } extracted from data-salary, or null.
+    cards.forEach(card => {
+      const salaryRaw = card.dataset.salary || '';
+      const text = [
+        card.dataset.title,
+        card.dataset.cat,
+        card.dataset.location,
+        salaryRaw,
+        card.dataset.type,
+        card.dataset.ref,
+      ].filter(Boolean).join(' ').toLowerCase();
+
+      // Strip commas inside numbers so "30000" finds "£30,000".
+      const numericFlat = text.replace(/(\d),(\d)/g, '$1$2');
+      card._haystack = text + ' ' + numericFlat;
+
+      const nums = extractSalaryNumbers(salaryRaw);
+      card._salaryRange = nums.length
+        ? { min: Math.min(...nums), max: Math.max(...nums) }
+        : null;
+    });
+
+    function termMatchesCard(term, card) {
+      // Numeric path: if the term parses as a salary number AND the card has a
+      // salary range, accept when the number falls within the range.
+      const num = parseSalaryNumber(term);
+      if (num !== null && card._salaryRange) {
+        if (num >= card._salaryRange.min && num <= card._salaryRange.max) return true;
+      }
+      // Substring path (covers titles, locations, refs, and exact salary text).
+      return card._haystack.includes(term);
+    }
+
+    function applyQuery(raw) {
+      const query = (raw || '').trim().toLowerCase();
+      const terms = query ? query.split(/\s+/).filter(Boolean) : [];
       let visibleCount = 0;
       let firstVisible = null;
       cards.forEach(card => {
-        const match = (filter === 'all') || (card.dataset.filter === filter);
+        const match = terms.length === 0 || terms.every(t => termMatchesCard(t, card));
         card.style.display = match ? '' : 'none';
         if (match) {
           visibleCount += 1;
@@ -1852,14 +1960,18 @@
       listCnt.textContent = visibleCount;
       empty.hidden = visibleCount > 0;
       if (firstVisible) selectCard(firstVisible);
+      if (clearBtn) clearBtn.classList.toggle('is-visible', terms.length > 0);
     }
 
-    chips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        chips.forEach(c => c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'));
-        applyFilter(chip.dataset.filter);
+    if (search) {
+      search.addEventListener('input', e => applyQuery(e.target.value));
+    }
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        if (search) { search.value = ''; search.focus(); }
+        applyQuery('');
       });
-    });
+    }
 
     // Initial: ensure first card is selected
     const initial = cards.find(c => c.getAttribute('aria-selected') === 'true') || cards[0];

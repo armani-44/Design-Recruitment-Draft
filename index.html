@@ -287,7 +287,7 @@
     }
     .hero-content {
       position: relative; z-index: 2;
-      padding: 150px 56px 88px;
+      padding: 150px 56px 160px;
       max-width: 900px; width: 100%;
       text-align: center;
       display: flex; flex-direction: column; align-items: center;
@@ -653,7 +653,7 @@
       footer     { padding: 60px 24px 32px !important; }
 
       /* Hero */
-      .hero-content { padding: 130px 24px 80px !important; }
+      .hero-content { padding: 130px 24px 140px !important; }
       .hero-sub { font-size: 17px !important; }
       .scroll-indicator { display: none; }
 
@@ -766,7 +766,7 @@
     @media (max-width: 640px) {
       #nav-wrap { bottom: 14px; width: calc(100vw - 32px); }
       #nav-logo img { height: 24px; }
-      .hero-content { padding: 120px 20px 72px !important; }
+      .hero-content { padding: 120px 20px 130px !important; }
       .nd-link { font-size: clamp(18px, 5vw, 24px); padding: 10px 0; }
 
       /* Hero actions — stack on very small screens */
@@ -900,7 +900,7 @@
       <span class="hero-line"><span class="hero-line-inner">Your Moment.</span></span>
     </h1>
     <p class="hero-sub" id="h-sub">
-      The KBB industry's most trusted recruitment partner, connecting exceptional talent with the studios and showrooms that define design excellence.
+      The KBB industry's trusted recruitment partner, connecting exceptional talent with the world's leading design and interiors brands.
     </p>
     <div class="hero-actions" id="h-act">
       <a href="/candidates/" class="btn-primary">
@@ -2226,9 +2226,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     // Rates control fade threshold. Lower = fades first going down / reappears last going up.
     // Order: headline (lowest) → body → buttons (highest)
-    // Scroll-down cascade: headline → body → buttons
-    // Scroll-up cascade:   buttons → body → headline  ✓
-    const fadeRates  = [0.22, 0.30, 0.40];
+    // Buttons stay fully visible deep into the scroll so they remain a clear CTA.
+    const fadeRates  = [0.55, 0.70, 0.92];
 
     // Kill the CSS entrance transitions once they've played so scroll drives cleanly
     setTimeout(() => {
