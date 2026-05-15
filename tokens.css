@@ -188,9 +188,9 @@
   white-space: nowrap;
 }
 .section-tag.is-blue {
-  color: var(--color-blue);
-  border-color: rgba(35,83,232,0.30);
-  background: rgba(35,83,232,0.05);
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  background: var(--color-white);
 }
 .section-tag.is-gold,
 .section-tag.on-dark {
@@ -206,7 +206,7 @@
    same class names so they pick up these styles.
    ────────────────────────────────────────────── */
 .site-footer {
-  background: var(--bg-base);
+  background: var(--color-navy-deep);
   border-top: 1px solid var(--line);
   padding: 68px 56px 36px;
 }

@@ -291,13 +291,13 @@
 
     .post-card {
       position: relative;
-      background: var(--bg-elevated);
-      border: 1px solid rgba(242,237,228,0.06);
+      background: var(--color-white);
+      border: 1px solid rgba(7,7,27,0.08);
       display: grid;
       grid-template-columns: 1fr 1fr;
       box-shadow:
-        0 2px 4px rgba(7,7,27,0.06),
-        0 18px 48px rgba(7,7,27,0.18);
+        0 2px 4px rgba(7,7,27,0.04),
+        0 18px 48px rgba(7,7,27,0.10);
       overflow: visible;
     }
 
@@ -311,13 +311,13 @@
     .pc-left h2 {
       font-family: var(--font-display); font-weight: 300;
       font-size: var(--fs-display-md); line-height: 1.04;
-      color: var(--cream); letter-spacing: -0.02em;
+      color: var(--color-midnight); letter-spacing: -0.02em;
     }
     .pc-left h2 .accent { font-style: italic; color: var(--gold); }
     .pc-left .lead {
       margin-top: 22px; max-width: 520px;
       font-size: 17px; font-weight: 300; line-height: 1.75;
-      color: rgba(242,237,228,0.7);
+      color: rgba(7,7,27,0.70);
     }
 
     /* "What happens next" — numbered list */
@@ -325,12 +325,12 @@
       list-style: none; padding: 0; margin: 0;
       display: grid; grid-template-columns: 1fr;
       gap: 4px;
-      padding-top: 36px; border-top: 1px solid rgba(242,237,228,0.10);
+      padding-top: 36px; border-top: 1px solid rgba(7,7,27,0.10);
     }
     .pc-step {
       display: grid; grid-template-columns: 42px 1fr; gap: 18px; align-items: flex-start;
       padding: 14px 0;
-      border-bottom: 1px solid rgba(242,237,228,0.06);
+      border-bottom: 1px solid rgba(7,7,27,0.06);
       transition: transform 0.6s var(--ease-out-expo);
     }
     .pc-step:last-child { border-bottom: none; }
@@ -338,42 +338,42 @@
     .pc-step-num {
       flex-shrink: 0; width: 42px; height: 42px;
       display: inline-flex; align-items: center; justify-content: center;
-      background: rgba(217,188,128,0.10);
-      border: 1px solid rgba(217,188,128,0.22);
-      color: var(--gold);
+      background: var(--color-cream);
+      border: 1px solid rgba(7,7,27,0.10);
+      color: var(--color-navy-deep);
       border-radius: var(--radius-sm);
       font-family: var(--font-display);
       font-size: 14px; font-weight: 400; letter-spacing: -0.01em;
       transition: background 0.6s var(--ease-out-expo), border-color 0.6s var(--ease-out-expo);
     }
-    .pc-step:hover .pc-step-num { background: rgba(217,188,128,0.18); border-color: rgba(217,188,128,0.40); }
+    .pc-step:hover .pc-step-num { background: #EAE2D2; border-color: rgba(7,7,27,0.18); }
     .pc-step-text { min-width: 0; padding-top: 4px; }
     .pc-step-label {
       font-size: 9.5px; font-weight: 500; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--gold);
+      text-transform: uppercase; color: var(--color-navy-deep);
       margin-bottom: 6px;
     }
     .pc-step-body {
       font-size: 14px; font-weight: 300; line-height: 1.6;
-      color: rgba(242,237,228,0.78);
+      color: rgba(7,7,27,0.70);
     }
 
     /* Right column: form */
     .pc-right {
       padding: 56px 48px 52px;
-      background: rgba(7,7,27,0.30);
-      border-left: 1px solid rgba(242,237,228,0.08);
+      background: var(--color-white);
+      border-left: 1px solid rgba(7,7,27,0.08);
       display: flex; flex-direction: column; justify-content: flex-start;
     }
     .pc-form-head {
       font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--gold);
+      text-transform: uppercase; color: var(--color-navy-deep);
       margin-bottom: 14px;
     }
     .pc-form-title {
       font-family: var(--font-display); font-weight: 300;
       font-size: 28px; line-height: 1.15; letter-spacing: -0.01em;
-      color: var(--cream);
+      color: var(--color-midnight);
       margin-bottom: 28px;
     }
     .pc-form-title .accent { font-style: italic; color: var(--gold); }
@@ -383,7 +383,7 @@
     .pc-field { display: flex; flex-direction: column; gap: 8px; }
     .pc-field label {
       font-size: 9.5px; font-weight: 500; letter-spacing: 0.22em;
-      text-transform: uppercase; color: rgba(242,237,228,0.55);
+      text-transform: uppercase; color: rgba(7,7,27,0.55);
     }
     .pc-field input,
     .pc-field textarea,
@@ -391,47 +391,47 @@
       width: 100%;
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(242,237,228,0.18);
+      border-bottom: 1px solid rgba(7,7,27,0.22);
       padding: 10px 0 12px;
       font-family: var(--font-body);
       font-size: 15px; font-weight: 300; line-height: 1.5;
-      color: var(--cream);
+      color: var(--color-midnight);
       transition: border-color 0.5s var(--ease-out-expo);
       resize: none;
       border-radius: 0;
     }
     .pc-field textarea { min-height: 130px; }
     .pc-field input::placeholder,
-    .pc-field textarea::placeholder { color: rgba(242,237,228,0.30); }
+    .pc-field textarea::placeholder { color: rgba(7,7,27,0.35); }
     .pc-field input:focus,
     .pc-field textarea:focus,
-    .pc-field select:focus { outline: none; border-bottom-color: var(--gold); }
+    .pc-field select:focus { outline: none; border-bottom-color: var(--color-navy-deep); }
     .pc-consent {
       display: flex; align-items: flex-start; gap: 12px;
       padding: 14px 0; cursor: pointer;
       font-size: 13px; font-weight: 300; line-height: 1.55;
-      color: rgba(242,237,228,0.70);
+      color: rgba(7,7,27,0.70);
     }
     .pc-consent input[type="checkbox"] {
       flex: 0 0 16px; width: 16px; height: 16px;
-      margin-top: 3px; accent-color: var(--gold); cursor: pointer;
+      margin-top: 3px; accent-color: var(--color-navy-deep); cursor: pointer;
     }
-    .pc-consent a { color: var(--gold); text-decoration: underline; }
+    .pc-consent a { color: var(--color-navy-deep); text-decoration: underline; }
     .pc-field input:-webkit-autofill,
     .pc-field input:-webkit-autofill:focus {
-      -webkit-text-fill-color: var(--cream);
-      -webkit-box-shadow: 0 0 0 1000px var(--bg-elevated) inset;
+      -webkit-text-fill-color: var(--color-midnight);
+      -webkit-box-shadow: 0 0 0 1000px var(--color-white) inset;
       transition: background-color 9999s ease-in-out 0s;
     }
 
-    /* Custom select arrow on dark */
+    /* Custom select arrow */
     .pc-select-wrap { position: relative; }
     .pc-select-wrap::after {
       content: '';
       position: absolute; right: 2px; top: 50%;
       width: 8px; height: 8px;
-      border-right: 1px solid rgba(242,237,228,0.55);
-      border-bottom: 1px solid rgba(242,237,228,0.55);
+      border-right: 1px solid rgba(7,7,27,0.55);
+      border-bottom: 1px solid rgba(7,7,27,0.55);
       transform: translateY(-65%) rotate(45deg);
       pointer-events: none;
     }
@@ -440,7 +440,7 @@
       padding-right: 22px;
       cursor: pointer;
     }
-    .pc-field select option { background: var(--bg-elevated); color: var(--cream); }
+    .pc-field select option { background: var(--color-white); color: var(--color-midnight); }
 
     .pc-recaptcha { margin-top: 6px; min-height: 78px; }
     .pc-recaptcha > div { max-width: 100%; }
@@ -448,7 +448,7 @@
     .pc-form-note {
       margin-top: 18px;
       font-size: 11px; font-weight: 300; line-height: 1.6;
-      color: rgba(242,237,228,0.45);
+      color: rgba(7,7,27,0.50);
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -521,16 +521,11 @@
     <div class="hero-inner">
       <div class="section-tag on-dark hero-tag fade-up">For Clients</div>
       <h1 id="hero-title" class="hero-title fade-up d1">
-        Submit your role,<br><span class="accent">briefed in person,<br>shortlisted in days.</span>
+        Let's discuss <span class="accent">your next hire.</span>
       </h1>
       <p class="hero-lead fade-up d2">
-        Tell us about the seat you're trying to fill. We sit down with every brief, then go to market through the network we've built across the KBB and Builders Merchant industry, no scraped CVs, no scattergun shortlists.
+        Tell us about the position you're looking to fill. We take time to fully understand every brief, working closely with clients to clarify exactly what success looks like. We take a consultative approach to every search, ensuring each introduction is relevant, considered, and aligned with both capability and culture.
       </p>
-      <div class="hero-meta fade-up d3">
-        <span><strong>5 days</strong> to first shortlist</span>
-        <span><strong>200+</strong> active clients</span>
-        <span><strong>UK &amp; international</strong></span>
-      </div>
     </div>
   </section>
 
@@ -543,13 +538,13 @@
         <!-- LEFT: brief + what-happens-next -->
         <div class="pc-left">
           <div>
-            <div class="section-tag">For Clients</div>
+            <div class="section-tag is-blue">For Clients</div>
             <h2>
               Connect with the<br>
-              <span class="accent">right talent today.</span>
+              <span class="accent">right talent.</span>
             </h2>
             <p class="lead">
-              Send us a few lines about the role, the team and the kind of person you're looking for. A specialist consultant will get in contact to take the full brief.
+              Tell us about the role, the team, and the type of person you're looking for. One of our consultants will be in touch to discuss the brief in more detail.
             </p>
           </div>
 
@@ -558,21 +553,21 @@
               <span class="pc-step-num" aria-hidden="true">01</span>
               <div class="pc-step-text">
                 <div class="pc-step-label">Brief</div>
-                <p class="pc-step-body">We will book a call to understand the role, the studio and the culture. We listen first, write the spec second.</p>
+                <p class="pc-step-body">We arrange a call to understand the role, the team, and the culture. We listen first, define the brief second.</p>
               </div>
             </li>
             <li class="pc-step">
               <span class="pc-step-num" aria-hidden="true">02</span>
               <div class="pc-step-text">
                 <div class="pc-step-label">Shortlist</div>
-                <p class="pc-step-body">We then go away and work on a curated shortlist, every candidate spoken to, vetted and matched against the brief.</p>
+                <p class="pc-step-body">We then go to market with a curated approach, every candidate is spoken to, assessed, and matched carefully against the brief.</p>
               </div>
             </li>
             <li class="pc-step">
               <span class="pc-step-num" aria-hidden="true">03</span>
               <div class="pc-step-text">
                 <div class="pc-step-label">Place</div>
-                <p class="pc-step-body">We coordinate interviews, manage offers and stay close through onboarding. Most placements are made within four weeks.</p>
+                <p class="pc-step-body">We coordinate interviews, manage offers, and stay close through onboarding to ensure a smooth process from start to finish.</p>
               </div>
             </li>
           </ol>
@@ -580,7 +575,7 @@
 
         <!-- RIGHT: form -->
         <div class="pc-right">
-          <div class="pc-form-head">Submit your job</div>
+          <div class="pc-form-head">Submit your vacancy</div>
           <div class="pc-form-title">A note <span class="accent">is all it takes.</span></div>
 
           <form
@@ -632,7 +627,7 @@
               <span>I agree to be contacted by Designer Recruitment about this brief and have read the <a href="/privacy.html" target="_blank" rel="noopener">privacy policy</a>.</span>
             </label>
 
-            <div class="pc-recaptcha" data-netlify-recaptcha="true" data-theme="dark"></div>
+            <div class="pc-recaptcha" data-netlify-recaptcha="true" data-theme="light"></div>
 
             <button type="submit" class="btn-primary">
               Send message
@@ -655,7 +650,7 @@
 
     <div class="foot-brand">
       <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
-      <p>The UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom &amp; Builders Merchant industry.</p>
+      <p>The KBB industry's trusted recruitment partner, connecting exceptional talent with the world's leading design and interiors brands.</p>
       <a class="foot-social" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
       </a>

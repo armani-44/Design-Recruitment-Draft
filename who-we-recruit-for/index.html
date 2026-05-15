@@ -305,7 +305,7 @@
        ───────────────────────────────────────────────────────────── */
     #roles {
       background: var(--cream);
-      padding: 140px 56px 160px;
+      padding: 150px 56px;
       position: relative;
       overflow: hidden;
     }
@@ -328,123 +328,134 @@
       font-size: var(--fs-display-lg); line-height: 1.04;
       color: var(--midnight); letter-spacing: -0.02em;
     }
-    .roles-head h2 .accent { font-style: italic; color: var(--color-blue); }
+    .roles-head h2 .accent { font-style: italic; color: var(--color-gold); }
     .roles-head p {
       font-size: 18px; font-weight: 300; line-height: 1.85;
       color: rgba(7,7,27,0.65); max-width: 540px;
     }
 
-    /* Tab navigation */
-    .tab-nav {
-      display: flex; flex-wrap: wrap;
-      gap: 4px;
-      margin-bottom: 64px;
-      padding-bottom: 0;
-      border-bottom: 1px solid rgba(7,7,27,0.12);
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+    /* Tabs layout: nav + panel share one white card; nav primary, panel secondary */
+    .roles-tabs-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 0;
+      align-items: stretch;
+      background: var(--color-white);
+      border: 1px solid rgba(7,7,27,0.08);
+      box-shadow:
+        0 2px 4px rgba(7,7,27,0.04),
+        0 18px 48px rgba(7,7,27,0.08);
     }
-    .tab-nav::-webkit-scrollbar { display: none; }
+
+    .tab-nav {
+      display: flex; flex-direction: column;
+      gap: 2px;
+      padding: 32px 0;
+      border-right: 1px solid rgba(7,7,27,0.08);
+    }
 
     .tab {
       position: relative;
-      display: inline-flex; align-items: baseline; gap: 12px;
-      padding: 14px 24px 18px;
-      background: none; border: none; cursor: pointer;
+      display: flex; align-items: baseline; gap: 18px;
+      width: 100%;
+      padding: 18px 28px;
+      background: transparent; border: none; cursor: pointer;
       font-family: var(--font-body);
       color: rgba(7,7,27,0.55);
-      white-space: nowrap;
-      transition: color 0.45s var(--ease-out-expo);
+      text-align: left;
+      transition: color 0.45s var(--ease-out-expo), background 0.45s var(--ease-out-expo);
     }
-    .tab:hover { color: var(--midnight); }
+    .tab:hover { color: var(--midnight); background: rgba(7,7,27,0.025); }
     .tab .tab-num {
       font-family: var(--font-display); font-style: italic;
-      font-size: 13px; font-weight: 400; letter-spacing: 0.04em;
+      font-size: 16px; font-weight: 400; letter-spacing: 0.04em;
       color: rgba(7,7,27,0.4);
       transition: color 0.45s var(--ease-out-expo);
     }
     .tab .tab-label {
-      font-size: 14px; font-weight: 400; letter-spacing: 0.02em;
+      font-family: var(--font-display);
+      font-size: 26px; font-weight: 400; line-height: 1.1;
+      letter-spacing: -0.01em;
     }
-    .tab::after {
+    .tab::before {
       content: '';
-      position: absolute; left: 24px; right: 24px; bottom: -1px;
-      height: 1px; background: var(--color-blue);
-      transform: scaleX(0); transform-origin: left center;
-      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--color-gold);
+      transform: scaleY(0); transform-origin: top center;
+      transition: transform 0.5s var(--ease-out-expo);
     }
-    .tab.is-active { color: var(--midnight); }
-    .tab.is-active .tab-num { color: var(--color-blue); }
-    .tab.is-active::after { transform: scaleX(1); }
+    .tab.is-active {
+      color: var(--midnight);
+      background: rgba(217,188,128,0.10);
+    }
+    .tab.is-active:hover { background: rgba(217,188,128,0.14); }
+    .tab.is-active .tab-num { color: var(--color-gold); }
+    .tab.is-active::before { transform: scaleY(1); }
     .tab:focus-visible {
-      outline: 2px solid var(--color-blue); outline-offset: -2px;
+      outline: 2px solid var(--color-navy-deep); outline-offset: -2px;
       border-radius: 2px;
     }
 
-    /* Panels */
-    .panels { position: relative; }
+    /* Panels — sit inside the shared white card; min-height locked to tallest (Showroom) */
+    .panels { position: relative; padding: 40px 44px; min-height: 560px; }
     .panel {
       display: none;
       opacity: 0;
       transform: translateY(12px);
       transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
     }
-    .panel.is-active {
-      display: block;
-    }
+    .panel.is-active { display: block; }
     .panel.is-active.in {
       opacity: 1;
       transform: translateY(0);
     }
-    .panel-grid {
-      display: grid;
-      grid-template-columns: 5fr 7fr;
-      gap: 88px;
-      align-items: start;
+    .panel-grid { display: block; }
+    .panel-side {
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(7,7,27,0.10);
     }
-
     .panel-title {
       font-family: var(--font-display);
-      font-size: var(--fs-display-md); font-weight: 300;
-      line-height: 1.06; letter-spacing: -0.02em;
+      font-size: 22px; font-weight: 400; font-style: italic;
+      line-height: 1.15; letter-spacing: -0.005em;
       color: var(--midnight);
-      font-style: italic;
-      display: flex; align-items: baseline; gap: 0.32em;
-      flex-wrap: wrap;
+      display: inline-flex; align-items: baseline; gap: 0.4em;
     }
     .panel-title .panel-num {
-      color: rgba(7,7,27,0.28);
-      font-weight: 300;
+      font-size: 14px; font-weight: 400;
+      color: var(--color-gold);
+      letter-spacing: 0.04em;
     }
     .panel-desc {
-      margin-top: 24px;
-      font-size: 17px; font-weight: 300; line-height: 1.85;
-      color: rgba(7,7,27,0.62);
-      max-width: 420px;
+      margin-top: 14px;
+      font-size: 17px; font-weight: 300; line-height: 1.75;
+      color: rgba(7,7,27,0.7);
+      max-width: 720px;
     }
 
     .panel-roles {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 56px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0 36px;
     }
     .role-row {
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      gap: 22px;
-      padding: 20px 4px;
+      gap: 18px;
+      padding: 18px 4px;
       border-bottom: 1px solid rgba(7,7,27,0.10);
       transition: padding-left 0.45s var(--ease-out-expo);
+      text-decoration: none;
+      color: inherit;
     }
     .role-row:hover { padding-left: 12px; }
-    .role-num {
-      font-family: var(--font-display); font-style: italic;
-      font-size: 13px; font-weight: 400;
-      color: rgba(7,7,27,0.42);
-      letter-spacing: 0.04em;
+    .role-row:focus-visible {
+      outline: 2px solid var(--color-navy-deep); outline-offset: -2px;
+      border-radius: 2px;
     }
+    .role-num { display: none; }
     .role-name {
       font-size: 16px; font-weight: 400;
       color: var(--midnight);
@@ -453,7 +464,7 @@
     .role-arrow {
       width: 24px; height: 24px;
       display: inline-flex; align-items: center; justify-content: center;
-      color: var(--color-blue);
+      color: var(--color-navy-deep);
       opacity: 0;
       transform: translateX(-6px);
       transition: opacity 0.45s var(--ease-out-expo), transform 0.45s var(--ease-out-expo);
@@ -485,10 +496,7 @@
     }
     .cta-band-inner {
       position: relative;
-      max-width: 1100px; margin: 0 auto;
-      display: grid; gap: 56px;
-      grid-template-columns: 1.1fr 1fr;
-      align-items: center;
+      max-width: 900px; margin: 0 auto;
     }
     .cta-band-inner h2 {
       font-family: var(--font-display); font-weight: 300;
@@ -499,11 +507,11 @@
     .cta-band-inner p {
       margin-top: 22px;
       font-size: 17px; font-weight: 300; line-height: 1.8;
-      color: rgba(242,237,228,0.62); max-width: 480px;
+      color: rgba(242,237,228,0.62); max-width: 560px;
     }
     .cta-band-actions {
+      margin-top: 36px;
       display: flex; flex-wrap: wrap; gap: 16px;
-      justify-self: end;
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -513,10 +521,11 @@
       #roles { padding: 100px 40px; }
       #cta-band { padding: 100px 40px; }
       .roles-head { grid-template-columns: 1fr; gap: 28px; }
-      .panel-grid { grid-template-columns: 1fr; gap: 56px; }
-      .panel-roles { grid-template-columns: 1fr 1fr; }
-      .cta-band-inner { grid-template-columns: 1fr; }
-      .cta-band-actions { justify-self: start; }
+      .roles-tabs-grid { grid-template-columns: 260px 1fr; }
+      .tab { padding: 16px 22px; gap: 14px; }
+      .tab .tab-label { font-size: 22px; }
+      .panels { padding: 32px 32px; }
+      .panel-roles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
     }
     @media (max-width: 768px) {
       #roles { padding: 80px 24px; }
@@ -525,9 +534,31 @@
       #hero .hero-content { padding: 130px 24px 96px; }
       #hero .side-rule { display: none; }
       .panel-roles { grid-template-columns: 1fr; }
-      .tab-nav { gap: 0; }
-      .tab { padding: 12px 16px 16px; }
-      .tab::after { left: 16px; right: 16px; }
+      .roles-tabs-grid { grid-template-columns: 1fr; }
+      .panels { padding: 24px 22px 8px; }
+      .tab-nav {
+        flex-direction: row; flex-wrap: nowrap;
+        gap: 4px;
+        padding: 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(7,7,27,0.10);
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .tab-nav::-webkit-scrollbar { display: none; }
+      .tab {
+        padding: 14px 16px 18px;
+        white-space: nowrap;
+      }
+      .tab .tab-label { font-size: 18px; }
+      .tab .tab-num { font-size: 14px; }
+      .tab::before {
+        left: 16px; right: 16px; top: auto; bottom: -1px;
+        width: auto; height: 2px;
+        transform: scaleX(0); transform-origin: left center;
+        transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
+      }
+      .tab.is-active::before { transform: scaleX(1); }
       .role-row { gap: 16px; padding: 18px 4px; }
       .role-name { font-size: 15px; }
     }
@@ -585,9 +616,9 @@
     <div class="hero-content">
       <div class="hero-eyebrow">Who we recruit for</div>
       <h1>
-        <span class="wipe-line"><span>Every role inside</span></span>
-        <span class="wipe-line"><span><span class="serif-i">a design-led</span></span></span>
-        <span class="wipe-line"><span>business.</span></span>
+        <span class="wipe-line"><span>Talent across</span></span>
+        <span class="wipe-line"><span><span class="serif-i">every part</span></span></span>
+        <span class="wipe-line"><span>of the business.</span></span>
       </h1>
       <p class="hero-sub">
         We recruit across the full infrastructure of design-led businesses, from showroom and field-based sales through to operations, technical, commercial, head office, and executive leadership roles.
@@ -611,18 +642,18 @@
 
       <div class="roles-head">
         <div>
-          <div class="section-tag is-blue fade-up" style="margin-bottom:22px;">Categories</div>
           <h2 class="fade-up d1">
-            Six pillars of<br>
-            <span class="accent">design-led</span> talent.
+            Six core areas of<br>
+            <span class="accent">specialist</span> recruitment.
           </h2>
         </div>
         <p class="fade-up d2">
-          Every business we work with depends on a different mix of these six. Use the tabs to see exactly which roles we recruit for in each part of the operation.
+          Every business requires a different blend of talent. Explore the categories below to see the roles we recruit for across each part of the business.
         </p>
       </div>
 
-      <!-- Tab navigation -->
+      <div class="roles-tabs-grid">
+      <!-- Tab navigation (vertical left) -->
       <nav class="tab-nav fade-up" role="tablist" aria-label="Role categories">
         <button class="tab is-active" data-target="showroom"   role="tab" aria-selected="true"  aria-controls="panel-showroom">
           <span class="tab-num">01</span><span class="tab-label">Showroom</span>
@@ -654,20 +685,20 @@
               <p class="panel-desc">Front-of-house design and sales talent for retail showrooms, from lead-takers through to studio managers.</p>
             </div>
             <div class="panel-roles">
-              <div class="role-row"><span class="role-num">01</span><span class="role-name">Lead Taker</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">02</span><span class="role-name">Showroom Host</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">03</span><span class="role-name">Design Assistant</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">04</span><span class="role-name">CAD Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">05</span><span class="role-name">Technical Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">06</span><span class="role-name">Interior Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">07</span><span class="role-name">Bedroom Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">08</span><span class="role-name">Bathroom Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">09</span><span class="role-name">Kitchen Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">10</span><span class="role-name">Contract Kitchen Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">11</span><span class="role-name">Assistant Showroom Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">12</span><span class="role-name">Design Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">13</span><span class="role-name">Showroom Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">14</span><span class="role-name">Studio Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Lead Taker</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">02</span><span class="role-name">Showroom Host</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">03</span><span class="role-name">Design Assistant</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">04</span><span class="role-name">CAD Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">05</span><span class="role-name">Technical Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">06</span><span class="role-name">Interior Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">07</span><span class="role-name">Bedroom Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">08</span><span class="role-name">Bathroom Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">09</span><span class="role-name">Kitchen Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">10</span><span class="role-name">Contract Kitchen Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">11</span><span class="role-name">Assistant Showroom Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">12</span><span class="role-name">Design Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">13</span><span class="role-name">Showroom Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">14</span><span class="role-name">Studio Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
             </div>
           </div>
         </div>
@@ -680,14 +711,14 @@
               <p class="panel-desc">Sales-led roles operating across territories and accounts, from regional designers through to national sales leadership.</p>
             </div>
             <div class="panel-roles">
-              <div class="role-row"><span class="role-num">01</span><span class="role-name">Regional Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">02</span><span class="role-name">Account Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">03</span><span class="role-name">Business Development Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">04</span><span class="role-name">Area Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">05</span><span class="role-name">Contract Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">06</span><span class="role-name">Regional Showroom Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">07</span><span class="role-name">Regional Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">08</span><span class="role-name">National Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Regional Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">02</span><span class="role-name">Account Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">03</span><span class="role-name">Business Development Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">04</span><span class="role-name">Area Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">05</span><span class="role-name">Contract Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">06</span><span class="role-name">Regional Showroom Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">07</span><span class="role-name">Regional Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">08</span><span class="role-name">National Sales Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
             </div>
           </div>
         </div>
@@ -700,17 +731,17 @@
               <p class="panel-desc">The teams who turn design into delivery. Fitters, surveyors, project managers, and the logistics function behind them.</p>
             </div>
             <div class="panel-roles">
-              <div class="role-row"><span class="role-num">01</span><span class="role-name">Fitter</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">02</span><span class="role-name">Bench Joiner</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">03</span><span class="role-name">Cabinet Maker</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">04</span><span class="role-name">Surveyor</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">05</span><span class="role-name">Project Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">06</span><span class="role-name">Installations Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">07</span><span class="role-name">Warehouse Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">08</span><span class="role-name">Logistics Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">09</span><span class="role-name">Transport Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">10</span><span class="role-name">Distribution Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">11</span><span class="role-name">Operations Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Fitter</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">02</span><span class="role-name">Bench Joiner</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">03</span><span class="role-name">Cabinet Maker</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">04</span><span class="role-name">Surveyor</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">05</span><span class="role-name">Project Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">06</span><span class="role-name">Installations Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">07</span><span class="role-name">Warehouse Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">08</span><span class="role-name">Logistics Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">09</span><span class="role-name">Transport Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">10</span><span class="role-name">Distribution Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">11</span><span class="role-name">Operations Manager</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
             </div>
           </div>
         </div>
@@ -723,14 +754,14 @@
               <p class="panel-desc">Support functions that keep the business moving, including customer service, marketing, finance, and people leadership.</p>
             </div>
             <div class="panel-roles">
-              <div class="role-row"><span class="role-num">01</span><span class="role-name">Customer Service</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">02</span><span class="role-name">Administration</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">03</span><span class="role-name">HR (People &amp; Culture)</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">04</span><span class="role-name">Purchasing / Procurement</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">05</span><span class="role-name">Marketing</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">06</span><span class="role-name">Media / Content</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">07</span><span class="role-name">IT (Information Technology)</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">08</span><span class="role-name">Finance</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Customer Service</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">02</span><span class="role-name">Administration</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">03</span><span class="role-name">HR (People &amp; Culture)</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">04</span><span class="role-name">Purchasing / Procurement</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">05</span><span class="role-name">Marketing</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">06</span><span class="role-name">Media / Content</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">07</span><span class="role-name">IT (Information Technology)</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">08</span><span class="role-name">Finance</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
             </div>
           </div>
         </div>
@@ -743,14 +774,14 @@
               <p class="panel-desc">Director-level appointments shaping the strategic direction of design-led businesses.</p>
             </div>
             <div class="panel-roles">
-              <div class="role-row"><span class="role-num">01</span><span class="role-name">Design Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">02</span><span class="role-name">Marketing Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">03</span><span class="role-name">Sales Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">04</span><span class="role-name">Commercial Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">05</span><span class="role-name">Finance Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">06</span><span class="role-name">Operations Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">07</span><span class="role-name">Managing Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">08</span><span class="role-name">CEO</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Design Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">02</span><span class="role-name">Marketing Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">03</span><span class="role-name">Sales Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">04</span><span class="role-name">Commercial Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">05</span><span class="role-name">Finance Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">06</span><span class="role-name">Operations Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">07</span><span class="role-name">Managing Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">08</span><span class="role-name">CEO</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
             </div>
           </div>
         </div>
@@ -763,17 +794,18 @@
               <p class="panel-desc">Freelance, contract, and interim talent for short-term and project-based requirements.</p>
             </div>
             <div class="panel-roles">
-              <div class="role-row"><span class="role-num">01</span><span class="role-name">Freelance</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">02</span><span class="role-name">Self-Employed</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">03</span><span class="role-name">Fixed Term Contracts</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">04</span><span class="role-name">Maternity Cover</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">05</span><span class="role-name">Interim Roles</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-              <div class="role-row"><span class="role-num">06</span><span class="role-name">Warehouse and Logistics</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Freelance</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">02</span><span class="role-name">Self-Employed</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">03</span><span class="role-name">Fixed Term Contracts</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">04</span><span class="role-name">Maternity Cover</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">05</span><span class="role-name">Interim Roles</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              <a class="role-row" href="/clients/#post-a-job"><span class="role-num">06</span><span class="role-name">Warehouse and Logistics</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
             </div>
           </div>
         </div>
 
       </div><!-- /panels -->
+      </div><!-- /roles-tabs-grid -->
     </div>
   </section>
 
@@ -786,18 +818,18 @@
           Hiring for one<br>of these <span class="accent">roles?</span>
         </h2>
         <p>
-          Tell us what you're looking for and we'll come back with a shortlist that fits the brief and the business.
+          Tell us what you're looking for and we'll discuss how we can support your search.
         </p>
-      </div>
-      <div class="cta-band-actions fade-up d2">
-        <a href="/clients/" class="btn-primary">
-          Submit a vacancy
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="/candidates/apply/" class="btn-ghost">
-          Send your CV
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        <div class="cta-band-actions fade-up d2">
+          <a href="/clients/" class="btn-primary">
+            Submit a vacancy
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="/candidates/" class="btn-ghost">
+            Find Roles
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -809,7 +841,7 @@
   <div class="footer-grid">
     <div class="foot-brand">
       <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
-      <p>The UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom &amp; Builders Merchant industry.</p>
+      <p>The KBB industry's trusted recruitment partner, connecting exceptional talent with the world's leading design and interiors brands.</p>
       <a class="foot-social" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
       </a>
@@ -959,6 +991,30 @@
         activate(arr[next].dataset.target);
       });
     });
+
+    // Deep link: open the matching tab when the URL hash is one of our targets,
+    // then scroll the roles section into view. Also responds to hash changes.
+    function targetFromHash() {
+      const h = (location.hash || '').replace('#', '');
+      const known = [...tabs].some(t => t.dataset.target === h);
+      return known ? h : null;
+    }
+    function applyHashIfAny(scroll) {
+      const t = targetFromHash();
+      if (!t) return;
+      activate(t);
+      if (scroll) {
+        const card = document.querySelector('.roles-tabs-grid');
+        if (!card) return;
+        // Centre the white card in the viewport so the whole box is in view.
+        const r = card.getBoundingClientRect();
+        const cardTop = r.top + window.scrollY;
+        const target = cardTop - Math.max(40, (window.innerHeight - r.height) / 2);
+        window.scrollTo({ top: target, behavior: 'smooth' });
+      }
+    }
+    applyHashIfAny(true);
+    window.addEventListener('hashchange', () => applyHashIfAny(true));
   })();
 </script>
 

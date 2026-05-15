@@ -211,9 +211,9 @@
       white-space: nowrap;
     }
     .section-tag.is-blue {
-      color: var(--color-blue);
-      border-color: rgba(35,83,232,0.30);
-      background: rgba(35,83,232,0.05);
+      color: var(--color-gold);
+      border: 1px solid var(--color-gold);
+      background: var(--color-white);
     }
     .section-tag.on-dark {
       color: var(--cream);
@@ -326,29 +326,26 @@
        SECTION 2 — ABOUT (cream)
        ───────────────────────────────────────────────────────────── */
     #about-intro { background: var(--cream); padding: 140px 56px; position: relative; }
-    #about-intro .grid { max-width: 1240px; margin: 0 auto; display: grid; gap: 80px; grid-template-columns: 5fr 7fr; align-items: start; }
     #about-intro h2 {
       font-family: var(--font-display); font-weight: 300;
+      letter-spacing: -0.02em;
+      color: var(--midnight);
+    }
+    #about-intro h2 .accent { color: var(--color-gold); font-style: italic; }
+
+    .ai-team-head {
+      max-width: 1240px; margin: 0 auto 32px;
+    }
+    .ai-team-head h2 {
       font-size: var(--fs-display-lg); line-height: 1.04;
-      color: var(--midnight); letter-spacing: -0.02em; margin-top: 22px;
-    }
-    #about-intro h2 .accent { color: var(--color-blue); font-style: italic; }
-    #about-intro .est {
-      margin-top: 36px; display: inline-flex; align-items: center;
-      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: rgba(7,7,27,0.45);
-    }
-    #about-intro .right p.lead {
-      font-size: 22px; font-weight: 300; line-height: 1.6; color: var(--midnight);
-    }
-    #about-intro .right p.body {
-      margin-top: 28px; font-size: 17px; font-weight: 300; line-height: 1.85;
-      color: rgba(7,7,27,0.7);
     }
 
-    /* Section tag sits in its own row above the grid so the right column
-       aligns with the headline rather than the eyebrow. */
-    .ai-tag { max-width: 1240px; margin: 0 auto 40px; }
+    .ai-intro { max-width: 1240px; margin: 0 auto; }
+    .ai-intro p.lead {
+      max-width: 980px;
+      font-size: 22px; font-weight: 300; line-height: 1.6;
+      color: var(--midnight);
+    }
 
     /* ─────────────────────────────────────────────────────────────
        TEAM — merged into #about-intro
@@ -371,10 +368,25 @@
       filter: grayscale(15%) brightness(0.97);
     }
     .team-card:hover .team-img-frame img { transform: scale(1.03); filter: none; }
+    .team-img-frame::before {
+      content: '';
+      position: absolute; inset: auto 0 0 0;
+      height: 55%;
+      background: linear-gradient(to top, rgba(7,7,27,0.78) 0%, rgba(7,7,27,0.45) 45%, rgba(7,7,27,0) 100%);
+      pointer-events: none; z-index: 1;
+    }
+    .team-img-frame .team-aside {
+      position: absolute; left: 28px; right: 28px; bottom: 26px;
+      z-index: 2;
+      margin: 0;
+      font-family: var(--font-display); font-style: italic;
+      font-size: 19px; font-weight: 400; line-height: 1.45;
+      color: var(--color-cream);
+    }
 
     .team-role {
       font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--color-blue);
+      color: var(--color-gold);
     }
     .team-name {
       font-family: var(--font-display); font-size: 32px; font-weight: 400;
@@ -385,23 +397,26 @@
       font-size: 15.5px; font-weight: 300; line-height: 1.85;
       color: rgba(7,7,27,0.7); max-width: 520px;
     }
-    .team-aside {
-      font-family: var(--font-display); font-style: italic;
-      font-size: 14.5px; font-weight: 300; line-height: 1.7;
-      color: rgba(7,7,27,0.55);
-    }
     .team-link {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 14px 26px;
+      font-family: var(--font-body);
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--midnight); text-decoration: none;
-      padding-bottom: 4px; border-bottom: 1px solid rgba(7,7,27,0.25);
-      transition: gap 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo), color 0.4s var(--ease-out-expo);
+      color: var(--color-midnight);
+      background: var(--color-gold);
+      border-radius: 100px; text-decoration: none;
+      transition: background 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo), gap 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
       align-self: flex-start;
-      margin-top: 4px;
+      margin-top: 6px;
     }
-    .team-link:hover { gap: 14px; border-color: var(--midnight); color: var(--color-blue); }
-    .team-link svg { width: 11px; height: 11px; }
+    .team-link:hover {
+      background: var(--color-gold-soft);
+      gap: 16px;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow-gold);
+    }
+    .team-link svg { width: 13px; height: 13px; }
 
     /* ─────────────────────────────────────────────────────────────
        SECTION 4 — WHAT WE DO (white, services list)
@@ -417,7 +432,7 @@
       font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
       line-height: 1.06; color: var(--midnight); letter-spacing: -0.02em;
     }
-    .services-head h2 .accent { font-style: italic; color: var(--color-blue); }
+    .services-head h2 .accent { font-style: italic; color: var(--color-gold); }
     .services-head p { font-size: 18px; font-weight: 300; line-height: 1.75; color: rgba(7,7,27,0.62); max-width: 460px; }
 
     .services-list {
@@ -433,7 +448,7 @@
     .service-row:hover { background: rgba(35,83,232,0.025); }
     .service-num {
       font-family: var(--font-display);
-      font-size: 13px; font-weight: 700; color: var(--color-blue);
+      font-size: 13px; font-weight: 700; color: var(--color-navy-deep);
       letter-spacing: 0.22em;
       line-height: 1.7;
     }
@@ -463,17 +478,19 @@
     }
     .hm-inner {
       position: relative; max-width: 1240px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
     }
-    .hm-col { padding: 0 56px; position: relative; }
-    .hm-col + .hm-col { border-left: 1px solid rgba(242,237,228,0.14); }
+    .hm-col {
+      padding: 0 32px; position: relative;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+    }
     .hm-icon {
-      width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
-      border: 1px solid rgba(217,188,128,0.40); border-radius: 50%;
+      width: 64px; height: 64px; display: inline-flex; align-items: center; justify-content: center;
       color: var(--gold);
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
-    .hm-icon svg { width: 18px; height: 18px; }
+    .hm-icon svg { width: 56px; height: 56px; }
     .hm-col h2 {
       font-family: var(--font-display); font-weight: 300;
       font-size: 36px; line-height: 1.1; color: var(--cream);
@@ -496,7 +513,7 @@
       font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
       line-height: 1.06; color: var(--midnight); letter-spacing: -0.02em;
     }
-    .values-head h2 .accent { font-style: italic; color: var(--color-blue); }
+    .values-head h2 .accent { font-style: italic; color: var(--color-gold); }
     .values-head .section-tag { justify-content: center; }
     .values-track {
       position: relative;
@@ -518,7 +535,7 @@
     }
     .value-cell:hover::before {
       background: var(--color-blue);
-      border-color: var(--color-blue);
+      border-color: var(--color-navy-deep);
       transform: translate(-50%, 0) scale(1.1);
     }
     .value-cell h3 {
@@ -527,7 +544,7 @@
       margin-bottom: 16px;
       transition: color 0.7s var(--ease-out-expo);
     }
-    .value-cell:hover h3 { color: var(--color-blue); }
+    .value-cell:hover h3 { color: var(--color-navy-deep); }
     .value-cell p {
       font-size: 13.5px; font-weight: 300; line-height: 1.7;
       color: rgba(7,7,27,0.65); max-width: 200px; margin: 0 auto;
@@ -547,7 +564,7 @@
       font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
       line-height: 1.06; color: var(--midnight); letter-spacing: -0.02em;
     }
-    .coverage-copy h2 .accent { font-style: italic; color: var(--color-blue); }
+    .coverage-copy h2 .accent { font-style: italic; color: var(--color-gold); }
     .coverage-copy p {
       margin-top: 24px;
       font-size: 16.5px; font-weight: 300; line-height: 1.75; color: rgba(7,7,27,0.65);
@@ -681,12 +698,12 @@
     }
     .why-head h2 .accent { font-style: italic; color: var(--color-gold); }
     .why-head p {
-      font-family: var(--font-display); font-style: italic; font-weight: 300;
-      font-size: 19px; line-height: 1.55;
-      color: rgba(242,237,228,0.85);
+      font-family: var(--font-body); font-weight: 300;
+      font-size: 17px; line-height: 1.85;
+      color: rgba(242,237,228,0.72);
       max-width: 480px;
     }
-    .why-head p .accent { color: var(--color-gold); }
+    .why-head p .accent { color: var(--color-gold); font-style: italic; font-family: var(--font-display); }
 
     .why-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
@@ -747,7 +764,7 @@
       font-size: var(--fs-display-md);
       line-height: 1.06; color: var(--midnight); letter-spacing: -0.02em;
     }
-    .ta-head h2 .accent { font-style: italic; color: var(--color-blue); }
+    .ta-head h2 .accent { font-style: italic; color: var(--color-gold); }
     .ta-head p {
       max-width: 460px;
       font-size: 16.5px; font-weight: 300; line-height: 1.75;
@@ -851,7 +868,7 @@
       font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-lg);
       line-height: 1; color: var(--midnight); letter-spacing: -0.02em;
     }
-    .cta-head h2 .accent { font-style: italic; color: var(--color-blue); }
+    .cta-head h2 .accent { font-style: italic; color: var(--color-gold); }
     .cta-head p {
       max-width: 640px; margin: 28px auto 0;
       font-family: var(--font-display); font-style: italic;
@@ -879,7 +896,7 @@
     .contact-role {
       margin-top: 6px;
       font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--color-blue);
+      text-transform: uppercase; color: var(--color-navy-deep);
     }
     .contact-divider {
       margin: 28px 0; height: 1px; background: rgba(7,7,27,0.10);
@@ -892,7 +909,7 @@
       transition: color 0.4s var(--ease-out-expo);
     }
     .contact-line + .contact-line { border-top: 1px solid rgba(7,7,27,0.06); }
-    .contact-line:hover { color: var(--color-blue); }
+    .contact-line:hover { color: var(--color-navy-deep); }
     .contact-icon {
       width: 32px; height: 32px; flex-shrink: 0;
       display: inline-flex; align-items: center; justify-content: center;
@@ -900,7 +917,7 @@
       color: rgba(7,7,27,0.6);
       transition: border-color 0.4s var(--ease-out-expo), color 0.4s var(--ease-out-expo);
     }
-    .contact-line:hover .contact-icon { border-color: var(--color-blue); color: var(--color-blue); }
+    .contact-line:hover .contact-icon { border-color: var(--color-navy-deep); color: var(--color-navy-deep); }
     .contact-icon svg { width: 13px; height: 13px; }
 
     .cta-actions {
@@ -920,7 +937,6 @@
       .services-list { grid-template-columns: 1fr; column-gap: 0; }
       .hm-inner { grid-template-columns: 1fr; gap: 64px; }
       .hm-col { padding: 0; }
-      .hm-col + .hm-col { border-left: none; border-top: 1px solid rgba(242,237,228,0.14); padding-top: 64px; }
       .values-track { grid-template-columns: repeat(5, 1fr); gap: 14px; }
       .value-cell p { font-size: 12.5px; }
       .contacts-grid { grid-template-columns: 1fr; }
@@ -1021,41 +1037,30 @@
 
   <!-- ═══════════ 2. ABOUT + TEAM ═══════════ -->
   <section id="about-intro" data-bg="light" aria-label="About us">
-    <div class="ai-tag">
-      <div class="section-tag is-blue fade-up">About Us</div>
+    <div class="ai-team-head fade-up">
+      <h2><span class="accent">About</span> The Team.</h2>
     </div>
-    <div class="grid">
-      <div class="left">
-        <h2 class="fade-up">
-          A specialist studio for<br>
-          <span class="accent">design-led</span> businesses.
-        </h2>
-        <div class="est fade-up d1">Est. 2014, Rushden, UK</div>
-      </div>
-      <div class="right">
-        <p class="lead fade-up">
-          Designer Recruitment are a specialist recruitment consultancy dedicated to the KBB, interiors, and design sectors. We connect exceptional companies with the very best talent, supporting both clients and candidates throughout the recruitment journey.
-        </p>
-        <p class="body fade-up d1">
-          With years of industry-specific experience, we understand the nuances of design-led businesses, allowing us to deliver a highly tailored recruitment service.
-        </p>
-      </div>
+
+    <div class="ai-intro">
+      <p class="lead fade-up d1">
+        Designer Recruitment are a specialist recruitment consultancy dedicated to the KBB, interiors, and design sectors. We connect exceptional companies with the very best talent, supporting both clients and candidates throughout the recruitment journey. With years of industry-specific experience, we understand the nuances of design-led businesses, allowing us to deliver a highly tailored recruitment service.
+      </p>
     </div>
 
     <div class="team-grid">
       <article class="team-card fade-up d1">
         <div class="team-img-frame">
           <img src="/Brand_assets/Ben-Paine-Managing Director.jpg" alt="Ben Paine, Managing Director" loading="lazy" style="object-position:center 30%;">
+          <p class="team-aside">
+            Outside of work, Ben enjoys playing cricket throughout the summer and spending quality time with his family on weekends.
+          </p>
         </div>
         <p class="team-role">Managing Director</p>
         <p class="team-name">Ben Paine</p>
         <p class="team-bio">
           Ben has over 6 years of industry-related recruitment experience, bringing a wealth of knowledge and insight into finding the right people for the right roles. His hands-on approach ensures clients receive the highest level of service and expertise.
         </p>
-        <p class="team-aside">
-          Outside of work, Ben enjoys playing cricket throughout the summer and spending quality time with his family on weekends.
-        </p>
-        <a class="team-link" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer">
+        <a class="team-link" href="https://www.linkedin.com/in/ben-paine-31113768/" target="_blank" rel="noopener noreferrer">
           Connect on LinkedIn
           <svg viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -1064,16 +1069,16 @@
       <article class="team-card fade-up d2">
         <div class="team-img-frame">
           <img src="/Brand_assets/Cara-Tomkins.jpg" alt="Cara Tomkins, Head of Recruitment" loading="lazy" style="object-position:center top;">
+          <p class="team-aside">
+            Outside of work, Cara enjoys going to the gym, running races, and spending time with family and friends.
+          </p>
         </div>
         <p class="team-role">Head of Recruitment</p>
         <p class="team-name">Cara Tomkins</p>
         <p class="team-bio">
           Cara has over 5 years of industry-related recruitment experience, specialising in design, KBB, and luxury home sectors. She is passionate about building lasting relationships and ensuring both clients and candidates have the best possible experience.
         </p>
-        <p class="team-aside">
-          Outside of work, Cara enjoys going to the gym, running races, and spending time with family and friends.
-        </p>
-        <a class="team-link" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer">
+        <a class="team-link" href="https://www.linkedin.com/in/cara-tomkins-5a8a09211/" target="_blank" rel="noopener noreferrer">
           Connect on LinkedIn
           <svg viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -1089,7 +1094,7 @@
           <div class="section-tag fade-up">What We Do</div>
           <h2 class="fade-up d1">A complete<br><span class="accent">recruitment service.</span></h2>
         </div>
-        <p class="fade-up d2">From advertising and headhunting to vetting, partnership, and the kind of out-of-hours support most agencies don't offer, we work as an extension of your team.</p>
+        <p class="fade-up d2">From targeted search and headhunting to vetting, consultancy, and ongoing support, we operate as a genuine extension of your team.</p>
       </div>
 
       <div class="services-list">
@@ -1111,7 +1116,7 @@
           <span class="service-num">03</span>
           <div class="service-body">
             <h3>Thorough Vetting &amp; Screening</h3>
-            <p>We present only candidates who are a genuine fit for the business and the role, with the diligence to back it up.</p>
+            <p>We present carefully considered candidates who are genuinely aligned with both the role and the business.</p>
           </div>
         </div>
         <div class="service-row fade-up d3">
@@ -1138,8 +1143,15 @@
       <div class="hm-col fade-up d1">
         <span class="hm-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <path d="M8 12h8M12 8v8"/>
+            <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/>
+            <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/>
+            <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/>
+            <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/>
+            <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/>
+            <path d="M3.477 10.896a4 4 0 0 1 .585-.396"/>
+            <path d="M19.938 10.5a4 4 0 0 1 .585.396"/>
+            <path d="M6 18a4 4 0 0 1-1.967-.516"/>
+            <path d="M19.967 17.484A4 4 0 0 1 18 18"/>
           </svg>
         </span>
         <h2>How <span class="accent">we work.</span></h2>
@@ -1148,9 +1160,10 @@
       <div class="hm-col fade-up d2">
         <span class="hm-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <circle cx="12" cy="12" r="4.5"/>
-            <circle cx="12" cy="12" r="1.2" fill="currentColor"/>
+            <path d="M12 13V7l9-4-4 9h-6"/>
+            <circle cx="11" cy="13" r="9"/>
+            <circle cx="11" cy="13" r="5"/>
+            <circle cx="11" cy="13" r="1.4" fill="currentColor"/>
           </svg>
         </span>
         <h2>Our <span class="accent">mission.</span></h2>
@@ -1164,28 +1177,28 @@
     <div class="values-inner">
       <div class="values-head">
         <div class="section-tag is-blue fade-up">Our Values</div>
-        <h2 class="fade-up d1">Five ideas, <span class="accent">held closely.</span></h2>
+        <h2 class="fade-up d1">Five <span class="accent">principles</span> that shape how we work.</h2>
       </div>
       <div class="values-track">
         <div class="value-cell fade-up d1">
           <h3>Integrity</h3>
-          <p>Honest, practical advice, in the best interest of both clients and candidates.</p>
+          <p>We give honest and practical advice, acting in the best interests of both clients and candidates.</p>
         </div>
         <div class="value-cell fade-up d2">
           <h3>Excellence</h3>
-          <p>The highest standards in every placement, ensuring quality and professionalism.</p>
+          <p>We strive for the highest standards in every placement, ensuring quality and professionalism.</p>
         </div>
         <div class="value-cell fade-up d3">
           <h3>Partnership</h3>
-          <p>Working closely with clients to understand their culture, vision, and goals.</p>
+          <p>We work closely with clients to understand their culture, vision, and goals.</p>
         </div>
         <div class="value-cell fade-up d4">
           <h3>Communication</h3>
-          <p>Clear, timely updates throughout the process, building engagement and confidence.</p>
+          <p>We provide clear, timely updates throughout the recruitment process to maintain engagement and confidence.</p>
         </div>
         <div class="value-cell fade-up d5">
           <h3>Passion</h3>
-          <p>A genuine commitment to KBB, interiors, and design, in every search we run.</p>
+          <p>We are committed to the KBB, interiors and design sector, bringing energy, enthusiasm, and expertise to every search.</p>
         </div>
       </div>
     </div>
@@ -1197,8 +1210,8 @@
       <div class="coverage-grid">
         <div class="coverage-copy">
           <div class="section-tag is-blue fade-up">Our Coverage</div>
-          <h2 class="fade-up d1">Working <span class="accent">across borders.</span></h2>
-          <p class="fade-up d2">We specialise in recruitment across the UK interiors, design, luxury kitchens, bathrooms, and lifestyle markets, and also support clients in Australia, the UAE, and Ireland. If your area isn't listed, get in touch, we'd love to see how we can help.</p>
+          <h2 class="fade-up d1">Supporting clients <span class="accent">across the UK</span> and internationally.</h2>
+          <p class="fade-up d2">We support clients across the UK and internationally, connecting exceptional talent with businesses across the interiors, design, luxury kitchen, bathroom, and lifestyle sectors. We also partner with clients across Australia, the UAE, and Ireland. If your region isn't listed, please get in touch to discuss how we can help.</p>
           <div class="regions">
             <span class="region fade-up d1">United Kingdom</span>
             <span class="region fade-up d2">UAE</span>
@@ -1277,7 +1290,6 @@
       <div class="ta-head">
         <div class="section-tag fade-up">Testimonials</div>
         <h2 id="testimonials-heading" class="fade-up d1">What our clients <span class="accent">say.</span></h2>
-        <p class="fade-up d2">Long-form notes from the studios, retailers, and brands we've placed talent into.</p>
       </div>
 
       <div class="ta-carousel fade-up" id="ta-carousel">
@@ -1463,7 +1475,7 @@
   <div class="footer-grid">
     <div class="foot-brand">
       <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
-      <p>The UK's specialist recruitment partner for the Kitchen, Bedroom, Bathroom &amp; Builders Merchant industry.</p>
+      <p>The KBB industry's trusted recruitment partner, connecting exceptional talent with the world's leading design and interiors brands.</p>
       <a class="foot-social" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
       </a>
