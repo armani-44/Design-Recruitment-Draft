@@ -77,11 +77,14 @@
     }
     #nav-wrap.open #nav-pill { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.10); }
     #nav-wrap.on-light #nav-pill {
-      background: rgba(7,7,27,0.55);
-      border-color: rgba(255,255,255,0.14);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), inset 0 -1px 0 rgba(0,0,0,0.18), 0 8px 32px rgba(7,7,27,0.22);
+      background: rgba(7,7,27,0.92);
+      border-color: rgba(217,188,128,0.45);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), inset 0 -1px 0 rgba(0,0,0,0.30), 0 10px 28px rgba(7,7,27,0.35);
     }
-    #nav-wrap.on-light.open #nav-pill { background: rgba(7,7,27,0.68); border-color: rgba(255,255,255,0.12); }
+    #nav-wrap.on-light.open #nav-pill {
+      background: rgba(7,7,27,0.96);
+      border-color: rgba(217,188,128,0.55);
+    }
     #burger {
       display: flex; align-items: center; gap: 10px;
       background: none; border: none; cursor: pointer;
@@ -157,15 +160,21 @@
       text-transform: uppercase; text-decoration: none;
       padding: 14px 26px; border-radius: 100px;
       transition: background 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo),
-                  border-color 0.4s var(--ease-out-expo), gap 0.4s var(--ease-out-expo),
+                  border-color 0.4s var(--ease-out-expo),
                   color 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+    }
+    .btn-primary svg, .btn-ghost svg, .btn-dark-ghost svg {
+      transition: transform 0.4s var(--ease-out-expo);
     }
     .btn-primary { background: var(--color-gold); color: var(--color-midnight); }
     .btn-primary:hover { background: var(--color-gold-soft); transform: translateY(-2px); box-shadow: var(--shadow-glow-gold); }
+    .btn-primary:hover svg { transform: translateX(3px); }
     .btn-ghost { background: transparent; color: var(--cream); border: 1px solid rgba(242,237,228,0.45); }
-    .btn-ghost:hover { border-color: rgba(242,237,228,0.7); gap: 18px; background: rgba(242,237,228,0.04); }
+    .btn-ghost:hover { border-color: rgba(242,237,228,0.7); background: rgba(242,237,228,0.04); }
+    .btn-ghost:hover svg { transform: translateX(-3px); }
     .btn-dark-ghost { background: transparent; color: var(--color-midnight); border: 1px solid rgba(7,7,27,0.35); }
-    .btn-dark-ghost:hover { border-color: rgba(7,7,27,0.6); gap: 18px; background: rgba(7,7,27,0.04); }
+    .btn-dark-ghost:hover { border-color: rgba(7,7,27,0.6); background: rgba(7,7,27,0.04); }
+    .btn-dark-ghost:hover svg { transform: translateX(3px); }
 
     .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
     .fade-up.in { opacity: 1; transform: translateY(0); }
@@ -232,8 +241,8 @@
       letter-spacing: 0.32em; text-transform: uppercase;
       color: var(--color-navy-deep);
       padding: 6px 14px;
-      border: 1px solid rgba(35,83,232,0.30);
-      background: rgba(35,83,232,0.04);
+      border: 1px solid rgba(7,7,27,0.30);
+      background: rgba(7,7,27,0.04);
       border-radius: 100px;
       margin-top: 40px; margin-bottom: 36px;
     }
@@ -271,7 +280,7 @@
     #sp-body::before {
       content: ''; position: absolute; inset: 0; pointer-events: none;
       background:
-        radial-gradient(50% 30% at 90% 0%, rgba(35,83,232,0.04), transparent 65%),
+        radial-gradient(50% 30% at 90% 0%, rgba(7,7,27,0.04), transparent 65%),
         radial-gradient(40% 40% at 0% 100%, rgba(217,188,128,0.06), transparent 65%);
     }
     .sp-body-inner {
@@ -527,34 +536,33 @@
 
     /* CTA band */
     #cta-band {
-      position: relative; background: var(--midnight); overflow: hidden;
+      position: relative; background: #ffffff; overflow: hidden;
       padding: 120px 56px;
     }
     #cta-band::before {
       content: ''; position: absolute; inset: 0; pointer-events: none;
       background:
         radial-gradient(70% 60% at 80% 0%, rgba(217,188,128,0.10), transparent 60%),
-        radial-gradient(60% 50% at 0% 100%, rgba(11,2,82,0.45), transparent 65%);
+        radial-gradient(60% 50% at 0% 100%, rgba(7,7,27,0.05), transparent 65%);
     }
     .cta-band-inner {
       position: relative;
-      max-width: 1100px; margin: 0 auto;
-      display: grid; gap: 56px;
-      grid-template-columns: 1.1fr 1fr;
-      align-items: center;
+      max-width: 760px; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 36px;
     }
     .cta-band-inner h2 {
       font-family: var(--font-display); font-weight: 300;
       font-size: var(--fs-display-md); line-height: 1.06;
-      letter-spacing: -0.02em; color: var(--cream);
+      letter-spacing: -0.02em; color: var(--color-midnight);
     }
     .cta-band-inner h2 .accent { font-style: italic; color: var(--gold); }
     .cta-band-inner p {
       margin-top: 22px;
       font-size: 17px; font-weight: 300; line-height: 1.8;
-      color: rgba(242,237,228,0.62); max-width: 480px;
+      color: rgba(7,7,27,0.62); max-width: 520px; margin-left: auto; margin-right: auto;
     }
-    .cta-band-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-self: end; }
+    .cta-band-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
 
     /* Section tag pill style is defined globally in tokens.css. */
 
@@ -569,8 +577,6 @@
       #sp-more { padding: 80px 40px; }
       #cta-band { padding: 80px 40px; }
       .sp-more-grid { grid-template-columns: repeat(2, 1fr); }
-      .cta-band-inner { grid-template-columns: 1fr; }
-      .cta-band-actions { justify-self: start; }
     }
     @media (max-width: 768px) {
       #sp-hero { padding: 100px 24px 64px; }
@@ -603,7 +609,7 @@
     <a href="/" id="nav-logo" aria-label="Designer Recruitment home">
       <img id="logo-white" src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
     </a>
-    <a href="/contact/" class="nav-contact-btn">Contact</a>
+    <a href="/contact/" class="nav-contact-btn">Contact Us</a>
   </div>
   <div id="nav-dropdown" aria-hidden="true">
     <nav aria-label="Site links">
@@ -613,7 +619,7 @@
       <a href="/clients/"               class="nd-link">For Clients</a>
       <a href="/who-we-recruit-for/"    class="nd-link">Who we recruit for</a>
       <a href="/news-and-insights/"     class="nd-link">News &amp; Insights</a>
-      <a href="/contact/"               class="nd-link">Contact</a>
+      <a href="/contact/"               class="nd-link">Contact Us</a>
     </nav>
   </div>
 </div>
@@ -793,15 +799,15 @@
   </section>
 
   <!-- ═══════════ CTA BAND ═══════════ -->
-  <section id="cta-band" aria-label="Get in touch">
+  <section id="cta-band" data-bg="light" aria-label="Get in touch">
     <div class="cta-band-inner">
       <div class="fade-up">
-        <div class="section-tag on-dark" style="margin-bottom:22px;">Spotlight Series</div>
+        <div class="section-tag" style="margin-bottom:22px;">Spotlight Series</div>
         <h2>
           Could the next<br>spotlight be <span class="accent">yours?</span>
         </h2>
         <p>
-          We're always looking to feature designers and design-led businesses doing remarkable work. If you'd like to be part of the series, drop us a line.
+          We’re always looking to feature talented designers and design-led businesses doing remarkable work. If you’d like to be part of the series, we’d love to hear from you.
         </p>
       </div>
       <div class="cta-band-actions fade-up d2">
@@ -809,7 +815,7 @@
           Suggest a feature
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="/news-and-insights/" class="btn-ghost">
+        <a href="/news-and-insights/" class="btn-dark-ghost">
           Back to News &amp; Insights
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M11.5 6.5h-10M5.5 2.5l-4 4 4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -831,25 +837,24 @@
     </div>
     <div>
       <div class="foot-head">Company</div>
-      <a href="/about/" class="foot-link">About</a>
+      <a href="/about/" class="foot-link">About Us</a>
       <a href="/about/#story" class="foot-link">Our Story</a>
       <a href="/about/#principles" class="foot-link">Principles</a>
       <a href="/about/#process" class="foot-link">Process</a>
-      <a href="/contact/" class="foot-link">Contact</a>
+      <a href="/contact/" class="foot-link">Contact Us</a>
     </div>
+
     <div>
       <div class="foot-head">For Candidates</div>
       <a href="/candidates/" class="foot-link">Find a Role</a>
-      <a href="/candidates/apply/" class="foot-link">Submit your CV</a>
+      <a href="/candidates/apply/" class="foot-link">Register</a>
       <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
-      <a href="mailto:hello@designerrecruitment.co.uk" class="foot-link">Request a Salary Guide</a>
     </div>
+
     <div>
       <div class="foot-head">For Clients</div>
-      <a href="/clients/" class="foot-link">Hire Talent</a>
-      <a href="/clients/#post-a-job" class="foot-link">Post a Job</a>
-      <a href="/#expertise" class="foot-link">Consultancy</a>
       <a href="/who-we-recruit-for/" class="foot-link">Who we recruit for</a>
+      <a href="/clients/" class="foot-link">Hire Talent</a>
     </div>
   </div>
   <div class="foot-base">

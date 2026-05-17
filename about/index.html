@@ -115,8 +115,8 @@
         0 8px 32px rgba(7,7,27,0.22);
     }
     #nav-wrap.on-light.open #nav-pill {
-      background: rgba(7,7,27,0.68);
-      border-color: rgba(255,255,255,0.12);
+      background: rgba(7,7,27,0.96);
+      border-color: rgba(217,188,128,0.55);
     }
     #burger {
       display: flex; align-items: center; gap: 10px;
@@ -445,7 +445,7 @@
       border-bottom: 1px solid rgba(7,7,27,0.10);
       transition: background 0.7s var(--ease-out-expo);
     }
-    .service-row:hover { background: rgba(35,83,232,0.025); }
+    .service-row:hover { background: rgba(7,7,27,0.025); }
     .service-num {
       font-family: var(--font-display);
       font-size: 13px; font-weight: 700; color: var(--color-navy-deep);
@@ -474,7 +474,7 @@
       content: ''; position: absolute; inset: 0; pointer-events: none;
       background:
         radial-gradient(60% 50% at 20% 30%, rgba(217,188,128,0.06), transparent 60%),
-        radial-gradient(60% 50% at 80% 70%, rgba(35,83,232,0.18), transparent 65%);
+        radial-gradient(60% 50% at 80% 70%, rgba(7,7,27,0.18), transparent 65%);
     }
     .hm-inner {
       position: relative; max-width: 1240px; margin: 0 auto;
@@ -655,7 +655,7 @@
     .globe-marker-dot {
       width: 7px; height: 7px; border-radius: 50%;
       background: var(--color-blue);
-      box-shadow: 0 0 0 2px var(--cream), 0 0 0 4px rgba(35,83,232,0.30);
+      box-shadow: 0 0 0 2px var(--cream), 0 0 0 4px rgba(7,7,27,0.30);
       margin-top: -1px;
     }
     .globe-arc-label {
@@ -687,7 +687,7 @@
       content: ''; position: absolute; inset: 0; pointer-events: none;
       background:
         radial-gradient(60% 50% at 80% 0%, rgba(217,188,128,0.10), transparent 60%),
-        radial-gradient(50% 50% at 10% 100%, rgba(35,83,232,0.18), transparent 65%);
+        radial-gradient(50% 50% at 10% 100%, rgba(7,7,27,0.18), transparent 65%);
     }
     .why-inner { position: relative; max-width: 1240px; margin: 0 auto; }
     .why-head { display: grid; gap: 40px; grid-template-columns: 1fr 1fr; align-items: end; margin-bottom: 80px; }
@@ -810,6 +810,26 @@
       box-shadow: 0 1px 2px rgba(7,7,27,0.03);
       display: flex; flex-direction: column;
     }
+    .ta-card-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      align-self: flex-start;
+      padding: 5px 11px;
+      border: 1px solid rgba(7,7,27,0.16);
+      border-radius: 100px;
+      font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(7,7,27,0.62);
+      margin-bottom: 16px;
+    }
+    .ta-card.is-gold .ta-card-tag {
+      border-color: rgba(217,188,128,0.50);
+      color: rgba(7,7,27,0.72);
+    }
+    .ta-card-tag-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--color-blue);
+    }
+    .ta-card.is-gold .ta-card-tag-dot { background: var(--color-gold); }
     .ta-stars {
       display: flex; gap: 3px;
       margin-bottom: 18px;
@@ -987,7 +1007,7 @@
     <a href="/" id="nav-logo" aria-label="Designer Recruitment home">
       <img id="logo-white" src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
     </a>
-    <a href="/contact/" class="nav-contact-btn">Contact</a>
+    <a href="/contact/" class="nav-contact-btn">Contact Us</a>
   </div>
   <div id="nav-dropdown" aria-hidden="true">
     <nav aria-label="Site links">
@@ -998,7 +1018,7 @@
       <a href="/who-we-recruit-for/" class="nd-link">Who we recruit for</a>
       <a href="/about/#testimonials-about" class="nd-link">Testimonials</a>
       <a href="/news-and-insights/" class="nd-link">News &amp; Insights</a>
-      <a href="/contact/"     class="nd-link">Contact</a>
+      <a href="/contact/"     class="nd-link">Contact Us</a>
     </nav>
   </div>
 </div>
@@ -1087,7 +1107,7 @@
   </section>
 
   <!-- ═══════════ 4. WHAT WE DO ═══════════ -->
-  <section id="services" aria-label="What we do">
+  <section id="services" data-bg="light" aria-label="What we do">
     <div class="services-inner">
       <div class="services-head">
         <div>
@@ -1289,7 +1309,7 @@
     <div class="ta-inner">
       <div class="ta-head">
         <div class="section-tag fade-up">Testimonials</div>
-        <h2 id="testimonials-heading" class="fade-up d1">What our clients <span class="accent">say.</span></h2>
+        <h2 id="testimonials-heading" class="fade-up d1">What our clients and candidates <span class="accent">say.</span></h2>
       </div>
 
       <div class="ta-carousel fade-up" id="ta-carousel">
@@ -1298,7 +1318,10 @@
         </button>
         <div class="ta-viewport">
           <div class="ta-track" id="ta-track">
+
+            <!-- 1 · Client / Cara -->
             <article class="ta-card">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Cara</div>
               <div class="ta-stars" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1306,16 +1329,18 @@
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
               </div>
-              <p class="ta-card-text">Having never been a fan of utilising recruitment consultants, I am now a convert thanks to Ben's ability to quickly produce high-quality candidates for nearly every role tabled to date.</p>
+              <p class="ta-card-text">Being well connected in the industry is definitely a huge asset for a recruiter and you are very well connected. You also worked well with the brief given and screening process. A very honest and open approach to doing business. All in all a first class service!</p>
               <footer class="ta-card-foot">
-                <span class="ta-avatar" aria-hidden="true">Cu</span>
-                <span class="ta-card-name">Cutlist</span>
+                <span class="ta-avatar" aria-hidden="true">St</span>
+                <span class="ta-card-name">Steve</span>
                 <span class="ta-card-dot" aria-hidden="true"></span>
-                <span class="ta-card-role">Owner &amp; Founder</span>
+                <span class="ta-card-role">Sales Director</span>
               </footer>
             </article>
 
+            <!-- 2 · Client / Ben -->
             <article class="ta-card is-gold">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Ben</div>
               <div class="ta-stars" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1323,16 +1348,18 @@
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
               </div>
-              <p class="ta-card-text">Cara is proactive, supportive, and highly effective at matching the right talent to the right roles. She has consistently demonstrated exceptional professionalism, dedication, and a genuine commitment to understanding our needs.</p>
+              <p class="ta-card-text">Having never been a fan of utilising recruitment consultants I am now a convert thanks to Ben's ability to quickly produce high quality candidates for nearly every role that has been tabled to date. I don't make recommendations lightly however I have recommended Ben within my personal network and have had remarks in return that fit my experience. Ben is highly responsive, professional and always puts forward candidates of a higher quality than my efforts produce on indeed etc.</p>
               <footer class="ta-card-foot">
-                <span class="ta-avatar" aria-hidden="true">FE</span>
-                <span class="ta-card-name">Fired Earth</span>
+                <span class="ta-avatar" aria-hidden="true">Ed</span>
+                <span class="ta-card-name">Edward</span>
                 <span class="ta-card-dot" aria-hidden="true"></span>
-                <span class="ta-card-role">Regional Manager</span>
+                <span class="ta-card-role">Director</span>
               </footer>
             </article>
 
+            <!-- 3 · Candidate / Cara -->
             <article class="ta-card">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Cara</div>
               <div class="ta-stars" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1340,16 +1367,18 @@
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
               </div>
-              <p class="ta-card-text">Ben is a rare recruiter who backs up his promise with real results. The quality of his candidates and speed of turnaround is very impressive. He is my first go-to recruiter for marketing talent.</p>
+              <p class="ta-card-text">I had the pleasure of working with Cara after a surprise redundancy left me searching for my next career move. Cara was absolutely phenomenal throughout the entire process. Her extensive experience and insight meant she provided excellent guidance at every stage of the recruitment journey, which truly sets her apart from other recruiters. Cara took the time to understand both my experience and personality before putting me forward for a role that I was ultimately successful in securing. I couldn't recommend Cara more highly to anyone seeking support through the recruitment process.</p>
               <footer class="ta-card-foot">
-                <span class="ta-avatar" aria-hidden="true">PD</span>
-                <span class="ta-card-name">Principal Director</span>
+                <span class="ta-avatar" aria-hidden="true">Br</span>
+                <span class="ta-card-name">Brittany</span>
                 <span class="ta-card-dot" aria-hidden="true"></span>
-                <span class="ta-card-role">KBB &amp; Interiors</span>
+                <span class="ta-card-role">Kitchen Designer</span>
               </footer>
             </article>
 
+            <!-- 4 · Candidate / Ben -->
             <article class="ta-card is-gold">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Ben</div>
               <div class="ta-stars" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1357,16 +1386,18 @@
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
               </div>
-              <p class="ta-card-text">I had the pleasure of working with Cara during a significant hiring and growth period. She was supportive, driven, and focused on helping us find the right candidates. Cara has a genuine care for building long-lasting relationships.</p>
+              <p class="ta-card-text">I am super grateful to have met Ben Paine when I did. Ben is extremely professional, understanding, and empathetic. He listened carefully to my preferences and genuinely delivered exactly what I was looking for. He didn't throw roles at me that I hadn't asked for, even though I was qualified for them. Instead, he found me the perfect role that suited my experience, eligibility, and most importantly, my personal preferences. I highly recommend Ben Paine and Designer Recruitment.</p>
               <footer class="ta-card-foot">
-                <span class="ta-avatar" aria-hidden="true">QS</span>
-                <span class="ta-card-name">Quorn Stone</span>
+                <span class="ta-avatar" aria-hidden="true">Zi</span>
+                <span class="ta-card-name">Zikitta</span>
                 <span class="ta-card-dot" aria-hidden="true"></span>
-                <span class="ta-card-role">Business Ops</span>
+                <span class="ta-card-role">Lead Generator</span>
               </footer>
             </article>
 
+            <!-- 5 · Client / Cara -->
             <article class="ta-card">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Cara</div>
               <div class="ta-stars" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1374,16 +1405,113 @@
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
               </div>
-              <p class="ta-card-text">Ben is a long-standing collaborator of mine, consistently delivering top-notch candidates. Our newly onboarded manager is already leaving her mark, thanks to Ben's spot-on selections.</p>
+              <p class="ta-card-text">I've had the pleasure of working with Cara over the past two years as she has supported our business with recruitment. Throughout this time, she has consistently demonstrated exceptional professionalism, dedication, and a genuine commitment to understanding our needs. Cara is proactive, supportive, and highly effective at matching the right talent to the right roles. Her approach is thoughtful and thorough, and she always goes the extra mile to ensure a smooth and successful recruitment process. I recommend her to anyone seeking outstanding recruitment support.</p>
               <footer class="ta-card-foot">
-                <span class="ta-avatar" aria-hidden="true">La</span>
-                <span class="ta-card-name">Langstaff</span>
+                <span class="ta-avatar" aria-hidden="true">Je</span>
+                <span class="ta-card-name">Jen</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">Regional Sales Manager</span>
+              </footer>
+            </article>
+
+            <!-- 6 · Client / Ben -->
+            <article class="ta-card is-gold">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Ben</div>
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">Ben is a rare Recruiter who backs up his promise with real results. The quality of his candidates and speed of turnaround is very impressive. We've put him to the test several times and each time he has delivered exceptional candidates. He is my first go-to recruiter for Marketing talent.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">Ni</span>
+                <span class="ta-card-name">Nigel</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">Principal Director</span>
+              </footer>
+            </article>
+
+            <!-- 7 · Candidate / Cara -->
+            <article class="ta-card">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Cara</div>
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">Cara was absolutely brilliant to work with and helped me to secure my most recent role with my dream company. She was attentive, professional, and so approachable throughout the process. Cara communicated with me regularly and always checked in to see if there was any way she could assist further, right from the beginning of my job search through to starting in my new role. I felt supported throughout and confident that Cara always had my best interests at heart. I would not hesitate to recommend Cara Tomkins from Designer Recruitment to anyone who is looking for their next role.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">Re</span>
+                <span class="ta-card-name">Rebecca</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">Kitchen Designer</span>
+              </footer>
+            </article>
+
+            <!-- 8 · Candidate / Ben -->
+            <article class="ta-card is-gold">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Ben</div>
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">Our professional journey began when Ben reached out to me regarding a position I wasn't actively seeking, nor was I even aware the opportunity existed. Ben recognised the value I could bring to the team while also deeply respecting my primary commitment to my family. He went above and beyond to bridge the gap between corporate needs and personal aspirations, ensuring that I could pursue my "dream job" without compromising my role as a parent. I would highly recommend Ben and Designer Recruitment to anyone considering their next career move.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">Ma</span>
+                <span class="ta-card-name">Marc</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">Designer</span>
+              </footer>
+            </article>
+
+            <!-- 9 · Client / Cara -->
+            <article class="ta-card">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Cara</div>
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">I had the pleasure of working with Cara during a significant hiring and growth period, and Cara was supportive, driven and focused on helping us find the right candidates. Cara was personable, patient and understanding whilst always working hard to try and find the right match for us, always available and communicated well. Cara is professional and has a genuine care for building long lasting relationships, Cara focuses on long term value and not just filling a position and remains positive even when difficult challenges arise. I would recommend Cara anytime.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">Ka</span>
+                <span class="ta-card-name">Katy</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">Business Operations Manager</span>
+              </footer>
+            </article>
+
+            <!-- 10 · Client / Ben -->
+            <article class="ta-card is-gold">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Ben</div>
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">Ben is a long-standing collaborator of mine, consistently delivering top-notch candidates. Recently, we needed a high-level Marketing Manager for our brand and Ben's vast network delivered exceptional candidates. Our newly onboarded manager is already leaving her mark, thanks to Ben's spot-on selections. Next up, we're tapping into Ben's expertise to source another Creative Designer for our growing team. Ben's track record speaks volumes.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">Nk</span>
+                <span class="ta-card-name">Nick</span>
                 <span class="ta-card-dot" aria-hidden="true"></span>
                 <span class="ta-card-role">Managing Director</span>
               </footer>
             </article>
 
-            <article class="ta-card is-gold">
+            <!-- 11 · Candidate / Cara -->
+            <article class="ta-card">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Cara</div>
               <div class="ta-stars" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1391,14 +1519,34 @@
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
               </div>
-              <p class="ta-card-text">We have worked with Cara over the last couple of years. We have around some of the best talent in the market, and would recommend her service to anyone.</p>
+              <p class="ta-card-text">I would like to wholeheartedly recommend Cara as an exceptional recruiter and career guide. In all my professional experience, I have never encountered someone as dedicated and passionate about helping others succeed as Cara. From the moment we connected, she gave me confidence, guidance, and invaluable tools to prepare for my interview. Cara's support went above and beyond expectations. She genuinely cares about her clients, and it's evident in the way she invests her time and energy to ensure they feel prepared and empowered. I cannot recommend Cara highly enough.</p>
               <footer class="ta-card-foot">
-                <span class="ta-avatar" aria-hidden="true">SK</span>
-                <span class="ta-card-name">Square Kitchens</span>
+                <span class="ta-avatar" aria-hidden="true">Mr</span>
+                <span class="ta-card-name">Marguerite</span>
                 <span class="ta-card-dot" aria-hidden="true"></span>
-                <span class="ta-card-role">Managing Director</span>
+                <span class="ta-card-role">Head of Procurement</span>
               </footer>
             </article>
+
+            <!-- 12 · Candidate / Ben -->
+            <article class="ta-card is-gold">
+              <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Ben</div>
+              <div class="ta-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
+              </div>
+              <p class="ta-card-text">I had a great experience working with Ben throughout my recent job search. From the start, he was proactive, transparent, and genuinely supportive. What stood out most was his ability to understand both my background and what I was looking for, which made the whole process feel smooth and well-aligned rather than forced. Communication was clear at every stage, and he was always available when needed. I'd definitely recommend Ben to anyone looking for a recruiter who takes the time to get things right.</p>
+              <footer class="ta-card-foot">
+                <span class="ta-avatar" aria-hidden="true">Al</span>
+                <span class="ta-card-name">Alessio</span>
+                <span class="ta-card-dot" aria-hidden="true"></span>
+                <span class="ta-card-role">Kitchen Sales Designer</span>
+              </footer>
+            </article>
+
           </div>
         </div>
         <button class="ta-arrow ta-arrow-next" id="ta-next" aria-label="Next testimonial">
@@ -1482,25 +1630,21 @@
     </div>
     <div>
       <div class="foot-head">Company</div>
-      <a href="/about/" class="foot-link">About</a>
-      <a href="#about-intro" class="foot-link">About Us</a>
+      <a href="/about/" class="foot-link">About Us</a>
       <a href="#services" class="foot-link">What We Do</a>
       <a href="#values" class="foot-link">Our Values</a>
-      <a href="/contact/" class="foot-link">Contact</a>
+      <a href="/contact/" class="foot-link">Contact Us</a>
     </div>
     <div>
       <div class="foot-head">For Candidates</div>
       <a href="/candidates/" class="foot-link">Find a Role</a>
-      <a href="/candidates/apply/" class="foot-link">Submit your CV</a>
+      <a href="/candidates/apply/" class="foot-link">Register</a>
       <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
-      <a href="mailto:hello@designerrecruitment.co.uk" class="foot-link">Request a Salary Guide</a>
     </div>
     <div>
       <div class="foot-head">For Clients</div>
-      <a href="/clients/" class="foot-link">Hire Talent</a>
-      <a href="/clients/#post-a-job" class="foot-link">Post a Job</a>
-      <a href="/#expertise" class="foot-link">Consultancy</a>
       <a href="/who-we-recruit-for/" class="foot-link">Who we recruit for</a>
+      <a href="/clients/" class="foot-link">Hire Talent</a>
     </div>
   </div>
 
