@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://designerrecruitment.co.uk/who-we-recruit-for/">
   <meta property="og:title" content="Who we recruit for, Designer Recruitment® | KBB roles across the UK">
   <meta property="og:description" content="From showroom and field-based sales through to operations, head office, executive, and temporary roles, the full breakdown of who Designer Recruitment recruits for across the KBB and Builders Merchant industry.">
-  <meta property="og:image" content="https://designerrecruitment.co.uk/Brand_assets/AWinship-8084-025-High-scaled.jpg">
+  <meta property="og:image" content="https://designerrecruitment.co.uk/candidates/Images/generic-kbb-heros-12.jpg">
   <meta property="og:image:alt" content="A premium kitchen interior typical of the studios Designer Recruitment® works with.">
   <meta property="og:site_name" content="Designer Recruitment®">
   <meta property="og:locale" content="en_GB">
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Who we recruit for, Designer Recruitment® | KBB roles across the UK">
   <meta name="twitter:description" content="From showroom and field-based sales through to operations, head office, executive, and temporary roles, the full breakdown of who Designer Recruitment recruits for across the KBB and Builders Merchant industry.">
-  <meta name="twitter:image" content="https://designerrecruitment.co.uk/Brand_assets/AWinship-8084-025-High-scaled.jpg">
+  <meta name="twitter:image" content="https://designerrecruitment.co.uk/candidates/Images/generic-kbb-heros-12.jpg">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/Brand_assets/DR-Logo-Blue-2.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/Brand_assets/DR-Logo-Blue-2.png">
@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/Brand_assets/AWinship-8084-025-High-scaled.jpg" as="image" fetchpriority="high">
+  <link rel="preload" href="/candidates/Images/generic-kbb-heros-12.jpg" as="image" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
   <!-- Shared brand tokens -->
@@ -235,19 +235,18 @@
     }
     #hero .hero-bg {
       position: absolute; inset: 0; z-index: 0;
-      background-image: url('/Brand_assets/AWinship-8084-025-High-scaled.jpg');
+      background-image: url('/candidates/Images/generic-kbb-heros-12.jpg');
       background-size: cover; background-position: center;
       transform: scale(1.04);
     }
     #hero .hero-vignette {
       position: absolute; inset: 0; z-index: 1; pointer-events: none;
       background:
-        linear-gradient(to bottom, rgba(7,7,27,0.7) 0%, rgba(7,7,27,0.38) 28%, rgba(7,7,27,0.6) 60%, rgba(7,7,27,1) 100%);
+        linear-gradient(to bottom, rgba(7,7,27,0.78) 0%, rgba(7,7,27,0.62) 28%, rgba(7,7,27,0.72) 60%, rgba(7,7,27,1) 100%);
     }
     #hero .hero-vignette-2 {
       position: absolute; inset: 0; z-index: 1; pointer-events: none;
-      mix-blend-mode: multiply;
-      background: radial-gradient(120% 80% at 50% 30%, transparent 35%, rgba(7,7,27,0.65) 100%);
+      background: radial-gradient(120% 80% at 50% 35%, rgba(7,7,27,0.35) 0%, rgba(7,7,27,0.78) 100%);
     }
     #hero .side-rule {
       position: absolute; left: 56px; top: 50%; transform: translateY(-50%);
@@ -496,7 +495,11 @@
     }
     .cta-band-inner {
       position: relative;
-      max-width: 900px; margin: 0 auto;
+      max-width: var(--container-max); margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
     }
     .cta-band-inner h2 {
       font-family: var(--font-display); font-weight: 300;
@@ -513,6 +516,27 @@
       margin-top: 36px;
       display: flex; flex-wrap: wrap; gap: 16px;
     }
+    .cta-band-image {
+      position: relative;
+      aspect-ratio: 4 / 4.2;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow:
+        0 2px 6px rgba(7,7,27,0.06),
+        0 24px 60px rgba(7,7,27,0.12);
+    }
+    .cta-band-image img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .cta-band-image::after {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(180deg, rgba(7,7,27,0) 60%, rgba(7,7,27,0.18) 100%);
+    }
 
     /* ─────────────────────────────────────────────────────────────
        RESPONSIVE
@@ -520,6 +544,7 @@
     @media (max-width: 1024px) {
       #roles { padding: 100px 40px; }
       #cta-band { padding: 100px 40px; }
+      .cta-band-inner { grid-template-columns: 1fr; gap: 48px; }
       .roles-head { grid-template-columns: 1fr; gap: 28px; }
       .roles-tabs-grid { grid-template-columns: 260px 1fr; }
       .tab { padding: 16px 22px; gap: 14px; }
@@ -607,7 +632,7 @@
 
   <!-- ═══════════ HERO ═══════════ -->
   <section id="hero" aria-label="Who Designer Recruitment recruits for">
-    <div class="hero-bg" role="img" aria-label="Workshop and craft detail"></div>
+    <div class="hero-bg" role="img" aria-label="Design studio with three professionals reviewing interior renders at a desk"></div>
     <div class="hero-vignette" aria-hidden="true"></div>
     <div class="hero-vignette-2" aria-hidden="true"></div>
 
@@ -831,6 +856,9 @@
           </a>
         </div>
       </div>
+      <div class="cta-band-image fade-up d2">
+        <img src="/candidates/Images/generic-kbb-heros-3.jpg" alt="Designers reviewing floor plans together in a studio workspace" loading="lazy">
+      </div>
     </div>
   </section>
 
@@ -849,9 +877,8 @@
     <div>
       <div class="foot-head">Company</div>
       <a href="/about/" class="foot-link">About Us</a>
-      <a href="/about/#story" class="foot-link">Our Story</a>
-      <a href="/about/#principles" class="foot-link">Principles</a>
-      <a href="/about/#process" class="foot-link">Process</a>
+      <a href="/about/#services" class="foot-link">What We Do</a>
+      <a href="/about/#values" class="foot-link">Our Values</a>
       <a href="/contact/" class="foot-link">Contact Us</a>
     </div>
 

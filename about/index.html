@@ -679,28 +679,22 @@
        ───────────────────────────────────────────────────────────── */
     #why {
       position: relative; overflow: hidden;
-      background: var(--color-navy-deep);
+      background: #ffffff;
       padding: 140px 56px;
-      border-top: 1px solid rgba(255,255,255,0.10);
-    }
-    #why::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background:
-        radial-gradient(60% 50% at 80% 0%, rgba(217,188,128,0.10), transparent 60%),
-        radial-gradient(50% 50% at 10% 100%, rgba(7,7,27,0.18), transparent 65%);
+      border-top: 1px solid rgba(7,7,27,0.06);
     }
     .why-inner { position: relative; max-width: 1240px; margin: 0 auto; }
     .why-head { display: grid; gap: 40px; grid-template-columns: 1fr 1fr; align-items: end; margin-bottom: 80px; }
     .why-head h2 {
       margin-top: 22px;
       font-family: var(--font-display); font-weight: 300; font-size: var(--fs-display-md);
-      line-height: 1.06; color: var(--cream); letter-spacing: -0.02em;
+      line-height: 1.06; color: var(--midnight); letter-spacing: -0.02em;
     }
     .why-head h2 .accent { font-style: italic; color: var(--color-gold); }
     .why-head p {
       font-family: var(--font-body); font-weight: 300;
       font-size: 17px; line-height: 1.85;
-      color: rgba(242,237,228,0.72);
+      color: rgba(7,7,27,0.62);
       max-width: 480px;
     }
     .why-head p .accent { color: var(--color-gold); font-style: italic; font-family: var(--font-display); }
@@ -709,13 +703,12 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
     }
     .why-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(242,237,228,0.16);
+      background: var(--color-white);
+      border: 1px solid rgba(7,7,27,0.08);
       border-radius: 18px;
       padding: 36px 36px 40px; min-height: 180px;
       display: flex; flex-direction: column; gap: 18px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 1px 2px rgba(7,7,27,0.03);
       will-change: transform;
       transition:
         transform 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -725,24 +718,24 @@
     }
     .why-card:hover {
       transform: translateY(-6px);
-      background: rgba(255,255,255,0.10);
-      border-color: rgba(217,188,128,0.50);
+      background: var(--color-white);
+      border-color: rgba(217,188,128,0.55);
       box-shadow:
-        0 2px 6px rgba(7,7,27,0.18),
-        0 24px 50px rgba(7,7,27,0.30),
-        0 0 0 1px rgba(217,188,128,0.16);
+        0 2px 6px rgba(7,7,27,0.06),
+        0 24px 50px rgba(7,7,27,0.10),
+        0 0 0 1px rgba(217,188,128,0.20);
     }
     .why-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; }
     .why-num { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.22em; color: var(--color-gold); }
     .why-rule {
       display: block; height: 1px; width: 36px;
-      background: rgba(217,188,128,0.5);
+      background: rgba(217,188,128,0.6);
       transition: background 0.85s var(--ease-out-expo), width 0.95s var(--ease-out-expo);
     }
     .why-card:hover .why-rule { background: var(--color-gold); width: 56px; }
     .why-card p {
       font-size: 17px; font-weight: 300; line-height: 1.55;
-      color: var(--cream); letter-spacing: -0.005em;
+      color: var(--midnight); letter-spacing: -0.005em;
       font-family: var(--font-display);
     }
 
@@ -1273,11 +1266,11 @@
   </section>
 
   <!-- ═══════════ 8. WHY CHOOSE US ═══════════ -->
-  <section id="why" aria-label="Why choose us">
+  <section id="why" data-bg="light" aria-label="Why choose us">
     <div class="why-inner">
       <div class="why-head">
         <div>
-          <div class="section-tag on-dark fade-up">Why Choose Us</div>
+          <div class="section-tag fade-up">Why Choose Us</div>
           <h2 class="fade-up d1">Why work with<br><span class="accent">Designer Recruitment.</span></h2>
         </div>
         <p class="fade-up d2">We genuinely care about the service we provide. We like to call ourselves <span class="accent">a community, not just an agency,</span> working with our clients to ensure lasting, meaningful placements.</p>

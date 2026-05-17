@@ -230,15 +230,27 @@
       background: var(--color-midnight);
       padding: 180px 56px 120px;
     }
+    #hero .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('/candidates/Images/generic-kbb-heros-9.jpg');
+      background-size: cover;
+      background-position: center 55%;
+      transform: scale(1.04);
+    }
+    #hero .hero-vignette {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        radial-gradient(70% 55% at 50% 50%, rgba(7,7,27,0.55) 0%, rgba(7,7,27,0.78) 60%, rgba(7,7,27,0.92) 100%),
+        linear-gradient(to bottom, rgba(7,7,27,0.65) 0%, rgba(7,7,27,0.55) 45%, rgba(7,7,27,0.85) 100%);
+    }
     #hero::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
+      content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
       background:
         radial-gradient(60% 50% at 80% 0%, rgba(217,188,128,0.14), transparent 60%),
-        radial-gradient(50% 60% at 20% 100%, rgba(7,7,27,0.55), transparent 65%),
-        radial-gradient(70% 50% at 50% 50%, rgba(7,7,27,0.06), transparent 70%);
+        radial-gradient(50% 60% at 20% 100%, rgba(7,7,27,0.45), transparent 65%);
     }
     .hero-content {
-      position: relative; z-index: 1;
+      position: relative; z-index: 3;
       max-width: 900px; width: 100%;
       text-align: center;
       display: flex; flex-direction: column; align-items: center;
@@ -275,10 +287,10 @@
     body.in #hero .hero-sub { opacity: 1; transform: translateY(0); }
 
     /* ─────────────────────────────────────────────────────────────
-       SECTION 2 — OVERVIEW (cream)
+       SECTION 2 — OVERVIEW (white)
        ───────────────────────────────────────────────────────────── */
     #overview {
-      background: var(--color-cream);
+      background: #ffffff;
       padding: clamp(80px, 9vw, 120px) clamp(24px, 5vw, 56px);
       border-top: 1px solid rgba(7,7,27,0.06);
       position: relative;
@@ -286,21 +298,44 @@
     .overview-inner {
       max-width: var(--container-max); margin: 0 auto;
       display: grid; gap: 80px;
-      grid-template-columns: 5fr 7fr;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
     }
     .overview-left h2 {
       margin-top: 22px;
       font-family: var(--font-display); font-weight: 300;
       font-size: var(--fs-display-md); line-height: 1.06;
       color: var(--midnight); letter-spacing: -0.02em;
+      margin-bottom: 32px;
     }
     .overview-left h2 .accent { font-style: italic; color: var(--color-gold); }
-    .overview-right p {
+    .overview-left p {
       font-size: 17px; font-weight: 300; line-height: 1.85;
       color: rgba(7,7,27,0.7);
+      max-width: 56ch;
     }
-    .overview-right p + p { margin-top: 22px; }
+    .overview-left p + p { margin-top: 22px; }
+    .overview-image {
+      position: relative;
+      aspect-ratio: 4 / 4.2;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow:
+        0 2px 6px rgba(7,7,27,0.06),
+        0 24px 60px rgba(7,7,27,0.12);
+    }
+    .overview-image img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .overview-image::after {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(180deg, rgba(7,7,27,0) 60%, rgba(7,7,27,0.18) 100%);
+    }
     .overview-list {
       margin-top: 36px;
       list-style: none; padding: 0;
@@ -337,8 +372,8 @@
       max-width: var(--container-max); margin: 0 auto;
     }
     .packages-head {
-      display: grid; gap: 40px; grid-template-columns: 1fr 1fr;
-      align-items: end; margin-bottom: 64px;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 0; margin-bottom: 64px;
     }
     .packages-head h2 {
       margin-top: 22px;
@@ -446,17 +481,18 @@
     .package-card.is-featured .package-actions .btn-primary { box-shadow: var(--shadow-glow-gold); }
 
     .packages-footnote {
-      margin-top: 36px;
+      margin: 36px auto 0;
       font-size: 12.5px; font-weight: 300; line-height: 1.7;
       color: rgba(242,237,228,0.45);
       max-width: 720px;
+      text-align: center;
     }
 
     /* ─────────────────────────────────────────────────────────────
-       SECTION 4 — CTA (cream)
+       SECTION 4 — CTA (white)
        ───────────────────────────────────────────────────────────── */
     #closing {
-      background: var(--color-cream);
+      background: #ffffff;
       padding: clamp(80px, 9vw, 120px) clamp(24px, 5vw, 56px);
       border-top: 1px solid rgba(7,7,27,0.06);
     }
@@ -538,6 +574,8 @@
 
   <!-- ═══════════ HERO ═══════════ -->
   <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" role="img" aria-label="Designer at a desk with laptop and notebook in soft natural light"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
     <div class="hero-content">
       <div class="hero-eyebrow">CV &amp; Career Services</div>
       <h1 id="hero-title">
@@ -559,8 +597,6 @@
           Designed for<br>
           <span class="accent">exceptional talent.</span>
         </h2>
-      </div>
-      <div class="overview-right">
         <p class="fade-up d1">
           We offer a dedicated CV and career support service designed to help candidates present themselves at their absolute best.
         </p>
@@ -570,6 +606,9 @@
         <p class="fade-up d3">
           Our CV service is designed specifically for the design industry, ensuring candidates don't just have a CV, but a document that reflects their capability, creativity, and commercial value.
         </p>
+      </div>
+      <div class="overview-image fade-up d2">
+        <img src="/candidates/Images/generic-kbb-heros-4.jpg" alt="Two designers reviewing a 3D interior visualisation at a workstation" loading="lazy">
       </div>
     </div>
   </section>
@@ -581,8 +620,7 @@
         <div>
           <div class="section-tag on-dark fade-up">Packages</div>
           <h2 class="fade-up d1">
-            Two ways to<br>
-            <span class="accent">work with us.</span>
+            Two ways to <span class="accent">work with us.</span>
           </h2>
         </div>
       </div>
@@ -693,16 +731,14 @@
     <div>
       <div class="foot-head">Company</div>
       <a href="/about/" class="foot-link">About Us</a>
-      <a href="/about/#story" class="foot-link">Our Story</a>
-      <a href="/about/#principles" class="foot-link">Principles</a>
-      <a href="/about/#process" class="foot-link">Process</a>
+      <a href="/about/#services" class="foot-link">What We Do</a>
+      <a href="/about/#values" class="foot-link">Our Values</a>
       <a href="/contact/" class="foot-link">Contact Us</a>
     </div>
     <div>
       <div class="foot-head">For Candidates</div>
       <a href="/candidates/" class="foot-link">Find a Role</a>
       <a href="/candidates/apply/" class="foot-link">Register</a>
-      <a href="/cv-career-services/" class="foot-link">CV &amp; Career Services</a>
       <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
     </div>
     <div>

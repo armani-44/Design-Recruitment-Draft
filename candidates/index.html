@@ -228,15 +228,35 @@
       overflow: hidden;
       border-bottom: 1px solid rgba(242,237,228,0.06);
     }
+    #hero .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('/candidates/Images/generic-kbb-heros-6.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      transform: scale(1.04);
+    }
+    #hero .hero-vignette {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        linear-gradient(to right, rgba(7,7,27,0.94) 0%, rgba(7,7,27,0.78) 38%, rgba(7,7,27,0.45) 70%, rgba(7,7,27,0.55) 100%),
+        linear-gradient(to bottom, rgba(7,7,27,0.45) 0%, rgba(7,7,27,0.25) 35%, rgba(7,7,27,0.75) 100%);
+    }
     #hero::before {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute; inset: 0; z-index: 2;
       background:
         radial-gradient(ellipse at 12% 22%, rgba(217,188,128,0.10), transparent 55%),
         radial-gradient(ellipse at 88% 78%, rgba(7,7,27,0.10), transparent 60%);
       pointer-events: none;
     }
-    .hero-inner { max-width: var(--container-max); margin: 0 auto; position: relative; }
+    .hero-inner { max-width: var(--container-max); margin: 0 auto; position: relative; z-index: 3; }
+    @media (max-width: 768px) {
+      #hero .hero-bg { background-position: 60% 35%; }
+      #hero .hero-vignette {
+        background:
+          linear-gradient(to bottom, rgba(7,7,27,0.7) 0%, rgba(7,7,27,0.55) 30%, rgba(7,7,27,0.85) 100%);
+      }
+    }
     .hero-tag { margin-bottom: 28px; }
     .hero-title {
       font-family: var(--font-display);
@@ -712,10 +732,17 @@
       max-width: var(--container-max);
       margin: 0 auto;
       position: relative;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 56px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
+      gap: 40px;
+    }
+    .cta-inner > div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 720px;
     }
     .cta-inner .section-tag {
       color: var(--color-navy-deep);
@@ -740,7 +767,7 @@
     }
     .cta-actions {
       display: flex; flex-wrap: wrap; gap: 14px;
-      justify-self: end;
+      justify-content: center;
     }
 
     /* ─────────────────────────────────────────────────────────────
@@ -769,9 +796,9 @@
     }
     .cv-grid {
       display: grid;
-      grid-template-columns: 5fr 7fr;
+      grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: start;
+      align-items: center;
     }
     .cv-inner .section-tag { margin-bottom: 22px; }
     .cv-title {
@@ -781,6 +808,7 @@
       line-height: 1.06;
       letter-spacing: -0.02em;
       color: var(--midnight);
+      margin-bottom: 32px;
     }
     .cv-title .accent { font-style: italic; color: var(--color-gold); }
     .cv-body {
@@ -790,6 +818,27 @@
     }
     .cv-body + .cv-body { margin-top: 22px; }
     .cv-actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 14px; }
+    .cv-image {
+      position: relative;
+      aspect-ratio: 4 / 4.2;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow:
+        0 2px 6px rgba(7,7,27,0.06),
+        0 24px 60px rgba(7,7,27,0.12);
+    }
+    .cv-image img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .cv-image::after {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(180deg, rgba(7,7,27,0) 60%, rgba(7,7,27,0.18) 100%);
+    }
 
     /* ─────────────────────────────────────────────────────────────
        RESPONSIVE
@@ -799,8 +848,6 @@
       .jobs-list-pane { border-right: none; border-bottom: 1px solid rgba(7,7,27,0.10); max-height: none; }
       .jobs-detail-pane { max-height: none; }
       .detail-body { padding: 36px 32px 48px; }
-      .cta-inner { grid-template-columns: 1fr; gap: 32px; }
-      .cta-actions { justify-self: start; }
       .cv-grid { grid-template-columns: 1fr; gap: 36px; }
     }
 
@@ -874,6 +921,8 @@
 
   <!-- ═══════════ HERO ═══════════ -->
   <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" role="img" aria-label="Design studio meeting with mood boards, swatches, and a handshake across the table"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="section-tag on-dark hero-tag fade-up">For Candidates</div>
       <h1 id="hero-title" class="hero-title fade-up d1">
@@ -1643,8 +1692,6 @@
           <h2 id="cv-services-title" class="cv-title fade-up d1">
             Presented at your<br><span class="accent">absolute best.</span>
           </h2>
-        </div>
-        <div class="cv-right">
           <p class="cv-body fade-up d1">
             We offer a dedicated CV and career support service designed to help candidates present themselves at their absolute best within the design industry.
           </p>
@@ -1660,6 +1707,9 @@
               <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
+        </div>
+        <div class="cv-image fade-up d2">
+          <img src="/candidates/Images/generic-kbb-heros-8.jpg" alt="Recruiter consulting with a candidate around a meeting table" loading="lazy">
         </div>
       </div>
     </div>
@@ -1704,9 +1754,8 @@
     <div>
       <div class="foot-head">Company</div>
       <a href="/about/" class="foot-link">About Us</a>
-      <a href="/about/#story" class="foot-link">Our Story</a>
-      <a href="/about/#principles" class="foot-link">Principles</a>
-      <a href="/about/#process" class="foot-link">Process</a>
+      <a href="/about/#services" class="foot-link">What We Do</a>
+      <a href="/about/#values" class="foot-link">Our Values</a>
       <a href="/contact/" class="foot-link">Contact Us</a>
     </div>
 
