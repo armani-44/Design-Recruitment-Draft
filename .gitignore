@@ -9,3 +9,5 @@ temporary screenshots/
 *.log
 .netlify/
 about-page/dist/
+memory/
+_img-backup/

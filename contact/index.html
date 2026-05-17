@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact, Designer Recruitment® | Specialist KBB Recruitment</title>
+  <meta name="description" content="Speak with Designer Recruitment, the UK's specialist studio for KBB & Builders Merchant talent. Tell us about a role, a move, or a brief, we'll be in touch shortly.">
+  <meta name="theme-color" content="#07071B">
+  <link rel="canonical" href="https://designerrecruitment.co.uk/contact/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://designerrecruitment.co.uk/contact/">
+  <meta property="og:title" content="Contact, Designer Recruitment® | Specialist KBB Recruitment">
+  <meta property="og:description" content="Speak with Designer Recruitment, the UK's specialist studio for KBB & Builders Merchant talent. Tell us about a role, a move, or a brief, we'll be in touch shortly.">
+  <meta property="og:image" content="https://designerrecruitment.co.uk/Brand_assets/AdobeStock_1981538230.jpeg">
+  <meta property="og:image:alt" content="The Designer Recruitment studio.">
+  <meta property="og:site_name" content="Designer Recruitment®">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact, Designer Recruitment® | Specialist KBB Recruitment">
+  <meta name="twitter:description" content="Speak with Designer Recruitment, the UK's specialist studio for KBB & Builders Merchant talent. Tell us about a role, a move, or a brief, we'll be in touch shortly.">
+  <meta name="twitter:image" content="https://designerrecruitment.co.uk/Brand_assets/AdobeStock_1981538230.jpeg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/Brand_assets/DR-Logo-Blue-2.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Brand_assets/DR-Logo-Blue-2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Shared brand tokens -->
+  <link rel="stylesheet" href="../tokens.css">
+
+  <style>
+    /* Legacy aliases — match homepage so .midnight, .gold etc resolve */
+    :root {
+      --midnight:  var(--color-midnight);
+      --dark:      var(--bg-surface);
+      --surface:   var(--bg-surface);
+      --surface2:  var(--bg-elevated);
+      --gold:      var(--color-gold);
+      --gold-dim:  var(--accent-soft);
+      --cream:     var(--color-cream);
+      --warm:      var(--color-cream);
+      --muted:     var(--fg-muted);
+      --navy:      var(--color-navy-deep);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: auto; }
+    body {
+      font-family: var(--font-body);
+      font-weight: var(--fw-light);
+      background: var(--bg-base);
+      color: var(--fg-base);
+      overflow-x: hidden;
+    }
+
+    .serif   { font-family: var(--font-display); }
+    .serif-i { font-family: var(--font-display); font-style: italic; }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    /* ── Skip link ── */
+    .skip-link {
+      position: absolute; top: 8px; left: 8px; z-index: 10000;
+      padding: 12px 22px; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--color-midnight); background: var(--color-gold);
+      border-radius: var(--radius-full); text-decoration: none;
+      transform: translateY(-150%);
+      transition: transform 0.2s var(--ease-out-expo);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    /* ── Grain ── */
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+      opacity: 0.05; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+    }
+
+    /* ── NAV — Floating pill (canonical, matches about/homepage) ── */
+    #nav-wrap {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 200; width: min(460px, calc(100vw - 48px));
+    }
+    #nav-pill {
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 7px 7px 7px 6px;
+      backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius-full);
+      position: relative; z-index: 2;
+      transition: background 0.45s ease, border-color 0.45s ease;
+    }
+    #nav-wrap.open #nav-pill {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.10);
+    }
+    #nav-wrap.on-light #nav-pill {
+      background: rgba(7,7,27,0.55);
+      border-color: rgba(255,255,255,0.14);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.10),
+        inset 0 -1px 0 rgba(0,0,0,0.18),
+        0 8px 32px rgba(7,7,27,0.22);
+    }
+    #nav-wrap.on-light.open #nav-pill {
+      background: rgba(7,7,27,0.96);
+      border-color: rgba(217,188,128,0.55);
+    }
+    #burger {
+      display: flex; align-items: center; gap: 10px;
+      background: none; border: none; cursor: pointer;
+      color: var(--cream); padding: 8px 12px 8px 10px;
+      font-size: 13px; font-family: var(--font-body);
+      font-weight: 300; letter-spacing: 0.05em;
+      justify-self: start;
+    }
+    .burger-icon { width: 18px; height: 12px; position: relative; flex-shrink: 0; }
+    .burger-line {
+      position: absolute; left: 0; right: 0; height: 1px;
+      background: var(--cream); transform-origin: center;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease, top 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .b1 { top: 2px; }
+    .b2 { top: 9px; }
+    #burger.open .b1 { top: 5.5px; transform: rotate(45deg); }
+    #burger.open .b2 { top: 5.5px; transform: rotate(-45deg); }
+    .burger-label { color: var(--cream); }
+    #nav-logo {
+      display: block; text-decoration: none;
+      transition: opacity 0.22s ease; position: relative;
+      justify-self: center;
+    }
+    #nav-logo:hover { opacity: 0.75; }
+    #nav-logo img { height: 30px; display: block; transition: opacity 0.4s ease; }
+    .nav-contact-btn {
+      padding: 10px 22px;
+      font-size: 11px; font-family: var(--font-body);
+      font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--midnight); background: var(--cream);
+      border-radius: var(--radius-full); text-decoration: none; white-space: nowrap;
+      transition: opacity 0.22s ease, transform 0.22s cubic-bezier(.16,1,.3,1);
+      justify-self: end;
+    }
+    .nav-contact-btn:hover { opacity: 0.84; transform: scale(0.96); }
+    #nav-dropdown {
+      position: absolute; bottom: calc(100% + 8px); top: auto; left: 0; right: 0;
+      background: rgba(14, 13, 35, 0.96);
+      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(242,237,228,0.1);
+      border-radius: var(--radius-lg);
+      padding: 22px 28px 18px;
+      clip-path: inset(100% 0 0 0 round 20px);
+      opacity: 0; pointer-events: none;
+      transition: clip-path 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease;
+    }
+    #nav-wrap.open #nav-dropdown {
+      clip-path: inset(0 0 0 0 round 20px);
+      opacity: 1; pointer-events: auto;
+    }
+    .nd-link {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.6vw, 28px);
+      font-weight: 300; line-height: 1.2; letter-spacing: -0.01em;
+      color: var(--cream); text-decoration: none;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(242,237,228,0.08);
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.45s cubic-bezier(0.16,1,0.3,1),
+                  color 0.2s ease;
+    }
+    .nd-link:first-child { border-top: 1px solid rgba(242,237,228,0.08); }
+    #nav-wrap.open .nd-link { opacity: 1; transform: translateY(0); }
+    #nav-wrap.open .nd-link:nth-child(1) { transition-delay: 0.06s; }
+    #nav-wrap.open .nd-link:nth-child(2) { transition-delay: 0.10s; }
+    #nav-wrap.open .nd-link:nth-child(3) { transition-delay: 0.14s; }
+    #nav-wrap.open .nd-link:nth-child(4) { transition-delay: 0.18s; }
+    #nav-wrap.open .nd-link:nth-child(5) { transition-delay: 0.22s; }
+    #nav-wrap.open .nd-link:nth-child(6) { transition-delay: 0.26s; }
+    #nav-wrap.open .nd-link:nth-child(7) { transition-delay: 0.30s; }
+    #nav-wrap.open .nd-link:nth-child(8) { transition-delay: 0.34s; }
+    .nd-link:hover { color: var(--gold); }
+    @media (max-width: 640px) {
+      #nav-wrap { bottom: 14px; width: calc(100vw - 32px); }
+      .nd-link { font-size: clamp(18px, 5vw, 24px); padding: 10px 0; }
+    }
+
+    /* Section tag pill style is defined globally in tokens.css. */
+
+    /* ── Buttons ── */
+    .btn-primary, .btn-ghost, .btn-dark-ghost {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 14px 26px; border-radius: 100px;
+      transition: background 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo),
+                  border-color 0.4s var(--ease-out-expo), gap 0.4s var(--ease-out-expo),
+                  color 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+      cursor: pointer; font-family: var(--font-body);
+    }
+    .btn-primary { background: var(--color-gold); color: var(--color-midnight); border: none; }
+    .btn-primary:hover { background: var(--color-gold-soft); transform: translateY(-2px); box-shadow: var(--shadow-glow-gold); }
+    .btn-ghost { background: transparent; color: var(--cream); border: 1px solid rgba(242,237,228,0.45); }
+    .btn-ghost:hover { border-color: rgba(242,237,228,0.7); gap: 18px; background: rgba(242,237,228,0.04); }
+    .btn-dark-ghost { background: transparent; color: var(--color-midnight); border: 1px solid rgba(7,7,27,0.35); }
+    .btn-dark-ghost:hover { border-color: rgba(7,7,27,0.6); gap: 18px; background: rgba(7,7,27,0.04); }
+
+    /* ── Fade-up animation ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+    .fade-up.d1 { transition-delay: 0.10s; }
+    .fade-up.d2 { transition-delay: 0.20s; }
+    .fade-up.d3 { transition-delay: 0.30s; }
+    .fade-up.d4 { transition-delay: 0.40s; }
+    .fade-up.d5 { transition-delay: 0.50s; }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION — CONTACT CARD
+       (cream section, dark midnight card with gold plus-marks at corners)
+       Fills 100vh; card vertically centered.
+       ───────────────────────────────────────────────────────────── */
+    #contact-card-section {
+      background: var(--cream);
+      padding: 48px 56px 100px;
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: flex-start;
+    }
+    .cc-inner { max-width: 1240px; margin: 0 auto; width: 100%; }
+
+    .contact-card {
+      position: relative;
+      background: var(--color-white);
+      border: 1px solid rgba(7,7,27,0.08);
+      border-radius: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      box-shadow:
+        0 2px 4px rgba(7,7,27,0.04),
+        0 18px 48px rgba(7,7,27,0.10);
+      overflow: visible;
+    }
+
+    .cc-left {
+      padding: 52px 56px;
+      display: flex; flex-direction: column; justify-content: space-between; gap: 40px;
+    }
+    .cc-left .section-tag { margin-bottom: 22px; }
+    .cc-left h2 {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: var(--fs-display-md); line-height: 1.04;
+      color: var(--color-midnight); letter-spacing: -0.02em;
+    }
+    .cc-left h2 .accent { font-style: italic; color: var(--color-gold); }
+    .cc-left .lead {
+      margin-top: 22px; max-width: 520px;
+      font-size: 17px; font-weight: 300; line-height: 1.75;
+      color: rgba(7,7,27,0.70);
+    }
+    .cc-back-home {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 22px;
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-midnight);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(7,7,27,0.22);
+      padding: 0 0 4px;
+      transition: color 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo), gap 0.4s var(--ease-out-expo);
+    }
+    .cc-back-home svg { width: 14px; height: 10px; }
+    .cc-back-home:hover { color: var(--color-navy-deep); border-color: var(--color-navy-deep); gap: 14px; }
+
+    .cc-info-grid {
+      display: grid; grid-template-columns: 1fr;
+      gap: 6px;
+      padding-top: 36px; border-top: 1px solid rgba(7,7,27,0.10);
+    }
+    .cc-info {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 12px 0;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+    .cc-info:hover { transform: translateX(2px); }
+    .cc-info-icon {
+      flex-shrink: 0; width: 42px; height: 42px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--color-cream);
+      border: 1px solid rgba(7,7,27,0.10);
+      color: var(--color-navy-deep);
+      border-radius: var(--radius-sm);
+      transition: background 0.6s var(--ease-out-expo), border-color 0.6s var(--ease-out-expo);
+    }
+    .cc-info:hover .cc-info-icon { background: #EAE2D2; border-color: rgba(7,7,27,0.18); }
+    .cc-info-icon svg { width: 18px; height: 18px; }
+    .cc-info-text { min-width: 0; }
+    .cc-info-label {
+      font-size: 9.5px; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--color-navy-deep);
+      margin-bottom: 6px;
+    }
+    .cc-info-value {
+      font-family: var(--font-display);
+      font-size: 15.5px; font-weight: 400; line-height: 1.5;
+      color: var(--color-midnight); letter-spacing: -0.005em;
+      white-space: pre-line;
+      word-break: break-word;
+    }
+    .cc-info-value a { text-decoration: none; transition: color 0.4s var(--ease-out-expo); }
+    .cc-info-value a:hover { color: var(--color-navy-deep); }
+
+    /* Right column: form */
+    .cc-right {
+      padding: 52px 48px;
+      background: var(--color-white);
+      border-left: 1px solid rgba(7,7,27,0.08);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .cc-form-head {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--color-navy-deep);
+      margin-bottom: 14px;
+    }
+    .cc-form-title {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: 26px; line-height: 1.15; letter-spacing: -0.01em;
+      color: var(--color-midnight);
+      margin-bottom: 28px;
+    }
+    .cc-form-title .accent { font-style: italic; color: var(--color-gold); }
+    .cc-form { display: flex; flex-direction: column; gap: 18px; }
+    .cc-field { display: flex; flex-direction: column; gap: 8px; }
+    .cc-field label {
+      font-size: 9.5px; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: rgba(7,7,27,0.55);
+    }
+    .cc-field input,
+    .cc-field textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(7,7,27,0.22);
+      padding: 10px 0 12px;
+      font-family: var(--font-body);
+      font-size: 15px; font-weight: 300; line-height: 1.5;
+      color: var(--color-midnight);
+      transition: border-color 0.5s var(--ease-out-expo);
+      resize: none;
+    }
+    .cc-field textarea { min-height: 140px; }
+    .cc-field input::placeholder,
+    .cc-field textarea::placeholder { color: rgba(7,7,27,0.35); }
+    .cc-field input:focus,
+    .cc-field textarea:focus { outline: none; border-bottom-color: var(--color-navy-deep); }
+    .cc-consent {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 0; cursor: pointer;
+      font-size: 13px; font-weight: 300; line-height: 1.55;
+      color: rgba(7,7,27,0.70);
+    }
+    .cc-consent input[type="checkbox"] {
+      flex: 0 0 16px; width: 16px; height: 16px;
+      margin-top: 3px; accent-color: var(--color-navy-deep); cursor: pointer;
+    }
+    .cc-consent a { color: var(--color-navy-deep); text-decoration: underline; }
+    .cc-field input:-webkit-autofill,
+    .cc-field input:-webkit-autofill:focus {
+      -webkit-text-fill-color: var(--color-midnight);
+      -webkit-box-shadow: 0 0 0 1000px var(--color-white) inset;
+      transition: background-color 9999s ease-in-out 0s;
+    }
+    .cc-recaptcha { margin-top: 6px; min-height: 78px; }
+    .cc-recaptcha > div { max-width: 100%; }
+    .cc-form .btn-primary { margin-top: 14px; align-self: flex-start; justify-content: center; }
+    .cc-form-note {
+      margin-top: 18px;
+      font-size: 11px; font-weight: 300; line-height: 1.6;
+      color: rgba(7,7,27,0.50);
+    }
+
+    /* Footer styles live in tokens.css (sitewide). */
+
+    /* ─────────────────────────────────────────────────────────────
+       RESPONSIVE
+       ───────────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      #contact-card-section { padding: 80px 40px 120px; min-height: auto; }
+      .contact-card { grid-template-columns: 1fr; }
+      .cc-left { padding: 56px 44px 48px; }
+      .cc-right {
+        padding: 48px 44px 56px;
+        border-left: none;
+        border-top: 1px solid rgba(242,237,228,0.08);
+      }
+      .cc-info-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      #contact-card-section { padding: 64px 20px 110px; }
+      .cc-left { padding: 44px 28px 36px; }
+      .cc-right { padding: 40px 28px 48px; }
+      .cc-info-grid { grid-template-columns: 1fr; gap: 4px; padding-top: 28px; }
+      .cc-form-title { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<div id="nav-wrap" role="navigation" aria-label="Main">
+
+  <div id="nav-pill">
+    <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-dropdown">
+      <span class="burger-icon" aria-hidden="true">
+        <span class="burger-line b1"></span>
+        <span class="burger-line b2"></span>
+      </span>
+      <span class="burger-label">Menu</span>
+    </button>
+    <a href="/" id="nav-logo" aria-label="Designer Recruitment home">
+      <img id="logo-white" src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+    </a>
+    <a href="/contact/" class="nav-contact-btn">Contact Us</a>
+  </div>
+
+  <div id="nav-dropdown" aria-hidden="true">
+    <nav aria-label="Site links">
+      <a href="/"             class="nd-link">Home</a>
+      <a href="/about/"       class="nd-link">About Us</a>
+      <a href="/candidates/"  class="nd-link">For Candidates</a>
+      <a href="/clients/"     class="nd-link">For Clients</a>
+      <a href="/who-we-recruit-for/" class="nd-link">Who we recruit for</a>
+      <a href="/about/#testimonials-about" class="nd-link">Testimonials</a>
+      <a href="/news-and-insights/" class="nd-link">News &amp; Insights</a>
+      <a href="/contact/"     class="nd-link">Contact Us</a>
+    </nav>
+  </div>
+
+</div><!-- /nav-wrap -->
+
+<main id="main">
+
+  <!-- ═══════════ CONTACT CARD ═══════════ -->
+  <section id="contact-card-section" data-bg="light" aria-label="Get in touch">
+    <div class="cc-inner">
+
+      <div class="contact-card fade-up">
+
+        <!-- LEFT: heading + contact info -->
+        <div class="cc-left">
+          <div>
+            <div class="section-tag is-blue">Get in touch</div>
+            <h2>
+              Speak with our<br>
+              <span class="accent">team directly.</span>
+            </h2>
+            <p class="lead">
+              Questions about a role, a hire, or how we work? Get in touch and we'll be in contact shortly.
+            </p>
+            <a href="/" class="cc-back-home">
+              <svg viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M13 5H1M5 1 1 5l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back to home
+            </a>
+          </div>
+
+          <div class="cc-info-grid">
+            <div class="cc-info">
+              <span class="cc-info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span>
+              <div class="cc-info-text">
+                <div class="cc-info-label">Studio</div>
+                <p class="cc-info-value">Unit 2, Albert Road, Rushden, NN10 0BU</p>
+              </div>
+            </div>
+
+            <div class="cc-info">
+              <span class="cc-info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </span>
+              <div class="cc-info-text">
+                <div class="cc-info-label">Mobile</div>
+                <p class="cc-info-value"><a href="tel:+447596880046">07596 880046</a></p>
+              </div>
+            </div>
+
+            <div class="cc-info">
+              <span class="cc-info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m3 7 9 6 9-6"/>
+                </svg>
+              </span>
+              <div class="cc-info-text">
+                <div class="cc-info-label">Email</div>
+                <p class="cc-info-value"><a href="mailto:ben@designerrecruitment.co.uk">ben@designerrecruitment.co.uk</a>, <a href="mailto:cara@designerrecruitment.co.uk">cara@designerrecruitment.co.uk</a></p>
+              </div>
+            </div>
+
+            <div class="cc-info">
+              <span class="cc-info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21V7l9-4 9 4v14"/>
+                  <path d="M9 21V12h6v9"/>
+                  <path d="M3 21h18"/>
+                </svg>
+              </span>
+              <div class="cc-info-text">
+                <div class="cc-info-label">Company No.</div>
+                <p class="cc-info-value">14807282</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: form -->
+        <div class="cc-right">
+          <div class="cc-form-head">Send a message</div>
+          <div class="cc-form-title">A note <span class="accent">is all it takes.</span></div>
+
+          <form
+            class="cc-form"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-recaptcha="true"
+            netlify-honeypot="bot-field"
+            action="/contact/?sent=1"
+          >
+            <input type="hidden" name="form-name" value="contact">
+            <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+
+            <div class="cc-field">
+              <label for="cc-name">Name</label>
+              <input id="cc-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+            </div>
+            <div class="cc-field">
+              <label for="cc-email">Email</label>
+              <input id="cc-email" name="email" type="email" autocomplete="email" placeholder="you@studio.com" required>
+            </div>
+            <div class="cc-field">
+              <label for="cc-message">Message</label>
+              <textarea id="cc-message" name="message" rows="6" placeholder="A few lines about the role, the move, or the brief." required></textarea>
+            </div>
+
+            <label class="cc-consent">
+              <input type="checkbox" name="gdpr" required>
+              <span>I agree to be contacted by Designer Recruitment about this enquiry and have read the <a href="/privacy.html" target="_blank" rel="noopener">privacy policy</a>.</span>
+            </label>
+
+            <div class="cc-recaptcha" data-netlify-recaptcha="true" data-theme="light"></div>
+
+            <button type="submit" class="btn-primary">
+              Send message
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
+            <p class="cc-form-note">We'll be in touch shortly.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="foot-brand">
+      <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+      <p>The KBB industry's trusted recruitment partner, connecting exceptional talent with the world's leading design and interiors brands.</p>
+      <a class="foot-social" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+    <div>
+      <div class="foot-head">Company</div>
+      <a href="/about/" class="foot-link">About Us</a>
+      <a href="/about/#services" class="foot-link">What We Do</a>
+      <a href="/about/#values" class="foot-link">Our Values</a>
+      <a href="/contact/" class="foot-link">Contact Us</a>
+    </div>
+
+    <div>
+      <div class="foot-head">For Candidates</div>
+      <a href="/candidates/" class="foot-link">Find a Role</a>
+      <a href="/candidates/apply/" class="foot-link">Register</a>
+      <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
+    </div>
+
+    <div>
+      <div class="foot-head">For Clients</div>
+      <a href="/who-we-recruit-for/" class="foot-link">Who we recruit for</a>
+      <a href="/clients/" class="foot-link">Hire Talent</a>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>© <span id="year">2026</span> Designer Recruitment Ltd. All rights reserved.<br>
+      Registered in England &amp; Wales.
+      <a href="https://flowfortyfour.com" target="_blank" rel="noopener" class="ff-credit" aria-label="Built by flowfortyfour.com (opens in new tab)">Built by <span class="ff-credit-name">flowfortyfour.com</span></a>
+    </div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  requestAnimationFrame(() => document.body.classList.add('in'));
+
+  // Floating pill nav (matches about/homepage)
+  (function() {
+    const navWrap     = document.getElementById('nav-wrap');
+    const burger      = document.getElementById('burger');
+    const navDropdown = document.getElementById('nav-dropdown');
+    let menuOpen = false;
+
+    function openMenu()  { menuOpen = true;  navWrap.classList.add('open');    burger.classList.add('open');    burger.setAttribute('aria-expanded','true');  navDropdown.setAttribute('aria-hidden','false'); }
+    function closeMenu() { menuOpen = false; navWrap.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded','false'); navDropdown.setAttribute('aria-hidden','true');  }
+
+    burger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+    navDropdown.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click',   e => { if (menuOpen && !navWrap.contains(e.target)) closeMenu(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) closeMenu(); });
+
+    function checkPillBg() {
+      const pillY = window.innerHeight - 40;
+      const anyLight = [...document.querySelectorAll('[data-bg="light"]')].some(el => {
+        const r = el.getBoundingClientRect();
+        return r.top < pillY && r.bottom > pillY;
+      });
+      navWrap.classList.toggle('on-light', anyLight);
+    }
+    window.addEventListener('scroll', checkPillBg, { passive: true });
+    checkPillBg();
+  })();
+
+  // Fade-up Intersection Observer
+  (function() {
+    const els = document.querySelectorAll('.fade-up');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(e => e.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(e => io.observe(e));
+  })();
+
+  // Optional: thank-you toast after Netlify form post (?sent=1)
+  (function() {
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      const form = document.querySelector('.cc-form');
+      if (form) {
+        form.innerHTML = '<div style="padding:24px 0;"><div class="cc-form-head" style="margin-bottom:14px;">Message sent</div><div class="cc-form-title">Thank you. <span class="accent">We\'ll be in touch.</span></div><p class="cc-form-note" style="margin-top:16px;">Your message is on its way to Ben. We\'ll come back to you as soon as we can.</p></div>';
+      }
+    }
+  })();
+</script>
+
+</body>
+</html>

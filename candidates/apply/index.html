@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register, Designer Recruitment® | Submit your registration</title>
+  <meta name="description" content="Submit your registration to Designer Recruitment, the UK's specialist studio for KBB and Builders Merchant talent. We'll be in touch as soon as we can.">
+  <meta name="theme-color" content="#07071B">
+  <link rel="canonical" href="https://designerrecruitment.co.uk/candidates/apply/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://designerrecruitment.co.uk/candidates/apply/">
+  <meta property="og:title" content="Register, Designer Recruitment® | Submit your registration">
+  <meta property="og:description" content="Submit your registration to Designer Recruitment, the UK's specialist studio for KBB and Builders Merchant talent. We'll be in touch as soon as we can.">
+  <meta property="og:image" content="https://designerrecruitment.co.uk/Brand_assets/AWinship-8084-025-High-scaled.jpg">
+  <meta property="og:image:alt" content="A premium kitchen, the world Designer Recruitment® places candidates into.">
+  <meta property="og:site_name" content="Designer Recruitment®">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Register, Designer Recruitment® | Submit your registration">
+  <meta name="twitter:description" content="Submit your registration to Designer Recruitment, the UK's specialist studio for KBB and Builders Merchant talent. We'll be in touch as soon as we can.">
+  <meta name="twitter:image" content="https://designerrecruitment.co.uk/Brand_assets/AWinship-8084-025-High-scaled.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/Brand_assets/DR-Logo-Blue-2.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Brand_assets/DR-Logo-Blue-2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../tokens.css">
+
+  <style>
+    :root {
+      --midnight: var(--color-midnight);
+      --gold:     var(--color-gold);
+      --cream:    var(--color-cream);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-weight: var(--fw-light);
+      background: var(--color-cream);
+      color: var(--color-midnight);
+      overflow-x: hidden;
+    }
+    .serif   { font-family: var(--font-display); font-weight: 300; }
+    .serif-i { font-family: var(--font-display); font-weight: 300; font-style: italic; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    button { font: inherit; }
+
+    .skip-link {
+      position: absolute; top: 8px; left: 8px; z-index: 10000;
+      padding: 12px 22px; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--color-midnight); background: var(--color-gold);
+      border-radius: var(--radius-full); text-decoration: none;
+      transform: translateY(-150%);
+      transition: transform 0.2s var(--ease-out-expo);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+      opacity: 0.05; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+    }
+
+    /* ── NAV pill (canonical, matches sitewide) ── */
+    #nav-wrap {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      z-index: 200; width: min(460px, calc(100vw - 48px));
+    }
+    #nav-pill {
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 7px 7px 7px 6px;
+      backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius-full);
+      position: relative; z-index: 2;
+      transition: background 0.45s ease, border-color 0.45s ease;
+    }
+    #nav-wrap.open #nav-pill {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.10);
+    }
+    #nav-wrap.on-light #nav-pill {
+      background: rgba(7,7,27,0.55);
+      border-color: rgba(255,255,255,0.14);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.10),
+        inset 0 -1px 0 rgba(0,0,0,0.18),
+        0 8px 32px rgba(7,7,27,0.22);
+    }
+    #nav-wrap.on-light.open #nav-pill {
+      background: rgba(7,7,27,0.96);
+      border-color: rgba(217,188,128,0.55);
+    }
+    #burger {
+      display: flex; align-items: center; gap: 10px;
+      background: none; border: none; cursor: pointer;
+      color: var(--cream); padding: 8px 12px 8px 10px;
+      font-size: 13px; font-family: var(--font-body);
+      font-weight: 300; letter-spacing: 0.05em;
+      justify-self: start;
+    }
+    .burger-icon { width: 18px; height: 12px; position: relative; flex-shrink: 0; }
+    .burger-line {
+      position: absolute; left: 0; right: 0; height: 1px;
+      background: var(--cream); transform-origin: center;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease, top 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .b1 { top: 2px; }
+    .b2 { top: 9px; }
+    #burger.open .b1 { top: 5.5px; transform: rotate(45deg); }
+    #burger.open .b2 { top: 5.5px; transform: rotate(-45deg); }
+    .burger-label { color: var(--cream); }
+    #nav-logo {
+      display: block; text-decoration: none;
+      transition: opacity 0.22s ease; position: relative;
+      justify-self: center;
+    }
+    #nav-logo:hover { opacity: 0.75; }
+    #nav-logo img { height: 30px; display: block; transition: opacity 0.4s ease; }
+    .nav-contact-btn {
+      padding: 10px 22px;
+      font-size: 11px; font-family: var(--font-body);
+      font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--midnight); background: var(--cream);
+      border-radius: var(--radius-full); text-decoration: none; white-space: nowrap;
+      transition: opacity 0.22s ease, transform 0.22s cubic-bezier(.16,1,.3,1);
+      justify-self: end;
+    }
+    .nav-contact-btn:hover { opacity: 0.84; transform: scale(0.96); }
+    #nav-dropdown {
+      position: absolute; bottom: calc(100% + 8px); top: auto; left: 0; right: 0;
+      background: rgba(14, 13, 35, 0.96);
+      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(242,237,228,0.1);
+      border-radius: var(--radius-lg);
+      padding: 22px 28px 18px;
+      clip-path: inset(100% 0 0 0 round 20px);
+      opacity: 0; pointer-events: none;
+      transition: clip-path 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease;
+    }
+    #nav-wrap.open #nav-dropdown {
+      clip-path: inset(0 0 0 0 round 20px);
+      opacity: 1; pointer-events: auto;
+    }
+    .nd-link {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.6vw, 28px);
+      font-weight: 300; line-height: 1.2; letter-spacing: -0.01em;
+      color: var(--cream); text-decoration: none;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(242,237,228,0.08);
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.45s cubic-bezier(0.16,1,0.3,1),
+                  color 0.2s ease;
+    }
+    .nd-link:first-child { border-top: 1px solid rgba(242,237,228,0.08); }
+    #nav-wrap.open .nd-link { opacity: 1; transform: translateY(0); }
+    #nav-wrap.open .nd-link:nth-child(1) { transition-delay: 0.06s; }
+    #nav-wrap.open .nd-link:nth-child(2) { transition-delay: 0.10s; }
+    #nav-wrap.open .nd-link:nth-child(3) { transition-delay: 0.14s; }
+    #nav-wrap.open .nd-link:nth-child(4) { transition-delay: 0.18s; }
+    #nav-wrap.open .nd-link:nth-child(5) { transition-delay: 0.22s; }
+    #nav-wrap.open .nd-link:nth-child(6) { transition-delay: 0.26s; }
+    #nav-wrap.open .nd-link:nth-child(7) { transition-delay: 0.30s; }
+    #nav-wrap.open .nd-link:nth-child(8) { transition-delay: 0.34s; }
+    .nd-link:hover { color: var(--gold); }
+    .nd-link.is-active { color: var(--gold); }
+    @media (max-width: 640px) {
+      #nav-wrap { bottom: 14px; width: calc(100vw - 32px); }
+      .nd-link { font-size: clamp(18px, 5vw, 24px); padding: 10px 0; }
+    }
+
+    /* Section tag pill style is defined globally in tokens.css. */
+
+    .btn-primary, .btn-dark-ghost {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 14px 26px; border-radius: 100px;
+      transition: background 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo),
+                  border-color 0.4s var(--ease-out-expo), gap 0.4s var(--ease-out-expo),
+                  color 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo),
+                  opacity 0.3s ease;
+      cursor: pointer; font-family: var(--font-body);
+      border: none;
+    }
+    .btn-primary { background: var(--color-midnight); color: var(--cream); }
+    .btn-primary:hover { background: var(--color-navy-deep); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(7,7,27,0.18); gap: 18px; }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; gap: 12px; }
+    .btn-dark-ghost { background: transparent; color: var(--color-midnight); border: 1px solid rgba(7,7,27,0.35); }
+    .btn-dark-ghost:hover { border-color: rgba(7,7,27,0.6); gap: 18px; background: rgba(7,7,27,0.04); }
+
+    /* ── Fade-up ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo); }
+    .fade-up.in { opacity: 1; transform: translateY(0); }
+    .fade-up.d1 { transition-delay: 0.10s; }
+    .fade-up.d2 { transition-delay: 0.20s; }
+    .fade-up.d3 { transition-delay: 0.30s; }
+
+    /* ─────────────────────────────────────────────────────────────
+       HERO HEADER (dark)
+       ───────────────────────────────────────────────────────────── */
+    #hero {
+      background: var(--color-midnight);
+      color: var(--cream);
+      padding: clamp(140px, 14vw, 180px) clamp(24px, 5vw, 56px) clamp(64px, 8vw, 96px);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(242,237,228,0.06);
+    }
+    #hero .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('/candidates/Images/generic-kbb-heros-9.jpg');
+      background-size: cover;
+      background-position: center 55%;
+      transform: scale(1.04);
+    }
+    #hero .hero-vignette {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        linear-gradient(to right, rgba(7,7,27,0.94) 0%, rgba(7,7,27,0.78) 38%, rgba(7,7,27,0.55) 70%, rgba(7,7,27,0.65) 100%),
+        linear-gradient(to bottom, rgba(7,7,27,0.45) 0%, rgba(7,7,27,0.3) 35%, rgba(7,7,27,0.78) 100%);
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 2;
+      background:
+        radial-gradient(ellipse at 12% 22%, rgba(217,188,128,0.10), transparent 55%),
+        radial-gradient(ellipse at 88% 78%, rgba(7,7,27,0.10), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: var(--container-max); margin: 0 auto; position: relative; z-index: 3; }
+    @media (max-width: 768px) {
+      #hero .hero-bg { background-position: 60% 55%; }
+      #hero .hero-vignette {
+        background:
+          linear-gradient(to bottom, rgba(7,7,27,0.7) 0%, rgba(7,7,27,0.55) 30%, rgba(7,7,27,0.85) 100%);
+      }
+    }
+
+    .back-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      width: fit-content;
+      font-size: 10.5px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--color-midnight);
+      background: var(--color-gold);
+      padding: 13px 26px;
+      border-radius: 100px;
+      text-decoration: none;
+      margin-top: 32px;
+      transition: background 0.4s var(--ease-out-expo), gap 0.4s var(--ease-out-expo),
+                  transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+    }
+    .back-link:hover {
+      background: var(--color-gold-soft);
+      gap: 14px;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow-gold);
+    }
+    .back-link:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 4px; }
+    .back-link svg { width: 14px; height: 10px; }
+
+    .hero-tag { margin-bottom: 24px; }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 24px;
+    }
+    .hero-title .accent { font-style: italic; color: var(--color-gold); }
+
+    .role-meta {
+      display: flex; flex-wrap: wrap; gap: 8px 18px;
+      align-items: center;
+      margin-top: 16px;
+      font-size: 13.5px;
+      color: rgba(242,237,228,0.7);
+    }
+    .role-meta strong {
+      font-family: var(--font-display);
+      font-weight: 400; color: var(--cream);
+      letter-spacing: -0.005em;
+      font-size: 16px;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       FORM SECTION
+       ───────────────────────────────────────────────────────────── */
+    #form-section {
+      background: #ffffff;
+      padding: clamp(56px, 8vw, 100px) clamp(24px, 5vw, 56px) clamp(80px, 10vw, 120px);
+    }
+    .form-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .form-intro {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(7,7,27,0.7);
+      margin-bottom: 56px;
+      max-width: 56ch;
+    }
+
+    .fieldset {
+      margin-bottom: 44px;
+    }
+    .fieldset-head {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(7,7,27,0.10);
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 28px;
+    }
+    .field {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .field-full { grid-column: 1 / -1; }
+    .field label {
+      font-size: 9.5px; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(7,7,27,0.55);
+    }
+    .field label .req { color: var(--color-navy-deep); margin-left: 2px; }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(7,7,27,0.20);
+      padding: 10px 0 12px;
+      font-family: var(--font-body);
+      font-size: 15px; font-weight: 300; line-height: 1.5;
+      color: var(--color-midnight);
+      transition: border-color 0.5s var(--ease-out-expo);
+    }
+    .field input::placeholder { color: rgba(7,7,27,0.32); }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-bottom-color: var(--color-gold);
+    }
+    .field input:invalid:not(:placeholder-shown):not(:focus) {
+      border-bottom-color: rgba(7,7,27,0.30);
+    }
+    .field select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 5'%3e%3cpath fill='none' stroke='%2307071B' stroke-width='1' d='M.5.5l3.5 4 3.5-4'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: 8px 5px;
+      padding-right: 24px;
+      cursor: pointer;
+    }
+
+    /* File picker */
+    .file-field {
+      display: flex; flex-direction: column;
+      border: 1px dashed rgba(7,7,27,0.28);
+      border-radius: var(--radius-sm);
+      padding: 24px 22px;
+      position: relative;
+      cursor: pointer;
+      transition: border-color 0.4s var(--ease-out-expo), background 0.4s var(--ease-out-expo);
+    }
+    .file-field:hover { border-color: var(--color-gold); background: rgba(217,188,128,0.04); }
+    .file-field.has-file { border-style: solid; border-color: var(--color-gold); background: rgba(217,188,128,0.05); }
+    .file-field input[type="file"] {
+      position: absolute; inset: 0;
+      opacity: 0; cursor: pointer;
+      width: 100%; height: 100%;
+    }
+    .file-field-row {
+      display: flex; align-items: center; gap: 14px;
+      pointer-events: none;
+    }
+    .file-field-row svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--color-midnight); }
+    .file-field-row strong {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--color-midnight);
+      letter-spacing: -0.005em;
+    }
+    .file-field-name {
+      font-size: 12px;
+      color: rgba(7,7,27,0.55);
+      margin-top: 8px;
+      pointer-events: none;
+    }
+
+    /* Custom checkboxes */
+    .checkbox-field {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 12px 0;
+      cursor: pointer;
+    }
+    .checkbox-field input { display: none; }
+    .checkbox-box {
+      flex-shrink: 0;
+      width: 18px; height: 18px;
+      border: 1.5px solid rgba(7,7,27,0.28);
+      border-radius: 3px;
+      margin-top: 2px;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: background 0.3s var(--ease-out-expo), border-color 0.3s var(--ease-out-expo);
+    }
+    .checkbox-box svg { opacity: 0; width: 11px; height: 11px; transition: opacity 0.2s ease; color: var(--cream); }
+    .checkbox-field input:checked + .checkbox-box {
+      background: var(--color-midnight);
+      border-color: var(--color-midnight);
+    }
+    .checkbox-field input:checked + .checkbox-box svg { opacity: 1; }
+    .checkbox-field input:focus-visible + .checkbox-box {
+      outline: 2px solid var(--color-blue);
+      outline-offset: 2px;
+    }
+    .checkbox-text {
+      font-size: 13.5px; font-weight: 300; line-height: 1.55;
+      color: rgba(7,7,27,0.78);
+    }
+    .checkbox-text a { color: var(--color-navy-deep); border-bottom: 1px solid currentColor; text-decoration: none; }
+    .checkbox-text a:hover { color: var(--color-navy-deep); }
+    .checkbox-text .label-strong {
+      font-weight: 500; color: var(--color-midnight);
+      display: block; margin-bottom: 4px;
+      letter-spacing: 0.01em;
+    }
+    .checkbox-text .req { color: var(--color-navy-deep); margin-left: 2px; }
+
+    /* reCAPTCHA spacing */
+    .recaptcha-wrap { margin-top: 28px; min-height: 78px; }
+
+    /* Submit row */
+    .form-actions {
+      display: flex; align-items: center; gap: 24px;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(7,7,27,0.10);
+      flex-wrap: wrap;
+    }
+    .form-note {
+      font-size: 12px;
+      color: rgba(7,7,27,0.55);
+      max-width: 38ch;
+      line-height: 1.55;
+    }
+    .form-note a { color: var(--color-navy-deep); border-bottom: 1px solid currentColor; text-decoration: none; }
+
+    /* Success state */
+    .thanks {
+      text-align: center;
+      max-width: 540px; margin: 0 auto;
+      padding: 60px 0;
+    }
+    .thanks-tag { margin-bottom: 28px; justify-content: center; }
+    .thanks h2 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--color-midnight);
+      margin-bottom: 20px;
+    }
+    .thanks h2 .accent { font-style: italic; color: var(--color-gold); }
+    .thanks p {
+      font-size: 16px; font-weight: 300; line-height: 1.7;
+      color: rgba(7,7,27,0.7);
+      margin-bottom: 36px;
+    }
+    .thanks-actions {
+      display: flex; gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .field-row { grid-template-columns: 1fr; gap: 22px; }
+      .form-actions { flex-direction: column; align-items: stretch; }
+      .form-actions .btn-primary { justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { transition: none; opacity: 1; transform: none; }
+      .btn-primary, .btn-dark-ghost, .back-link, .file-field, .checkbox-box, .field input { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<div id="nav-wrap" role="navigation" aria-label="Main">
+
+  <div id="nav-pill">
+    <button id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-dropdown">
+      <span class="burger-icon" aria-hidden="true">
+        <span class="burger-line b1"></span>
+        <span class="burger-line b2"></span>
+      </span>
+      <span class="burger-label">Menu</span>
+    </button>
+    <a href="/" id="nav-logo" aria-label="Designer Recruitment home">
+      <img id="logo-white" src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+    </a>
+    <a href="/contact/" class="nav-contact-btn">Contact Us</a>
+  </div>
+
+  <div id="nav-dropdown" aria-hidden="true">
+    <nav aria-label="Site links">
+      <a href="/"             class="nd-link">Home</a>
+      <a href="/about/"       class="nd-link">About Us</a>
+      <a href="/candidates/"  class="nd-link is-active" aria-current="page">For Candidates</a>
+      <a href="/clients/"     class="nd-link">For Clients</a>
+      <a href="/who-we-recruit-for/" class="nd-link">Who we recruit for</a>
+      <a href="/about/#testimonials-about" class="nd-link">Testimonials</a>
+      <a href="/news-and-insights/" class="nd-link">News &amp; Insights</a>
+      <a href="/contact/"     class="nd-link">Contact Us</a>
+    </nav>
+  </div>
+
+</div><!-- /nav-wrap -->
+
+<main id="main">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" role="img" aria-label="Designer at a desk with laptop and notebook in soft natural light"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="section-tag on-dark hero-tag fade-up">Register</div>
+      <h1 id="hero-title" class="hero-title fade-up d1">
+        Apply for <span class="accent" id="job-title">this role.</span>
+      </h1>
+      <div class="role-meta fade-up d2" id="role-meta" hidden>
+        <span id="role-meta-location"></span>
+        <span id="role-meta-salary"></span>
+      </div>
+      <a href="/candidates/" class="back-link fade-up d3">
+        <svg viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M13 5H1M5 1 1 5l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        All open roles
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════ FORM ═══════════ -->
+  <section id="form-section" data-bg="light" aria-label="Registration form">
+    <div class="form-inner">
+
+      <!-- Default form view -->
+      <div id="form-view">
+        <p class="form-intro fade-up">
+          Share a few details and attach your CV. We'll be in touch shortly, and your information will only be passed to the hiring company once we've spoken with you.
+        </p>
+
+        <form
+          class="apply-form"
+          id="apply-form"
+          name="candidate-application"
+          method="POST"
+          enctype="multipart/form-data"
+          data-netlify="true"
+          data-netlify-recaptcha="true"
+          netlify-honeypot="bot-field"
+          action="/candidates/apply/?sent=1"
+        >
+          <input type="hidden" name="form-name" value="candidate-application">
+          <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+
+          <input type="hidden" name="job-ref"      id="hidden-ref">
+          <input type="hidden" name="job-title"    id="hidden-title">
+          <input type="hidden" name="job-location" id="hidden-location">
+          <input type="hidden" name="job-salary"   id="hidden-salary">
+
+          <!-- Personal details -->
+          <div class="fieldset">
+            <div class="fieldset-head">Your details</div>
+            <div class="field-row">
+              <div class="field">
+                <label for="firstname">First name <span class="req">*</span></label>
+                <input id="firstname" name="firstname" type="text" autocomplete="given-name" placeholder="" required>
+              </div>
+              <div class="field">
+                <label for="lastname">Last name <span class="req">*</span></label>
+                <input id="lastname" name="lastname" type="text" autocomplete="family-name" placeholder="" required>
+              </div>
+              <div class="field field-full">
+                <label for="email">Email <span class="req">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@studio.com" required>
+              </div>
+              <div class="field">
+                <label for="phone">Mobile <span class="req">*</span></label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="07000 000000" required>
+              </div>
+              <div class="field">
+                <label for="postcode">UK postcode <span class="req">*</span></label>
+                <input id="postcode" name="postcode" type="text" autocomplete="postal-code" placeholder="e.g. NN10 0BU" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- CV -->
+          <div class="fieldset">
+            <div class="fieldset-head">Your CV</div>
+            <label class="file-field" id="file-field">
+              <input id="cv" name="cv" type="file" accept=".pdf,.doc,.docx,.rtf,.txt" required aria-describedby="file-name">
+              <div class="file-field-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <strong id="file-field-strong">Attach CV</strong>
+              </div>
+              <div class="file-field-name" id="file-name">PDF, DOC or DOCX. Max 10 MB.</div>
+            </label>
+          </div>
+
+          <!-- Source -->
+          <div class="fieldset">
+            <div class="fieldset-head">Where did you hear about this role?</div>
+            <div class="field field-full">
+              <label for="source">Source <span class="req">*</span></label>
+              <select id="source" name="source" required>
+                <option value="">— Please select —</option>
+                <option>Our website</option>
+                <option>LinkedIn</option>
+                <option>Indeed</option>
+                <option>Total Jobs</option>
+                <option>Google</option>
+                <option>Referral</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Consent -->
+          <div class="fieldset">
+            <div class="fieldset-head">Consent &amp; preferences</div>
+
+            <label class="checkbox-field">
+              <input type="checkbox" name="gdpr" required>
+              <span class="checkbox-box">
+                <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="2 6 5 9 10 3"/>
+                </svg>
+              </span>
+              <span class="checkbox-text">
+                <span class="label-strong">Candidate Privacy Agreement <span class="req">*</span></span>
+                I've read and accept the <a href="/privacy.html" target="_blank" rel="noopener">privacy policy</a>. Required to process this application.
+              </span>
+            </label>
+
+            <label class="checkbox-field">
+              <input type="checkbox" name="alerts">
+              <span class="checkbox-box">
+                <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="2 6 5 9 10 3"/>
+                </svg>
+              </span>
+              <span class="checkbox-text">
+                <span class="label-strong">Job alerts</span>
+                Email me when new roles match my preferences.
+              </span>
+            </label>
+
+            <label class="checkbox-field">
+              <input type="checkbox" name="industry-updates">
+              <span class="checkbox-box">
+                <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="2 6 5 9 10 3"/>
+                </svg>
+              </span>
+              <span class="checkbox-text">
+                <span class="label-strong">Industry updates</span>
+                Occasional updates on the KBB market and salary benchmarks.
+              </span>
+            </label>
+
+            <label class="checkbox-field">
+              <input type="checkbox" name="sms">
+              <span class="checkbox-box">
+                <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="2 6 5 9 10 3"/>
+                </svg>
+              </span>
+              <span class="checkbox-text">
+                <span class="label-strong">SMS alerts</span>
+                Send me time-sensitive updates by SMS.
+              </span>
+            </label>
+          </div>
+
+          <div class="recaptcha-wrap" data-netlify-recaptcha="true" data-theme="light"></div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">
+              Submit registration
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="form-note">
+              We'll be in touch shortly. Your CV stays private until you've spoken with us. <a href="/privacy.html" target="_blank" rel="noopener">Privacy</a>.
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success state (shown when ?sent=1) -->
+      <div class="thanks" id="thanks-state" hidden>
+        <div class="section-tag thanks-tag">Submitted</div>
+        <h2>Registration <span class="accent">received.</span></h2>
+        <p>Thanks for registering, we'll be in touch as soon as we can. In the meantime, you can browse the rest of our open roles or get in touch with the studio directly.</p>
+        <div class="thanks-actions">
+          <a class="btn-primary" href="/candidates/">
+            Back to roles
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn-dark-ghost" href="/contact/">Contact studio</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="foot-brand">
+      <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+      <p>The KBB industry's trusted recruitment partner, connecting exceptional talent with the world's leading design and interiors brands.</p>
+      <a class="foot-social" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+    <div>
+      <div class="foot-head">Company</div>
+      <a href="/about/" class="foot-link">About Us</a>
+      <a href="/about/#services" class="foot-link">What We Do</a>
+      <a href="/about/#values" class="foot-link">Our Values</a>
+      <a href="/contact/" class="foot-link">Contact Us</a>
+    </div>
+
+    <div>
+      <div class="foot-head">For Candidates</div>
+      <a href="/candidates/" class="foot-link">Find a Role</a>
+      <a href="/candidates/apply/" class="foot-link">Register</a>
+      <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
+    </div>
+
+    <div>
+      <div class="foot-head">For Clients</div>
+      <a href="/who-we-recruit-for/" class="foot-link">Who we recruit for</a>
+      <a href="/clients/" class="foot-link">Hire Talent</a>
+    </div>
+  </div>
+
+  <div class="foot-base">
+    <div>© <span id="year">2026</span> Designer Recruitment Ltd. All rights reserved.<br>
+      Registered in England &amp; Wales.
+      <a href="https://flowfortyfour.com" target="_blank" rel="noopener" class="ff-credit" aria-label="Built by flowfortyfour.com (opens in new tab)">Built by <span class="ff-credit-name">flowfortyfour.com</span></a>
+    </div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ── Floating pill nav ── */
+  (function() {
+    const navWrap     = document.getElementById('nav-wrap');
+    const burger      = document.getElementById('burger');
+    const navDropdown = document.getElementById('nav-dropdown');
+    let menuOpen = false;
+
+    function openMenu()  { menuOpen = true;  navWrap.classList.add('open');    burger.classList.add('open');    burger.setAttribute('aria-expanded','true');  navDropdown.setAttribute('aria-hidden','false'); }
+    function closeMenu() { menuOpen = false; navWrap.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded','false'); navDropdown.setAttribute('aria-hidden','true');  }
+
+    burger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+    navDropdown.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click',   e => { if (menuOpen && !navWrap.contains(e.target)) closeMenu(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) closeMenu(); });
+
+    function checkPillBg() {
+      const pillY = window.innerHeight - 40;
+      const anyLight = [...document.querySelectorAll('[data-bg="light"]')].some(el => {
+        const r = el.getBoundingClientRect();
+        return r.top < pillY && r.bottom > pillY;
+      });
+      navWrap.classList.toggle('on-light', anyLight);
+    }
+    checkPillBg();
+    window.addEventListener('scroll', checkPillBg, { passive: true });
+    window.addEventListener('resize', checkPillBg);
+  })();
+
+  /* ── Fade-up reveal ── */
+  (function() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  })();
+
+  /* ── Pre-fill from URL params, handle success state, file picker UX ── */
+  (function() {
+    const params   = new URLSearchParams(window.location.search);
+    const ref      = params.get('ref')      || '';
+    const title    = params.get('title')    || '';
+    const location = params.get('location') || '';
+    const salary   = params.get('salary')   || '';
+    const sent     = params.get('sent')     === '1';
+
+    // Hero title
+    if (title) {
+      document.getElementById('job-title').textContent = title + '.';
+      document.title = 'Apply for ' + title + ' — Designer Recruitment®';
+    } else {
+      document.getElementById('hero-title').innerHTML = 'Submit your <span class="accent">registration.</span>';
+    }
+
+    // Hero meta line
+    const metaEl = document.getElementById('role-meta');
+    const metaLoc = document.getElementById('role-meta-location');
+    const metaSal = document.getElementById('role-meta-salary');
+    if (location || salary) {
+      if (location) { metaLoc.innerHTML = '<strong>' + location + '</strong>'; } else { metaLoc.style.display = 'none'; }
+      if (salary)   { metaSal.innerHTML = '<strong>' + salary + '</strong>'; }   else { metaSal.style.display = 'none'; }
+      metaEl.hidden = false;
+    }
+
+    // Hidden form fields
+    document.getElementById('hidden-ref').value      = ref;
+    document.getElementById('hidden-title').value    = title;
+    document.getElementById('hidden-location').value = location;
+    document.getElementById('hidden-salary').value   = salary;
+
+    // Success state
+    if (sent) {
+      document.getElementById('form-view').hidden = true;
+      document.getElementById('thanks-state').hidden = false;
+      document.getElementById('hero-title').innerHTML = 'Thanks for <span class="accent">registering.</span>';
+      // Scroll to thanks panel
+      window.requestAnimationFrame(() => {
+        document.getElementById('thanks-state').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    // File picker filename display
+    const cv         = document.getElementById('cv');
+    const fileField  = document.getElementById('file-field');
+    const fileName   = document.getElementById('file-name');
+    const fileStrong = document.getElementById('file-field-strong');
+    cv.addEventListener('change', () => {
+      if (cv.files && cv.files[0]) {
+        const f = cv.files[0];
+        const sizeKB = Math.round(f.size / 1024);
+        const sizeStr = sizeKB > 1024 ? (sizeKB / 1024).toFixed(1) + ' MB' : sizeKB + ' KB';
+        fileName.textContent = f.name + ' · ' + sizeStr;
+        fileStrong.textContent = 'CV attached — change';
+        fileField.classList.add('has-file');
+      } else {
+        fileName.textContent = 'PDF, DOC or DOCX. Max 10 MB.';
+        fileStrong.textContent = 'Attach CV';
+        fileField.classList.remove('has-file');
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!--
+  Canonical site footer — Designer Recruitment®
+  ──────────────────────────────────────────────
+  Drop this markup into any new page just before </body>.
+  All styles are global (defined in /tokens.css). Make sure
+  the page links to /tokens.css in <head>.
+
+  What you can edit:
+   - Per-page link sets in each Company / For Candidates / For Clients
+     column (tweak the anchors as needed)
+   - The brand description paragraph text
+  What NOT to edit:
+   - The "Built by flowfortyfour.com" credit
+   - The © + "Registered in England & Wales." copyright text
+   - The class names (they're how tokens.css applies styling)
+-->
+
+<footer class="site-footer">
+  <div class="footer-grid">
+
+    <div class="foot-brand">
+      <img src="/Brand_assets/DR-Logo-White-2.png" alt="Designer Recruitment">
+      <p>The KBB industry's trusted recruitment partner, connecting exceptional talent with the world's leading design and interiors brands.</p>
+      <a class="foot-social" href="https://www.linkedin.com/company/designer-recruitment/" target="_blank" rel="noopener noreferrer" aria-label="Designer Recruitment on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+    </div>
+
+    <div>
+      <div class="foot-head">Company</div>
+      <a href="/about/" class="foot-link">About Us</a>
+      <a href="/about/#services" class="foot-link">What We Do</a>
+      <a href="/about/#values" class="foot-link">Our Values</a>
+      <a href="/contact/" class="foot-link">Contact Us</a>
+    </div>
+
+    <div>
+      <div class="foot-head">For Candidates</div>
+      <a href="/candidates/" class="foot-link">Find a Role</a>
+      <a href="/candidates/apply/" class="foot-link">Register</a>
+      <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
+    </div>
+
+    <div>
+      <div class="foot-head">For Clients</div>
+      <a href="/who-we-recruit-for/" class="foot-link">Who we recruit for</a>
+      <a href="/clients/" class="foot-link">Hire Talent</a>
+    </div>
+
+  </div>
+
+  <div class="foot-base">
+    <div>© <span id="year">2026</span> Designer Recruitment Ltd. All rights reserved.<br>
+      Registered in England &amp; Wales.
+      <a href="https://flowfortyfour.com" target="_blank" rel="noopener" class="ff-credit" aria-label="Built by flowfortyfour.com (opens in new tab)">Built by <span class="ff-credit-name">flowfortyfour.com</span></a>
+    </div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/cookies.html">Cookies</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Year in footer (drop into the page's main script if not already present) -->
+<script>
+  (function() {
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+</script>
