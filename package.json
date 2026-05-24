@@ -19,6 +19,6 @@
   "type": "commonjs",
   "dependencies": {
     "cobe": "^0.6.4",
-    "puppeteer": "^24.40.0"
+    "puppeteer": "^24.43.1"
   }
 }

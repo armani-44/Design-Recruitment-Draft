@@ -123,7 +123,17 @@
   --z-modal:   300;
   --z-cursor:  9998;
   --z-grain:   9999;
+
+  /* ── Nav height (matches #nav-bar padding + logo) ── */
+  --nav-h: 70px;
 }
+@media (max-width: 1024px) { :root { --nav-h: 64px; } }
+@media (max-width: 860px)  { :root { --nav-h: 56px; } }
+
+/* Push every page below the fixed top nav so content never sits under it. */
+body { padding-top: var(--nav-h); }
+/* Anchored links should scroll to land below the nav, not behind it. */
+html { scroll-padding-top: var(--nav-h); }
 
 /* ──────────────────────────────────────────────
    Web fonts — served from /Fonts (lower-cased
@@ -218,6 +228,9 @@
   gap: 56px;
 }
 .foot-brand img { height: 60px; margin-bottom: 22px; width: auto; }
+.foot-home { display: inline-block; transition: opacity 0.22s ease; }
+.foot-home:hover { opacity: 0.78; }
+.foot-home:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 6px; border-radius: 4px; }
 .foot-brand p {
   font-size: 13px;
   font-weight: var(--fw-light);
