@@ -519,35 +519,61 @@
     }
     .exp-row:hover .exp-arrow { border-color: rgba(217,188,128,0.4); background: var(--gold-dim); }
 
-    /* ── Team card ── */
-    .team-card { position: relative; overflow: hidden; border-radius: var(--radius-md); }
-    .team-img { aspect-ratio: 4/3.75; overflow: hidden; position: relative; }
-    .team-img img {
-      width: 100%; height: 100%; object-fit: cover; object-position: center top;
-      transition: transform 0.8s cubic-bezier(.16,1,.3,1), filter 0.6s ease;
-      filter: grayscale(20%) brightness(0.95);
+    /* ── Team card (matches /about/) ── */
+    .team-card { display: flex; flex-direction: column; gap: 22px; }
+    .team-img-frame {
+      position: relative; aspect-ratio: 4 / 4.2; overflow: hidden;
+      border-radius: 14px;
+      background: var(--bg-surface);
+      margin-bottom: 8px;
     }
-    .team-card:hover .team-img img { transform: scale(1.04); filter: grayscale(0%) brightness(1); }
-    .team-info {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 28px 28px 32px;
-      background: rgba(10,9,30,0.42);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-top: 1px solid rgba(255,255,255,0.10);
+    .team-img-frame img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.95s var(--ease-out-expo), filter 0.95s var(--ease-out-expo);
+      will-change: transform;
+      filter: grayscale(15%) brightness(0.97);
+    }
+    .team-card:hover .team-img-frame img { transform: scale(1.03); filter: none; }
+    .team-role {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--color-gold);
     }
     .team-name {
-      font-family: var(--font-display); font-weight: 400;
-      font-size: 22px; color: var(--cream);
-    }
-    .team-role {
-      font-size: 10px; font-weight: 400; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--gold); margin-top: 6px;
+      font-family: var(--font-display); font-size: 32px; font-weight: 400;
+      color: var(--color-midnight); letter-spacing: -0.01em; line-height: 1.1;
+      margin-top: -8px;
     }
     .team-bio {
-      font-size: 13px; font-weight: 300; line-height: 1.75;
-      color: rgba(255,255,255,0.65); margin-top: 12px;
+      font-size: 15.5px; font-weight: 300; line-height: 1.85;
+      color: rgba(7,7,27,0.7); max-width: 520px;
     }
+    .team-aside {
+      margin: 4px 0 0;
+      font-family: var(--font-display); font-style: italic;
+      font-size: 17px; font-weight: 400; line-height: 1.55;
+      color: rgba(7,7,27,0.62);
+      max-width: 520px;
+    }
+    .team-link {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 14px 26px;
+      font-family: var(--font-body);
+      font-size: 10.5px; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-midnight);
+      background: var(--color-gold);
+      border-radius: 100px; text-decoration: none;
+      transition: background 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo), gap 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+      align-self: flex-start;
+      margin-top: 6px;
+    }
+    .team-link:hover {
+      background: var(--color-gold-soft);
+      gap: 16px;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow-gold);
+    }
+    .team-link svg { width: 13px; height: 13px; }
 
     /* ── Collage scroll section ── */
     #moments-scroll {
@@ -1493,30 +1519,30 @@
       </p>
     </div>
 
-    <div class="team-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:48px;">
+    <div class="team-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:64px;">
       <!-- Ben Paine -->
-      <div class="team-card fade-up">
-        <div class="team-img">
-          <img src="Brand_assets/Ben-Paine-Managing Director.jpg" alt="Ben Paine, Managing Director" loading="lazy" decoding="async" style="object-position:center 35%;">
-          <div class="team-info">
-            <div class="team-name">Ben Paine</div>
-            <div class="team-role">Managing Director</div>
-            <p class="team-bio">With over a decade of experience in KBB recruitment, Ben leads the team with deep industry knowledge and a passion for matching exceptional talent with leading brands.</p>
-          </div>
+      <article class="team-card fade-up">
+        <div class="team-img-frame">
+          <img src="/Brand_assets/Ben-Paine-Managing Director.jpg" alt="Ben Paine, Managing Director" loading="lazy" decoding="async" style="object-position:center 30%;">
         </div>
-      </div>
+        <p class="team-role">Managing Director</p>
+        <p class="team-name">Ben Paine</p>
+        <p class="team-bio">
+          Ben has over 6 years of industry-related recruitment experience, bringing a wealth of knowledge and insight into finding the right people for the right roles. His hands-on approach ensures clients receive the highest level of service and expertise.
+        </p>
+      </article>
 
       <!-- Cara Tomkins -->
-      <div class="team-card fade-up d1">
-        <div class="team-img">
-          <img src="Brand_assets/Cara-Tomkins.jpg" alt="Cara Tomkins, Head of Recruitment" loading="lazy" decoding="async" style="object-position:center top;">
-          <div class="team-info">
-            <div class="team-name">Cara Tomkins</div>
-            <div class="team-role">Head of Recruitment</div>
-            <p class="team-bio">An experienced and results-driven Head of Recruitment, Cara is passionate about connecting talented professionals with leading organisations and delivering sales success through strategic talent acquisition.</p>
-          </div>
+      <article class="team-card fade-up d1">
+        <div class="team-img-frame">
+          <img src="/Brand_assets/Cara-Tomkins.jpg" alt="Cara Tomkins, Head of Recruitment" loading="lazy" decoding="async" style="object-position:center top;">
         </div>
-      </div>
+        <p class="team-role">Head of Recruitment</p>
+        <p class="team-name">Cara Tomkins</p>
+        <p class="team-bio">
+          Cara has over 5 years of industry-related recruitment experience, specialising in design, KBB, and luxury home sectors. She is passionate about building lasting relationships and ensuring both clients and candidates have the best possible experience.
+        </p>
+      </article>
     </div>
   </div>
 </section>
