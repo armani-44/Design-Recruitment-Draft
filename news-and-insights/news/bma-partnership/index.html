@@ -14,7 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet';">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet"></noscript>
 
   <link rel="stylesheet" href="../../../tokens.css">
 
@@ -622,7 +623,7 @@
   </div>
 
   <!-- Mobile dropdown -->
-  <div id="nav-dropdown" aria-hidden="true">
+  <div id="nav-dropdown" aria-hidden="true" inert>
     <nav aria-label="Site links">
       <a href="/"             class="nd-link">Home</a>
       <a href="/about/"       class="nd-link">About Us</a>
@@ -849,6 +850,7 @@
       burger.classList.add('open');
       burger.setAttribute('aria-expanded', 'true');
       navDropdown.setAttribute('aria-hidden', 'false');
+      navDropdown.removeAttribute('inert');
     }
     function closeMenu() {
       menuOpen = false;
@@ -856,6 +858,7 @@
       burger.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
       navDropdown.setAttribute('aria-hidden', 'true');
+      navDropdown.setAttribute('inert', '');
     }
     burger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
     navDropdown.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
