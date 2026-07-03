@@ -31,7 +31,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/Brand_assets/4-Langstaff-Ellis/Milestone-Bar-1.webp" as="image" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet';">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet"></noscript>
 
   <!-- Shared brand tokens -->
   <link rel="stylesheet" href="../tokens.css">
@@ -1037,7 +1038,7 @@
   </div>
 
   <!-- Mobile dropdown -->
-  <div id="nav-dropdown" aria-hidden="true">
+  <div id="nav-dropdown" aria-hidden="true" inert>
     <nav aria-label="Site links">
       <a href="/"             class="nd-link">Home</a>
       <a href="/about/"       class="nd-link">About Us</a>
@@ -1107,7 +1108,7 @@
             <img src="/news-and-insights/news/our-charity-partner/BacZacs-Legacy/baczac-charity-1.jpeg" alt="BacZac charity partner" loading="lazy">
           </div>
           <span class="news-card-cat">Charity Partner</span>
-          <h4 class="news-card-title">Supporting BacZac's Legacy.</h4>
+          <h3 class="news-card-title">Supporting BacZac's Legacy.</h3>
           <div class="news-card-meta">Our long-term charity partner</div>
         </a>
 
@@ -1116,7 +1117,7 @@
             <img src="/news-and-insights/news/overseas-recruitment/Overseas-Recruitment-Australia-1.jpg" alt="Overseas recruitment placeholder" loading="lazy">
           </div>
           <span class="news-card-cat">Service</span>
-          <h4 class="news-card-title">Overseas Recruitment in Australia &amp; Dubai.</h4>
+          <h3 class="news-card-title">Overseas Recruitment in Australia &amp; Dubai.</h3>
           <div class="news-card-meta">International placements for KBB professionals</div>
         </a>
 
@@ -1125,7 +1126,7 @@
             <img src="/news-and-insights/news/bma-partnership/BMA-logo-blue-BG.svg" alt="Bathroom Association partnership" loading="lazy">
           </div>
           <span class="news-card-cat">Partnership</span>
-          <h4 class="news-card-title">Our Partnership with the Bathroom Association (BMA).</h4>
+          <h3 class="news-card-title">Our Partnership with the Bathroom Association (BMA).</h3>
           <div class="news-card-meta">Industry membership &amp; collaboration</div>
         </a>
 
@@ -1134,7 +1135,7 @@
             <img src="/news-and-insights/news/nottingham-trent-design-school/nottingham-trent-design-school-1.jpg" alt="Nottingham Trent University Design School" loading="lazy">
           </div>
           <span class="news-card-cat">Education</span>
-          <h4 class="news-card-title">Proud Supporters of Nottingham Trent University Design School.</h4>
+          <h3 class="news-card-title">Proud Supporters of Nottingham Trent University Design School.</h3>
           <div class="news-card-meta">Mentorship &amp; industry insight for design students</div>
         </a>
 
@@ -1572,6 +1573,7 @@
       burger.classList.add('open');
       burger.setAttribute('aria-expanded', 'true');
       navDropdown.setAttribute('aria-hidden', 'false');
+      navDropdown.removeAttribute('inert');
     }
     function closeMenu() {
       menuOpen = false;
@@ -1579,6 +1581,7 @@
       burger.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
       navDropdown.setAttribute('aria-hidden', 'true');
+      navDropdown.setAttribute('inert', '');
     }
     burger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
     navDropdown.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));

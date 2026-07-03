@@ -31,7 +31,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/fonts/Canela-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/Brand_assets/AdobeStock_1981538230.jpeg" as="image" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" onload="this.onload=null;this.rel='stylesheet';">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet"></noscript>
 
   <!-- Shared brand tokens -->
   <link rel="stylesheet" href="../tokens.css">
@@ -1048,7 +1049,7 @@
   </div>
 
   <!-- Mobile dropdown -->
-  <div id="nav-dropdown" aria-hidden="true">
+  <div id="nav-dropdown" aria-hidden="true" inert>
     <nav aria-label="Site links">
       <a href="/"             class="nd-link">Home</a>
       <a href="/about/"       class="nd-link">About Us</a>
@@ -1361,7 +1362,7 @@
             <!-- 1 · Client / Cara -->
             <article class="ta-card">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Cara</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1380,7 +1381,7 @@
             <!-- 2 · Client / Ben -->
             <article class="ta-card is-gold">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Ben</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1399,7 +1400,7 @@
             <!-- 3 · Candidate / Cara -->
             <article class="ta-card">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Cara</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1418,7 +1419,7 @@
             <!-- 4 · Candidate / Ben -->
             <article class="ta-card is-gold">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Ben</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1437,7 +1438,7 @@
             <!-- 5 · Client / Cara -->
             <article class="ta-card">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Cara</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1456,7 +1457,7 @@
             <!-- 6 · Client / Ben -->
             <article class="ta-card is-gold">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Ben</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1475,7 +1476,7 @@
             <!-- 7 · Candidate / Cara -->
             <article class="ta-card">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Cara</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1494,7 +1495,7 @@
             <!-- 8 · Candidate / Ben -->
             <article class="ta-card is-gold">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Ben</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1513,7 +1514,7 @@
             <!-- 9 · Client / Cara -->
             <article class="ta-card">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Cara</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1532,7 +1533,7 @@
             <!-- 10 · Client / Ben -->
             <article class="ta-card is-gold">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Client &middot; for Ben</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1551,7 +1552,7 @@
             <!-- 11 · Candidate / Cara -->
             <article class="ta-card">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Cara</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1570,7 +1571,7 @@
             <!-- 12 · Candidate / Ben -->
             <article class="ta-card is-gold">
               <div class="ta-card-tag"><span class="ta-card-tag-dot" aria-hidden="true"></span>Candidate &middot; for Ben</div>
-              <div class="ta-stars" aria-label="5 out of 5 stars">
+              <div class="ta-stars" role="img" aria-label="5 out of 5 stars">
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
                 <svg viewBox="0 0 16 16" fill="currentColor" class="ta-star-on" aria-hidden="true"><path d="M8 1.5l1.96 4.32 4.74.46-3.55 3.16.99 4.66L8 11.84 3.86 14.1l.99-4.66L1.3 6.28l4.74-.46L8 1.5z"/></svg>
@@ -1755,6 +1756,7 @@
       burger.classList.add('open');
       burger.setAttribute('aria-expanded', 'true');
       navDropdown.setAttribute('aria-hidden', 'false');
+      navDropdown.removeAttribute('inert');
     }
     function closeMenu() {
       menuOpen = false;
@@ -1762,6 +1764,7 @@
       burger.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
       navDropdown.setAttribute('aria-hidden', 'true');
+      navDropdown.setAttribute('inert', '');
     }
     burger.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
     navDropdown.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
@@ -1857,6 +1860,13 @@
     const start = () => {
       const w = canvas.offsetWidth;
       if (w === 0) { requestAnimationFrame(start); return; }
+
+      // Bail cleanly if WebGL isn't available (older devices, Lighthouse
+      // headless, some corporate lockdowns). cobe otherwise throws inside
+      // phenomenon when gl.enable() is called on a null context.
+      const _probe = document.createElement('canvas');
+      const _hasWebGL = !!(window.WebGLRenderingContext && (_probe.getContext('webgl') || _probe.getContext('experimental-webgl')));
+      if (!_hasWebGL) { canvas.style.display = 'none'; return; }
 
       const theta = 0.25;
       let phi = 0;
