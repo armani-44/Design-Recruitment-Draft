@@ -229,7 +229,7 @@ If DNS is fundamentally broken and rollback attempts aren't propagating:
 | FireFish support | Scott McFarlane | via FireFish support channel |
 | Netlify support | — | https://answers.netlify.com (community) or support ticket if on paid plan |
 | Domain registrar | GoDaddy | via Ben's GoDaddy login |
-| DNS host | StackDNS | via whoever Ben identified as having access |
+| DNS host | StackDNS (admin: David Martin) | Introduced by Ben; send record spec (see Appendix A) |
 
 ---
 
@@ -241,3 +241,64 @@ If DNS is fundamentally broken and rollback attempts aren't propagating:
 - [ ] Set a calendar reminder to review analytics + SEO 30 days post-launch.
 - [ ] Consider adding structured data for JobPosting on the candidates page (from audit — pending).
 - [ ] Consider migrating repeated nav/footer HTML into a proper build step (from audit — deferred).
+
+---
+
+## Appendix A — DNS record spec for David Martin (StackDNS)
+
+Ready-to-send record spec. Fill the `[ben-netlify-site-name].netlify.app` placeholder AFTER the Netlify site transfer to Ben's account is complete (Step 2 of Execution above) — that's when Ben's site's final `netlify.app` slug is knowable.
+
+**Netlify's external-DNS docs** (authoritative source): <https://docs.netlify.com/domains-https/custom-domains/configure-external-dns/>
+
+### Records to CHANGE at cutover
+
+| Type | Name / Host | New value | TTL |
+|------|-------------|-----------|-----|
+| A | `@` (apex — `designerrecruitment.co.uk`) | `75.2.60.5` | 3600 |
+| CNAME | `www` | `[ben-netlify-site-name].netlify.app` | 3600 |
+
+**Preferred apex alternative if StackDNS supports it:**
+
+| Type | Name / Host | New value | TTL |
+|------|-------------|-----------|-----|
+| ALIAS or ANAME | `@` | `apex-loadbalancer.netlify.com` | 3600 |
+
+ALIAS/ANAME at apex is preferable because it CNAME-flattens to whichever load-balancer IP Netlify is currently using — future-proof if `75.2.60.5` ever rotates. Fall back to the A record if StackDNS is A-only at the apex.
+
+### Records to LEAVE EXACTLY AS-IS
+
+| Type | Name / Host | Reason |
+|------|-------------|--------|
+| CNAME | `jobs` | Points at FireFish ATS (`20163.clients.firefishsoftware.com`). Any change here breaks the branded jobs page. |
+| MX | `@` (all) | Email routing. Must stay untouched. |
+| TXT | `@` (SPF — `v=spf1 ...`) | Email sender authentication. |
+| TXT | `_dmarc` | DMARC policy. |
+| TXT | `*._domainkey` (any DKIM selector) | Mail signing keys. |
+| TXT | any Google / Microsoft / third-party verification records | Domain ownership proofs. |
+| NS | `@` | Delegation to StackDNS itself. |
+
+### Optional — Netlify domain verification TXT (only if prompted)
+
+Netlify occasionally requires a one-off TXT record to verify domain ownership before it will issue the SSL cert. If it does, the exact value appears in Ben's Netlify dashboard under **Domain management → HTTPS**. Format is typically:
+
+| Type | Name / Host | Value | TTL |
+|------|-------------|-------|-----|
+| TXT | `netlify-challenge` (name varies) | (string copied from Netlify dashboard) | 3600 |
+
+### TTL strategy
+
+- **24–48 hours BEFORE cutover:** ask David to lower the TTLs on the records-to-change from 3600 to **300 seconds**. This makes rollback fast if we need it.
+- **Cutover day:** apply the new values.
+- **24 hours AFTER cutover** (once stable): bump TTLs back to 3600 for normal caching behaviour.
+
+### Cutover-day handshake
+
+1. Armani confirms Ben's Netlify site is live and healthy at `[ben-netlify-site-name].netlify.app`.
+2. David applies the two records above.
+3. Armani watches propagation with `dig designerrecruitment.co.uk @1.1.1.1` and `dig www.designerrecruitment.co.uk @8.8.8.8` from multiple resolvers.
+4. Once resolving to Netlify: Armani checks the site loads over HTTPS + Ben sends a test email in and out to verify mail is unaffected.
+5. If anything looks off: revert to old A/CNAME values immediately (David or Armani, depending on access model agreed).
+
+### SSL
+
+Netlify auto-provisions a Let's Encrypt certificate within ~5 minutes of the DNS pointing at them. No cert work needed from David's end.
