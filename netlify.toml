@@ -1,0 +1,12 @@
+# Designer Recruitment — static site, no build step.
+# Netlify just publishes the repo root as-is.
+
+[build]
+  publish = "."
+  command = ""
+
+[build.environment]
+  # Skip Puppeteer's Chromium download and dev-only tooling during install —
+  # they're local dev utilities, not needed to publish the static site.
+  PUPPETEER_SKIP_DOWNLOAD = "true"
+  NPM_FLAGS = "--production"
