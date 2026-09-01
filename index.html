@@ -1410,10 +1410,17 @@
     position: relative; max-width: 1240px; margin: 0 auto;
   }
   #spotlight .spotlight-head {
-    margin-bottom: 100px;
+    /* Was 100px. The heading read as floating between the eyebrow above and
+       the portrait below, with more air around it than the section needed. */
+    margin-bottom: 44px;
   }
+  /* The eyebrow carries an inline margin-bottom of 22px and the heading added
+     another 22px on top. .section-tag is inline-flex, so the two do not
+     collapse — the gap was 44px, not 22px. Zero the heading's side and let the
+     pill set the distance. */
+  #spotlight .spotlight-head .section-tag { margin-bottom: 16px !important; }
   #spotlight .spotlight-head h2 {
-    margin-top: 22px;
+    margin-top: 0;
     font-family: var(--font-display); font-weight: 300;
     font-size: var(--fs-display-md); line-height: 1.04;
     color: var(--color-midnight); letter-spacing: -0.02em;

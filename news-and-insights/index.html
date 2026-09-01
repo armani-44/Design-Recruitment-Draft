@@ -594,10 +594,15 @@
       display: grid; gap: 56px;
       grid-template-columns: 5fr 7fr;
       align-items: end;
-      margin-bottom: 100px;
+      /* Was 100px — see the homepage note; the heading floated between the
+         eyebrow and the portrait. */
+      margin-bottom: 44px;
     }
+    /* Eyebrow's inline 22px and the heading's 22px stack rather than collapse,
+       because .section-tag is inline-flex. Zero the heading's side. */
+    .spotlight-head .section-tag { margin-bottom: 16px !important; }
     .spotlight-head h2 {
-      margin-top: 22px;
+      margin-top: 0;
       font-family: var(--font-display); font-weight: 300;
       font-size: var(--fs-display-lg); line-height: 1.04;
       color: var(--midnight); letter-spacing: -0.02em;
