@@ -1027,11 +1027,15 @@
          if the image ratio ever changed. */
       .spotlight-feature { position: relative; }
       .spotlight-media::after {
+        /* Stops sit close to the text rather than washing the top half of the
+           frame — a tall gradient with a short block of type at its foot is what
+           made the quote read as floating in the dark. */
         background: linear-gradient(to top,
-          rgba(7,7,27,0.92) 0%,
-          rgba(7,7,27,0.74) 24%,
-          rgba(7,7,27,0.34) 50%,
-          rgba(7,7,27,0.00) 74%);
+          rgba(7,7,27,0.94) 0%,
+          rgba(7,7,27,0.88) 16%,
+          rgba(7,7,27,0.62) 34%,
+          rgba(7,7,27,0.22) 50%,
+          rgba(7,7,27,0.00) 64%);
       }
       .spotlight-quote {
         position: absolute;
@@ -1039,8 +1043,11 @@
         aspect-ratio: 1 / 1;
         display: flex; align-items: flex-end;
         margin: 0;
-        padding: 0 22px 24px;
-        font-size: 17px; line-height: 1.42;
+        /* Even inset on every edge. Bottom is 20px against 24px on the sides so
+           the gap reads as equal — the last line box carries ~4px of descender
+           space below the glyphs that the side padding has no equivalent of. */
+        padding: 24px 24px 20px;
+        font-size: 20px; line-height: 1.36;
         color: var(--color-cream);
         /* The gold rule reads as a margin note against white; over the image the
            gradient already separates quote from photo, so it would be noise. */
@@ -1057,6 +1064,10 @@
       #spotlight { padding: 44px 24px 44px; }
       .spotlight-head  { margin-bottom: 18px; }
       .spotlight-role  { margin-bottom: 14px; }
+      /* Narrowest phones — the longest of the four quotes runs to six lines at
+         20px here, climbing past the top of the gradient. One step down keeps
+         every slide inside the shaded area. */
+      .spotlight-quote { font-size: 18px; }
       .spotlight-quote { margin-bottom: 20px; }
     }
     /* 641-768 is a small tablet, not a phone. Stacking here made the portrait
