@@ -2,6 +2,7 @@ import { createServer } from 'http';
 import { readFile } from 'fs/promises';
 import { join, extname } from 'path';
 import { fileURLToPath } from 'url';
+import { networkInterfaces } from 'os';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const PORT = 3000;
@@ -57,5 +58,20 @@ createServer(async (req, res) => {
     res.end(`404 Not Found: ${urlPath}`);
   }
 }).listen(PORT, () => {
-  console.log(`✓ Design Recruitment server running at http://localhost:${PORT}`);
+  // Print the LAN address too. The server binds every interface, so any phone
+  // or tablet on the same Wi-Fi can load the site from the network URL —
+  // real-device testing without spending a Netlify preview deploy.
+  const nets = networkInterfaces();
+  const lan = Object.values(nets)
+    .flat()
+    .filter(n => n && n.family === 'IPv4' && !n.internal)
+    .map(n => n.address);
+
+  console.log(`\n  ✓ Design Recruitment server running\n`);
+  console.log(`    Local     http://localhost:${PORT}`);
+  for (const ip of lan) {
+    console.log(`    Network   http://${ip}:${PORT}   ← open this on your phone/iPad`);
+  }
+  if (!lan.length) console.log(`    Network   (no LAN interface found — check Wi-Fi)`);
+  console.log('');
 });
