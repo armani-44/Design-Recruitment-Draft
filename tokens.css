@@ -369,3 +369,13 @@ html { scroll-padding-top: var(--nav-h); }
   .ai-intro p.lead,
   .cta-head p { font-size: 17px !important; }
 }
+
+/* Eyebrow pill — the desktop size is heavy on a phone, where it sits directly
+   above a display heading and competes with it. One step down, site-wide. */
+@media (max-width: 768px) {
+  .section-tag {
+    padding: 4px 12px;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
+}

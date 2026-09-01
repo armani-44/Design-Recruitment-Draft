@@ -666,13 +666,19 @@
       margin-bottom: 18px;
     }
     .spotlight-name {
-      font-family: var(--font-display); font-weight: 300;
-      font-size: clamp(32px, 3.6vw, 46px);
-      line-height: 1.04; letter-spacing: -0.02em;
+      /* Black roman followed by gold italic is the section-heading signature.
+         The name carried the same device at nearly the same size, so the two
+         read as peers rather than heading and byline. The name now sits at
+         roughly 60% of the heading and is uniform in weight, style and colour —
+         gold stays a heading accent, and the name reads as a credit. */
+      font-family: var(--font-display); font-weight: 400;
+      font-style: italic;
+      font-size: clamp(23px, 2.2vw, 30px);
+      line-height: 1.1; letter-spacing: -0.005em;
       color: var(--midnight);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .spotlight-name .accent { font-style: italic; color: var(--color-gold); }
+    .spotlight-name .accent { font-style: italic; color: inherit; }
     .spotlight-role {
       font-size: 13px; font-weight: 500;
       letter-spacing: 0.16em; text-transform: uppercase;
@@ -1014,7 +1020,6 @@
       }
       .spotlight-feature { padding: 0 0 24px; }
       .spotlight-quote { font-size: 19px; padding-left: 18px; }
-      .spotlight-media { max-width: 300px; }
       .spotlight-head  { margin-bottom: 32px; }
     }
     @media (max-width: 640px) {
@@ -1024,7 +1029,6 @@
          carries an intro paragraph the homepage one does not. */
       #spotlight { padding: 44px 24px 44px; }
       .spotlight-head  { margin-bottom: 18px; }
-      .spotlight-media { max-width: 250px; }
       .spotlight-role  { margin-bottom: 14px; }
       .spotlight-quote { margin-bottom: 20px; }
     }
@@ -1192,7 +1196,7 @@
             </div>
             <div class="spotlight-body">
               <h3 class="spotlight-name">Chris <span class="accent">Mitchell.</span></h3>
-              <div class="spotlight-role">Independent Kitchen Design Consultant · 720studio.co.uk</div>
+              <div class="spotlight-role">Kitchen Design Consultant · 720studio.co.uk</div>
               <blockquote class="spotlight-quote">
                 "Technology, especially design software like Compusoft Winner, is a game-changer. It allows me to bring design concepts to life in 3D."
               </blockquote>
