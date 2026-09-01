@@ -845,6 +845,27 @@
       .hero-content { padding: 150px 28px 72px; }
     }
 
+    /* Tablet — the hero was locked to 100vh with its content top-aligned, so
+       on a tall portrait tablet roughly half the section sat empty beneath the
+       CTAs (47-54%, against a deliberate 20% on desktop). Size it to a share of
+       the viewport instead and centre the block, so the remaining space falls
+       evenly above and below rather than pooling at the bottom, and the next
+       section shows above the fold. Floor is 700px so iPad mini portrait (744)
+       and the 768 boundary are covered rather than inheriting the phone rules. */
+    @media (min-width: 700px) and (max-width: 1180px) {
+      #hero {
+        /* 78vh clears the next section's 96px top padding, so the "Your
+           Journey" eyebrow reads above the fold rather than a bare white band
+           that looks like a gap. */
+        height: 78vh;
+        min-height: 580px;
+        align-items: center;
+      }
+      /* Asymmetric top padding nudges the block just below optical centre, so
+         it does not crowd the fixed nav overlaying the top of the frame. */
+      .hero-content { padding: 64px 40px 0 !important; }
+    }
+
     /* ── Custom cursor ── */
     body, a, button { cursor: none; }
     .cursor-dot {
