@@ -1619,7 +1619,34 @@
       grid-template-columns: 1fr; gap: 26px;
     }
     .spotlight-feature { padding: 0 0 24px; }
-    .spotlight-quote { font-size: 19px; padding-left: 18px; }
+    /* Quote sits on the portrait at phone widths. Stacking image, name, role,
+       quote, link and nav made the column busy; lifting the quote onto the
+       image removes a block from the stack and gives the photo something to
+       do. The box mirrors the media's own 1/1 aspect ratio, so it aligns to
+       the bottom of the image without hard-coding a height that would drift
+       if the image ratio ever changed. */
+    .spotlight-feature { position: relative; }
+    .spotlight-media::after {
+      background: linear-gradient(to top,
+        rgba(7,7,27,0.92) 0%,
+        rgba(7,7,27,0.74) 24%,
+        rgba(7,7,27,0.34) 50%,
+        rgba(7,7,27,0.00) 74%);
+    }
+    .spotlight-quote {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      aspect-ratio: 1 / 1;
+      display: flex; align-items: flex-end;
+      margin: 0;
+      padding: 0 22px 24px;
+      font-size: 17px; line-height: 1.42;
+      color: var(--color-cream);
+      /* The gold rule reads as a margin note against white; over the image the
+         gradient already separates quote from photo, so it would be noise. */
+      border-left: none;
+      text-shadow: 0 1px 12px rgba(7,7,27,0.5);
+    }
   }
   @media (max-width: 640px) {
     #spotlight .spotlight-head h2 { font-size: clamp(34px, 9vw, 44px); }
@@ -1628,6 +1655,31 @@
     #spotlight .spotlight-head { margin-bottom: 24px; }
     .spotlight-role  { margin-bottom: 14px; }
     .spotlight-quote { margin-bottom: 20px; }
+  }
+  /* 641-768 is a small tablet, not a phone. Stacking here made the portrait
+     720px tall on a 768px screen, dominating the section. Two columns as per
+     tablet, with the quote back in the body column where there is room for
+     it — the overlay is a phone treatment. */
+  @media (min-width: 641px) and (max-width: 768px) {
+    .spotlight-feature, .spotlight-feature.is-reverse {
+      grid-template-columns: 1fr 1.1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .spotlight-quote {
+      position: static;
+      aspect-ratio: auto;
+      display: block;
+      margin: 0 0 24px;
+      padding: 0 0 0 18px;
+      font-size: 18px;
+      color: var(--color-midnight);
+      border-left: 1px solid var(--color-gold);
+      text-shadow: none;
+    }
+    .spotlight-media::after {
+      background: linear-gradient(160deg, transparent 50%, rgba(7,7,27,0.16));
+    }
   }
 </style>
 
