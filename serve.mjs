@@ -51,7 +51,15 @@ createServer(async (req, res) => {
     }
     const ext = extname(filePath).toLowerCase();
     const contentType = mimeTypes[ext] || 'application/octet-stream';
-    res.writeHead(200, { 'Content-Type': contentType, 'Cache-Control': 'no-cache' });
+    // no-store, not no-cache: no-cache still lets the browser keep a copy and
+    // revalidate, and iOS Safari will happily serve that copy on a flaky LAN.
+    // On a dev server we never want a stale byte on the test device.
+    res.writeHead(200, {
+      'Content-Type': contentType,
+      'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+      'Pragma': 'no-cache',
+      'Expires': '0',
+    });
     res.end(data);
   } catch {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
