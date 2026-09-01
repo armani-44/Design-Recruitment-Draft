@@ -492,6 +492,26 @@
     #services .svc-nav { display: none; }
     .spotlight-arrow:disabled { opacity: 0.28; pointer-events: none; }
 
+    /* ── Full-bleed editorial quote ──
+       The band carried no overlay at all: light type straight onto a photo.
+       Layered radial + linear so the centre where the quote sits darkens most
+       while the frame stays open, matching the hero's treatment. */
+    #kbb-quote .kbb-scrim {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 64% at 50% 50%,
+          rgba(7,7,27,0.64) 0%,
+          rgba(7,7,27,0.44) 55%,
+          rgba(7,7,27,0.20) 100%),
+        linear-gradient(to bottom,
+          rgba(7,7,27,0.34) 0%,
+          rgba(7,7,27,0.28) 50%,
+          rgba(7,7,27,0.42) 100%);
+    }
+    #kbb-quote h2 {
+      text-shadow: 0 1px 2px rgba(7,7,27,0.32), 0 2px 26px rgba(7,7,27,0.45);
+    }
+
     /* ── Stats ── */
     .stat-num {
       font-family: var(--font-body);
@@ -762,6 +782,16 @@
       #contact   { padding: 72px 24px !important; }
       footer     { padding: 60px 24px 32px !important; }
 
+      /* Editorial quote — the band was 520px tall with display-lg type, which
+         on a phone filled most of a screen. The hard <br> was placed for a wide
+         measure and lands mid-thought here, so let the quote find its own
+         breaks. */
+      #kbb-quote { height: 420px !important; }
+      #kbb-quote .kbb-inner { padding: 0 32px !important; }
+      #kbb-quote h2 { font-size: 28px !important; margin-bottom: 24px !important; }
+      #kbb-quote h2 br { display: none; }
+      #editorial-line-l, #editorial-line-r { display: none; }
+
       /* Hero */
       .hero-content { padding: 130px 24px 140px !important; }
       .hero-sub { font-size: 17px !important; }
@@ -891,13 +921,6 @@
       }
       .services-grid .svc-card { height: 360px !important; flex: 0 0 82%; }
       .svc-title { font-size: 20px !important; }
-    }
-
-    /* Narrowest phones — "Strategic Consultancy" is the constraint. */
-    @media (max-width: 360px) {
-      .svc-content { padding: 22px 18px !important; }
-      .svc-title   { font-size: 17px !important; }
-      .svc-link    { font-size: 8.5px !important; letter-spacing: 0.1em !important; padding: 9px 14px !important; }
 
       /* Sections */
       .rsp-sec   { padding: 60px 20px !important; }
@@ -909,8 +932,18 @@
       .exp-row { gap: 16px; padding: 22px 0; }
       .exp-title { font-size: 16px !important; }
 
-      /* Quote editorial — hide decorative lines */
+      /* Quote editorial — hide decorative lines (also hidden from 768). */
       #editorial-line-l, #editorial-line-r { display: none; }
+      #kbb-quote { height: 380px !important; }
+      #kbb-quote .kbb-inner { padding: 0 24px !important; }
+      #kbb-quote h2 { font-size: 24px !important; margin-bottom: 20px !important; }
+    }
+
+    /* Narrowest phones — "Strategic Consultancy" is the constraint. */
+    @media (max-width: 360px) {
+      .svc-content { padding: 22px 18px !important; }
+      .svc-title   { font-size: 17px !important; }
+      .svc-link    { font-size: 8.5px !important; letter-spacing: 0.1em !important; padding: 9px 14px !important; }
     }
 
     @media (max-width: 900px) {
@@ -1723,17 +1756,18 @@
 </style>
 
 <!-- ═══════════ 100% MADE IN KBB — full bleed editorial ═══════════ -->
-<section style="position:relative;height:520px;overflow:hidden;">
+<section id="kbb-quote" style="position:relative;height:520px;overflow:hidden;">
   <img src="Brand_assets/law-firm-26.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"
     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;">
+  <div class="kbb-scrim" aria-hidden="true"></div>
 
   <!-- Decorative lines -->
   <div id="editorial-line-l" style="position:absolute;left:56px;top:50%;transform:translateY(-50%);height:120px;width:1px;background:linear-gradient(to bottom,transparent,rgba(217,188,128,0.3),transparent);"></div>
   <div id="editorial-line-r" style="position:absolute;right:56px;top:50%;transform:translateY(-50%);height:120px;width:1px;background:linear-gradient(to bottom,transparent,rgba(217,188,128,0.3),transparent);"></div>
-  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 56px;">
+  <div class="kbb-inner" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 56px;">
     <div>
       <h2 class="serif-i" style="font-size:var(--fs-display-lg);font-weight:300;color:var(--warm);line-height:1.18;letter-spacing:-0.01em;margin-bottom:32px;">
-        “We don’t just fill vacancies. We build<br>long-term careers and teams that last.”
+        “We don’t just fill vacancies. We build <br>long-term careers and teams that last.”
       </h2>
       <div style="font-size:14px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Ben Paine</div>
       <div style="font-size:13px;font-weight:300;letter-spacing:0.08em;color:var(--muted);">Managing Director</div>
