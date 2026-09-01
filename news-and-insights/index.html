@@ -1016,7 +1016,8 @@
       .linkedin-grid { grid-template-columns: 1fr; }
       .news-featured { padding-bottom: 56px; margin-bottom: 64px; }
       .spotlight-feature, .spotlight-feature.is-reverse {
-        grid-template-columns: 1fr; gap: 26px;
+        grid-template-columns: 1fr;
+        gap: 0;
       }
       .spotlight-feature { padding: 0 0 24px; }
       /* Quote sits on the portrait at phone widths. Stacking image, name, role,
@@ -1037,16 +1038,28 @@
           rgba(7,7,27,0.22) 50%,
           rgba(7,7,27,0.00) 64%);
       }
+      /* The quote shares the image's grid cell and aligns to its end, so it sits
+         on the bottom edge of the photo whatever height the image resolves to.
+         The previous version mirrored the media's aspect-ratio on an absolutely
+         positioned box; Chrome and iOS Safari resolved that to different heights
+         and Safari left an ~80px gap under the text. Grid placement has no such
+         ambiguity — there is no second copy of the ratio to disagree about. */
+      .spotlight-body { display: contents; }
+      /* Grid items stretch by default; without this the link's underline runs
+         the full column instead of hugging its text. */
+      .spotlight-body > .news-link { justify-self: start; }
+      .spotlight-media {
+        grid-column: 1; grid-row: 1;
+        margin-bottom: 26px;
+      }
       .spotlight-quote {
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        aspect-ratio: 1 / 1;
-        display: flex; align-items: flex-end;
-        margin: 0;
-        /* Even inset on every edge. Bottom is 20px against 24px on the sides so
-           the gap reads as equal — the last line box carries ~4px of descender
-           space below the glyphs that the side padding has no equivalent of. */
-        padding: 24px 24px 20px;
+        grid-column: 1; grid-row: 1;
+        align-self: end;
+        z-index: 2;
+        /* Matches the media's own bottom margin, so the two boxes end flush and
+           the quote lands on the image edge rather than below it. */
+        margin: 0 0 26px;
+        padding: 24px;
         font-size: 20px; line-height: 1.36;
         color: var(--color-cream);
         /* The gold rule reads as a margin note against white; over the image the
@@ -1080,9 +1093,15 @@
         gap: 32px;
         align-items: center;
       }
+      .spotlight-body { display: block; }
+      .spotlight-media {
+        grid-column: auto; grid-row: auto;
+        margin-bottom: 0;
+      }
       .spotlight-quote {
+        grid-column: auto; grid-row: auto;
+        align-self: auto;
         position: static;
-        aspect-ratio: auto;
         display: block;
         margin: 0 0 24px;
         padding: 0 0 0 18px;
