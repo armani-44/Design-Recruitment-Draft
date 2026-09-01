@@ -476,7 +476,10 @@
     .stat-num {
       font-family: var(--font-body);
       font-weight: 700;
-      font-size: clamp(48px, 6vw, 80px);
+      /* Scales with the viewport so three columns hold their row on a phone.
+         5.5vw lands at ~79px on a 1440 desktop, matching the previous 80px,
+         and drops to ~21px at 393px wide where a cell is only ~115px. */
+      font-size: clamp(17px, 5.5vw, 80px);
       line-height: 1; color: var(--warm);
       /* Fixed-width digits and no wrapping. "15,000" at 48px could not fit a
          half-width cell, so the number wrapped partway through counting and
@@ -670,21 +673,12 @@
       }
       .services-grid .svc-card { height: 460px !important; }
 
-      /* Stats — single column at every width below desktop. The 2-col grid
-         orphaned the third cell in a row of its own, and the border rules
-         still assumed four cells, so nth-child(odd) hung a divider off the
-         orphan's right edge with nothing beside it. */
-      .stats-grid {
-        grid-template-columns: 1fr !important;
-        gap: 0 !important;
-      }
-      .stat-cell {
-        padding: 40px 24px !important;
-        border-right: none !important;
-        border-bottom: none !important;
-      }
-      /* Count-agnostic: a hairline between cells, never trailing the last. */
-      .stat-cell + .stat-cell { border-top: 1px solid var(--line); }
+      /* Stats — stay on one row at every width so the section reads at a
+         glance instead of turning into three screens of scrolling. The
+         figures scale with the viewport (see .stat-num) rather than stacking.
+         Column dividers come from the cells' own inline border-right, which
+         already assumes three across, so nothing here overrides them. */
+      .stat-cell { padding: 0 16px !important; }
 
       .split-grid { grid-template-columns: 1fr 1fr !important; }
       .split-content { padding: 60px 48px !important; }
@@ -730,8 +724,9 @@
       }
       .services-grid .svc-card { height: 420px !important; }
 
-      /* Stats — single column; layout inherited from the 1024 block above. */
-      .stat-cell { padding: 36px 20px !important; }
+      /* Stats — still one row; tighter gutters and a quieter label. */
+      .stat-cell  { padding: 0 10px !important; }
+      .stat-label { font-size: 9px !important; letter-spacing: 0.1em !important; }
 
       /* Split sections — stack vertically, image on top */
       .split-grid {
@@ -820,6 +815,11 @@
     ══════════════════════════════════════════ */
     @media (max-width: 640px) {
       .hero-content { padding: 120px 20px 130px !important; }
+
+      /* Stats — hold the single row; every px of gutter counts at this width. */
+      #stats      { padding-left: 16px !important; padding-right: 16px !important; }
+      .stat-cell  { padding: 0 6px !important; }
+      .stat-label { font-size: 8px !important; letter-spacing: 0.06em !important; }
 
       /* Hero actions — stack on very small screens */
       .hero-actions { flex-direction: column; gap: 14px !important; align-items: center; }
