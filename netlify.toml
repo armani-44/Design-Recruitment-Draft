@@ -10,3 +10,16 @@
   # they're local dev utilities, not needed to publish the static site.
   PUPPETEER_SKIP_DOWNLOAD = "true"
   NPM_FLAGS = "--production"
+
+# Legacy URL redirects.
+# /about-us/ was the previous site's About URL and may still be indexed or
+# bookmarked. Forward it to the current /about/ so nobody lands on the 404.
+[[redirects]]
+  from = "/about-us"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/about-us/"
+  to = "/about/"
+  status = 301
