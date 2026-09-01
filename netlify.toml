@@ -11,15 +11,99 @@
   PUPPETEER_SKIP_DOWNLOAD = "true"
   NPM_FLAGS = "--production"
 
-# Legacy URL redirects.
-# /about-us/ was the previous site's About URL and may still be indexed or
-# bookmarked. Forward it to the current /about/ so nobody lands on the 404.
+# ---------------------------------------------------------------------------
+# Legacy URL redirects
+#
+# The previous site was WordPress. Its URLs used the WP convention of verbose
+# hyphenated slugs (/about-us/, /contact-us/) where this site uses short ones
+# (/about/, /contact/). Old links may still be indexed or bookmarked.
+#
+# /about-us/ is CONFIRMED — it was hit in the wild and returned a 404.
+# The rest are high-confidence guesses at standard WordPress slugs. A rule for
+# a path that never existed simply never fires, so the cost of a wrong guess is
+# nil. Each pair covers the URL with and without a trailing slash.
+#
+# Replace guesses with real data once Google Search Console is reporting 404s.
+# ---------------------------------------------------------------------------
+
+# About — confirmed
 [[redirects]]
   from = "/about-us"
   to = "/about/"
   status = 301
-
 [[redirects]]
   from = "/about-us/"
   to = "/about/"
+  status = 301
+
+# Contact
+[[redirects]]
+  from = "/contact-us"
+  to = "/contact/"
+  status = 301
+[[redirects]]
+  from = "/contact-us/"
+  to = "/contact/"
+  status = 301
+
+# Team pages folded into About
+[[redirects]]
+  from = "/our-team"
+  to = "/about/"
+  status = 301
+[[redirects]]
+  from = "/our-team/"
+  to = "/about/"
+  status = 301
+[[redirects]]
+  from = "/meet-the-team"
+  to = "/about/"
+  status = 301
+[[redirects]]
+  from = "/meet-the-team/"
+  to = "/about/"
+  status = 301
+
+# Blog / news
+[[redirects]]
+  from = "/blog"
+  to = "/news-and-insights/"
+  status = 301
+[[redirects]]
+  from = "/blog/"
+  to = "/news-and-insights/"
+  status = 301
+[[redirects]]
+  from = "/news"
+  to = "/news-and-insights/"
+  status = 301
+[[redirects]]
+  from = "/news/"
+  to = "/news-and-insights/"
+  status = 301
+
+# WordPress default legal-page slugs
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy.html"
+  status = 301
+[[redirects]]
+  from = "/privacy-policy/"
+  to = "/privacy.html"
+  status = 301
+[[redirects]]
+  from = "/terms-and-conditions"
+  to = "/terms.html"
+  status = 301
+[[redirects]]
+  from = "/terms-and-conditions/"
+  to = "/terms.html"
+  status = 301
+[[redirects]]
+  from = "/cookie-policy"
+  to = "/cookies.html"
+  status = 301
+[[redirects]]
+  from = "/cookie-policy/"
+  to = "/cookies.html"
   status = 301
