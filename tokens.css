@@ -346,3 +346,26 @@ html { scroll-padding-top: var(--nav-h); }
   .site-footer { padding-left: 24px; padding-right: 24px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; }
 }
+
+
+/* ── Responsive body copy ──────────────────────────────────────────────
+   Long-form copy was authored at desktop sizes and never stepped down, so on
+   a phone it ran 19-22px: roughly 40 characters a line, well under a
+   comfortable measure, and oversized against the 16-17px the inner pages
+   already use. Lives here rather than per-page so every template follows.
+
+   Body and lead roles only. Pull quotes and hero leads keep their display
+   sizes on purpose — .spotlight-quote, .ar-quote, .sp-pullquote, .sp-intro
+   and .hero-sub are display type, and shrinking them would flatten the
+   editorial hierarchy rather than improve legibility.
+   ------------------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .sec-intro,
+  .ai-intro p.lead,
+  .cta-head p { font-size: 18px !important; }
+}
+@media (max-width: 768px) {
+  .sec-intro,
+  .ai-intro p.lead,
+  .cta-head p { font-size: 17px !important; }
+}
