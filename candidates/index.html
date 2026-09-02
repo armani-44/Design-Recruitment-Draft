@@ -951,6 +951,11 @@
         align-items: stretch;
       }
       .cv-image { aspect-ratio: auto; height: 100%; }
+      /* The column is far narrower than the photo here, so cover crops ~170px
+         off its width. Centred, that sliced through the seated man — his face
+         sits at 87% across the source. Panning the crop hard right brings him
+         fully into frame, as central as this source allows. */
+      .cv-image img { object-position: 100% center; }
       /* Title holds one line with no break. The column is narrow here, so the
          display size derives from it: in Canela at this tracking the string
          measures 12.12x its own font-size, and the divisor leaves a few
