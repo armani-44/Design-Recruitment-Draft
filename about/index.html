@@ -767,8 +767,8 @@
       background: var(--color-white);
       border: 1px solid rgba(7,7,27,0.08);
       border-radius: 18px;
-      padding: 36px 36px 40px; min-height: 180px;
-      display: flex; flex-direction: column; gap: 18px;
+      padding: 26px 30px 28px;
+      display: flex; flex-direction: column; gap: 12px;
       box-shadow: 0 1px 2px rgba(7,7,27,0.03);
       will-change: transform;
       transition:
@@ -786,14 +786,8 @@
         0 24px 50px rgba(7,7,27,0.10),
         0 0 0 1px rgba(217,188,128,0.20);
     }
-    .why-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; }
+    .why-card-top { display: flex; align-items: baseline; gap: 18px; }
     .why-num { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.22em; color: var(--color-gold); }
-    .why-rule {
-      display: block; height: 1px; width: 36px;
-      background: rgba(217,188,128,0.6);
-      transition: background 0.85s var(--ease-out-expo), width 0.95s var(--ease-out-expo);
-    }
-    .why-card:hover .why-rule { background: var(--color-gold); width: 56px; }
     .why-card p {
       font-size: 17px; font-weight: 300; line-height: 1.55;
       color: var(--midnight); letter-spacing: -0.005em;
@@ -1014,7 +1008,9 @@
       .values-track { grid-template-columns: repeat(5, 1fr); gap: 14px; }
       .value-cell p { font-size: 12.5px; }
       .contacts-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
+      /* The four cards stay a 2x2 grid on tablet — stacked, they ran the
+         section far longer than its content warranted. */
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
       .coverage-grid { grid-template-columns: 1fr; gap: 64px; }
       .coverage-globe { margin: 0 auto; max-width: 440px; }
       .ta-card { flex: 0 0 calc((100% - 24px) / 2); }
@@ -1027,6 +1023,9 @@
       #about-hero { min-height: 680px; }
       #about-hero .hero-content { padding: 130px 24px 140px; }
       #about-hero .side-rule { display: none; }
+      /* 768-wide iPads keep the 2x2; only the card box tightens here. */
+      .why-grid { gap: 14px; }
+      .why-card { padding: 22px 24px 24px; }
       .team-grid { margin-top: 72px; }
       .team-name { font-size: 26px; }
       #how-mission { padding: 90px 24px; }
@@ -1054,6 +1053,8 @@
     }
     @media (max-width: 640px) {
       #about-hero .hero-content { padding: 120px 20px 130px; }
+      /* Below tablet width the 2x2 leaves the copy too narrow — stack it. */
+      .why-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1368,19 +1369,19 @@
 
       <div class="why-grid">
         <div class="why-card fade-up d1">
-          <div class="why-card-top"><span class="why-num">01</span><span class="why-rule"></span></div>
+          <div class="why-card-top"><span class="why-num">01</span></div>
           <p>Access to a highly targeted candidate pool, including active and passive talent.</p>
         </div>
         <div class="why-card fade-up d2">
-          <div class="why-card-top"><span class="why-num">02</span><span class="why-rule"></span></div>
+          <div class="why-card-top"><span class="why-num">02</span></div>
           <p>Industry-specific expertise that ensures only relevant candidates are presented.</p>
         </div>
         <div class="why-card fade-up d3">
-          <div class="why-card-top"><span class="why-num">03</span><span class="why-rule"></span></div>
+          <div class="why-card-top"><span class="why-num">03</span></div>
           <p>A bespoke approach for every client, aligning with your business goals and culture.</p>
         </div>
         <div class="why-card fade-up d4">
-          <div class="why-card-top"><span class="why-num">04</span><span class="why-rule"></span></div>
+          <div class="why-card-top"><span class="why-num">04</span></div>
           <p>A commitment to long-term partnerships, not just one-off placements.</p>
         </div>
       </div>
