@@ -468,6 +468,10 @@
 
     /* Two-pane layout */
     .jobs-grid {
+      /* The list and the description swap in this slot below 1024px. Scroll
+         anchoring would treat that as content shifting and re-aim the
+         viewport, fighting the saved position restored on the way back. */
+      overflow-anchor: none;
       display: grid;
       grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
       gap: 0;
@@ -924,13 +928,19 @@
       .jobs-detail-pane { max-height: none; }
       .detail-body { padding: 36px 32px 48px; }
       .cv-grid { grid-template-columns: 1fr; gap: 36px; }
+
+      /* Single pane from tablet down: the list and the description swap places,
+         so a tap has an unmistakable result. Stacked, the description was
+         written into a pane below the fold and nothing on screen moved — the
+         tap read as if nothing had happened. The search row goes with the
+         list, since there is nothing to search from inside a description. */
+      body.candidates-detail-open .jobs-list-pane,
+      body.candidates-detail-open .search-row { display: none; }
+      body:not(.candidates-detail-open) .jobs-detail-pane { display: none; }
+      body.candidates-detail-open .detail-back { display: flex; align-items: center; }
     }
 
     @media (max-width: 768px) {
-      /* Mobile: list <-> detail single-pane swap */
-      body.candidates-detail-open .jobs-list-pane { display: none; }
-      body:not(.candidates-detail-open) .jobs-detail-pane { display: none; }
-      body.candidates-detail-open .detail-back { display: flex; align-items: center; }
       .detail-body { padding: 28px 24px 44px; }
       .search-row { padding: 16px 0 20px; }
       .search-field { padding: 0 18px 0 48px; }
@@ -1998,7 +2008,55 @@
     const detailPane = document.querySelector('.jobs-detail-pane');
     const listPane   = document.querySelector('.jobs-list-pane');
 
-    function selectCard(card, options = { openMobileDetail: false }) {
+    /* Below this width the list and the description occupy the same slot and
+       swap; above it they sit side by side and nothing needs to move. Must
+       match the CSS breakpoint for the swap. */
+    const singlePane = window.matchMedia('(max-width: 1024px)');
+
+    /* Where the reader was in the list when they opened a description. Restored
+       on the way back so they pick up at the role they tapped rather than at
+       the top of the list. */
+    let returnScrollY = null;
+    let returnPaneScroll = 0;
+
+    /* Jump, never glide. The page sets html { scroll-behavior: smooth }, which
+       also governs scrollTo's default, so both of these positions were being
+       animated to — and on the way back the animation was still running when
+       the next one started, landing hundreds of pixels off. Suspending the
+       property for the call is the portable way to force an instant jump. */
+    function jumpTo(y) {
+      const root = document.documentElement;
+      const held = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      window.scrollTo(0, Math.max(0, y));
+      root.style.scrollBehavior = held;
+    }
+
+    function openDetail() {
+      if (document.body.classList.contains('candidates-detail-open')) return;
+      returnScrollY = window.scrollY;
+      returnPaneScroll = listPane ? listPane.scrollTop : 0;
+      document.body.classList.add('candidates-detail-open');
+      jumpTo(detailPane.getBoundingClientRect().top + window.scrollY - 88);
+    }
+
+    function closeDetail() {
+      if (!document.body.classList.contains('candidates-detail-open')) return;
+      document.body.classList.remove('candidates-detail-open');
+      if (listPane) listPane.scrollTop = returnPaneScroll;
+      const y = returnScrollY;
+      returnScrollY = null;
+      if (y === null) return;
+      /* Flush the swapped layout before scrolling, or the page is still the
+         height of the description and the target gets clamped. */
+      void document.body.offsetHeight;
+      jumpTo(y);
+      /* Scroll anchoring can nudge the position again once the restored list
+         has laid out above the viewport, so re-assert on the next frame. */
+      requestAnimationFrame(() => jumpTo(y));
+    }
+
+    function selectCard(card, options = { openDetailView: false }) {
       cards.forEach(c => c.setAttribute('aria-selected', c === card ? 'true' : 'false'));
 
       detailEl.cat.textContent       = card.dataset.cat;
@@ -2028,26 +2086,30 @@
       // Reset detail scroll on selection
       if (detailPane) detailPane.scrollTop = 0;
 
-      // Mobile: enter detail view
-      if (options.openMobileDetail && window.matchMedia('(max-width: 768px)').matches) {
-        document.body.classList.add('candidates-detail-open');
-        window.scrollTo({ top: detailPane.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-      }
+      // Tablet and mobile: the description takes over the pane.
+      if (options.openDetailView && singlePane.matches) openDetail();
     }
 
     cards.forEach(card => {
-      card.addEventListener('click', () => selectCard(card, { openMobileDetail: true }));
+      card.addEventListener('click', () => selectCard(card, { openDetailView: true }));
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          selectCard(card, { openMobileDetail: true });
+          selectCard(card, { openDetailView: true });
         }
       });
     });
 
-    detailBack.addEventListener('click', () => {
-      document.body.classList.remove('candidates-detail-open');
-      window.scrollTo({ top: listPane.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+    detailBack.addEventListener('click', closeDetail);
+
+    /* Widening to the two-pane layout drops the detail view — both panes are
+       on screen there, so there is nothing to go back from and no saved
+       position worth keeping. */
+    singlePane.addEventListener('change', (e) => {
+      if (!e.matches) {
+        document.body.classList.remove('candidates-detail-open');
+        returnScrollY = null;
+      }
     });
 
     // Parse a salary token into a number. Handles £/$/€, commas, and k/K suffix.
