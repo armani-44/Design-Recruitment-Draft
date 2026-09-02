@@ -940,6 +940,32 @@
       body.candidates-detail-open .detail-back { display: flex; align-items: center; }
     }
 
+    /* Tablet — copy and image side by side rather than stacked. Full width,
+       the photo stood taller than everything above it and dominated the
+       section; in a column it takes the height of the copy beside it instead
+       of its own aspect ratio, so the two end flush. */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .cv-grid {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+        gap: 28px;
+        align-items: stretch;
+      }
+      .cv-image { aspect-ratio: auto; height: 100%; }
+      /* Title holds one line with no break. The column is narrow here, so the
+         display size derives from it: in Canela at this tracking the string
+         measures 12.12x its own font-size, and the divisor leaves a few
+         percent of slack. */
+      .cv-title {
+        font-size: min(clamp(32px, 4.4vw, 52px), calc((54vw - 17px) / 12.7));
+        white-space: nowrap;
+        margin-bottom: 24px;
+      }
+      .cv-title br { display: none; }
+      .cv-body { font-size: 15.5px; line-height: 1.8; }
+      .cv-body + .cv-body { margin-top: 18px; }
+      .cv-actions { margin-top: 28px; }
+    }
+
     @media (max-width: 768px) {
       .detail-body { padding: 28px 24px 44px; }
       .search-row { padding: 16px 0 20px; }
@@ -1793,7 +1819,8 @@
         <div class="cv-left">
           <div class="section-tag fade-up">CV &amp; Career Services</div>
           <h2 id="cv-services-title" class="cv-title fade-up d1">
-            Presented at your<br><span class="accent">absolute best.</span>
+            Presented at your<br>
+            <span class="accent">absolute best.</span>
           </h2>
           <p class="cv-body fade-up d1">
             We offer a dedicated CV and career support service designed to help candidates present themselves at their absolute best within the design industry.
