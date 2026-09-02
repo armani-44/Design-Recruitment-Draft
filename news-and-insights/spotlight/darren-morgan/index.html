@@ -95,7 +95,7 @@
       justify-self: start;
     }
     #nav-logo:hover { opacity: 0.78; }
-    #nav-logo img { height: 28px; display: block; }
+    #nav-logo img { height: 28px; width: auto; max-width: none; display: block; }
 
     .nav-inline {
       display: flex; align-items: center; justify-content: center; gap: 38px;
@@ -198,17 +198,44 @@
     #nav-wrap.open .nd-link:nth-child(8) { transition-delay: 0.34s; }
     .nd-link:hover { color: var(--color-gold, #D9BC80); }
 
-    @media (max-width: 1024px) {
+    /* Tablet — tighten link gaps.
+       Runs to 1180px, not 1024px: with seven inline links plus the Contact
+       pill the untightened bar overflowed its own width between 1025 and
+       1120, pushing the pill off the right edge. */
+    @media (max-width: 1180px) {
       #nav-bar { gap: 24px; padding: 18px 32px; }
       .nav-inline { gap: 24px; }
       .nav-inline a { font-size: 10.5px; letter-spacing: 0.12em; }
     }
-    @media (max-width: 860px) {
-      #nav-bar { grid-template-columns: auto 1fr auto; padding: 14px 20px; gap: 12px; }
+
+    /* Mobile — swap inline links for burger.
+       Switches at 940px, not 860px: even tightened, the inline links plus the
+       Contact pill could not fit between 861 and 933. iPad Safari requests
+       the desktop site and lays out around 980px, so it landed in that gap
+       and clipped the Contact button. */
+    @media (max-width: 940px) {
+      /* Three even rails: logo left, burger centred, Contact right. Contact
+         was previously buried inside the burger menu — it is the primary
+         action on the site, so it earns a permanent slot at this width.
+         .nav-right becomes display:contents so its two children join the nav
+         grid directly, and `order` places them either side of the centre
+         rather than following DOM order. */
+      #nav-bar { grid-template-columns: 1fr auto 1fr; padding: 14px 20px; gap: 12px; }
       .nav-inline { display: none; }
-      .nav-contact-btn { display: none; }
-      #burger { display: inline-flex; }
+      .nav-right { display: contents; }
+      #nav-logo { order: 1; justify-self: start; }
+      #burger { order: 2; display: inline-flex; justify-self: center; }
+      .nav-contact-btn {
+        order: 3; justify-self: end; display: inline-flex;
+        padding: 9px 18px; font-size: 10px; letter-spacing: 0.12em;
+      }
       #nav-logo img { height: 24px; }
+    }
+
+    /* Narrow phones — tighten the Contact pill so the three rails hold at 320px. */
+    @media (max-width: 640px) {
+      #nav-bar { padding: 12px 16px; }
+      .nav-contact-btn { padding: 8px 14px; font-size: 9.5px; letter-spacing: 0.1em; }
     }
 
     /* ── Buttons ── */
@@ -696,7 +723,7 @@
       <a href="/candidates/"  class="nd-link">For Candidates</a>
       <a href="/cv-career-services/" class="nd-link">Career &amp; CV Services</a>
       <a href="/clients/"     class="nd-link">For Clients</a>
-      <a href="/who-we-recruit-for/" class="nd-link">Who we recruit for</a>
+      <a href="/who-we-recruit-for/" class="nd-link">Who We Recruit For</a>
       <a href="/news-and-insights/" class="nd-link">News &amp; Insights</a>
       <a href="/contact/"     class="nd-link">Contact Us</a>
     </nav>
