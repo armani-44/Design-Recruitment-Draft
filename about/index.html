@@ -123,7 +123,7 @@
       justify-self: start;
     }
     #nav-logo:hover { opacity: 0.78; }
-    #nav-logo img { height: 28px; display: block; }
+    #nav-logo img { height: 28px; width: auto; max-width: none; display: block; }
 
     .nav-inline {
       display: flex; align-items: center; justify-content: center; gap: 38px;
@@ -226,17 +226,44 @@
     #nav-wrap.open .nd-link:nth-child(8) { transition-delay: 0.34s; }
     .nd-link:hover { color: var(--color-gold, #D9BC80); }
 
-    @media (max-width: 1024px) {
+    /* Tablet — tighten link gaps.
+       Runs to 1180px, not 1024px: with seven inline links plus the Contact
+       pill the untightened bar overflowed its own width between 1025 and
+       1120, pushing the pill off the right edge. */
+    @media (max-width: 1180px) {
       #nav-bar { gap: 24px; padding: 18px 32px; }
       .nav-inline { gap: 24px; }
       .nav-inline a { font-size: 10.5px; letter-spacing: 0.12em; }
     }
-    @media (max-width: 860px) {
-      #nav-bar { grid-template-columns: auto 1fr auto; padding: 14px 20px; gap: 12px; }
+
+    /* Mobile — swap inline links for burger.
+       Switches at 940px, not 860px: even tightened, the inline links plus the
+       Contact pill could not fit between 861 and 933. iPad Safari requests
+       the desktop site and lays out around 980px, so it landed in that gap
+       and clipped the Contact button. */
+    @media (max-width: 940px) {
+      /* Three even rails: logo left, burger centred, Contact right. Contact
+         was previously buried inside the burger menu — it is the primary
+         action on the site, so it earns a permanent slot at this width.
+         .nav-right becomes display:contents so its two children join the nav
+         grid directly, and `order` places them either side of the centre
+         rather than following DOM order. */
+      #nav-bar { grid-template-columns: 1fr auto 1fr; padding: 14px 20px; gap: 12px; }
       .nav-inline { display: none; }
-      .nav-contact-btn { display: none; }
-      #burger { display: inline-flex; }
+      .nav-right { display: contents; }
+      #nav-logo { order: 1; justify-self: start; }
+      #burger { order: 2; display: inline-flex; justify-self: center; }
+      .nav-contact-btn {
+        order: 3; justify-self: end; display: inline-flex;
+        padding: 9px 18px; font-size: 10px; letter-spacing: 0.12em;
+      }
       #nav-logo img { height: 24px; }
+    }
+
+    /* Narrow phones — tighten the Contact pill so the three rails hold at 320px. */
+    @media (max-width: 640px) {
+      #nav-bar { padding: 12px 16px; }
+      .nav-contact-btn { padding: 8px 14px; font-size: 9.5px; letter-spacing: 0.1em; }
     }
 
     /* ── Section tag — pill, high-contrast for accessibility ── */
@@ -292,9 +319,9 @@
        SECTION 1 — HERO
        ───────────────────────────────────────────────────────────── */
     #about-hero {
-      position: relative; height: 100vh; min-height: 720px;
+      position: relative; height: 100vh; min-height: 680px;
       overflow: hidden;
-      display: flex; align-items: flex-end; justify-content: center;
+      display: flex; align-items: flex-start; justify-content: center;
     }
     #about-hero .hero-bg {
       position: absolute; inset: 0; z-index: 0;
@@ -320,7 +347,7 @@
     #about-hero .hero-content {
       position: relative; z-index: 3;
       max-width: 1320px; width: 100%;
-      padding: 160px 56px 120px;
+      padding: 150px 56px 160px;
       text-align: center;
       display: flex; flex-direction: column; align-items: center;
     }
@@ -740,8 +767,8 @@
       background: var(--color-white);
       border: 1px solid rgba(7,7,27,0.08);
       border-radius: 18px;
-      padding: 36px 36px 40px; min-height: 180px;
-      display: flex; flex-direction: column; gap: 18px;
+      padding: 26px 30px 28px;
+      display: flex; flex-direction: column; gap: 12px;
       box-shadow: 0 1px 2px rgba(7,7,27,0.03);
       will-change: transform;
       transition:
@@ -759,14 +786,8 @@
         0 24px 50px rgba(7,7,27,0.10),
         0 0 0 1px rgba(217,188,128,0.20);
     }
-    .why-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; }
+    .why-card-top { display: flex; align-items: baseline; gap: 18px; }
     .why-num { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.22em; color: var(--color-gold); }
-    .why-rule {
-      display: block; height: 1px; width: 36px;
-      background: rgba(217,188,128,0.6);
-      transition: background 0.85s var(--ease-out-expo), width 0.95s var(--ease-out-expo);
-    }
-    .why-card:hover .why-rule { background: var(--color-gold); width: 56px; }
     .why-card p {
       font-size: 17px; font-weight: 300; line-height: 1.55;
       color: var(--midnight); letter-spacing: -0.005em;
@@ -825,7 +846,8 @@
     }
     .ta-track {
       display: flex; gap: 24px;
-      transition: transform 0.65s var(--ease-out-expo);
+      transition: transform 0.65s var(--ease-out-expo),
+                  height 0.65s var(--ease-out-expo);
       will-change: transform;
     }
     .ta-card {
@@ -987,19 +1009,23 @@
       .values-track { grid-template-columns: repeat(5, 1fr); gap: 14px; }
       .value-cell p { font-size: 12.5px; }
       .contacts-grid { grid-template-columns: 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
+      /* The four cards stay a 2x2 grid on tablet — stacked, they ran the
+         section far longer than its content warranted. */
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
       .coverage-grid { grid-template-columns: 1fr; gap: 64px; }
       .coverage-globe { margin: 0 auto; max-width: 440px; }
-      .ta-card { flex: 0 0 calc((100% - 24px) / 2); }
     }
     @media (max-width: 768px) {
       #about-intro, #services, #values, #coverage, #why, #testimonials-about, #cta {
         padding-top: 90px !important; padding-bottom: 90px !important;
         padding-left: 24px !important; padding-right: 24px !important;
       }
-      #about-hero { min-height: 580px; }
-      #about-hero .hero-content { padding: 130px 24px 96px; }
+      #about-hero { min-height: 680px; }
+      #about-hero .hero-content { padding: 130px 24px 140px; }
       #about-hero .side-rule { display: none; }
+      /* 768-wide iPads keep the 2x2; only the card box tightens here. */
+      .why-grid { gap: 14px; }
+      .why-card { padding: 22px 24px 24px; }
       .team-grid { margin-top: 72px; }
       .team-name { font-size: 26px; }
       #how-mission { padding: 90px 24px; }
@@ -1010,9 +1036,50 @@
       .coverage-globe { max-width: 320px; }
       .ta-card { flex: 0 0 100%; padding: 22px 22px 20px; }
       .ta-arrow { width: 40px; height: 40px; }
-      .ta-card-text { font-size: 14.5px; }
+      /* With the full row width back, 16px reads better here than the 14.5px
+         the squeezed column needed, and still lands shorter. */
+      .ta-card-text { font-size: 16px; line-height: 1.5; margin-bottom: 16px; }
       .contact-card { padding: 32px 28px; }
       .cta-head h2 { font-size: var(--fs-display-md); }
+    }
+
+    /* ── Hero — matched to the homepage banner ──
+       Same height rail as the homepage: full viewport with a 680px floor, the
+       block top-aligned inside it. On a tall portrait tablet a 100vh hero left
+       roughly half the section empty beneath the copy, so between 700 and
+       1180px it takes a share of the viewport and centres the block instead,
+       putting the next section above the fold. */
+    @media (min-width: 700px) and (max-width: 1180px) {
+      #about-hero { height: 78vh; min-height: 580px; align-items: center; }
+      #about-hero .hero-content { padding: 64px 40px 0; }
+    }
+    @media (max-width: 640px) {
+      #about-hero .hero-content { padding: 120px 20px 130px; }
+      /* Below tablet width the 2x2 leaves the copy too narrow — stack it. */
+      .why-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Testimonials — tablet and mobile ──
+       The arrows drop below the track from 1180px down. Sitting inline they
+       took 132px out of the row (two 46px buttons plus the 20px gaps); at
+       these widths that is most of a column, so the copy was left in a narrow
+       gutter and the cards ran enormously tall. Below the track each card
+       gets that width back. Placed last in the sheet so it lands after the
+       768px block, hence the min-width guards on the tablet-only rules. */
+    @media (max-width: 1180px) {
+      .ta-carousel { flex-wrap: wrap; justify-content: center; gap: 16px; }
+      /* pan-y keeps vertical page scrolling native while the horizontal axis
+         is handed to the swipe handler. */
+      .ta-viewport { flex: 0 0 100%; order: 0; touch-action: pan-y; }
+      .ta-arrow { order: 1; }
+      .ta-stars { margin-bottom: 14px; }
+      .ta-card-tag { margin-bottom: 13px; }
+    }
+    /* Two columns held to 1180px — three left each card ~295px wide and
+       ~730px tall, worse than at the 1024px breakpoint below it. */
+    @media (min-width: 769px) and (max-width: 1180px) {
+      .ta-card { flex: 0 0 calc((100% - 24px) / 2); }
+      .ta-card-text { font-size: 15px; line-height: 1.5; margin-bottom: 18px; }
     }
   </style>
 </head>
@@ -1056,7 +1123,7 @@
       <a href="/candidates/"  class="nd-link">For Candidates</a>
       <a href="/cv-career-services/" class="nd-link">Career &amp; CV Services</a>
       <a href="/clients/"     class="nd-link">For Clients</a>
-      <a href="/who-we-recruit-for/" class="nd-link">Who we recruit for</a>
+      <a href="/who-we-recruit-for/" class="nd-link">Who We Recruit For</a>
       <a href="/news-and-insights/" class="nd-link">News &amp; Insights</a>
       <a href="/contact/"     class="nd-link">Contact Us</a>
     </nav>
@@ -1327,19 +1394,19 @@
 
       <div class="why-grid">
         <div class="why-card fade-up d1">
-          <div class="why-card-top"><span class="why-num">01</span><span class="why-rule"></span></div>
+          <div class="why-card-top"><span class="why-num">01</span></div>
           <p>Access to a highly targeted candidate pool, including active and passive talent.</p>
         </div>
         <div class="why-card fade-up d2">
-          <div class="why-card-top"><span class="why-num">02</span><span class="why-rule"></span></div>
+          <div class="why-card-top"><span class="why-num">02</span></div>
           <p>Industry-specific expertise that ensures only relevant candidates are presented.</p>
         </div>
         <div class="why-card fade-up d3">
-          <div class="why-card-top"><span class="why-num">03</span><span class="why-rule"></span></div>
+          <div class="why-card-top"><span class="why-num">03</span></div>
           <p>A bespoke approach for every client, aligning with your business goals and culture.</p>
         </div>
         <div class="why-card fade-up d4">
-          <div class="why-card-top"><span class="why-num">04</span><span class="why-rule"></span></div>
+          <div class="why-card-top"><span class="why-num">04</span></div>
           <p>A commitment to long-term partnerships, not just one-off placements.</p>
         </div>
       </div>
@@ -1785,50 +1852,150 @@
     });
   })();
 
-  /* Testimonials carousel — translates the track by N card-widths each press,
-     where N matches the number of visible cards at the current breakpoint. */
+  /* Testimonials carousel — translates the track by one card per press or
+     swipe, and sizes the track to the tallest card currently on screen. */
   (function() {
     const track = document.getElementById('ta-track');
-    const prev  = document.getElementById('ta-prev');
-    const next  = document.getElementById('ta-next');
-    if (!track || !prev || !next) return;
+    if (!track) return;
+    const viewport = track.parentElement;
+    const prev = document.getElementById('ta-prev');
+    const next = document.getElementById('ta-next');
+    if (!viewport || !prev || !next) return;
 
-    const cards = track.querySelectorAll('.ta-card');
+    const cards = Array.from(track.querySelectorAll('.ta-card'));
     const total = cards.length;
     const gap = 24;
     let index = 0;
+    let step = 0;        /* card width + gap */
+    let natural = [];    /* per-card unstretched height, one entry per card */
 
+    /* Must match the CSS breakpoints for .ta-card's flex-basis, or the arrows
+       step by more cards than are on screen. */
     function visibleCount() {
       const w = window.innerWidth;
-      if (w < 768) return 1;
-      if (w < 1024) return 2;
+      if (w <= 768) return 1;
+      if (w <= 1180) return 2;
       return 3;
     }
 
-    function maxIndex() {
-      return Math.max(0, total - visibleCount());
+    function maxIndex() { return Math.max(0, total - visibleCount()); }
+
+    /* Track height follows the visible cards on tablet and mobile only. */
+    function compact() { return window.innerWidth <= 1180; }
+
+    /* Natural heights are measured once per layout, never per slide. Measuring
+       inside the slide handler meant setting height:auto first, and a
+       transition out of auto does not interpolate — the track snapped to the
+       height of the tallest card in the whole strip for a frame before easing
+       back. That snap was the jump. */
+    function measure() {
+      step = cards[0].getBoundingClientRect().width + gap;
+      if (!compact()) { natural = []; return; }
+      const held = track.style.height;
+      track.style.transition = 'none';
+      track.style.height = 'auto';
+      track.style.alignItems = 'flex-start';
+      natural = cards.map(c => c.getBoundingClientRect().height);
+      track.style.alignItems = '';
+      track.style.height = held;
+      void track.offsetHeight;
+      track.style.transition = '';
+    }
+
+    function heightAt(i) {
+      if (!natural.length) return 0;
+      const n = visibleCount();
+      let h = 0;
+      for (let k = i; k < Math.min(i + n, total); k++) h = Math.max(h, natural[k]);
+      return h;
     }
 
     function update() {
       index = Math.max(0, Math.min(maxIndex(), index));
-      const cardW = cards[0].getBoundingClientRect().width;
-      const offset = index * (cardW + gap);
-      track.style.transform = 'translateX(-' + offset + 'px)';
+      track.style.transform = 'translateX(-' + (index * step) + 'px)';
       prev.disabled = index === 0;
       next.disabled = index >= maxIndex();
+      track.style.height = compact() ? heightAt(index) + 'px' : '';
     }
 
     prev.addEventListener('click', () => { index -= 1; update(); });
     next.addEventListener('click', () => { index += 1; update(); });
 
+    /* ── Swipe ──
+       Touch and pen only; a mouse has the arrows. The track follows the finger
+       and the height eases toward the neighbouring card as it goes, so the
+       release lands on a height it is already most of the way to. */
+    let dragging = false, axis = null, startX = 0, startY = 0, moved = 0, base = 0;
+
+    function onDown(e) {
+      if (e.pointerType === 'mouse' || maxIndex() === 0) return;
+      dragging = true; axis = null; moved = 0;
+      startX = e.clientX; startY = e.clientY;
+      base = index * step;
+      track.style.transition = 'none';
+    }
+
+    function onMove(e) {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      if (!axis) {
+        if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+        /* Vertical wins: let the page scroll and abandon the drag. */
+        if (Math.abs(dy) >= Math.abs(dx)) {
+          dragging = false;
+          track.style.transition = '';
+          return;
+        }
+        axis = 'x';
+        viewport.setPointerCapture(e.pointerId);
+      }
+      moved = dx;
+
+      let offset = base - dx;
+      const limit = maxIndex() * step;
+      if (offset < 0) offset *= 0.35;                        /* resist past the start */
+      else if (offset > limit) offset = limit + (offset - limit) * 0.35;
+      track.style.transform = 'translateX(-' + offset + 'px)';
+
+      if (compact() && natural.length && step > 0) {
+        const towards = Math.max(0, Math.min(maxIndex(), index + (dx < 0 ? 1 : -1)));
+        const t = Math.min(1, Math.abs(dx) / step);
+        track.style.height = (heightAt(index) + (heightAt(towards) - heightAt(index)) * t) + 'px';
+      }
+      e.preventDefault();
+    }
+
+    function onUp() {
+      if (!dragging) return;
+      dragging = false;
+      track.style.transition = '';
+      if (axis === 'x') {
+        const threshold = Math.max(40, step * 0.18);
+        if (moved <= -threshold) index += 1;
+        else if (moved >= threshold) index -= 1;
+      }
+      axis = null; moved = 0;
+      update();
+    }
+
+    viewport.addEventListener('pointerdown', onDown);
+    viewport.addEventListener('pointermove', onMove, { passive: false });
+    viewport.addEventListener('pointerup', onUp);
+    viewport.addEventListener('pointercancel', onUp);
+
     let resizeRaf = 0;
     window.addEventListener('resize', () => {
       cancelAnimationFrame(resizeRaf);
-      resizeRaf = requestAnimationFrame(update);
+      resizeRaf = requestAnimationFrame(() => { measure(); update(); });
     });
 
-    /* Initial layout once cards have been measured. */
-    requestAnimationFrame(update);
+    /* Initial layout once cards have been measured, and again once the display
+       and body faces have loaded, since both change the card heights. */
+    requestAnimationFrame(() => { measure(); update(); });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => { measure(); update(); });
+    }
   })();
 
   /* Fade-up Intersection Observer */
