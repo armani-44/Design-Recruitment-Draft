@@ -583,7 +583,8 @@
        ───────────────────────────────────────────────────────────── */
     #spotlight {
       background: #ffffff;
-      padding: 140px 56px 160px;
+      /* Equal top and bottom — see homepage note. */
+      padding: 100px 56px;
       position: relative;
       overflow: hidden;
     }
@@ -594,10 +595,15 @@
       display: grid; gap: 56px;
       grid-template-columns: 5fr 7fr;
       align-items: end;
-      margin-bottom: 100px;
+      /* Was 100px — see the homepage note; the heading floated between the
+         eyebrow and the portrait. */
+      margin-bottom: 44px;
     }
+    /* Eyebrow's inline 22px and the heading's 22px stack rather than collapse,
+       because .section-tag is inline-flex. Zero the heading's side. */
+    .spotlight-head .section-tag { margin-bottom: 16px !important; }
     .spotlight-head h2 {
-      margin-top: 22px;
+      margin-top: 0;
       font-family: var(--font-display); font-weight: 300;
       font-size: var(--fs-display-lg); line-height: 1.04;
       color: var(--midnight); letter-spacing: -0.02em;
@@ -666,13 +672,19 @@
       margin-bottom: 18px;
     }
     .spotlight-name {
-      font-family: var(--font-display); font-weight: 300;
-      font-size: clamp(32px, 3.6vw, 46px);
-      line-height: 1.04; letter-spacing: -0.02em;
+      /* Black roman followed by gold italic is the section-heading signature.
+         The name carried the same device at nearly the same size, so the two
+         read as peers rather than heading and byline. The name now sits at
+         roughly 60% of the heading and is uniform in weight, style and colour —
+         gold stays a heading accent, and the name reads as a credit. */
+      font-family: var(--font-display); font-weight: 400;
+      font-style: italic;
+      font-size: clamp(23px, 2.2vw, 30px);
+      line-height: 1.1; letter-spacing: -0.005em;
       color: var(--midnight);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .spotlight-name .accent { font-style: italic; color: var(--color-gold); }
+    .spotlight-name .accent { font-style: italic; color: inherit; }
     .spotlight-role {
       font-size: 13px; font-weight: 500;
       letter-spacing: 0.16em; text-transform: uppercase;
@@ -973,22 +985,34 @@
        ───────────────────────────────────────────────────────────── */
     @media (max-width: 1024px) {
       #news { padding: 100px 40px; }
-      #spotlight { padding: 100px 40px; }
+      #spotlight { padding: 64px 40px; }
       #linkedin { padding: 100px 40px; }
       #cta-band { padding: 100px 40px; }
       .news-head, .spotlight-head, .linkedin-head { grid-template-columns: 1fr; gap: 28px; }
+      .spotlight-head { margin-bottom: 40px; }
       .news-featured { grid-template-columns: 1fr; gap: 32px; }
       .news-grid { grid-template-columns: repeat(2, 1fr); }
+      /* Matches the homepage Spotlight: two columns on tablet, because
+         stacking left the right half empty and ran the section to 1.6x the
+         viewport — the square image was as tall as the column was wide. */
       .spotlight-feature, .spotlight-feature.is-reverse {
-        grid-template-columns: 1fr; gap: 40px;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 36px;
+        align-items: center;
       }
       .spotlight-feature.is-reverse .spotlight-media { order: 0; }
       .spotlight-feature.is-reverse .spotlight-body { order: 0; }
+      /* Summary paragraph goes; the quote is the designer's own voice and the
+         feature page carries the summary in full. */
+      .spotlight-body > p { display: none; }
+      .spotlight-role  { margin-bottom: 18px; }
+      .spotlight-quote { margin-bottom: 24px; }
+      .spotlight-nav   { padding-top: 20px; }
       .linkedin-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       #news { padding: 80px 24px; }
-      #spotlight { padding: 80px 24px; }
+      #spotlight { padding: 56px 24px; }
       #linkedin { padding: 80px 24px; }
       #cta-band { padding: 80px 24px; }
       #hero { min-height: 580px; }
@@ -997,11 +1021,104 @@
       .news-grid { grid-template-columns: 1fr; gap: 36px; }
       .linkedin-grid { grid-template-columns: 1fr; }
       .news-featured { padding-bottom: 56px; margin-bottom: 64px; }
-      .spotlight-feature { padding: 56px 0; }
-      .spotlight-quote { font-size: 19px; padding-left: 18px; }
+      .spotlight-feature, .spotlight-feature.is-reverse {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .spotlight-feature { padding: 0 0 24px; }
+      /* Quote sits on the portrait at phone widths. Stacking image, name, role,
+         quote, link and nav made the column busy; lifting the quote onto the
+         image removes a block from the stack and gives the photo something to
+         do. The box mirrors the media's own 1/1 aspect ratio, so it aligns to
+         the bottom of the image without hard-coding a height that would drift
+         if the image ratio ever changed. */
+      .spotlight-feature { position: relative; }
+      .spotlight-media::after {
+        /* Stops sit close to the text rather than washing the top half of the
+           frame — a tall gradient with a short block of type at its foot is what
+           made the quote read as floating in the dark. */
+        background: linear-gradient(to top,
+          rgba(7,7,27,0.94) 0%,
+          rgba(7,7,27,0.88) 16%,
+          rgba(7,7,27,0.62) 34%,
+          rgba(7,7,27,0.22) 50%,
+          rgba(7,7,27,0.00) 64%);
+      }
+      /* The quote shares the image's grid cell and aligns to its end, so it sits
+         on the bottom edge of the photo whatever height the image resolves to.
+         The previous version mirrored the media's aspect-ratio on an absolutely
+         positioned box; Chrome and iOS Safari resolved that to different heights
+         and Safari left an ~80px gap under the text. Grid placement has no such
+         ambiguity — there is no second copy of the ratio to disagree about. */
+      .spotlight-body { display: contents; }
+      /* Grid items stretch by default; without this the link's underline runs
+         the full column instead of hugging its text. */
+      .spotlight-body > .news-link { justify-self: start; }
+      .spotlight-media {
+        grid-column: 1; grid-row: 1;
+        margin-bottom: 26px;
+      }
+      .spotlight-quote {
+        grid-column: 1; grid-row: 1;
+        align-self: end;
+        z-index: 2;
+        /* Matches the media's own bottom margin, so the two boxes end flush and
+           the quote lands on the image edge rather than below it. */
+        margin: 0 0 26px;
+        padding: 24px;
+        font-size: 20px; line-height: 1.36;
+        color: var(--color-cream);
+        /* The gold rule reads as a margin note against white; over the image the
+           gradient already separates quote from photo, so it would be noise. */
+        border-left: none;
+        text-shadow: 0 1px 12px rgba(7,7,27,0.5);
+      }
+      .spotlight-head  { margin-bottom: 32px; }
     }
     @media (max-width: 640px) {
       .news-head h2, .spotlight-head h2, .linkedin-head h2 { font-size: clamp(34px, 9vw, 44px); }
+      /* Final trim so Spotlight clears a 852px iPhone viewport in one screen.
+         Slightly tighter than the homepage because this section's header
+         carries an intro paragraph the homepage one does not. */
+      #spotlight { padding: 44px 24px; }
+      .spotlight-head  { margin-bottom: 18px; }
+      .spotlight-role  { margin-bottom: 14px; }
+      /* Narrowest phones — the longest of the four quotes runs to six lines at
+         20px here, climbing past the top of the gradient. One step down keeps
+         every slide inside the shaded area. */
+      .spotlight-quote { font-size: 18px; }
+      .spotlight-quote { margin-bottom: 20px; }
+    }
+    /* 641-768 is a small tablet, not a phone. Stacking here made the portrait
+       720px tall on a 768px screen, dominating the section. Two columns as per
+       tablet, with the quote back in the body column where there is room for
+       it — the overlay is a phone treatment. */
+    @media (min-width: 641px) and (max-width: 768px) {
+      .spotlight-feature, .spotlight-feature.is-reverse {
+        grid-template-columns: 1fr 1.1fr;
+        gap: 32px;
+        align-items: center;
+      }
+      .spotlight-body { display: block; }
+      .spotlight-media {
+        grid-column: auto; grid-row: auto;
+        margin-bottom: 0;
+      }
+      .spotlight-quote {
+        grid-column: auto; grid-row: auto;
+        align-self: auto;
+        position: static;
+        display: block;
+        margin: 0 0 24px;
+        padding: 0 0 0 18px;
+        font-size: 18px;
+        color: var(--color-midnight);
+        border-left: 1px solid var(--color-gold);
+        text-shadow: none;
+      }
+      .spotlight-media::after {
+        background: linear-gradient(160deg, transparent 50%, rgba(7,7,27,0.16));
+      }
     }
   </style>
 </head>
@@ -1167,7 +1284,7 @@
             </div>
             <div class="spotlight-body">
               <h3 class="spotlight-name">Chris <span class="accent">Mitchell.</span></h3>
-              <div class="spotlight-role">Independent Kitchen Design Consultant · 720studio.co.uk</div>
+              <div class="spotlight-role">Kitchen Design Consultant · 720studio.co.uk</div>
               <blockquote class="spotlight-quote">
                 "Technology, especially design software like Compusoft Winner, is a game-changer. It allows me to bring design concepts to life in 3D."
               </blockquote>

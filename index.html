@@ -272,19 +272,37 @@
     #nav-wrap.open .nd-link:nth-child(8) { transition-delay: 0.34s; }
     .nd-link:hover { color: var(--gold); }
 
-    /* Tablet — tighten link gaps */
-    @media (max-width: 1024px) {
+    /* Tablet — tighten link gaps.
+       Runs to 1180px, not 1024px: with seven inline links plus the Contact
+       pill the untightened bar overflowed its own width between 1025 and
+       1120, pushing the pill off the right edge. */
+    @media (max-width: 1180px) {
       #nav-bar { gap: 24px; padding: 18px 32px; }
       .nav-inline { gap: 24px; }
       .nav-inline a { font-size: 10.5px; letter-spacing: 0.12em; }
     }
 
-    /* Mobile — swap inline links for burger */
-    @media (max-width: 860px) {
-      #nav-bar { grid-template-columns: auto 1fr auto; padding: 14px 20px; gap: 12px; }
+    /* Mobile — swap inline links for burger.
+       Switches at 940px, not 860px: even tightened, the inline links plus the
+       Contact pill could not fit between 861 and 933. iPad Safari requests
+       the desktop site and lays out around 980px, so it landed in that gap
+       and clipped the Contact button. */
+    @media (max-width: 940px) {
+      /* Three even rails: logo left, burger centred, Contact right. Contact
+         was previously buried inside the burger menu — it is the primary
+         action on the site, so it earns a permanent slot at this width.
+         .nav-right becomes display:contents so its two children join the nav
+         grid directly, and `order` places them either side of the centre
+         rather than following DOM order. */
+      #nav-bar { grid-template-columns: 1fr auto 1fr; padding: 14px 20px; gap: 12px; }
       .nav-inline { display: none; }
-      .nav-contact-btn { display: none; }
-      #burger { display: inline-flex; }
+      .nav-right { display: contents; }
+      #nav-logo { order: 1; justify-self: start; }
+      #burger { order: 2; display: inline-flex; justify-self: center; }
+      .nav-contact-btn {
+        order: 3; justify-self: end; display: inline-flex;
+        padding: 9px 18px; font-size: 10px; letter-spacing: 0.12em;
+      }
       #nav-logo img { height: 24px; }
     }
 
@@ -305,10 +323,19 @@
     .hero-vignette {
       position: absolute; inset: 0; pointer-events: none;
       background:
+        /* Pool of shade sat behind the headline + sub. The kitchen photo is
+           near-white through its middle band, so the linear wash alone left
+           light type with almost no contrast. Radial keeps the image open at
+           the edges rather than flattening the whole frame. */
+        radial-gradient(ellipse 85% 58% at 50% 38%,
+          rgba(7,7,27,0.60) 0%,
+          rgba(7,7,27,0.34) 55%,
+          rgba(7,7,27,0.00) 100%
+        ),
         linear-gradient(to bottom,
-          rgba(7,7,27,0.22) 0%,
-          rgba(7,7,27,0.35) 35%,
-          rgba(7,7,27,0.72) 68%,
+          rgba(7,7,27,0.30) 0%,
+          rgba(7,7,27,0.44) 35%,
+          rgba(7,7,27,0.74) 68%,
           rgba(7,7,27,0.97) 100%
         );
     }
@@ -325,6 +352,7 @@
       font-size: var(--fs-display-xl);
       line-height: 1.03; letter-spacing: -0.01em;
       color: var(--warm);
+      text-shadow: 0 1px 2px rgba(7,7,27,0.28), 0 2px 28px rgba(7,7,27,0.5);
       margin-bottom: 30px;
     }
     /* Per-line wipe-up reveal */
@@ -339,7 +367,8 @@
     .hero-headline.in .hero-line:nth-child(3) .hero-line-inner { transition-delay: 0.28s; }
     .hero-sub {
       font-size: 20px; font-weight: 300; letter-spacing: 0.02em;
-      line-height: 1.7; color: rgba(242,237,228,0.6);
+      line-height: 1.7; color: rgba(242,237,228,0.92);
+      text-shadow: 0 1px 2px rgba(7,7,27,0.4), 0 1px 18px rgba(7,7,27,0.55);
       max-width: 580px; margin-bottom: 46px;
       opacity: 0; transform: translateY(20px);
       transition: opacity 0.9s cubic-bezier(.16,1,.3,1) 0.3s, transform 0.9s cubic-bezier(.16,1,.3,1) 0.3s;
@@ -351,22 +380,6 @@
       transition: opacity 0.9s cubic-bezier(.16,1,.3,1) 0.45s, transform 0.9s cubic-bezier(.16,1,.3,1) 0.45s;
     }
     .hero-actions.in { opacity: 1; transform: translateY(0); }
-
-    .scroll-indicator {
-      position: absolute; right: 56px; bottom: 44px; z-index: 2;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      font-size: 9px; font-weight: 400; letter-spacing: 0.22em;
-      text-transform: uppercase; color: rgba(242,237,228,0.3);
-    }
-    .scroll-line {
-      width: 1px; height: 56px;
-      background: linear-gradient(to bottom, transparent, rgba(242,237,228,0.25));
-      animation: scrollDrop 2s ease-in-out infinite;
-    }
-    @keyframes scrollDrop {
-      0%,100% { transform: scaleY(0); transform-origin: top; opacity: 0; }
-      50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-    }
 
     /* ── Buttons ── */
     .btn-primary {
@@ -466,17 +479,56 @@
       background: var(--gold);
       border-radius: var(--radius-full);
       padding: 11px 22px;
+      /* The pill is a label, not a paragraph — it should never break across
+         lines when the card narrows in the carousel. */
+      white-space: nowrap;
       transition: background 0.25s ease, gap 0.3s cubic-bezier(.16,1,.3,1), transform 0.22s ease;
     }
     .svc-card:hover .svc-link { gap: 16px; background: var(--color-gold-soft); transform: translateY(-1px); }
+
+    /* Carousel nav is desktop-hidden; the grid only becomes a track below 1024.
+       Scoped by id because the element also carries .spotlight-nav, whose
+       display:flex sits in a later <style> block and would otherwise win. */
+    #services .svc-nav { display: none; }
+    .spotlight-arrow:disabled { opacity: 0.28; pointer-events: none; }
+
+    /* ── Full-bleed editorial quote ──
+       The band carried no overlay at all: light type straight onto a photo.
+       Layered radial + linear so the centre where the quote sits darkens most
+       while the frame stays open, matching the hero's treatment. */
+    #kbb-quote .kbb-scrim {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 64% at 50% 50%,
+          rgba(7,7,27,0.64) 0%,
+          rgba(7,7,27,0.44) 55%,
+          rgba(7,7,27,0.20) 100%),
+        linear-gradient(to bottom,
+          rgba(7,7,27,0.34) 0%,
+          rgba(7,7,27,0.28) 50%,
+          rgba(7,7,27,0.42) 100%);
+    }
+    #kbb-quote h2 {
+      text-shadow: 0 1px 2px rgba(7,7,27,0.32), 0 2px 26px rgba(7,7,27,0.45);
+    }
 
     /* ── Stats ── */
     .stat-num {
       font-family: var(--font-body);
       font-weight: 700;
-      font-size: clamp(48px, 6vw, 80px);
+      /* Scales with the viewport so three columns hold their row on a phone.
+         5.5vw lands at ~79px on a 1440 desktop, matching the previous 80px,
+         and drops to ~21px at 393px wide where a cell is only ~115px. */
+      font-size: clamp(17px, 5.5vw, 80px);
       line-height: 1; color: var(--warm);
+      /* Fixed-width digits and no wrapping. "15,000" at 48px could not fit a
+         half-width cell, so the number wrapped partway through counting and
+         changed the cell's height — the jerk as the section animated in. */
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum" 1;
     }
+    .stat-count { display: inline-block; text-align: center; }
     .stat-label {
       font-size: 10px; font-weight: 400; letter-spacing: 0.18em;
       text-transform: uppercase; color: var(--muted);
@@ -651,28 +703,51 @@
     ══════════════════════════════════════════ */
     @media (max-width: 1024px) {
       .rsp-sec { padding-left: 40px !important; padding-right: 40px !important; }
+
       #statement { padding-left: 40px !important; padding-right: 40px !important; }
       #contact   { padding-left: 40px !important; padding-right: 40px !important; }
       footer     { padding-left: 40px !important; padding-right: 40px !important; }
 
+      /* Services — swipeable track rather than a stack. Card width leaves the
+         following card part-visible, which is what prompts a swipe; that cue
+         replaces the scroll hint the design deliberately does without.
+         Negative margins bleed the track to the section edges so it scrolls
+         full width while the cards still line up with the copy above. */
       .services-grid {
-        grid-template-columns: 1fr 1fr !important;
+        display: flex !important;
         gap: 20px !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin: 0 -40px !important;
+        padding: 4px 40px;
+        scroll-padding-left: 40px;
       }
-      .services-grid .svc-card { height: 460px !important; }
+      .services-grid::-webkit-scrollbar { display: none; }
+      .services-grid .svc-card {
+        height: 460px !important;
+        flex: 0 0 46%;
+        scroll-snap-align: start;
+      }
+      /* Lift cancels here — it fights the snap and leaves cards misaligned. */
+      .services-grid .svc-card:hover { transform: none; }
+      #services .svc-nav { display: flex; margin-top: 32px; }
+      /* On a touch screen the peeking card already invites the swipe, so the
+         arrows are redundant furniture. They stay for pointer devices — a
+         narrow laptop window lands in this same range with no touch, and the
+         track's scrollbar is hidden, which would otherwise leave no visible
+         way to advance it. */
+      @media (hover: none) and (pointer: coarse) {
+        #services .svc-nav { display: none; }
+      }
 
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0 !important;
-      }
-      .stat-cell {
-        padding: 40px 24px !important;
-        border-right: none !important;
-        border-bottom: 1px solid var(--line);
-      }
-      .stat-cell:nth-child(odd)  { border-right: 1px solid var(--line) !important; }
-      .stat-cell:nth-child(3),
-      .stat-cell:nth-child(4)    { border-bottom: none; }
+      /* Stats — stay on one row at every width so the section reads at a
+         glance instead of turning into three screens of scrolling. The
+         figures scale with the viewport (see .stat-num) rather than stacking.
+         Column dividers come from the cells' own inline border-right, which
+         already assumes three across, so nothing here overrides them. */
+      .stat-cell { padding: 0 16px !important; }
 
       .split-grid { grid-template-columns: 1fr 1fr !important; }
       .split-content { padding: 60px 48px !important; }
@@ -707,31 +782,36 @@
       #contact   { padding: 72px 24px !important; }
       footer     { padding: 60px 24px 32px !important; }
 
+      /* Editorial quote — the band was 520px tall with display-lg type, which
+         on a phone filled most of a screen. The hard <br> was placed for a wide
+         measure and lands mid-thought here, so let the quote find its own
+         breaks. */
+      #kbb-quote { height: 420px !important; }
+      #kbb-quote .kbb-inner { padding: 0 32px !important; }
+      #kbb-quote h2 { font-size: 28px !important; margin-bottom: 24px !important; }
+      #kbb-quote h2 br { display: none; }
+      #editorial-line-l, #editorial-line-r { display: none; }
+
       /* Hero */
       .hero-content { padding: 130px 24px 140px !important; }
       .hero-sub { font-size: 17px !important; }
-      .scroll-indicator { display: none; }
 
-      /* Services — single column stacked */
+      /* Services — one card at a time, next card peeking. */
       .services-grid {
-        grid-template-columns: 1fr !important;
         gap: 16px !important;
+        margin: 0 -24px !important;
+        padding: 4px 24px;
+        scroll-padding-left: 24px;
       }
-      .services-grid .svc-card { height: 420px !important; }
+      .services-grid .svc-card { height: 420px !important; flex: 0 0 80%; }
+      /* Tighter card furniture so the titles hold a single line at this width. */
+      .svc-content { padding: 26px 22px !important; }
+      .svc-title   { font-size: 21px !important; margin-bottom: 18px !important; }
+      .svc-link    { font-size: 9px !important; letter-spacing: 0.13em !important; padding: 10px 16px !important; }
 
-      /* Stats — 2×2 */
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0 !important;
-      }
-      .stat-cell {
-        padding: 36px 20px !important;
-        border-right: none !important;
-        border-bottom: 1px solid var(--line);
-      }
-      .stat-cell:nth-child(odd)  { border-right: 1px solid var(--line) !important; }
-      .stat-cell:nth-child(3),
-      .stat-cell:nth-child(4)    { border-bottom: none; }
+      /* Stats — still one row; tighter gutters and a quieter label. */
+      .stat-cell  { padding: 0 10px !important; }
+      .stat-label { font-size: 9px !important; letter-spacing: 0.1em !important; }
 
       /* Split sections — stack vertically, image on top */
       .split-grid {
@@ -780,9 +860,9 @@
         width: 100% !important;
         max-width: 100% !important;
       }
-      /* Hero — strengthen text legibility on mobile */
-      .hero-headline { text-shadow: 0 2px 32px rgba(7,7,27,0.6); }
-      .hero-sub { text-shadow: 0 1px 16px rgba(7,7,27,0.55); }
+      /* Hero — sub sits at 17px here, so carry a touch more weight to hold
+         legibility against the photo at small sizes. */
+      .hero-sub { font-weight: 400 !important; }
 
       /* Collage caption — gradient backing for readability when full bleed */
       #moments-sticky::after {
@@ -821,11 +901,26 @@
     @media (max-width: 640px) {
       .hero-content { padding: 120px 20px 130px !important; }
 
+      /* Nav — tighten the Contact pill so the three rails hold at 320px. */
+      #nav-bar { padding: 12px 16px; }
+      .nav-contact-btn { padding: 8px 14px; font-size: 9.5px; letter-spacing: 0.1em; }
+
+      /* Stats — hold the single row; every px of gutter counts at this width. */
+      #stats      { padding-left: 16px !important; padding-right: 16px !important; }
+      .stat-cell  { padding: 0 6px !important; }
+      .stat-label { font-size: 8px !important; letter-spacing: 0.06em !important; }
+
       /* Hero actions — stack on very small screens */
       .hero-actions { flex-direction: column; gap: 14px !important; align-items: center; }
 
       /* Service cards — tighten height */
-      .services-grid .svc-card { height: 360px !important; }
+      .services-grid {
+        margin: 0 -20px !important;
+        padding: 4px 20px;
+        scroll-padding-left: 20px;
+      }
+      .services-grid .svc-card { height: 360px !important; flex: 0 0 82%; }
+      .svc-title { font-size: 20px !important; }
 
       /* Sections */
       .rsp-sec   { padding: 60px 20px !important; }
@@ -837,12 +932,43 @@
       .exp-row { gap: 16px; padding: 22px 0; }
       .exp-title { font-size: 16px !important; }
 
-      /* Quote editorial — hide decorative lines */
+      /* Quote editorial — hide decorative lines (also hidden from 768). */
       #editorial-line-l, #editorial-line-r { display: none; }
+      #kbb-quote { height: 380px !important; }
+      #kbb-quote .kbb-inner { padding: 0 24px !important; }
+      #kbb-quote h2 { font-size: 24px !important; margin-bottom: 20px !important; }
+    }
+
+    /* Narrowest phones — "Strategic Consultancy" is the constraint. */
+    @media (max-width: 360px) {
+      .svc-content { padding: 22px 18px !important; }
+      .svc-title   { font-size: 17px !important; }
+      .svc-link    { font-size: 8.5px !important; letter-spacing: 0.1em !important; padding: 9px 14px !important; }
     }
 
     @media (max-width: 900px) {
       .hero-content { padding: 150px 28px 72px; }
+    }
+
+    /* Tablet — the hero was locked to 100vh with its content top-aligned, so
+       on a tall portrait tablet roughly half the section sat empty beneath the
+       CTAs (47-54%, against a deliberate 20% on desktop). Size it to a share of
+       the viewport instead and centre the block, so the remaining space falls
+       evenly above and below rather than pooling at the bottom, and the next
+       section shows above the fold. Floor is 700px so iPad mini portrait (744)
+       and the 768 boundary are covered rather than inheriting the phone rules. */
+    @media (min-width: 700px) and (max-width: 1180px) {
+      #hero {
+        /* 78vh clears the next section's 96px top padding, so the "Your
+           Journey" eyebrow reads above the fold rather than a bare white band
+           that looks like a gap. */
+        height: 78vh;
+        min-height: 580px;
+        align-items: center;
+      }
+      /* Asymmetric top padding nudges the block just below optical centre, so
+         it does not crowd the fixed nav overlaying the top of the frame. */
+      .hero-content { padding: 64px 40px 0 !important; }
     }
 
     /* ── Custom cursor ── */
@@ -976,11 +1102,6 @@
       </a>
     </div>
   </div>
-
-  <div class="scroll-indicator" aria-hidden="true">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
 </section>
 
 <!-- (Statement, moments collage, and marquee removed — Your Journey moves up.) -->
@@ -995,7 +1116,7 @@
           Every career,<br>every hire.
         </h2>
       </div>
-      <p class="fade-up d3" style="font-size:20px;font-weight:300;line-height:1.75;color:rgba(7,7,27,0.55);max-width:520px;">
+      <p class="fade-up d3 sec-intro" style="font-size:20px;font-weight:300;line-height:1.75;color:rgba(7,7,27,0.55);max-width:520px;">
         Three paths, one specialist network. Whether you're growing your team or exploring your next opportunity, Designer Recruitment connects exceptional talent with the industry's most respected brands.
       </p>
     </div>
@@ -1008,7 +1129,7 @@
         <div class="svc-overlay"></div>
         <div class="svc-content">
           <div class="svc-num">01 Candidates</div>
-          <div class="svc-title">Find Your<br>Next Role</div>
+          <div class="svc-title">Find Your Next Role</div>
           <span class="svc-link">
             Explore Opportunities
             <svg width="16" height="8" viewBox="0 0 16 8" fill="none"><path d="M0 4h14M10 1l4 3-4 3" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1021,7 +1142,7 @@
         <div class="svc-overlay"></div>
         <div class="svc-content">
           <div class="svc-num">02 Clients</div>
-          <div class="svc-title">Hire<br>Top Talent</div>
+          <div class="svc-title">Hire Top Talent</div>
           <span class="svc-link">
             Start a Search
             <svg width="16" height="8" viewBox="0 0 16 8" fill="none"><path d="M0 4h14M10 1l4 3-4 3" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1034,13 +1155,32 @@
         <div class="svc-overlay"></div>
         <div class="svc-content">
           <div class="svc-num">03 Consultancy</div>
-          <div class="svc-title">Strategic<br>Consultancy</div>
+          <div class="svc-title">Strategic Consultancy</div>
           <span class="svc-link">
             Learn More
             <svg width="16" height="8" viewBox="0 0 16 8" fill="none"><path d="M0 4h14M10 1l4 3-4 3" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </div>
       </a>
+    </div>
+
+    <!-- Carousel nav — only rendered below 1024px, where the grid becomes a
+         swipe track. Reuses the Spotlight Series components so the two
+         carousels on the page read as the same control. -->
+    <div class="spotlight-nav svc-nav">
+      <div class="spotlight-counter" aria-live="polite">
+        <span class="current">01</span>
+        <span class="sep">/</span>
+        <span class="total">03</span>
+      </div>
+      <div class="spotlight-arrows">
+        <button type="button" class="spotlight-arrow prev" aria-label="Previous service">
+          <svg viewBox="0 0 13 13" fill="none"><path d="M11.5 6.5h-10M5.5 2.5l-4 4 4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="spotlight-arrow next" aria-label="Next service">
+          <svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -1077,10 +1217,10 @@
         <h2 class="serif-i fade-up d1" style="font-size:var(--fs-display-md);font-weight:300;line-height:1.2;color:var(--color-navy-deep);margin-bottom:28px;">
           The right person,<br>the first time.
         </h2>
-        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:16px;">
+        <p class="fade-up d2 sec-intro" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:16px;">
           We don't just fill vacancies. We take time to understand your business, your brand, and the culture that allows great teams to thrive.
         </p>
-        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:44px;">
+        <p class="fade-up d2 sec-intro" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:44px;">
           Our specialist network across the design, interiors, and built environment sectors enables us to deliver carefully considered candidates who align with both capability and culture.
         </p>
         <a href="/clients/" class="btn-primary fade-up d3">
@@ -1102,10 +1242,10 @@
         <h2 class="serif-i fade-up d1" style="font-size:var(--fs-display-md);font-weight:300;line-height:1.2;color:var(--color-navy-deep);margin-bottom:28px;">
           A partner who<br>understands your world.
         </h2>
-        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:16px;">
+        <p class="fade-up d2 sec-intro" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:16px;">
           We represent talented professionals across the design, interiors, and built environment sectors, connecting them with opportunities that often never reach the open market.
         </p>
-        <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:44px;">
+        <p class="fade-up d2 sec-intro" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);margin-bottom:44px;">
           Your aspirations become our brief. We listen, advise, and advocate to ensure your next move is the right one.
         </p>
         <a href="/candidates/" class="btn-primary fade-up d3">
@@ -1130,7 +1270,7 @@
       <h2 class="serif-i fade-up d1" style="font-size:var(--fs-display-md);font-weight:300;line-height:1.18;color:var(--warm);margin-bottom:20px;">
         Specialist knowledge.<br>Trusted networks.
       </h2>
-      <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--muted);">
+      <p class="fade-up d2 sec-intro" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--muted);">
         We work across the design, interiors, KBB, and built environment sectors, connecting exceptional talent with leading businesses through a carefully built network and deep market understanding.
       </p>
     </div>
@@ -1193,7 +1333,7 @@
           </div>
           <div class="spotlight-body">
             <h3 class="spotlight-name">Chris <span class="accent">Mitchell.</span></h3>
-            <div class="spotlight-role">Independent Kitchen Design Consultant · 720studio.co.uk</div>
+            <div class="spotlight-role">Kitchen Design Consultant · 720studio.co.uk</div>
             <blockquote class="spotlight-quote">
               "Technology, especially design software like Compusoft Winner, is a game-changer. It allows me to bring design concepts to life in 3D."
             </blockquote>
@@ -1295,7 +1435,9 @@
   /* ── Designer Spotlight Series (carousel) ── */
   #spotlight {
     background: #ffffff;
-    padding: 140px 56px 160px;
+    /* Equal top and bottom. Was 140/160, which sat the section off-centre
+       between its neighbours. */
+    padding: 100px 56px;
     position: relative;
     overflow: hidden;
   }
@@ -1303,10 +1445,17 @@
     position: relative; max-width: 1240px; margin: 0 auto;
   }
   #spotlight .spotlight-head {
-    margin-bottom: 100px;
+    /* Was 100px. The heading read as floating between the eyebrow above and
+       the portrait below, with more air around it than the section needed. */
+    margin-bottom: 44px;
   }
+  /* The eyebrow carries an inline margin-bottom of 22px and the heading added
+     another 22px on top. .section-tag is inline-flex, so the two do not
+     collapse — the gap was 44px, not 22px. Zero the heading's side and let the
+     pill set the distance. */
+  #spotlight .spotlight-head .section-tag { margin-bottom: 16px !important; }
   #spotlight .spotlight-head h2 {
-    margin-top: 22px;
+    margin-top: 0;
     font-family: var(--font-display); font-weight: 300;
     font-size: var(--fs-display-md); line-height: 1.04;
     color: var(--color-midnight); letter-spacing: -0.02em;
@@ -1366,13 +1515,19 @@
   }
 
   .spotlight-name {
-    font-family: var(--font-display); font-weight: 300;
-    font-size: clamp(32px, 3.6vw, 46px);
-    line-height: 1.04; letter-spacing: -0.02em;
+    /* Black roman followed by gold italic is the section-heading signature.
+       The name carried the same device at nearly the same size, so the two
+       read as peers rather than heading and byline. The name now sits at
+       roughly 60% of the heading and is uniform in weight, style and colour —
+       gold stays a heading accent, and the name reads as a credit. */
+    font-family: var(--font-display); font-weight: 400;
+    font-style: italic;
+    font-size: clamp(23px, 2.2vw, 30px);
+    line-height: 1.1; letter-spacing: -0.005em;
     color: var(--color-midnight);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
-  .spotlight-name .accent { font-style: italic; color: var(--color-gold); }
+  .spotlight-name .accent { font-style: italic; color: inherit; }
   .spotlight-role {
     font-size: 13px; font-weight: 500;
     letter-spacing: 0.16em; text-transform: uppercase;
@@ -1468,36 +1623,151 @@
   .spotlight-arrow svg { width: 16px; height: 16px; }
 
   @media (max-width: 1024px) {
-    #spotlight { padding: 100px 40px; }
-    #spotlight .spotlight-head { grid-template-columns: 1fr; gap: 28px; margin-bottom: 64px; }
+    /* The section ran about 1.5x the viewport height on both tablet and phone,
+       so it could never be read in one screen. The image was the single
+       biggest cost: aspect-ratio 1/1 in a full-width single column made it as
+       tall as the column is wide — 730px on an 810px iPad. Capping its width
+       keeps the square crop intact while removing most of that height, which
+       beats re-cropping portrait studio shots to a landscape ratio. */
+    #spotlight { padding: 64px 40px; }
+    #spotlight .spotlight-head { grid-template-columns: 1fr; gap: 20px; margin-bottom: 40px; }
+    /* Tablet keeps two columns. Stacking here left the right half of the
+       screen empty and pushed the section well past one viewport — the image
+       alone was as tall as the column was wide. Side by side, the square crop
+       survives and the section reads in a single screen. */
     .spotlight-feature, .spotlight-feature.is-reverse {
-      grid-template-columns: 1fr; gap: 40px;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 36px;
+      align-items: center;
     }
     .spotlight-feature.is-reverse .spotlight-media { order: 0; }
     .spotlight-feature.is-reverse .spotlight-body { order: 0; }
+
+    /* The descriptive paragraph is a summary of the linked feature, which
+       carries it in full. The pull quote is the designer's own voice and the
+       reason the section exists, so the quote stays and the summary goes —
+       leaving quote, name, "Read the feature" and the carousel nav. */
+    .spotlight-body > p { display: none; }
+
+    .spotlight-role  { margin-bottom: 18px; }
+    .spotlight-quote { margin-bottom: 24px; }
+    .spotlight-nav   { padding-top: 20px; }
   }
   @media (max-width: 768px) {
-    #spotlight { padding: 80px 24px; }
-    .spotlight-feature { padding: 0 0 40px; }
-    .spotlight-quote { font-size: 19px; padding-left: 18px; }
+    /* Phone — stack, with the image capped so it cannot eat the screen. */
+    #spotlight { padding: 56px 24px; }
+    #spotlight .spotlight-head { margin-bottom: 32px; }
+    .spotlight-feature, .spotlight-feature.is-reverse {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .spotlight-feature { padding: 0 0 24px; }
+    /* Quote sits on the portrait at phone widths. Stacking image, name, role,
+       quote, link and nav made the column busy; lifting the quote onto the
+       image removes a block from the stack and gives the photo something to
+       do. The box mirrors the media's own 1/1 aspect ratio, so it aligns to
+       the bottom of the image without hard-coding a height that would drift
+       if the image ratio ever changed. */
+    .spotlight-feature { position: relative; }
+    .spotlight-media::after {
+      /* Stops sit close to the text rather than washing the top half of the
+         frame — a tall gradient with a short block of type at its foot is what
+         made the quote read as floating in the dark. */
+      background: linear-gradient(to top,
+        rgba(7,7,27,0.94) 0%,
+        rgba(7,7,27,0.88) 16%,
+        rgba(7,7,27,0.62) 34%,
+        rgba(7,7,27,0.22) 50%,
+        rgba(7,7,27,0.00) 64%);
+    }
+    /* The quote shares the image's grid cell and aligns to its end, so it sits
+       on the bottom edge of the photo whatever height the image resolves to.
+       The previous version mirrored the media's aspect-ratio on an absolutely
+       positioned box; Chrome and iOS Safari resolved that to different heights
+       and Safari left an ~80px gap under the text. Grid placement has no such
+       ambiguity — there is no second copy of the ratio to disagree about. */
+    .spotlight-body { display: contents; }
+    /* Grid items stretch by default; without this the link's underline runs
+       the full column instead of hugging its text. */
+    .spotlight-body > .news-link { justify-self: start; }
+    .spotlight-media {
+      grid-column: 1; grid-row: 1;
+      margin-bottom: 26px;
+    }
+    .spotlight-quote {
+      grid-column: 1; grid-row: 1;
+      align-self: end;
+      z-index: 2;
+      /* Matches the media's own bottom margin, so the two boxes end flush and
+         the quote lands on the image edge rather than below it. */
+      margin: 0 0 26px;
+      padding: 24px;
+      font-size: 20px; line-height: 1.36;
+      color: var(--color-cream);
+      /* The gold rule reads as a margin note against white; over the image the
+         gradient already separates quote from photo, so it would be noise. */
+      border-left: none;
+      text-shadow: 0 1px 12px rgba(7,7,27,0.5);
+    }
   }
   @media (max-width: 640px) {
     #spotlight .spotlight-head h2 { font-size: clamp(34px, 9vw, 44px); }
+    /* Final trim so the section clears a 852px iPhone viewport in one screen. */
+    #spotlight { padding: 48px 24px; }
+    #spotlight .spotlight-head { margin-bottom: 24px; }
+    .spotlight-role  { margin-bottom: 14px; }
+    /* Narrowest phones — the longest of the four quotes runs to six lines at
+       20px here, climbing past the top of the gradient. One step down keeps
+       every slide inside the shaded area. */
+    .spotlight-quote { font-size: 18px; }
+    .spotlight-quote { margin-bottom: 20px; }
+  }
+  /* 641-768 is a small tablet, not a phone. Stacking here made the portrait
+     720px tall on a 768px screen, dominating the section. Two columns as per
+     tablet, with the quote back in the body column where there is room for
+     it — the overlay is a phone treatment. */
+  @media (min-width: 641px) and (max-width: 768px) {
+    .spotlight-feature, .spotlight-feature.is-reverse {
+      grid-template-columns: 1fr 1.1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .spotlight-body { display: block; }
+    .spotlight-media {
+      grid-column: auto; grid-row: auto;
+      margin-bottom: 0;
+    }
+    .spotlight-quote {
+      grid-column: auto; grid-row: auto;
+      align-self: auto;
+      position: static;
+      display: block;
+      margin: 0 0 24px;
+      padding: 0 0 0 18px;
+      font-size: 18px;
+      color: var(--color-midnight);
+      border-left: 1px solid var(--color-gold);
+      text-shadow: none;
+    }
+    .spotlight-media::after {
+      background: linear-gradient(160deg, transparent 50%, rgba(7,7,27,0.16));
+    }
   }
 </style>
 
 <!-- ═══════════ 100% MADE IN KBB — full bleed editorial ═══════════ -->
-<section style="position:relative;height:520px;overflow:hidden;">
+<section id="kbb-quote" style="position:relative;height:520px;overflow:hidden;">
   <img src="Brand_assets/law-firm-26.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async"
     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;">
+  <div class="kbb-scrim" aria-hidden="true"></div>
 
   <!-- Decorative lines -->
   <div id="editorial-line-l" style="position:absolute;left:56px;top:50%;transform:translateY(-50%);height:120px;width:1px;background:linear-gradient(to bottom,transparent,rgba(217,188,128,0.3),transparent);"></div>
   <div id="editorial-line-r" style="position:absolute;right:56px;top:50%;transform:translateY(-50%);height:120px;width:1px;background:linear-gradient(to bottom,transparent,rgba(217,188,128,0.3),transparent);"></div>
-  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 56px;">
+  <div class="kbb-inner" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 56px;">
     <div>
       <h2 class="serif-i" style="font-size:var(--fs-display-lg);font-weight:300;color:var(--warm);line-height:1.18;letter-spacing:-0.01em;margin-bottom:32px;">
-        “We don’t just fill vacancies. We build<br>long-term careers and teams that last.”
+        “We don’t just fill vacancies. We build <br>long-term careers and teams that last.”
       </h2>
       <div style="font-size:14px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Ben Paine</div>
       <div style="font-size:13px;font-weight:300;letter-spacing:0.08em;color:var(--muted);">Managing Director</div>
@@ -1515,7 +1785,7 @@
           People who<br>know people.
         </h2>
       </div>
-      <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);max-width:320px;">
+      <p class="fade-up d2 sec-intro" style="font-size:20px;font-weight:300;line-height:1.75;color:var(--color-navy-deep);max-width:320px;">
         Our consultants bring direct industry experience, giving us a genuine understanding of the businesses and people we support.
       </p>
     </div>
@@ -1560,7 +1830,7 @@
       <h2 class="serif-i fade-up d1" style="font-size:var(--fs-display-md);font-weight:300;line-height:1.14;color:var(--color-navy-deep);">
         From Designer<br>Recruitment.
       </h2>
-      <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:rgba(7,7,27,0.55);max-width:440px;">
+      <p class="fade-up d2 sec-intro" style="font-size:20px;font-weight:300;line-height:1.75;color:rgba(7,7,27,0.55);max-width:440px;">
         A curated selection of KBB industry insights, updates, and career thinking from our Designer Recruitment LinkedIn content.
       </p>
     </div>
@@ -2003,7 +2273,7 @@
     <h2 class="serif-i fade-up d1" style="font-size:var(--fs-display-lg);font-weight:300;line-height:1.1;color:var(--color-midnight);margin-bottom:22px;">
       Start your journey<br>with us today.
     </h2>
-    <p class="fade-up d2" style="font-size:20px;font-weight:300;line-height:1.75;color:rgba(7,7,27,0.62);max-width:460px;margin:0 auto 52px;">
+    <p class="fade-up d2 sec-intro" style="font-size:20px;font-weight:300;line-height:1.75;color:rgba(7,7,27,0.62);max-width:460px;margin:0 auto 52px;">
       Whether you’re a candidate ready for a new opportunity or a client looking to strengthen your team, we’d love to hear from you.
     </p>
     <div class="fade-up d3" style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
@@ -2314,9 +2584,64 @@ document.addEventListener('DOMContentLoaded', () => {
     activate(0);
   })();
 
+  // ── Services carousel (tablet + mobile) ──
+  // The track is a native scroll-snap container, so swipe and momentum come
+  // from the browser. Arrows and counter only mirror that scroll position.
+  (function () {
+    const track = document.querySelector('#services .services-grid');
+    const nav   = document.querySelector('#services .svc-nav');
+    if (!track || !nav) return;
+
+    const cards = [...track.querySelectorAll('.svc-card')];
+    const cur   = nav.querySelector('.current');
+    const tot   = nav.querySelector('.total');
+    const prev  = nav.querySelector('.spotlight-arrow.prev');
+    const next  = nav.querySelector('.spotlight-arrow.next');
+    if (!cards.length || !prev || !next) return;
+    if (tot) tot.textContent = String(cards.length).padStart(2, '0');
+
+    const originOf = i => cards[i].offsetLeft - cards[0].offsetLeft;
+
+    function activeIndex() {
+      const x = track.scrollLeft;
+      let best = 0, bestD = Infinity;
+      cards.forEach((c, i) => {
+        const d = Math.abs(originOf(i) - x);
+        if (d < bestD) { bestD = d; best = i; }
+      });
+      return best;
+    }
+
+    function sync() {
+      if (cur) cur.textContent = String(activeIndex() + 1).padStart(2, '0');
+      prev.disabled = track.scrollLeft <= 1;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
+    }
+
+    function go(dir) {
+      const i = Math.max(0, Math.min(cards.length - 1, activeIndex() + dir));
+      track.scrollTo({ left: originOf(i), behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
+
+    prev.addEventListener('click', () => go(-1));
+    next.addEventListener('click', () => go(1));
+
+    let raf = 0;
+    track.addEventListener('scroll', () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(sync);
+    }, { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
+  })();
+
   // ── Stat counter ──
   document.querySelectorAll('.stat-count[data-target]').forEach(el => {
     const target = parseInt(el.dataset.target, 10);
+    // Reserve the final width before counting starts. Otherwise the element
+    // grows from one character to six, shunting the trailing "+" and
+    // re-centring the row on every frame.
+    el.style.minWidth = target.toLocaleString().length + 'ch';
     if (reduceMotion) {
       const cObs = new IntersectionObserver((entries) => {
         entries.forEach(e => {
