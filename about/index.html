@@ -846,7 +846,8 @@
     }
     .ta-track {
       display: flex; gap: 24px;
-      transition: transform 0.65s var(--ease-out-expo);
+      transition: transform 0.65s var(--ease-out-expo),
+                  height 0.5s var(--ease-out-expo);
       will-change: transform;
     }
     .ta-card {
@@ -1013,7 +1014,6 @@
       .why-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
       .coverage-grid { grid-template-columns: 1fr; gap: 64px; }
       .coverage-globe { margin: 0 auto; max-width: 440px; }
-      .ta-card { flex: 0 0 calc((100% - 24px) / 2); }
     }
     @media (max-width: 768px) {
       #about-intro, #services, #values, #coverage, #why, #testimonials-about, #cta {
@@ -1036,7 +1036,9 @@
       .coverage-globe { max-width: 320px; }
       .ta-card { flex: 0 0 100%; padding: 22px 22px 20px; }
       .ta-arrow { width: 40px; height: 40px; }
-      .ta-card-text { font-size: 14.5px; }
+      /* With the full row width back, 16px reads better here than the 14.5px
+         the squeezed column needed, and still lands shorter. */
+      .ta-card-text { font-size: 16px; line-height: 1.5; margin-bottom: 16px; }
       .contact-card { padding: 32px 28px; }
       .cta-head h2 { font-size: var(--fs-display-md); }
     }
@@ -1055,6 +1057,27 @@
       #about-hero .hero-content { padding: 120px 20px 130px; }
       /* Below tablet width the 2x2 leaves the copy too narrow — stack it. */
       .why-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Testimonials — tablet and mobile ──
+       The arrows drop below the track from 1180px down. Sitting inline they
+       took 132px out of the row (two 46px buttons plus the 20px gaps); at
+       these widths that is most of a column, so the copy was left in a narrow
+       gutter and the cards ran enormously tall. Below the track each card
+       gets that width back. Placed last in the sheet so it lands after the
+       768px block, hence the min-width guards on the tablet-only rules. */
+    @media (max-width: 1180px) {
+      .ta-carousel { flex-wrap: wrap; justify-content: center; gap: 16px; }
+      .ta-viewport { flex: 0 0 100%; order: 0; }
+      .ta-arrow { order: 1; }
+      .ta-stars { margin-bottom: 14px; }
+      .ta-card-tag { margin-bottom: 13px; }
+    }
+    /* Two columns held to 1180px — three left each card ~295px wide and
+       ~730px tall, worse than at the 1024px breakpoint below it. */
+    @media (min-width: 769px) and (max-width: 1180px) {
+      .ta-card { flex: 0 0 calc((100% - 24px) / 2); }
+      .ta-card-text { font-size: 15px; line-height: 1.5; margin-bottom: 18px; }
     }
   </style>
 </head>
@@ -1840,15 +1863,35 @@
     const gap = 24;
     let index = 0;
 
+    /* Must match the CSS breakpoints for .ta-card's flex-basis, or the arrows
+       step by more cards than are on screen. */
     function visibleCount() {
       const w = window.innerWidth;
-      if (w < 768) return 1;
-      if (w < 1024) return 2;
+      if (w <= 768) return 1;
+      if (w <= 1180) return 2;
       return 3;
     }
 
     function maxIndex() {
       return Math.max(0, total - visibleCount());
+    }
+
+    /* Cards stretch to the tallest in the track, so an eight-line quote sat in
+       a box built for an eighteen-line one — 240px of nothing on a phone. Size
+       the track to the tallest card actually on screen instead. Tablet and
+       mobile only; the desktop trio is close enough to the maximum that it is
+       not worth the reflow. */
+    function syncHeight() {
+      if (window.innerWidth > 1180) { track.style.height = ''; return; }
+      track.style.height = 'auto';
+      track.style.alignItems = 'flex-start';
+      const n = visibleCount();
+      let h = 0;
+      for (let i = index; i < Math.min(index + n, total); i++) {
+        h = Math.max(h, cards[i].getBoundingClientRect().height);
+      }
+      track.style.alignItems = '';
+      track.style.height = h + 'px';
     }
 
     function update() {
@@ -1858,6 +1901,7 @@
       track.style.transform = 'translateX(-' + offset + 'px)';
       prev.disabled = index === 0;
       next.disabled = index >= maxIndex();
+      syncHeight();
     }
 
     prev.addEventListener('click', () => { index -= 1; update(); });
