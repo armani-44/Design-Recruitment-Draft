@@ -542,6 +542,9 @@
     }
     .role-arrow svg { width: 14px; height: 14px; }
 
+    /* Category stepper — phones only; the tab rail carries this above 768px. */
+    .panel-step { display: none; }
+
     /* Single-column panels (small lists) */
     .panel-roles.is-single {
       grid-template-columns: 1fr;
@@ -629,29 +632,40 @@
       .panel-roles { grid-template-columns: 1fr; }
       .roles-tabs-grid { grid-template-columns: 1fr; }
       .panels { padding: 24px 22px 8px; }
-      .tab-nav {
-        flex-direction: row; flex-wrap: nowrap;
-        gap: 4px;
-        padding: 0;
-        border-right: none;
-        border-bottom: 1px solid rgba(7,7,27,0.10);
-        overflow-x: auto;
-        scrollbar-width: none;
+
+      /* The tab rail became a horizontal scroller here: it repeated the
+         panel's own "01 Showroom" heading immediately below itself, and only
+         two and a half of the six categories fitted, with nothing to say the
+         rest were off to the right. Step through them instead, from a control
+         sitting under the description where it is reachable without scrolling
+         past a fourteen-role list. */
+      .tab-nav { display: none; }
+      .panel-step {
+        display: flex; align-items: center; gap: 14px;
+        margin-top: 24px;
       }
-      .tab-nav::-webkit-scrollbar { display: none; }
-      .tab {
-        padding: 14px 16px 18px;
-        white-space: nowrap;
+      .panel-step-btn {
+        flex-shrink: 0;
+        width: 42px; height: 42px;
+        border-radius: 12px;
+        background: var(--midnight);
+        color: var(--cream);
+        border: 0; padding: 0;
+        display: inline-flex; align-items: center; justify-content: center;
+        cursor: pointer;
+        transition: background 0.4s var(--ease-out-expo), transform 0.3s var(--ease-out-expo);
       }
-      .tab .tab-label { font-size: 18px; }
-      .tab .tab-num { font-size: 14px; }
-      .tab::before {
-        left: 16px; right: 16px; top: auto; bottom: -1px;
-        width: auto; height: 2px;
-        transform: scaleX(0); transform-origin: left center;
-        transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
+      .panel-step-btn:hover { background: var(--color-blue); }
+      .panel-step-btn:active { transform: translateY(1px); }
+      .panel-step-btn:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
+      .panel-step-btn svg { width: 16px; height: 16px; }
+      .panel-step-count {
+        font-family: var(--font-display);
+        font-size: 15px; letter-spacing: 0.06em;
+        color: rgba(7,7,27,0.45);
       }
-      .tab.is-active::before { transform: scaleX(1); }
+      .panel-step-count strong { font-weight: 400; color: var(--midnight); }
+
       .role-row { gap: 16px; padding: 18px 4px; }
       .role-name { font-size: 15px; }
     }
@@ -770,22 +784,22 @@
       <div class="roles-tabs-grid">
       <!-- Tab navigation (vertical left) -->
       <nav class="tab-nav fade-up" role="tablist" aria-label="Role categories">
-        <button class="tab is-active" data-target="showroom"   role="tab" aria-selected="true"  aria-controls="panel-showroom">
+        <button class="tab is-active" id="tab-showroom" data-target="showroom"   role="tab" aria-selected="true"  aria-controls="panel-showroom">
           <span class="tab-num">01</span><span class="tab-label">Showroom</span>
         </button>
-        <button class="tab"           data-target="field"      role="tab" aria-selected="false" aria-controls="panel-field">
+        <button class="tab"           id="tab-field" data-target="field"      role="tab" aria-selected="false" aria-controls="panel-field">
           <span class="tab-num">02</span><span class="tab-label">Field-Based</span>
         </button>
-        <button class="tab"           data-target="operations" role="tab" aria-selected="false" aria-controls="panel-operations">
+        <button class="tab"           id="tab-operations" data-target="operations" role="tab" aria-selected="false" aria-controls="panel-operations">
           <span class="tab-num">03</span><span class="tab-label">Operations</span>
         </button>
-        <button class="tab"           data-target="head-office" role="tab" aria-selected="false" aria-controls="panel-head-office">
+        <button class="tab"           id="tab-head-office" data-target="head-office" role="tab" aria-selected="false" aria-controls="panel-head-office">
           <span class="tab-num">04</span><span class="tab-label">Head Office</span>
         </button>
-        <button class="tab"           data-target="executive"  role="tab" aria-selected="false" aria-controls="panel-executive">
+        <button class="tab"           id="tab-executive" data-target="executive"  role="tab" aria-selected="false" aria-controls="panel-executive">
           <span class="tab-num">05</span><span class="tab-label">Executive</span>
         </button>
-        <button class="tab"           data-target="temp"       role="tab" aria-selected="false" aria-controls="panel-temp">
+        <button class="tab"           id="tab-temp" data-target="temp"       role="tab" aria-selected="false" aria-controls="panel-temp">
           <span class="tab-num">06</span><span class="tab-label">Temp</span>
         </button>
       </nav>
@@ -798,6 +812,15 @@
             <div class="panel-side">
               <h3 class="panel-title"><span class="panel-num">01</span><span>Showroom</span></h3>
               <p class="panel-desc">Front-of-house design and sales talent for retail showrooms, from lead-takers through to studio managers.</p>
+              <div class="panel-step">
+                <button class="panel-step-btn panel-step-prev" type="button" aria-label="Previous category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4 6 8l4 4"/></svg>
+                </button>
+                <span class="panel-step-count"><strong>01</strong> <span aria-hidden="true">/</span> <span class="panel-step-total">06</span></span>
+                <button class="panel-step-btn panel-step-next" type="button" aria-label="Next category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 4 4 4-4 4"/></svg>
+                </button>
+              </div>
             </div>
             <div class="panel-roles">
               <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Lead Taker</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
@@ -824,6 +847,15 @@
             <div class="panel-side">
               <h3 class="panel-title"><span class="panel-num">02</span><span>Field-Based</span></h3>
               <p class="panel-desc">Sales-led roles operating across territories and accounts, from regional designers through to national sales leadership.</p>
+              <div class="panel-step">
+                <button class="panel-step-btn panel-step-prev" type="button" aria-label="Previous category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4 6 8l4 4"/></svg>
+                </button>
+                <span class="panel-step-count"><strong>01</strong> <span aria-hidden="true">/</span> <span class="panel-step-total">06</span></span>
+                <button class="panel-step-btn panel-step-next" type="button" aria-label="Next category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 4 4 4-4 4"/></svg>
+                </button>
+              </div>
             </div>
             <div class="panel-roles">
               <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Regional Designer</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
@@ -844,6 +876,15 @@
             <div class="panel-side">
               <h3 class="panel-title"><span class="panel-num">03</span><span>Operations</span></h3>
               <p class="panel-desc">The teams who turn design into delivery. Fitters, surveyors, project managers, and the logistics function behind them.</p>
+              <div class="panel-step">
+                <button class="panel-step-btn panel-step-prev" type="button" aria-label="Previous category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4 6 8l4 4"/></svg>
+                </button>
+                <span class="panel-step-count"><strong>01</strong> <span aria-hidden="true">/</span> <span class="panel-step-total">06</span></span>
+                <button class="panel-step-btn panel-step-next" type="button" aria-label="Next category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 4 4 4-4 4"/></svg>
+                </button>
+              </div>
             </div>
             <div class="panel-roles">
               <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Fitter</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
@@ -867,6 +908,15 @@
             <div class="panel-side">
               <h3 class="panel-title"><span class="panel-num">04</span><span>Head Office</span></h3>
               <p class="panel-desc">Support functions that keep the business moving, including customer service, marketing, finance, and people leadership.</p>
+              <div class="panel-step">
+                <button class="panel-step-btn panel-step-prev" type="button" aria-label="Previous category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4 6 8l4 4"/></svg>
+                </button>
+                <span class="panel-step-count"><strong>01</strong> <span aria-hidden="true">/</span> <span class="panel-step-total">06</span></span>
+                <button class="panel-step-btn panel-step-next" type="button" aria-label="Next category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 4 4 4-4 4"/></svg>
+                </button>
+              </div>
             </div>
             <div class="panel-roles">
               <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Customer Service</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
@@ -887,6 +937,15 @@
             <div class="panel-side">
               <h3 class="panel-title"><span class="panel-num">05</span><span>Executive</span></h3>
               <p class="panel-desc">Director-level appointments shaping the strategic direction of design-led businesses.</p>
+              <div class="panel-step">
+                <button class="panel-step-btn panel-step-prev" type="button" aria-label="Previous category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4 6 8l4 4"/></svg>
+                </button>
+                <span class="panel-step-count"><strong>01</strong> <span aria-hidden="true">/</span> <span class="panel-step-total">06</span></span>
+                <button class="panel-step-btn panel-step-next" type="button" aria-label="Next category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 4 4 4-4 4"/></svg>
+                </button>
+              </div>
             </div>
             <div class="panel-roles">
               <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Design Director</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
@@ -907,6 +966,15 @@
             <div class="panel-side">
               <h3 class="panel-title"><span class="panel-num">06</span><span>Temp</span></h3>
               <p class="panel-desc">Freelance, contract, and interim talent for short-term and project-based requirements.</p>
+              <div class="panel-step">
+                <button class="panel-step-btn panel-step-prev" type="button" aria-label="Previous category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4 6 8l4 4"/></svg>
+                </button>
+                <span class="panel-step-count"><strong>01</strong> <span aria-hidden="true">/</span> <span class="panel-step-total">06</span></span>
+                <button class="panel-step-btn panel-step-next" type="button" aria-label="Next category">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 4 4 4-4 4"/></svg>
+                </button>
+              </div>
             </div>
             <div class="panel-roles">
               <a class="role-row" href="/clients/#post-a-job"><span class="role-num">01</span><span class="role-name">Freelance</span><span class="role-arrow"><svg viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
@@ -1108,7 +1176,21 @@
     const panels = document.querySelectorAll('.panels .panel');
     if (!tabs.length) return;
 
+    /* The phone layout hides the tab rail and steps through the categories
+       from a control inside each panel. Both drive the same activate(). */
+    const order      = [...tabs].map(t => t.dataset.target);
+    const stepCounts = document.querySelectorAll('.panel-step-count strong');
+    const stepTotals = document.querySelectorAll('.panel-step-total');
+    const pad = n => String(n).padStart(2, '0');
+    let current = 0;
+    stepTotals.forEach(el => { el.textContent = pad(order.length); });
+
     function activate(target) {
+      const i = order.indexOf(target);
+      if (i >= 0) {
+        current = i;
+        stepCounts.forEach(el => { el.textContent = pad(i + 1); });
+      }
       tabs.forEach(t => {
         const isMatch = t.dataset.target === target;
         t.classList.toggle('is-active', isMatch);
@@ -1128,6 +1210,14 @@
         }
       });
     }
+
+    /* Wraps at both ends — six categories with a counter, so there is no
+       point disabling an arrow and stranding the reader at 06. */
+    function step(delta) {
+      activate(order[(current + delta + order.length) % order.length]);
+    }
+    document.querySelectorAll('.panel-step-prev').forEach(b => b.addEventListener('click', () => step(-1)));
+    document.querySelectorAll('.panel-step-next').forEach(b => b.addEventListener('click', () => step(1)));
 
     tabs.forEach(t => {
       t.addEventListener('click', () => activate(t.dataset.target));
