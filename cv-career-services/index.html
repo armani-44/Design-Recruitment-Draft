@@ -609,6 +609,31 @@
       .packages-head { grid-template-columns: 1fr; gap: 24px; }
       .closing-inner { grid-template-columns: 1fr; gap: 28px; }
     }
+
+    /* Tablet — copy and image side by side rather than stacked. Full width,
+       the photo stood taller than everything above it and dominated the
+       section; in a column it takes the height of the copy beside it instead
+       of its own aspect ratio, so the two end flush. */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .overview-inner {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+        gap: 28px;
+        align-items: stretch;
+      }
+      .overview-image { aspect-ratio: auto; height: 100%; }
+      /* Heading holds one line with no break. The column is narrow here, so
+         the display size is derived from it: in Canela at this tracking the
+         string measures 12.24x its own font-size, and the divisor leaves a
+         few percent of slack. */
+      .overview-left h2 {
+        font-size: min(var(--fs-display-md), calc((54vw - 17px) / 12.7));
+        white-space: nowrap;
+        margin-bottom: 24px;
+      }
+      .overview-left h2 br { display: none; }
+      .overview-left p { font-size: 15.5px; line-height: 1.8; }
+      .overview-left p + p { margin-top: 18px; }
+    }
     @media (max-width: 768px) {
       #overview, #packages, #closing { padding-left: 24px; padding-right: 24px; }
       .packages-grid { grid-template-columns: 1fr; max-width: 520px; }
