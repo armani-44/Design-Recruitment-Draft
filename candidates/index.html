@@ -295,10 +295,12 @@
       position: relative;
       overflow: hidden;
       display: flex; align-items: center;
-      /* Shared floor with the paired banner (For Candidates <-> Career & CV
-         Services): both run the same padding rail and the same 620px floor,
-         so the two sections stand exactly as tall as each other. */
-      min-height: 620px;
+      /* Shared floor across For Clients, For Candidates and Career & CV
+         Services: the three run the same padding rail and the same 624px
+         floor, so the banners stand exactly as tall as each other. 624 is set
+         by the tallest of the three (For Clients needs 621px at desktop) —
+         raise it here, on all three pages, if that copy grows. */
+      min-height: 624px;
       border-bottom: 1px solid rgba(242,237,228,0.06);
     }
     #hero .hero-bg {

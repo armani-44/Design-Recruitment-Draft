@@ -295,9 +295,16 @@
     #hero {
       background: var(--color-midnight);
       color: var(--cream);
-      position: relative; height: 100vh; min-height: 680px;
-      display: flex; align-items: flex-start; justify-content: center;
+      position: relative;
+      display: flex; align-items: center;
       overflow: hidden;
+      padding: clamp(140px, 15vw, 180px) clamp(24px, 5vw, 56px) clamp(72px, 9vw, 110px);
+      /* Shared floor across For Clients, For Candidates and Career & CV
+         Services: the three run the same padding rail and the same 624px
+         floor, so the banners stand exactly as tall as each other. 624 is set
+         by the tallest of the three (For Clients needs 621px at desktop) —
+         raise it here, on all three pages, if that copy grows. */
+      min-height: 624px;
       border-bottom: 1px solid rgba(242,237,228,0.06);
     }
     #hero .hero-bg {
@@ -324,8 +331,7 @@
     }
     .hero-inner {
       position: relative; z-index: 3;
-      max-width: 900px; width: 100%;
-      padding: 150px 56px 160px;
+      max-width: 900px; width: 100%; margin: 0 auto;
       text-align: center;
       display: flex; flex-direction: column; align-items: center;
     }
@@ -575,21 +581,10 @@
       .pc-step-num { width: 36px; height: 36px; font-size: 13px; }
     }
 
-    /* ── Hero — matched to the homepage banner ──
-       Same height rail as the homepage: full viewport with a 680px floor, the
-       block top-aligned and centred inside it. On a tall portrait tablet a
-       100vh hero left roughly half the section empty beneath the copy, so
-       between 700 and 1180px it takes a share of the viewport and centres the
-       block instead, putting the form below above the fold. */
-    @media (max-width: 768px) {
-      .hero-inner { padding: 130px 24px 140px; }
-    }
-    @media (min-width: 700px) and (max-width: 1180px) {
-      #hero { height: 78vh; min-height: 580px; align-items: center; }
-      .hero-inner { padding: 64px 40px 0; }
-    }
-    @media (max-width: 640px) {
-      .hero-inner { padding: 120px 20px 130px; }
+    /* Below the 360px Android baseline — the paired banners lift their shared
+       floor here, so this one follows rather than falling out of step. */
+    @media (max-width: 359px) {
+      #hero { min-height: 680px; }
     }
   </style>
 </head>
