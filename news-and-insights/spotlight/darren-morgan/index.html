@@ -212,10 +212,12 @@
        under Contact. Gold because it should be the first thing seen. */
     .nd-login-btn {
       display: none;
-      width: max-content; margin: 0 0 18px auto;
-      padding: 11px 22px;
+      align-items: center; justify-content: center;
+      width: max-content; min-width: 94px;
+      margin: 0 0 18px auto;
+      padding: 9px 18px;
       font-family: var(--font-body);
-      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--color-midnight, #07071B);
       background: var(--color-gold, #D9BC80);
@@ -236,14 +238,21 @@
       outline: 2px solid var(--color-cream, #F2EDE4);
       outline-offset: 3px;
     }
-    /* The dropdown pads 24px where the bar pads 20 (and 16 below 640), so the
-       pill is pulled out by the difference to line its right edge up exactly
-       with the Contact button it falls from. */
+    /* Ganged widths. Contact carries the longer label, so both pills are
+       pinned to a shared minimum — its natural 93.27px, then 81.08px below
+       640 — and come out exactly equal when they stack. The dropdown pads
+       24px where the bar pads 20 (16 below 640), so the pill is pulled out by
+       the difference to line its right edge up with Contact. */
     @media (max-width: 768px) {
-      .nd-login-btn { display: block; margin-right: -4px; }
+      .nd-login-btn { display: flex; margin-right: -4px; }
+      .nav-contact-btn { min-width: 94px; justify-content: center; }
     }
     @media (max-width: 640px) {
-      .nd-login-btn { margin-right: -8px; }
+      .nd-login-btn {
+        margin-right: -8px; min-width: 82px;
+        padding: 8px 14px; font-size: 9.5px; letter-spacing: 0.1em;
+      }
+      .nav-contact-btn { min-width: 82px; }
     }
     .nd-link {
       display: block;
