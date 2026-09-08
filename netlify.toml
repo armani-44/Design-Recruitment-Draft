@@ -107,3 +107,58 @@
   from = "/cookie-policy/"
   to = "/cookies.html"
   status = 301
+
+# ---------------------------------------------------------------------------
+# Candidate login — FireFish jobs board
+#
+# The candidate portal lives on jobs.designerrecruitment.co.uk, a CNAME to
+# FireFish that the DNS cutover preserved verbatim. It was never part of this
+# site and was never taken down; the new build simply stopped linking to it.
+#
+# The old WordPress site had a login link in its nav, so its URL may still be
+# bookmarked. These are guesses at the usual slugs — same reasoning as the
+# legacy block above: a rule for a path that never existed never fires.
+#
+# Replace with real data once Search Console reports 404s.
+# ---------------------------------------------------------------------------
+
+[[redirects]]
+  from = "/login"
+  to = "https://jobs.designerrecruitment.co.uk/login.aspx"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/login/"
+  to = "https://jobs.designerrecruitment.co.uk/login.aspx"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/candidate-login"
+  to = "https://jobs.designerrecruitment.co.uk/login.aspx"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/candidate-login/"
+  to = "https://jobs.designerrecruitment.co.uk/login.aspx"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/my-account"
+  to = "https://jobs.designerrecruitment.co.uk/login.aspx"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/my-account/"
+  to = "https://jobs.designerrecruitment.co.uk/login.aspx"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/sign-in"
+  to = "https://jobs.designerrecruitment.co.uk/login.aspx"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/sign-in/"
+  to = "https://jobs.designerrecruitment.co.uk/login.aspx"
+  status = 301
+  force = true
