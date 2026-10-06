@@ -813,7 +813,7 @@
                 </svg>
                 <strong id="file-field-strong">Attach CV</strong>
               </div>
-              <div class="file-field-name" id="file-name">PDF, DOC or DOCX. Max 10 MB.</div>
+              <div class="file-field-name" id="file-name">PDF, DOC or DOCX. Max 8 MB.</div>
             </label>
           </div>
 
@@ -1112,7 +1112,16 @@
     const fileField  = document.getElementById('file-field');
     const fileName   = document.getElementById('file-name');
     const fileStrong = document.getElementById('file-field-strong');
+    // Netlify Forms rejects uploads over 8 MB, so stop them before submit.
+    const MAX_CV_BYTES = 8 * 1024 * 1024;
     cv.addEventListener('change', () => {
+      if (cv.files && cv.files[0] && cv.files[0].size > MAX_CV_BYTES) {
+        cv.value = '';
+        fileName.textContent = 'That file is over 8 MB. Please attach a smaller CV.';
+        fileStrong.textContent = 'Attach CV';
+        fileField.classList.remove('has-file');
+        return;
+      }
       if (cv.files && cv.files[0]) {
         const f = cv.files[0];
         const sizeKB = Math.round(f.size / 1024);
@@ -1121,7 +1130,7 @@
         fileStrong.textContent = 'CV attached. Change';
         fileField.classList.add('has-file');
       } else {
-        fileName.textContent = 'PDF, DOC or DOCX. Max 10 MB.';
+        fileName.textContent = 'PDF, DOC or DOCX. Max 8 MB.';
         fileStrong.textContent = 'Attach CV';
         fileField.classList.remove('has-file');
       }
