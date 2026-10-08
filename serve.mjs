@@ -27,9 +27,29 @@ const mimeTypes = {
   '.txt': 'text/plain',
 };
 
+// Mirrors the /api/jobs-feed rewrite in netlify.toml so the candidates page
+// can load live roles on localhost exactly as it does in production.
+const JOBS_FEED = 'https://jobs.designerrecruitment.co.uk/rss/latestadverts.aspx';
+
 createServer(async (req, res) => {
   const urlPath = req.url.split('?')[0];
   const decoded = decodeURIComponent(urlPath);
+
+  if (decoded === '/api/jobs-feed') {
+    try {
+      const upstream = await fetch(JOBS_FEED);
+      const body = Buffer.from(await upstream.arrayBuffer());
+      res.writeHead(upstream.status, {
+        'Content-Type': upstream.headers.get('content-type') || 'text/xml; charset=utf-8',
+        'Cache-Control': 'no-store',
+      });
+      res.end(body);
+    } catch (err) {
+      res.writeHead(502, { 'Content-Type': 'text/plain' });
+      res.end(`Feed proxy failed: ${err.message}`);
+    }
+    return;
+  }
   // Resolve "/" or any path ending in "/" to its index.html (matches Netlify default)
   const resolved = (decoded === '/' || decoded.endsWith('/'))
     ? join(decoded, 'index.html')
