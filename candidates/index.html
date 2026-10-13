@@ -563,6 +563,10 @@
       overflow: hidden;
       min-height: 720px;
     }
+    /* Feed empty or unreachable: one quiet column, no blank description pane. */
+    .jobs-grid.is-unavailable { grid-template-columns: 1fr; min-height: auto; }
+    .jobs-grid.is-unavailable .jobs-detail-pane,
+    .list-head[hidden] { display: none; }
 
     /* List pane */
     .jobs-list-pane {
@@ -860,6 +864,14 @@
     .detail-external:hover { gap: 14px; color: var(--color-navy-deep); border-bottom-color: var(--color-navy-deep); }
 
     /* Empty / no-results */
+    .empty-state a {
+      color: var(--color-navy-deep);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.25s ease;
+    }
+    .empty-state a:hover,
+    .empty-state a:focus-visible { color: var(--color-blue); }
     .empty-state {
       padding: 80px 28px;
       text-align: center;
@@ -1151,9 +1163,9 @@
         Every opportunity below has been directly briefed to us by the client. Use the search bar to explore live vacancies and discover full role details.
       </p>
       <div class="hero-meta fade-up d3">
-        <span><strong id="hero-count">28</strong> open roles</span>
+        <span id="hero-count-wrap" hidden><strong id="hero-count"></strong> open roles</span>
         <span><strong>UK &amp; international</strong></span>
-        <span><strong>Updated weekly</strong></span>
+        <span><strong>Updated live</strong></span>
       </div>
     </div>
   </section>
@@ -1198,598 +1210,16 @@
 
         <!-- LEFT: list -->
         <div class="jobs-list-pane" role="listbox" aria-label="Open roles list" tabindex="0">
-          <div class="list-head">
-            <span><strong id="list-count">28</strong> roles match</span>
+          <div class="list-head" id="list-head" hidden>
+            <span><strong id="list-count">0</strong> roles match</span>
             <span>Sorted by date</span>
           </div>
 
-          <!-- 1 -->
-          <button class="job-card" role="option" type="button"
-            data-id="213" data-filter="designer"
-            data-title="Kitchen Designer"
-            data-cat="Designer"
-            data-location="Warwickshire"
-            data-type="Permanent"
-            data-salary="£33,000 + Commission"
-            data-posted="7 May 2026"
-            data-ref="213"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-213/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-213.aspx"
-            aria-selected="true">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer</h3>
-            <div class="job-meta"><span>Warwickshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£33,000 + Commission</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Sales Designer for a well-known kitchen retailer and manufacturer in Stratford Upon Avon. This permanent role offers up to £33,000 per annum plus Commission for the right candidate.</p><h4>Responsibilities</h4><ul><li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li><li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li><li>Support with showroom marketing activities</li><li>Engaging with walk in customers and ensuring our clients/customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li><li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Drawing new plans/designs based on customer/client brief</li><li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li><li>Supporting the Dual Site Showroom Manager with ordering processes/liaising with our manufacturing colleagues in Germany and completion of technical drawings for customer/client projects</li><li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li><li>Ensuring the showroom is maintained to high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>At least 3 years' previous experience with design in a luxury kitchen retail or showroom environment</li><li>German kitchen experience preferred and desired</li><li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li><li>Knowledge of design using CAD software</li><li>Training on the product design system will also be provided</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence</li></ul><h4>Benefits</h4><ul><li>Commission based on sales (uncapped)</li><li>Company pension (after three months)</li><li>Discount scheme for hundreds of high street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
+          <div class="empty-state" id="list-status" role="status" aria-live="polite">Loading live roles…</div>
 
-          <!-- 2 -->
-          <button class="job-card" role="option" type="button"
-            data-id="230" data-filter="showroom"
-            data-title="Business Development Manager"
-            data-cat="Showroom Manager"
-            data-location="London Area"
-            data-type="Permanent"
-            data-salary="£50,000 + Commission"
-            data-posted="7 May 2026"
-            data-ref="230"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/business-development-manager-230/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/business-development-manager-230.aspx"
-            aria-selected="false">
-            <span class="job-cat">Showroom Manager</span>
-            <h3 class="job-title">Business Development Manager</h3>
-            <div class="job-meta"><span>London Area</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£50,000 + Commission</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment seeks a Business Development &amp; Showroom Manager for a global, high-end Italian furniture brand at Chelsea Harbour Design Centre in London. This permanent role offers £50,000 + Commission, splitting roughly 70/30 between business development and showroom management.</p><h4>Responsibilities</h4><ul><li>Actively develop the company's presence in the UK market by building and maintaining strong relationships with interior designers, architects, developers, and selected trade partners</li><li>Conduct regular outside calls and face-to-face meetings with design studios and key accounts</li><li>Identify, qualify, and pursue new business opportunities in both residential and contract sectors</li><li>Act as a brand ambassador, promoting values, collections, and custom capabilities within the design community</li><li>Generate and manage a pipeline of opportunities, from initial contact through project development, in coordination with HQ</li><li>Monitor market trends, competitors, and key players, providing market intelligence and feedback to management</li><li>Prepare regular activity and opportunity reports, ensuring visibility and accountability on business development efforts</li><li>Ensure the day-to-day management of the London showroom, maintaining a high standard of presentation, client experience, and brand consistency</li><li>Manage client visits, appointments, and showroom events in coordination with HQ and marketing</li><li>Act as the local point of contact for incoming inquiries and showroom-based opportunities</li><li>Coordinate operational aspects related to samples, materials, displays, and basic showroom logistics</li><li>Support marketing and communication initiatives at local level</li></ul><h4>Requirements</h4><ul><li>Proven experience in business development, sales, or commercial roles within high-end furniture, luxury interiors, design brands, or related industries</li><li>Strong existing network within the UK design and architecture community</li><li>Strong ethic and self-discipline</li><li>Demonstrated ability to work autonomously, proactively, and with a strong external focus</li><li>Commercial mindset with sensitivity to luxury brand positioning</li><li>Excellent communication and relationship-building skills</li><li>Structured, disciplined, and results-oriented approach</li><li>Fluency in English; Italian is a plus</li><li>Permit to work in the UK</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 3 -->
-          <button class="job-card" role="option" type="button"
-            data-id="217" data-filter="designer"
-            data-title="Kitchen Designer"
-            data-cat="Designer"
-            data-location="Nottinghamshire"
-            data-type="Permanent"
-            data-salary="£30,000 – £33,000 + Commission"
-            data-posted="7 May 2026"
-            data-ref="217"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-217/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-217.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer</h3>
-            <div class="job-meta"><span>Nottinghamshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£30,000 – £33,000 + Commission</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Sales Designer for a well-known kitchen retailer and manufacturer in Nottingham. This permanent role offers up to £33,000 per annum plus commission.</p><h4>Responsibilities</h4><ul><li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li><li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li><li>Support with showroom marketing activities</li><li>Engaging with walk in customers and ensuring our clients/customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li><li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Drawing new plans/designs based on customer/client brief</li><li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li><li>Supporting the Dual Site Showroom Manager with ordering processes/liaising with our manufacturing colleagues in Germany and completion of technical drawings for customer/client projects</li><li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li><li>Ensuring the showroom is maintained to high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>At least 4 years' previous experience with design in a luxury kitchen retail or showroom environment</li><li>German kitchen experience preferred and desired</li><li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li><li>Knowledge of design using CAD software</li><li>Training on the product design system will also be provided</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence</li></ul><h4>Benefits</h4><ul><li>Commission based on sales (uncapped)</li><li>Company pension (after three months)</li><li>Discount scheme for hundreds of high street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 4 -->
-          <button class="job-card" role="option" type="button"
-            data-id="214" data-filter="installations"
-            data-title="Design Engineer"
-            data-cat="Installations &amp; Projects"
-            data-location="Cambridgeshire"
-            data-type="Permanent"
-            data-salary="£60,000 – £75,000"
-            data-posted="7 May 2026"
-            data-ref="214"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/design-engineer-214/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/design-engineer-214.aspx"
-            aria-selected="false">
-            <span class="job-cat">Installations &amp; Projects</span>
-            <h3 class="job-title">Design Engineer</h3>
-            <div class="job-meta"><span>Cambridgeshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£60,000 – £75,000</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment seeks a Building Services Design Engineer in Cambridgeshire to support energy, food processing, and pharmaceutical clients. This permanent role offers £60,000 – £75,000 for the right candidate.</p><h4>Responsibilities</h4><ul><li>Manage and deliver a wide range of projects including low-temperature hot water systems and their site-wide distribution, Steam &amp; Condensate within energy centres, ASHP &amp; WSHP installations, Combined Heat &amp; Power projects and their integration, across commercial, industrial, and healthcare settings</li><li>Prepare high quality information including technical specifications, designs, drawings, equipment schedules, survey reports, and contract documentation</li><li>Produce energy efficient designs and be able to demonstrate financial benefits to clients</li><li>Attend meetings with clients and multidisciplinary design teams as the MEP project lead</li><li>Develop and present project design proposals to the project team and client</li><li>Undertake project surveys including site inspections, stock condition, refurbishment and post-occupancy performance evaluations</li><li>Develop new and repeat business and maintain regular contact with all clients</li><li>Monitor and review junior staff performance</li><li>Report resource and financial information to group Partners</li><li>Identify opportunities for new services and company development</li><li>Ensure accurate mark-ups for CAD, liaising with drawing office to ensure project designs are reflected clearly &amp; accurately in construction drawings</li><li>Responsibility as design lead on client projects, including attendance and representation of the company at all necessary design meetings</li><li>Responsibility for design co-ordination &amp; design audits through project installation</li></ul><h4>Requirements</h4><ul><li>8 years minimum experience as a Building Services Design Engineer or similar</li><li>HNC or a degree in either Mechanical, Building Services or related Engineering discipline</li><li>Experience working on projects such as energy centres, CHP &amp; energy projects or healthcare sector also desirable</li><li>Hold, or working towards, membership with relevant industry body (CIBSE, IMechE, IET)</li><li>Conscientious, enthusiastic, well organised and professional</li><li>Be proactive with developing your own and others' knowledge while driving standards and quality throughout the team</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 5 -->
-          <button class="job-card" role="option" type="button"
-            data-id="141" data-filter="showroom"
-            data-title="Showroom Manager"
-            data-cat="Showroom Manager"
-            data-location="London / Australia"
-            data-type="Permanent"
-            data-salary="£40,000 – £70,000"
-            data-posted="7 May 2026"
-            data-ref="141"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/showroom-manager-141/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/showroom-manager-141.aspx"
-            aria-selected="false">
-            <span class="job-cat">Showroom Manager</span>
-            <h3 class="job-title">Showroom Manager</h3>
-            <div class="job-meta"><span>London / Australia</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£40,000 – £70,000</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are offering Showroom Managers in the UK an exciting opportunity to work in Australia on a fully sponsored basis. This permanent role offers a salary of A$80,000 – A$140,000 OTE plus additional allowances.</p><h4>Responsibilities</h4><ul><li>Manage kitchen designers</li><li>Present and sell in customers' homes</li><li>Work autonomously within a team environment</li><li>Meet KPIs and deadlines</li><li>Work flexible hours including weekends to accommodate customers</li></ul><h4>Requirements</h4><ul><li>Proven sales individual with successful history in retail selling</li><li>Experience managing kitchen designers</li><li>Passion for retail selling and closing deals</li><li>Experience utilising proven sales tracks to close deals</li><li>Strong commitment to meet KPIs and deadlines</li><li>Ability to work autonomously within a team environment</li><li>Ability to work flexible hours including weekends</li><li>Must be a citizen of Great Britain and under the age of 45</li></ul><h4>Benefits</h4><ul><li>Bereavement leave</li><li>Company pension</li><li>Employee assistance programme</li><li>Employee discount</li><li>Flexible schedule</li><li>Free flu jabs</li><li>Health &amp; wellbeing programme</li><li>On-site parking</li><li>Referral programme</li><li>Relocation assistance</li><li>Sick pay</li><li>UK visa sponsorship</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 6 -->
-          <button class="job-card" role="option" type="button"
-            data-id="52" data-filter="showroom"
-            data-title="Regional Showroom Manager"
-            data-cat="Showroom Manager"
-            data-location="Sydney, Australia"
-            data-type="Permanent"
-            data-salary="£50,000 – £60,000"
-            data-posted="7 May 2026"
-            data-ref="52"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/regional-showroom-manager-52/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/regional-showroom-manager-52.aspx"
-            aria-selected="false">
-            <span class="job-cat">Showroom Manager</span>
-            <h3 class="job-title">Regional Showroom Manager</h3>
-            <div class="job-meta"><span>Sydney, Australia</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£50,000 – £60,000</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment seeks a Regional Showroom Manager for a Sydney-based client. This permanent role offers £50,000 – £60,000 per annum plus bonuses.</p><h4>Responsibilities</h4><ul><li>Working with each Showroom Manager to achieve a consistent performance across all key metrics of the region</li><li>Leading, coaching and mentoring showroom managers to drive accountability around their daily activities to achieve their budgeted KPIs</li><li>Working with the leadership team to recruit and train staff as required to ensure showrooms are adequately staffed and well-trained</li><li>Being responsible for the preparation and communication of plans and strategies as laid out by the State Sales Manager and the National Retail Manager</li><li>Conducting weekly regional sales meetings with Showroom Managers and Designers</li><li>Ensuring full attendance of all regional staff at the Monthly Promotion Launch meetings</li><li>Evaluating showroom performance</li><li>Reviewing staff performance with showroom manager</li><li>Analysing the region's order book weekly, ensuring all files are authentic and meet the KPI for each status</li><li>Ensuring the showroom's sales and merchandising materials are adequately stocked and correctly displayed, as per showroom guidelines</li><li>Ensuring all regional staff operate within the company and showroom policies and procedures guidelines</li><li>Encouraging showroom managers to keep strong channels of communication between designers and sales consultants so conflicts are resolved quickly</li><li>Reviewing work rosters weekly to ensure maximum staffing efficiencies across all showrooms</li><li>Covering showrooms when showroom managers are on leave</li></ul><h4>Requirements</h4><ul><li>Multi-showroom management experience is essential</li></ul><h4>Benefits</h4><ul><li>Accommodation</li><li>Flight to Sydney</li><li>Car</li><li>Phone</li><li>Pathway to citizenship</li><li>Ongoing settling-in support</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 7 -->
-          <button class="job-card" role="option" type="button"
-            data-id="27" data-filter="designer"
-            data-title="Kitchen Designer (Australia)"
-            data-cat="Designer"
-            data-location="UK → Australia"
-            data-type="Permanent (sponsored)"
-            data-salary="A$50,000 – A$80,000"
-            data-posted="7 May 2026"
-            data-ref="27"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-(australia)-27/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-(australia)-27.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer (Australia)</h3>
-            <div class="job-meta"><span>UK → Australia</span><span class="job-meta-dot"></span><span>Permanent (sponsored)</span></div>
-            <div class="job-salary">A$50,000 – A$80,000</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are offering Kitchen Designers in the UK a fully sponsored opportunity to work in Australia. Base salary ranges from A$50,000 to A$80,000 plus commission, with an average take-home of A$150,000 per designer.</p><h4>Responsibilities</h4><ul><li>Translating customer preferences into a three-dimensional plan and gaining their commitment to the purchase of a new kitchen</li><li>Conducting in-home design appointments</li><li>Ensuring the plans and contracts are completed and signed by the customer</li><li>Collecting the deposit from the customer</li><li>Working closely with the Assistant Showroom Manager and Showroom Consultants for their success</li><li>Creating leads and qualifying kitchen customers</li><li>Ensuring an effective conversion of leads to contracts by conducting professional customer presentations</li><li>Completing and signing plans and contracts</li><li>Ensuring customer satisfaction and optimising gross profit, in a manner that supports company values, policies and objectives and the development of teamwork</li><li>Achieving monthly orders and design conversions KPIs as directed by the showroom manager</li><li>Arranging follow-up appointments as and when required</li><li>Attending sales meetings weekly as and when required</li><li>Participating in monthly promotional launch meetings as advised</li><li>Visiting Home Shows, shopping centre displays and relevant trade shows</li><li>Vetting the lead sheet with the Showroom Manager and Consultant</li><li>Adhering to the Company's Kitchen Designer's "7 Step Sales" process</li><li>Providing effective solutions that align with customer expectations</li><li>Closing the sale in the in-home design appointment</li><li>Gaining and securing a precise understanding of customer needs/requirements</li><li>Providing a creative solution to meet customer needs/requirements</li><li>Committing to a design plan that can be delivered from the company's standard product range</li><li>Managing customer expectations including outlining any related conditions of sale</li><li>Providing rationale to support the inclusion and exclusion of different design features</li><li>Spending the time necessary with the customer, so as to address any queries and/or objections that may arise</li><li>Providing and maintaining exceptional company internal customer service</li><li>Maintaining current product knowledge together with a current knowledge of company policies and procedures</li><li>Forwarding all messages to appropriate people and employees</li><li>Attending all appointments on time</li><li>Ensuring that measurements and plans are accurate and completed in a manner that will avoid rework</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 8 -->
-          <button class="job-card" role="option" type="button"
-            data-id="174" data-filter="designer"
-            data-title="Kitchen Designer"
-            data-cat="Designer"
-            data-location="South West London"
-            data-type="Permanent"
-            data-salary="£25,000 – £30,000"
-            data-posted="7 May 2026"
-            data-ref="174"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-174/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-174.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer</h3>
-            <div class="job-meta"><span>South West London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£25,000 – £30,000</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are working with a bespoke kitchen company in South West London seeking a Kitchen Designer to join their showroom team. This permanent position pays £30,000 – £40,000 plus commission.</p><h4>Responsibilities</h4><ul><li>Designing and selling bespoke kitchens</li><li>Maintaining showroom standards at all times</li><li>Ensuring customers and clients are well looked after with a huge focus on the customer journey</li><li>Liaising with other departments and support to ensure communication is kept to the highest level</li><li>Producing high-quality renders with their design software</li><li>Promoting the company brand and acting as an ambassador for the business</li><li>Attending events put on by the business or that the business requires representation for</li></ul><h4>Requirements</h4><ul><li>Knowledge of Virtual Worlds, Fusion 2020, AutoCAD, Compusoft or ArtiCAD preferred</li><li>Saturday working required with a day off in the week</li><li>A proven sales background</li><li>Kitchen Design experience essential</li></ul><h4>Benefits</h4><ul><li>25 days holiday + bank holiday</li><li>Birthday holiday extra</li><li>Private medical insurance after 6 months probation</li><li>Alternate Saturdays</li><li>Other staff bonuses</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 9 -->
-          <button class="job-card" role="option" type="button"
-            data-id="233" data-filter="marketing"
-            data-title="Marketing Manager – Dubai"
-            data-cat="Marketing"
-            data-location="Dubai (relocation)"
-            data-type="Permanent"
-            data-salary="£40,000 – £50,000"
-            data-posted="7 May 2026"
-            data-ref="233"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/marketing-manager-dubai-233/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/marketing-manager-dubai-233.aspx"
-            aria-selected="false">
-            <span class="job-cat">Marketing</span>
-            <h3 class="job-title">Marketing Manager – Dubai</h3>
-            <div class="job-meta"><span>Dubai (relocation)</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£40,000 – £50,000</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment seeks a Marketing Manager in Dubai for a fast-growing, luxury furniture brand offering AED 15,000 – 20,000 per month or £40,000 – £50,000 annually, with relocation support available.</p><h4>Responsibilities</h4><ul><li>Leading all marketing strategy and execution</li><li>Managing and growing social media channels</li><li>Driving lead generation campaigns (retail &amp; contracts)</li><li>Directing video and photoshoots</li><li>Overseeing brand positioning and creative output</li><li>Supporting both retail showrooms and contract projects</li><li>Reporting directly to Heads of Department and Directors</li><li>Building and scaling a marketing team around you</li></ul><h4>Requirements</h4><ul><li>Commercially minded, creative marketing leader</li><li>Understands both brand and performance marketing</li><li>Can confidently manage shoots and creative direction</li><li>Has experience in lead generation and digital growth</li><li>Is comfortable reporting at senior level</li><li>Wants to build something, not just manage it</li></ul><h4>Benefits</h4><ul><li>Join a fast-growing, premium design brand</li><li>Shape the marketing direction of an established international name</li><li>Autonomy to build your own team</li><li>Direct access to senior leadership</li><li>Real influence on growth strategy</li><li>Relocation package available for the right candidate</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 10 -->
-          <button class="job-card" role="option" type="button"
-            data-id="240" data-filter="designer"
-            data-title="Design Assistant (Part-time)"
-            data-cat="Designer"
-            data-location="West Midlands"
-            data-type="Part-time"
-            data-salary="£25,000 – £30,000 (pro rata)"
-            data-posted="7 May 2026"
-            data-ref="240"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/design-assistant-(parttime)-240/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/design-assistant-(parttime)-240.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Design Assistant (Part-time)</h3>
-            <div class="job-meta"><span>West Midlands</span><span class="job-meta-dot"></span><span>Part-time</span></div>
-            <div class="job-salary">£25,000 – £30,000 (pro rata)</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment seeks a Part-Time Design Assistant for a prominent kitchen retailer in the West Midlands. This permanent role offers £27,000 – £29,000 pro rata for 3–4 days weekly, ideal for a graduate designer with home/kitchen design retail experience.</p><h4>Responsibilities</h4><ul><li>Using internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Supporting the Showroom Manager with ordering processes/liaising with the manufacturing facility and completion of technical drawings for customer/client projects</li><li>Lead taking, booking design appointments and presenting designs to clients/customers</li><li>Administration support for showroom lead marketing activities</li><li>Engaging with walk-in customers and ensuring customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquiries and customer/client enquiries throughout a project</li><li>Ensuring the showroom is maintained to a high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>Customer service experience</li><li>Basic knowledge of design using CAD software</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence (preferred)</li></ul><h4>Benefits</h4><ul><li>Salary: £27,000 – £29,000 pro rata to 3–4 days</li><li>Company pension (after three months)</li><li>Perkbox discount scheme for hundreds of high-street retailers</li><li>25 days' holiday a year plus bank holidays pro rata 3–4 days</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 11 -->
-          <button class="job-card" role="option" type="button"
-            data-id="133" data-filter="designer"
-            data-title="Kitchen Designer"
-            data-cat="Designer"
-            data-location="Sevenoaks, Kent"
-            data-type="Permanent"
-            data-salary="£30,000 – £35,000 + Commission"
-            data-posted="7 May 2026"
-            data-ref="133"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-133/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-133.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer</h3>
-            <div class="job-meta"><span>Sevenoaks, Kent</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£30,000 – £35,000 + Commission</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Designer for a well-established kitchen retailer in the Sevenoaks area. This permanent role offers £30,000 – £35,000 per annum plus commission.</p><h4>Responsibilities</h4><ul><li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li><li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li><li>Support with showroom marketing activities</li><li>Engaging with walk-in customers and ensuring our clients/customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li><li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Drawing new plans/designs based on customer/client brief</li><li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li><li>Supporting the Showroom Manager with ordering processes/liaising with manufacturing colleagues in Germany and completion of technical drawings for customer/client projects</li><li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li><li>Ensuring the showroom is maintained to a high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>At least 4 years' previous experience with design in a luxury kitchen retail or showroom environment</li><li>German kitchen experience preferred and desired</li><li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li><li>Knowledge of design using CAD software</li><li>Training on the product design system (Winner) will also be provided</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence</li></ul><h4>Benefits</h4><ul><li>Basic salary: £30,000 – £35,000 DOE</li><li>Commission based on sales (uncapped)</li><li>Company pension (after three months)</li><li>Discount scheme for hundreds of high street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li><li>Full time. 5 days a week to include late night on Thursday (7pm close) and Saturday working on a rota system (flexible day off in lieu during the week)</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 12 -->
-          <button class="job-card" role="option" type="button"
-            data-id="239" data-filter="designer"
-            data-title="Design Assistant"
-            data-cat="Designer"
-            data-location="North Kent"
-            data-type="Permanent"
-            data-salary="£26,000 – £30,000"
-            data-posted="7 May 2026"
-            data-ref="239"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/design-assistant-239/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/design-assistant-239.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Design Assistant</h3>
-            <div class="job-meta"><span>North Kent</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£26,000 – £30,000</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are seeking a Design Assistant for a well-known kitchen retailer in North Kent. This permanent position offers £27,000 – £29,000 with ongoing training.</p><h4>Responsibilities</h4><ul><li>Using internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Supporting the Showroom Manager with ordering processes/liaising with the manufacturing facility and completion of technical drawings for customer/client projects</li><li>Lead taking, booking design appointments and presenting designs to clients/customers</li><li>Administration support for showroom lead marketing activities</li><li>Engaging with walk-in customers and ensuring customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquiries and customer/client enquiries throughout a project</li><li>Ensuring the showroom is maintained to a high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>Customer service experience</li><li>Basic knowledge of design using CAD software</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence (preferred)</li></ul><h4>Benefits</h4><ul><li>Salary: £27,000 – £29,000</li><li>Company pension (after three months)</li><li>Perkbox discount scheme for hundreds of high-street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 13 -->
-          <button class="job-card" role="option" type="button"
-            data-id="224" data-filter="designer"
-            data-title="Project Kitchen Designer"
-            data-cat="Designer"
-            data-location="London"
-            data-type="Permanent"
-            data-salary="£35,000 – £45,000"
-            data-posted="7 May 2026"
-            data-ref="224"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/project-kitchen-designer-224/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/project-kitchen-designer-224.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Project Kitchen Designer</h3>
-            <div class="job-meta"><span>London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£35,000 – £45,000</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are seeking a Project Kitchen Designer to work with a luxury Italian kitchen company in London. This permanent position pays £35,000 – £45,000 for the right candidate.</p><h4>Responsibilities</h4><ul><li>Analyse floor plans and classify unit types, wardrobes, and appliances to generate quantity take-offs</li><li>Prepare and organise kitchen and wardrobe typologies, based on spec tiers and layout similarities</li><li>Prepare tender documents: layouts, specification breakdowns, palette proposals, and pricing summaries</li><li>Work closely with the Italian factory and internal commercial team to request and review pricing</li><li>Coordinate with the internal team, suppliers and clients</li><li>Use spreadsheets to manage pricing, quantities, and revisions across multiple projects</li><li>Prepare and present project-specific presentation packs for clients (developers, architects, PMs)</li><li>Cross-check specs with appliances, worktops, and finishes to ensure technical and cost compatibility</li><li>Prepare high-quality client presentations and support design team meetings with relevant visuals</li><li>Organise and update project folders with layouts, finishes, and product codes for each unit type</li><li>Coordinate with relevant team leads to flag service clashes, missing drawings, or scope inconsistencies</li><li>Ensure accuracy across all documents shared with clients</li></ul><h4>Requirements</h4><ul><li>Minimum 2–3 years' experience in kitchen design, ideally for large-scale projects</li><li>Strong proficiency in Excel, comfortable working with formulas, quantities, and structured data</li><li>Good working knowledge of kitchen detailing, especially units, internal fittings, appliance integration, and service zones</li><li>Familiarity with appliances (Neff, Siemens, Bosch etc.) and worktop materials (laminate, quartz, compact etc.)</li><li>Experience using kitchen design software such as Metron, Winner Design, Revit (preferred for layouts and coordination)</li><li>Ability to work across multiple live projects with shifting priorities</li><li>Structured mindset with strong attention to detail and accuracy</li><li>Organised, proactive, and able to juggle multiple project timelines</li><li>Commercial awareness: understanding how design choices affect pricing and lead times</li><li>Fluent in preparing clear, structured documents and presentations for client review</li><li>Excellent written and spoken English</li><li>Highly responsible and takes full ownership of assigned tasks, showing initiative in identifying issues, proposing solutions, and pushing projects forward</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 14 -->
-          <button class="job-card" role="option" type="button"
-            data-id="20" data-filter="designer"
-            data-title="Kitchen Designer"
-            data-cat="Designer"
-            data-location="London"
-            data-type="Permanent"
-            data-salary="£22,000 – £40,000 basic + Commission"
-            data-posted="7 May 2026"
-            data-ref="20"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-20/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-20.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer</h3>
-            <div class="job-meta"><span>London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£22,000 – £40,000 basic + Commission</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are working with an award-winning bespoke kitchen company in South West London seeking a Kitchen Designer to join their showroom team. This permanent position pays £22,000 – £26,000 for Junior Designers and £30,000 – £40,000 + Commission for Senior Kitchen Designers.</p><h4>Responsibilities</h4><ul><li>Designing and selling bespoke kitchens</li><li>Maintaining showroom standards at all times</li><li>Ensuring customers and clients are well looked after with a huge focus on the customer journey</li><li>Liaising with other departments and support to ensure communication is kept to the highest level</li><li>Producing high-quality renders with their design software</li><li>Promoting the company brand and acting as an ambassador for the business</li><li>Attending events put on by the business or that the business requires representation for</li></ul><h4>Requirements</h4><ul><li>Knowledge of Virtual Worlds, Fusion 2020, AutoCAD, Compusoft or ArtiCAD preferred</li><li>Saturday working required with a day off in the week</li><li>A proven sales background</li><li>Kitchen Design experience essential</li></ul><h4>Benefits</h4><ul><li>25 days holiday + bank holiday</li><li>Birthday holiday extra</li><li>Private medical insurance after 6 months probation</li><li>Alternate Saturdays</li><li>Other staff bonuses</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 15 -->
-          <button class="job-card" role="option" type="button"
-            data-id="242" data-filter="designer"
-            data-title="Design Assistant"
-            data-cat="Designer"
-            data-location="Nottinghamshire"
-            data-type="Permanent"
-            data-salary="£25,000 – £30,000"
-            data-posted="7 May 2026"
-            data-ref="242"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/design-assistant-242/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/design-assistant-242.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Design Assistant</h3>
-            <div class="job-meta"><span>Nottinghamshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£25,000 – £30,000</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are seeking a Design Assistant for a well-known kitchen retailer in Nottingham. This permanent position offers £27,000 – £29,000 with ongoing training, ideal for a graduate designer with initial home/kitchen design retail experience.</p><h4>Responsibilities</h4><ul><li>Using internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Supporting the Showroom Manager with ordering processes/liaising with the manufacturing facility and completion of technical drawings for customer/client projects</li><li>Lead taking, booking design appointments and presenting designs to clients/customers</li><li>Administration support for showroom lead marketing activities</li><li>Engaging with walk-in customers and ensuring customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquiries and customer/client enquiries throughout a project</li><li>Ensuring the showroom is maintained to a high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>Customer service experience</li><li>Basic knowledge of design using CAD software</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence (preferred)</li></ul><h4>Benefits</h4><ul><li>Salary: £27,000 – £29,000</li><li>Company pension (after three months)</li><li>Perkbox discount scheme for hundreds of high-street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 16 -->
-          <button class="job-card" role="option" type="button"
-            data-id="247" data-filter="sales"
-            data-title="Business Development Manager"
-            data-cat="Area Sales"
-            data-location="Gloucestershire / South West"
-            data-type="Permanent"
-            data-salary="£50,000 – £60,000 + Bonus"
-            data-posted="7 May 2026"
-            data-ref="247"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/business-development-manager-247/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/business-development-manager-247.aspx"
-            aria-selected="false">
-            <span class="job-cat">Area Sales</span>
-            <h3 class="job-title">Business Development Manager</h3>
-            <div class="job-meta"><span>Gloucestershire / South West</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£50,000 – £60,000 + Bonus</div>
-            <div class="job-date">Posted 7 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment seeks a Business Development Manager for the South West Region to support a leading kitchen designer's franchise network. This permanent role offers £50,000 – £56,000 per annum plus bonus and a company car.</p><h4>Responsibilities</h4><ul><li>Acting as the key link between Showroom Business Owners and Head Office, ensuring each franchise operates in line with agreed standards and best practice</li><li>Driving sustainable growth across the franchise network by supporting franchisees with day-to-day business development, operational guidance, and long-term strategic planning</li><li>Working as part of a wider BDM team, analysing sales performance, financial metrics, and operational processes to provide informed advice, motivation, and training</li><li>Helping franchisees understand their KPIs, improve efficiency, and submit accurate reports to the wider business</li><li>Managing your own portfolio of showrooms, supporting them from initial training and launch through to ongoing development and business success</li><li>Analyse franchisee profit, margins, and financial performance</li><li>Identify barriers to growth and develop strategies to improve profitability</li><li>Monitor progress against business plans and ensure actions are followed</li><li>Support franchisees in maximising efficiency and overall performance</li><li>Provide professional advice and guidance on operational issues</li><li>Set and review sales, growth, and customer service targets</li><li>Support franchisees through start-up, launch, and ongoing development</li><li>Coordinate with franchisees, Head Office, and suppliers during setup</li><li>Deliver training and mentoring both on-site and at Head Office</li><li>Assist with business planning and customer appointment preparation</li><li>Train franchisees on internal systems, including CRM tools</li><li>Ensure franchisees operate in line with company standards</li><li>Share best practice and contribute to continuous improvement</li><li>Produce reports for Senior Management and flag concerns</li><li>Promote company policies and values</li></ul><h4>Requirements</h4><ul><li>Understanding of sales, marketing, and P&amp;L management</li><li>Strong track record of achieving targets</li><li>Proficiency in Microsoft Teams, Excel and PowerPoint</li><li>Commercial acumen and operational experience</li><li>Full UK driving licence, RTW in the UK, and satisfactory references</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 17 -->
-          <button class="job-card" role="option" type="button"
-            data-id="249" data-filter="designer"
-            data-title="Project Kitchen Designer"
-            data-cat="Designer"
-            data-location="London"
-            data-type="Permanent"
-            data-salary="£35,000 – £45,000"
-            data-posted="5 May 2026"
-            data-ref="249"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/project-kitchen-designer-249/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/project-kitchen-designer-249.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Project Kitchen Designer</h3>
-            <div class="job-meta"><span>London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£35,000 – £45,000</div>
-            <div class="job-date">Posted 5 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment seeks a Project Kitchen Designer for a luxury Italian kitchen company in London. This permanent position offers £35,000 – £45,000 for someone experienced with large-scale kitchen projects.</p><h4>Responsibilities</h4><ul><li>Analyse floor plans and classify unit types, wardrobes, and appliances to generate quantity take-offs</li><li>Prepare and organise kitchen and wardrobe typologies, based on spec tiers and layout similarities</li><li>Prepare tender documents: layouts, specification breakdowns, palette proposals, and pricing summaries</li><li>Work closely with the Italian factory and internal commercial team to request and review pricing</li><li>Coordinate with the internal team, suppliers and clients</li><li>Use spreadsheets to manage pricing, quantities, and revisions across multiple projects</li><li>Prepare and present project-specific presentation packs for clients (developers, architects, PMs)</li><li>Cross-check specs with appliances, worktops, and finishes to ensure technical and cost compatibility</li><li>Prepare high-quality client presentations and support design team meetings with relevant visuals</li><li>Organise and update project folders with layouts, finishes, and product codes for each unit type</li><li>Coordinate with relevant team leads to flag service clashes, missing drawings, or scope inconsistencies</li><li>Ensure accuracy across all documents shared with clients</li></ul><h4>Requirements</h4><ul><li>Minimum 2–3 years' experience in kitchen design, ideally for large-scale projects</li><li>Strong proficiency in Excel, comfortable working with formulas, quantities, and structured data</li><li>Good working knowledge of kitchen detailing, especially units, internal fittings, appliance integration, and service zones</li><li>Familiarity with appliances (Neff, Siemens, Bosch etc.) and worktop materials (laminate, quartz, compact etc.)</li><li>Experience using kitchen design software such as Metron (desired but not essential), Winner Design, Revit (preferred for layouts and coordination)</li><li>Ability to work across multiple live projects with shifting priorities</li><li>Structured mindset with strong attention to detail and accuracy</li><li>Organised, proactive, and able to juggle multiple project timelines</li><li>Commercial awareness: understanding how design choices affect pricing and lead times</li><li>Fluent in preparing clear, structured documents and presentations for client review</li><li>Excellent written and spoken English</li><li>Highly responsible and takes full ownership of assigned tasks, showing initiative in identifying issues, proposing solutions, and pushing projects forward</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 18 -->
-          <button class="job-card" role="option" type="button"
-            data-id="248" data-filter="designer"
-            data-title="Kitchen Designer"
-            data-cat="Designer"
-            data-location="West London"
-            data-type="Permanent"
-            data-salary="£33,000 – £40,000 + Commission"
-            data-posted="1 May 2026"
-            data-ref="248"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-248/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-248.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer</h3>
-            <div class="job-meta"><span>West London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£33,000 – £40,000 + Commission</div>
-            <div class="job-date">Posted 1 May 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Sales Designer for a well-known kitchen retailer and manufacturer in West London. This permanent role offers £33,000 – £40,000 per annum plus Commission.</p><h4>Responsibilities</h4><ul><li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li><li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li><li>Support with showroom marketing activities</li><li>Engaging with walk in customers and ensuring our clients/customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li><li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Drawing new plans/designs based on customer/client brief</li><li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li><li>Supporting the Dual Site Showroom Manager with ordering processes/liaising with our manufacturing colleagues in Germany and completion of technical drawings for customer/client projects</li><li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li><li>Ensuring the showroom is maintained to high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>At least 4 years' previous experience with design in a luxury kitchen retail or showroom environment</li><li>German kitchen experience preferred and desired</li><li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li><li>Knowledge of design using CAD software</li><li>Training on the product design system will also be provided</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence</li></ul><h4>Benefits</h4><ul><li>Commission based on sales (uncapped)</li><li>Company pension (after three months)</li><li>Discount scheme for hundreds of high street retailers</li><li>25 days' holiday a year plus bank holidays</li><li>Free hot drinks</li><li>Opportunity for ongoing training and development</li><li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 19 -->
-          <button class="job-card" role="option" type="button"
-            data-id="154" data-filter="designer"
-            data-title="Senior Kitchen Designer"
-            data-cat="Designer"
-            data-location="West London"
-            data-type="Permanent"
-            data-salary="£40,000 – £45,000 + Commission"
-            data-posted="28 Apr 2026"
-            data-ref="154"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/senior-kitchen-designer-154/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/senior-kitchen-designer-154.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Senior Kitchen Designer</h3>
-            <div class="job-meta"><span>West London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£40,000 – £45,000 + Commission + Benefits</div>
-            <div class="job-date">Posted 28 Apr 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Designer for an award-winning luxury retailer in the West London area. This permanent position pays £40,000 – £45,000 per annum plus commission and company benefits.</p><h4>Responsibilities</h4><ul><li>Driving sales through the design of bespoke kitchens, engaging with clients from initial consultation through to final installation</li><li>Engaging with clients to understand their needs, preferences, and budgets, offering expert design advice and tailored kitchen and furniture solutions</li><li>Leading the creation of stunning, functional kitchen designs, producing detailed plans and 3D renderings using design software (e.g. Vectorworks, or similar)</li><li>Managing the full sales process, from generating leads to closing deals, providing accurate quotes, and ensuring all details of the client's project are captured and priced effectively</li><li>Overseeing the progress of client projects, from design approval through to the final installation, ensuring high standards of quality, on-time delivery, and budget adherence</li><li>Maintaining an up-to-date knowledge of kitchen products, materials, and trends to provide expert advice to clients and create the best solutions for their homes</li><li>Building and maintaining strong client relationships, providing excellent customer service throughout the sales and design process, including aftercare</li><li>Working towards and exceeding individual and team sales targets, contributing to the overall success of the business</li><li>Building a network of clients using various lead generation techniques and sources to create sales opportunities, referrals and repeat clients</li><li>Collaborating with other members of the sales and design team, as well as with the installation team, to ensure smooth project execution</li><li>Representing the company at trade events, shows, and client meetings, acting as an ambassador for the brand and helping to build its reputation in the marketplace</li><li>Managing client records, sales documentation, and progress reports, ensuring accurate and up-to-date information is kept within the company systems</li></ul><h4>Requirements</h4><ul><li>Proven experience in kitchen design and sales, with a strong portfolio of completed projects and a successful track record of achieving sales targets</li><li>Proficiency in kitchen design software such as Vectorworks, SketchUp, or similar, with the ability to produce detailed floor plans</li><li>Strong sales skills with the ability to close deals, upsell products, and deliver solutions tailored to clients' needs and budgets</li><li>Excellent interpersonal and communication skills, with a strong emphasis on providing outstanding customer service and building lasting client relationships</li><li>The ability to manage multiple projects simultaneously, ensuring timely completion and quality standards are met</li><li>An in-depth understanding of kitchen products, appliances, finishes, and current design trends</li><li>The ability to collaborate effectively with colleagues across departments to achieve company goals</li><li>A background in interior design, architecture, or a related field is preferred</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 20 -->
-          <button class="job-card" role="option" type="button"
-            data-id="72" data-filter="designer"
-            data-title="Senior Designer"
-            data-cat="Designer"
-            data-location="Central London"
-            data-type="Permanent"
-            data-salary="£35,000 – £45,000 + Commission"
-            data-posted="28 Apr 2026"
-            data-ref="72"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/senior-designer-72/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/senior-designer-72.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Senior Designer</h3>
-            <div class="job-meta"><span>Central London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£35,000 – £45,000 + Commission</div>
-            <div class="job-date">Posted 28 Apr 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are seeking a Senior Designer for one of the luxury design industry's most prestigious companies in Central London. This permanent role offers £35,000 – £45,000 + Commission per annum.</p><h4>Responsibilities</h4><ul><li>Managing a portfolio of clients and designing bespoke interiors</li><li>Working out of the Central London Showroom</li><li>Managing interior projects from concept to completion</li><li>Designing interiors on the company's in-house CAD system</li><li>Liaising with Project Managers, Installers and the Purchasing department to ensure a smooth running of projects</li><li>Dealing with customers via walk-ins, appointments, repeat business and referrals</li><li>Overcoming objections with customers</li><li>Working with the wider teams in the company to handle projects to a high standard</li><li>Introducing customers to a range of products and appliances</li><li>Upselling where possible and ensuring a smooth sale</li><li>Attending company events and award shows for networking opportunities</li><li>Being a brand ambassador for the company at all times</li></ul><h4>Requirements</h4><ul><li>Minimum 5 years' experience in high-end sales and design</li><li>Proficiency in CAD</li><li>Excellent attention to detail</li><li>A strong character</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 21 -->
-          <button class="job-card" role="option" type="button"
-            data-id="245" data-filter="installations"
-            data-title="Warehouse Manager"
-            data-cat="Installations &amp; Projects"
-            data-location="London"
-            data-type="Permanent"
-            data-salary="£40,000 – £45,000"
-            data-posted="28 Apr 2026"
-            data-ref="245"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/warehouse-manager-245/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/warehouse-manager-245.aspx"
-            aria-selected="false">
-            <span class="job-cat">Installations &amp; Projects</span>
-            <h3 class="job-title">Warehouse Manager</h3>
-            <div class="job-meta"><span>London</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£40,000 – £45,000</div>
-            <div class="job-date">Posted 28 Apr 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment seeks a Warehouse Manager for a luxury furniture specialist in Dartford. This permanent position offers £40,000 – £45,000 per annum with working hours 8am – 4pm.</p><h4>Responsibilities</h4><ul><li>Oversee receiving, storage, and dispatch of furniture products</li><li>Ensure proper handling of large, fragile, and high-value items</li><li>Optimize warehouse layout for space utilization and accessibility</li><li>Maintain accurate inventory records using warehouse management systems</li><li>Conduct regular stock checks and audits</li><li>Monitor stock levels and coordinate reordering</li><li>Supervise warehouse staff, including loaders, pickers, and forklift operators</li><li>Schedule shifts and assign daily tasks</li><li>Train staff on handling furniture safely and efficiently</li><li>Coordinate deliveries and dispatch schedules</li><li>Work closely with outsourced transport teams and drivers</li><li>Ensure timely and accurate order fulfillment</li><li>Enforce workplace safety standards, especially for heavy lifting and equipment use</li><li>Ensure compliance with regulations and company policies</li><li>Conduct safety training and inspections</li><li>Inspect incoming and outgoing furniture for damage</li><li>Manage returns, repairs, or replacements</li><li>Identify inefficiencies and implement improvements</li><li>Introduce best practices in warehouse operations</li></ul><h4>Requirements</h4><ul><li>Proven experience as a Warehouse Manager (preferably in furniture or appliances)</li><li>Strong knowledge of warehouse operations and inventory systems</li><li>Leadership and team management skills</li><li>Understanding of health &amp; safety regulations</li><li>Ability to handle physically demanding environments</li><li>Good organizational and problem-solving skills</li><li>Familiarity with forklifts and warehouse equipment (certification preferred)</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
-
-          <!-- 22 -->
-          <button class="job-card" role="option" type="button"
-            data-id="243" data-filter="sales"
-            data-title="Sales Designer"
-            data-cat="Area Sales"
-            data-location="London"
-            data-type="Self-employed"
-            data-salary="£60,000 – £100,000 OTE"
-            data-posted="27 Apr 2026"
-            data-ref="243"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/sales-designer-243/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/sales-designer-243.aspx"
-            aria-selected="false">
-            <span class="job-cat">Area Sales</span>
-            <h3 class="job-title">Sales Designer</h3>
-            <div class="job-meta"><span>London</span><span class="job-meta-dot"></span><span>Self-employed</span></div>
-            <div class="job-salary">£60,000 – £100,000 OTE</div>
-            <div class="job-date">Posted 27 Apr 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are seeking a driven Sales Designer to work with premium, made-to-measure timber design solutions in the London area, offering £60,000 – £100,000 OTE as a self-employed professional with a high-end bespoke timber design business.</p><h4>Responsibilities</h4><ul><li>Creating and selling tailored, high-quality timber design solutions</li><li>Consulting with clients to understand their vision and deliver the right outcome</li><li>Maintaining exceptional standards in both design and customer experience</li></ul><h4>Requirements</h4><ul><li>Experience in a design-led, sales-focused role</li><li>Strong interpersonal and communication skills</li><li>Self-motivation and a positive, professional approach</li><li>A full UK driving licence and access to your own vehicle</li></ul><h4>Benefits</h4><ul><li>Uncapped earning potential with a realistic £60,000 – £80,000 OTE</li><li>Pre-qualified leads provided, so you can focus on designing and closing</li><li>Full flexibility with a self-employed setup and control of your schedule</li><li>Opportunity to represent an established brand with over 40 years of experience</li><li>Ongoing investment in marketing, innovation, and product development</li><li>A business with a strong 4.5-star Trustpilot rating</li></ul><p class="closing">Designer Recruitment are acting as the representative for this opportunity.</p></div>
-          </button>
-
-          <!-- 23 -->
-          <button class="job-card" role="option" type="button"
-            data-id="185" data-filter="purchasing"
-            data-title="Buyer / Stock Controller"
-            data-cat="Purchasing"
-            data-location="Surrey"
-            data-type="Permanent"
-            data-salary="On request"
-            data-posted="27 Apr 2026"
-            data-ref="185"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/buyer--stock-controller-185/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/buyer--stock-controller-185.aspx"
-            aria-selected="false">
-            <span class="job-cat">Purchasing</span>
-            <h3 class="job-title">Buyer / Stock Controller</h3>
-            <div class="job-meta"><span>Surrey</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">On request</div>
-            <div class="job-date">Posted 27 Apr 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment seeks an experienced Buyer / Stock Controller for a leading plumbing and heating merchant in Surrey. This role offers up to £36,000 per annum and the opportunity to join a well-established, growing business.</p><h4>Responsibilities</h4><ul><li>Managing stock control processes, ensuring accurate levels and availability of key products</li><li>Sourcing, purchasing, and negotiating with suppliers to ensure competitive pricing and reliable supply</li><li>Monitoring sales trends to forecast demand and maintain efficient inventory levels</li><li>Building and maintaining strong relationships with suppliers and internal teams</li><li>Supporting day-to-day operations to ensure a smooth supply chain process</li></ul><h4>Requirements</h4><ul><li>Previous experience as a Buyer, Stock Controller, or Purchasing Assistant within the plumbing, heating, or wider merchant sector</li><li>Strong commercial awareness and negotiation skills</li><li>Excellent organisational skills with attention to detail</li><li>A proactive, hands-on approach and ability to work effectively in a fast-paced environment</li></ul><h4>Benefits</h4><ul><li>Salary: up to £36,000 per annum, depending on experience</li><li>Hours: Monday – Friday, 8am – 5pm</li><li>Friendly and supportive working environment with long-term stability</li></ul><p class="closing">Designer Recruitment are acting as the representative for this position.</p></div>
-          </button>
-
-          <!-- 24 -->
-          <button class="job-card" role="option" type="button"
-            data-id="228" data-filter="designer"
-            data-title="Kitchen Designer"
-            data-cat="Designer"
-            data-location="Cumbria (remote)"
-            data-type="Permanent"
-            data-salary="On request"
-            data-posted="27 Apr 2026"
-            data-ref="228"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-228/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-228.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer</h3>
-            <div class="job-meta"><span>Cumbria (remote)</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">On request</div>
-            <div class="job-date">Posted 27 Apr 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment represents a prestigious luxury kitchen company seeking an exceptional Remote Kitchen Sales Designer to manage and convert leads across the Cumbria region. The role offers an OTE of £65K – £100K+.</p><h4>Responsibilities</h4><ul><li>Manage and convert regional leads across Cumbria while working predominantly remotely</li><li>Conduct customer consultations remotely, in customers' homes, and in-showroom when required</li><li>Understand customer lifestyle, needs, preferences, and budget</li><li>Build strong relationships with clients, acting as a trusted advisor throughout the process</li><li>Present and sell bespoke kitchens, boot-rooms, utilities, bedrooms, appliances, worktops, and accessories</li><li>Achieve or exceed individual sales targets aligned with company KPIs</li><li>Upsell complementary products and services where appropriate</li><li>Handle customer objections professionally and close sales confidently</li><li>Manage client expectations from initial order through to final sign-off</li><li>Complete customer site surveys and final contracts</li></ul><h4>Requirements</h4><ul><li>Strong sales ability with a consultative approach</li><li>Creative design flair with excellent attention to detail</li><li>Excellent communication and interpersonal skills</li><li>Highly organised with strong time-management skills</li><li>Comfortable working remotely and managing your own workload</li><li>Experienced in using CAD design software</li><li>Ability to manage multiple projects simultaneously</li><li>Experience designing and selling luxury kitchens preferred</li><li>Knowledge of appliances, worktops, and cabinetry construction</li><li>Confident in negotiation and closing orders</li><li>Strong team player who can also work independently</li><li>Ambitious, target-driven, and self-motivated</li><li>Positive, solution-focused attitude</li></ul><h4>Benefits</h4><ul><li>Cycle to Work Scheme</li><li>Contributory pension</li><li>Access to discounts across hundreds of well-known retailers</li><li>Wellbeing platform offering fitness resources, mindfulness tools, nutritional guidance, and financial support</li><li>Employee Assistance Programme</li><li>Mortgage advice and education through partnered specialists</li><li>Additional employee benefits currently being developed</li></ul><p class="closing">Designer Recruitment are acting as the representative for this opportunity.</p></div>
-          </button>
-
-          <!-- 25 -->
-          <button class="job-card" role="option" type="button"
-            data-id="200" data-filter="designer"
-            data-title="Kitchen Designer"
-            data-cat="Designer"
-            data-location="West Midlands"
-            data-type="Permanent"
-            data-salary="£30,000 – £40,000 + Commission"
-            data-posted="27 Apr 2026"
-            data-ref="200"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-200/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-200.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer</h3>
-            <div class="job-meta"><span>West Midlands</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£30,000 – £40,000 + Commission</div>
-            <div class="job-date">Posted 27 Apr 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are representing a growing, premium kitchen specialist based in the West Midlands seeking a Kitchen Designer. The role offers a salary of £30,000 – £40,000 plus commission.</p><h4>Responsibilities</h4><ul><li>Guide customers through their full design journey, from initial consultation to final presentation</li><li>Create beautiful, functional kitchen designs tailored to each client's lifestyle</li><li>Build rapport, deliver exceptional service, and confidently close sales</li><li>Work collaboratively with the team to maintain the showroom's exceptional standards</li></ul><h4>Requirements</h4><ul><li>Has experience in kitchen design and sales</li><li>Is creative, commercially minded, and confident with customers</li><li>Delivers a high level of service and enjoys working towards sales targets</li><li>Is motivated, organised, and passionate about interiors</li><li>Experience using Winner software is preferable but not essential</li></ul><h4>Benefits</h4><ul><li>Work with a stunning product offering that includes a mix of high-end European and British made kitchen ranges</li><li>Join an award-winning company recognised for design excellence, customer service, and installation quality</li><li>Be part of a friendly, supportive team with a strong reputation and a loyal client base</li><li>Enjoy a competitive basic salary up to £40,000, plus a commission structure that rewards performance</li></ul><p class="closing">Designer Recruitment are acting as the recruitment agency for this vacancy.</p></div>
-          </button>
-
-          <!-- 26 -->
-          <button class="job-card" role="option" type="button"
-            data-id="201" data-filter="designer"
-            data-title="Kitchen Designer"
-            data-cat="Designer"
-            data-location="Warwickshire"
-            data-type="Permanent"
-            data-salary="£30,000 – £40,000 + Commission"
-            data-posted="27 Apr 2026"
-            data-ref="201"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-201/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-201.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer</h3>
-            <div class="job-meta"><span>Warwickshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£30,000 – £40,000 + Commission</div>
-            <div class="job-date">Posted 27 Apr 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are representing a growing, premium kitchen specialist based in Warwickshire seeking a Kitchen Designer. The role offers a salary of £30,000 – £40,000 plus commission.</p><h4>Responsibilities</h4><ul><li>Guide customers through their full design journey, from initial consultation to final presentation</li><li>Create beautiful, functional kitchen designs tailored to each client's lifestyle</li><li>Build rapport, deliver exceptional service, and confidently close sales</li><li>Work collaboratively with the team to maintain the showroom's exceptional standards</li></ul><h4>Requirements</h4><ul><li>Has experience in kitchen design and sales</li><li>Is creative, commercially minded, and confident with customers</li><li>Delivers a high level of service and enjoys working towards sales targets</li><li>Is motivated, organised, and passionate about interiors</li><li>Experience using Winner software is preferable but not essential</li></ul><h4>Benefits</h4><ul><li>Work with a stunning product offering that includes a mix of high-end European and British made kitchen ranges</li><li>Join an award-winning company recognised for design excellence, customer service, and installation quality</li><li>Be part of a friendly, supportive team with a strong reputation and a loyal client base</li><li>Enjoy a competitive basic salary up to £40,000, plus a commission structure that rewards performance</li></ul><p class="closing">Designer Recruitment are acting as the recruitment agency for this vacancy.</p></div>
-          </button>
-
-          <!-- 27 -->
-          <button class="job-card" role="option" type="button"
-            data-id="237" data-filter="designer"
-            data-title="Kitchen Designer (Luxury)"
-            data-cat="Designer"
-            data-location="Cambridgeshire"
-            data-type="Permanent"
-            data-salary="OTE £80,000 – £110,000+"
-            data-posted="27 Apr 2026"
-            data-ref="237"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-237/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-237.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer (Luxury)</h3>
-            <div class="job-meta"><span>Cambridgeshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">OTE £80,000 – £110,000+</div>
-            <div class="job-date">Posted 27 Apr 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment represents a prestigious luxury kitchen company seeking an exceptional Kitchen Sales Designer in Cambridgeshire. The role offers an OTE of £80K – £110K+ and combines creative design skills with strong sales ability.</p><h4>Responsibilities</h4><ul><li>Work closely with the Showroom Manager to deliver an excellent customer experience</li><li>Consult with customers in both their homes and the showroom to understand lifestyle, needs, preferences, and budget</li><li>Build strong relationships with clients, acting as a trusted advisor throughout</li><li>Present and sell bespoke kitchens, boot-rooms, utilities, bedrooms, appliances, worktops, and accessories</li><li>Achieve or exceed individual sales targets aligned with company KPIs</li><li>Upsell complementary products and services where appropriate</li><li>Handle customer objections professionally and close sales confidently</li><li>Manage client expectations from initial order to final sign-off</li><li>Complete customer site surveys and final contracts</li></ul><h4>Requirements</h4><ul><li>Strong sales ability with a consultative approach</li><li>Creative design flair with attention to detail</li><li>Excellent communication and interpersonal skills</li><li>High level of organisation and time management</li><li>Experienced in using CAD design software</li><li>Ability to manage multiple projects simultaneously</li><li>Experience in designing &amp; selling luxury kitchens preferred</li><li>Knowledge of appliances, worktops, and cabinetry construction</li><li>Confident in negotiation and closing orders</li><li>Strong team player who can also work independently</li><li>Ambitious and target-driven</li><li>Positive attitude with an ability to provide solutions</li></ul><h4>Benefits</h4><ul><li>Cycle to Work Scheme</li><li>Contributory pension</li><li>Access to discounts across hundreds of well-known retailers</li><li>Wellbeing platform offering fitness resources, mindfulness tools, nutritional guidance, and financial support</li><li>Employee Assistance Programme</li><li>Mortgage advice and education through partnered specialists</li><li>Additional employee benefits currently being developed</li></ul><p class="closing">Designer Recruitment are acting as the representative for this opportunity.</p></div>
-          </button>
-
-          <!-- 28 -->
-          <button class="job-card" role="option" type="button"
-            data-id="246" data-filter="designer"
-            data-title="Kitchen Designer"
-            data-cat="Designer"
-            data-location="Crewe, Cheshire"
-            data-type="Permanent"
-            data-salary="£27,000 + Commission (OTE £50,000)"
-            data-posted="23 Apr 2026"
-            data-ref="246"
-            data-apply="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-246/apply.aspx"
-            data-detail="https://jobs.designerrecruitment.co.uk/job/kitchen-designer-246.aspx"
-            aria-selected="false">
-            <span class="job-cat">Designer</span>
-            <h3 class="job-title">Kitchen Designer</h3>
-            <div class="job-meta"><span>Crewe, Cheshire</span><span class="job-meta-dot"></span><span>Permanent</span></div>
-            <div class="job-salary">£27,000 + Commission (OTE £50,000)</div>
-            <div class="job-date">Posted 23 Apr 2026</div>
-            <div class="job-description-data"><p>Designer Recruitment are seeking a Kitchen Designer for an established kitchen retailer in Crewe, Cheshire. This permanent role offers up to £27,000 per annum plus Commission, with realistic OTEs of circa £50,000 per annum.</p><h4>Responsibilities</h4><ul><li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li><li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li><li>Support with showroom marketing activities</li><li>Engaging with walk in customers and ensuring our clients/customers receive the highest level of customer service</li><li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li><li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li><li>Drawing new plans/designs based on customer/client brief</li><li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li><li>Supporting the wider management with ordering processes/liaising with their manufacturing colleagues in the completion of technical drawings for customer/client projects</li><li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li><li>Ensuring the showroom is maintained to high level of cleanliness</li></ul><h4>Requirements</h4><ul><li>At least 2 years' previous experience with design in a kitchen retail or showroom environment</li><li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li><li>Knowledge of design using CAD software</li><li>Training on the product design system will also be provided</li><li>Proactive with a desire to learn and develop in the role</li><li>Strong attention to detail</li><li>Ability to prioritise work and manage multiple tasks</li><li>Good communication and presentation skills and IT literate</li><li>Ability to work as part of a team and independently</li><li>Personable, friendly and confident with a can do attitude</li><li>Driving Licence</li></ul><h4>Benefits</h4><ul><li>Commission based on sales (uncapped)</li><li>Company pension</li><li>Opportunity for ongoing training and development</li></ul><p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p></div>
-          </button>
+          <noscript>
+            <div class="empty-state">Live roles need JavaScript to load here. <a href="https://jobs.designerrecruitment.co.uk/">View every open role on our jobs board</a>.</div>
+          </noscript>
 
           <div class="empty-state" id="empty-state" hidden>
             No roles match this filter right now. <a href="/candidates/apply/" style="color:var(--color-navy-deep);text-decoration:underline;">Register your details</a> and we'll keep you in mind for future opportunities.
@@ -1803,22 +1233,20 @@
             All roles
           </button>
 
-          <div class="detail-body" id="detail-body">
-            <div class="detail-cat" id="d-cat">Designer</div>
-            <h2 class="detail-title" id="d-title">
-              Kitchen Designer
-            </h2>
+          <div class="detail-body" id="detail-body" hidden>
+            <div class="detail-cat" id="d-cat"></div>
+            <h2 class="detail-title" id="d-title"></h2>
             <div class="detail-meta" id="d-meta">
-              <span id="d-location">Warwickshire</span>
+              <span id="d-location"></span>
               <span class="detail-meta-dot"></span>
-              <span id="d-type">Permanent</span>
+              <span id="d-type"></span>
               <span class="detail-meta-dot"></span>
-              <span id="d-posted">Posted 7 May 2026</span>
+              <span id="d-posted"></span>
             </div>
-            <div class="detail-salary" id="d-salary">£33,000 + Commission</div>
+            <div class="detail-salary" id="d-salary"></div>
 
             <div class="detail-actions">
-              <a class="btn-primary" id="d-apply" href="/candidates/apply/?ref=213&amp;title=Kitchen+Designer&amp;location=Warwickshire&amp;salary=%C2%A333%2C000+%2B+Commission">
+              <a class="btn-primary" id="d-apply" href="/candidates/apply/">
                 Apply now
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
@@ -1832,66 +1260,24 @@
             </div>
 
             <div class="detail-section-head">Role overview</div>
-            <div class="detail-description" id="d-description">
-              <p>Designer Recruitment are seeking a Kitchen Sales Designer for a well-known kitchen retailer and manufacturer in Stratford Upon Avon. This permanent role offers up to £33,000 per annum plus Commission for the right candidate.</p>
-              <h4>Responsibilities</h4>
-              <ul>
-                <li>Deliver on kitchen sales targets and enhance opportunities for further income growth</li>
-                <li>Lead taking, booking design appointments and presenting designs to clients/customers, converting into sales</li>
-                <li>Support with showroom marketing activities</li>
-                <li>Engaging with walk in customers and ensuring our clients/customers receive the highest level of customer service</li>
-                <li>Answering the phone and dealing with daily enquires and customer/client enquiries throughout a project</li>
-                <li>Use of internal systems including CRM reporting tools efficiently (training will be provided)</li>
-                <li>Drawing new plans/designs based on customer/client brief</li>
-                <li>Surveying locations accurately in order to produce suitable designs for furniture to be installed</li>
-                <li>Supporting the Dual Site Showroom Manager with ordering processes/liaising with our manufacturing colleagues in Germany and completion of technical drawings for customer/client projects</li>
-                <li>Provide an effective kitchen after-sales service to clients/customers to maintain and enhance business reputation and secure repeat business</li>
-                <li>Ensuring the showroom is maintained to high level of cleanliness</li>
-              </ul>
-              <h4>Requirements</h4>
-              <ul>
-                <li>At least 3 years' previous experience with design in a luxury kitchen retail or showroom environment</li>
-                <li>German kitchen experience preferred and desired</li>
-                <li>Good customer service and sales experience with some evidence of sales achieved in previous roles</li>
-                <li>Knowledge of design using CAD software</li>
-                <li>Training on the product design system will also be provided</li>
-                <li>Proactive with a desire to learn and develop in the role</li>
-                <li>Strong attention to detail</li>
-                <li>Ability to prioritise work and manage multiple tasks</li>
-                <li>Good communication and presentation skills and IT literate</li>
-                <li>Ability to work as part of a team and independently</li>
-                <li>Personable, friendly and confident with a can do attitude</li>
-                <li>Driving Licence</li>
-              </ul>
-              <h4>Benefits</h4>
-              <ul>
-                <li>Commission based on sales (uncapped)</li>
-                <li>Company pension (after three months)</li>
-                <li>Discount scheme for hundreds of high street retailers</li>
-                <li>25 days' holiday a year plus bank holidays</li>
-                <li>Free hot drinks</li>
-                <li>Opportunity for ongoing training and development</li>
-                <li>Access to wellbeing services and an Employee Assistance Programme which provides access to 24/7 counselling and support helpline</li>
-              </ul>
-              <p class="closing">Designer Recruitment are acting as the employment agency in relation to this vacancy.</p>
-            </div>
+            <div class="detail-description" id="d-description"></div>
 
             <div class="detail-facts">
               <div>
                 <div class="detail-fact-label">Discipline</div>
-                <div class="detail-fact-value" id="d-fact-cat">Designer</div>
+                <div class="detail-fact-value" id="d-fact-cat"></div>
               </div>
               <div>
                 <div class="detail-fact-label">Reference</div>
-                <div class="detail-fact-value" id="d-fact-ref">213</div>
+                <div class="detail-fact-value" id="d-fact-ref"></div>
               </div>
               <div>
                 <div class="detail-fact-label">Type</div>
-                <div class="detail-fact-value" id="d-fact-type">Permanent</div>
+                <div class="detail-fact-value" id="d-fact-type"></div>
               </div>
               <div>
                 <div class="detail-fact-label">Posted</div>
-                <div class="detail-fact-value" id="d-fact-posted">7 May 2026</div>
+                <div class="detail-fact-value" id="d-fact-posted"></div>
               </div>
             </div>
 
@@ -2099,8 +1485,173 @@
     document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
   })();
 
-  /* ── Jobs browser: search + select + mobile back ── */
+  /* ── Live roles: built from the FireFish advert feed ──
+     FireFish is the recruitment system Designer Recruitment manage roles in.
+     Every advert published there appears here on the next page load, and a
+     closed advert drops off the feed and so drops off this page. The feed does
+     not allow cross-origin requests, so /api/jobs-feed is a Netlify rewrite
+     onto it (see netlify.toml and serve.mjs). Each card built here carries the
+     same attributes and inner structure as the hand-written cards it replaced,
+     so the browser script below runs unchanged. */
   (function() {
+    const FEED_URL   = '/api/jobs-feed';
+    const FF_NS      = 'http://www.firefishsoftware.com/';
+    const JOBS_BOARD = 'https://jobs.designerrecruitment.co.uk/';
+    const MONTHS     = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+    const listPane   = document.querySelector('.jobs-list-pane');
+    const listHead   = document.getElementById('list-head');
+    const listCount  = document.getElementById('list-count');
+    const status     = document.getElementById('list-status');
+    const detailBody = document.getElementById('detail-body');
+
+    function field(item, name) {
+      const el = item.getElementsByTagNameNS(FF_NS, name)[0]
+              || item.getElementsByTagName('ffAdvert:' + name)[0];
+      return el ? el.textContent.trim() : '';
+    }
+    function plain(item, name) {
+      const el = item.getElementsByTagName(name)[0];
+      return el ? el.textContent.trim() : '';
+    }
+
+    function formatDate(raw) {
+      const d = new Date(raw);
+      if (isNaN(d)) return '';
+      return d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+    }
+
+    function tidySalary(raw) {
+      let s = (raw || '').replace(/\s+/g, ' ').trim();
+      if (!s) return 'Competitive salary';
+      if (/^\d/.test(s)) s = '£' + s;   // "25,000 - £30,000" → "£25,000 - £30,000"
+      return s;
+    }
+
+    // Keep a description's structure (paragraphs, lists, emphasis, headings)
+    // and drop the rest: inline styles, Word and Outlook wrappers, font tags.
+    const KEEP = { P:'p', UL:'ul', OL:'ol', LI:'li', STRONG:'strong', B:'strong',
+                   EM:'em', I:'em', BR:'br', H2:'h4', H3:'h4', H4:'h4' };
+    function cleanDescription(rawHtml) {
+      const doc = new DOMParser().parseFromString(rawHtml || '', 'text/html');
+      const out = document.createDocumentFragment();
+      (function walk(src, dest) {
+        src.childNodes.forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            dest.appendChild(document.createTextNode(node.nodeValue.replace(/\u00a0/g, ' ')));
+            return;
+          }
+          if (node.nodeType !== Node.ELEMENT_NODE) return;
+          const tag = KEEP[node.tagName];
+          if (!tag) { walk(node, dest); return; }          // unwrap span / font / div
+          const el = document.createElement(tag);
+          walk(node, el);
+          if (tag === 'br' || el.textContent.trim() || el.querySelector('li')) {
+            if (tag === 'p' && /^Designer Recruitment (are|is) acting as/i.test(el.textContent.trim())) {
+              el.className = 'closing';
+            }
+            dest.appendChild(el);
+          }
+        });
+      })(doc.body, out);
+      return out;
+    }
+
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+
+    function buildCard(item) {
+      const ref       = field(item, 'ReferenceNumber');
+      const title     = field(item, 'Title') || plain(item, 'title');
+      const cat       = (field(item, 'Discipline').split('/')[0].trim()) || 'Role';
+      const location  = field(item, 'Location') || field(item, 'LocationArea') || 'UK';
+      const type      = field(item, 'JobType') || 'Permanent';
+      const salary    = tidySalary(field(item, 'Remuneration'));
+      const postedRaw = field(item, 'PostedDate') || plain(item, 'pubDate');
+      const posted    = formatDate(postedRaw);
+      const detail    = plain(item, 'link') || JOBS_BOARD;
+      const apply     = field(item, 'applyUrl') || detail;
+      const country   = /australia/i.test(field(item, 'Country')) ? 'AU' : 'GB';
+
+      const card = el('button', 'job-card');
+      card.type = 'button';
+      card.setAttribute('role', 'option');
+      card.setAttribute('aria-selected', 'false');
+      Object.assign(card.dataset, {
+        id: ref, ref, title, cat, location, type, salary, posted, detail, apply, country,
+        filter: cat.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      });
+
+      const meta = el('div', 'job-meta');
+      meta.append(el('span', '', location), el('span', 'job-meta-dot'), el('span', '', type));
+      const desc = el('div', 'job-description-data');
+      desc.appendChild(cleanDescription(plain(item, 'description')));
+
+      card.append(
+        el('span', 'job-cat', cat),
+        el('h3', 'job-title', title),
+        meta,
+        el('div', 'job-salary', salary),
+        el('div', 'job-date', posted ? 'Posted ' + posted : ''),
+        desc,
+      );
+      card._postedTime = new Date(postedRaw).getTime() || 0;
+      return card;
+    }
+
+    function showStatus(message, unavailable) {
+      status.innerHTML = message;
+      status.hidden = false;
+      if (unavailable) {
+        document.querySelector('.jobs-grid').classList.add('is-unavailable');
+        listHead.hidden = true;
+      }
+    }
+
+    function failed(err) {
+      console.error('Live roles feed:', err);
+      showStatus('The live roles list couldn\'t be loaded just now. ' +
+        '<a href="' + JOBS_BOARD + '">View every open role on our jobs board</a>, or ' +
+        '<a href="/candidates/apply/">register your details</a> and we\'ll be in touch.', true);
+      detailBody.hidden = true;
+    }
+
+    fetch(FEED_URL, { cache: 'no-store' })
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(xml => {
+        const doc = new DOMParser().parseFromString(xml, 'text/xml');
+        if (doc.getElementsByTagName('parsererror').length) throw new Error('feed is not valid XML');
+        const cards = Array.from(doc.getElementsByTagName('item'))
+          .map(buildCard)
+          .sort((a, b) => b._postedTime - a._postedTime);
+
+        cards.forEach(c => listPane.insertBefore(c, status));
+        listCount.textContent = cards.length;
+        listHead.hidden = false;
+        if (cards.length) {
+          document.getElementById('hero-count').textContent = cards.length;
+          document.getElementById('hero-count-wrap').hidden = false;
+        }
+
+        if (!cards.length) {
+          showStatus('No roles are open right now. <a href="/candidates/apply/">Register your details</a> and we\'ll keep you in mind for the next one.', true);
+          detailBody.hidden = true;
+          return;
+        }
+        status.hidden = true;
+        detailBody.hidden = false;
+        initJobsBrowser();
+        emitJobPostingSchema();
+      })
+      .catch(failed);
+  })();
+
+  /* ── Jobs browser: search + select + mobile back ── */
+  function initJobsBrowser() {
     const cards    = Array.from(document.querySelectorAll('.job-card'));
     const search   = document.getElementById('job-search');
     const clearBtn = document.querySelector('.search-clear');
@@ -2326,11 +1877,11 @@
     // Initial: ensure first card is selected
     const initial = cards.find(c => c.getAttribute('aria-selected') === 'true') || cards[0];
     if (initial) selectCard(initial);
-  })();
+  }
 
   // ── JobPosting JSON-LD: emit schema.org markup for every job card.
   //    Lets Google Jobs surface roles in the rich jobs widget on SERPs.
-  (function() {
+  function emitJobPostingSchema() {
     function parseDate(str) {
       const m = /(\d+)\s+(\w+)\s+(\d{4})/.exec(str || '');
       if (!m) return new Date().toISOString().slice(0, 10);
@@ -2375,7 +1926,7 @@
           address: {
             '@type': 'PostalAddress',
             addressLocality: location,
-            addressCountry: 'GB'
+            addressCountry: card.dataset.country || 'GB'
           }
         },
         directApply: false,
@@ -2395,7 +1946,7 @@
       s.textContent = JSON.stringify(job);
       document.head.appendChild(s);
     });
-  })();
+  }
 </script>
 
 </body>

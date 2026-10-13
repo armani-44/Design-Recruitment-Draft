@@ -12,6 +12,23 @@
   NPM_FLAGS = "--production"
 
 # ---------------------------------------------------------------------------
+# Live roles feed — FireFish RSS, proxied onto our own origin
+#
+# The candidates page builds its job list from FireFish's advert feed at
+# jobs.designerrecruitment.co.uk/rss/latestadverts.aspx. FireFish confirmed the
+# feed lists every live advert, drops closed ones immediately, and does NOT
+# send CORS headers, so the browser cannot fetch it cross-origin. A status-200
+# rewrite makes Netlify fetch it server-side and serve it from /api/jobs-feed
+# on this domain, which is same-origin and needs no function or build step.
+# ---------------------------------------------------------------------------
+
+[[redirects]]
+  from = "/api/jobs-feed"
+  to = "https://jobs.designerrecruitment.co.uk/rss/latestadverts.aspx"
+  status = 200
+  force = true
+
+# ---------------------------------------------------------------------------
 # Internal documents — not for public serving
 #
 # publish = "." means every file committed to `main` is a public URL. That
