@@ -1222,7 +1222,7 @@
           </noscript>
 
           <div class="empty-state" id="empty-state" hidden>
-            No roles match this filter right now. <a href="/candidates/apply/" style="color:var(--color-navy-deep);text-decoration:underline;">Register your details</a> and we'll keep you in mind for future opportunities.
+            No roles match this filter right now. <a href="https://jobs.designerrecruitment.co.uk/register.aspx" style="color:var(--color-navy-deep);text-decoration:underline;">Register your details</a> and we'll keep you in mind for future opportunities.
           </div>
         </div>
 
@@ -1246,7 +1246,7 @@
             <div class="detail-salary" id="d-salary"></div>
 
             <div class="detail-actions">
-              <a class="btn-primary" id="d-apply" href="/candidates/apply/">
+              <a class="btn-primary" id="d-apply" href="https://jobs.designerrecruitment.co.uk/register.aspx">
                 Apply now
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
@@ -1334,7 +1334,7 @@
         </p>
       </div>
       <div class="cta-actions">
-        <a class="btn-primary" href="/candidates/apply/">
+        <a class="btn-primary" href="https://jobs.designerrecruitment.co.uk/register.aspx">
           Submit a CV
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1.5 6.5h10M7.5 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -1368,7 +1368,7 @@
     <div>
       <div class="foot-head">For Candidates</div>
       <a href="/candidates/" class="foot-link">Find a Role</a>
-      <a href="/candidates/apply/" class="foot-link">Register</a>
+      <a href="https://jobs.designerrecruitment.co.uk/register.aspx" class="foot-link">Register</a>
       <a href="/news-and-insights/" class="foot-link">News &amp; Insights</a>
     </div>
 
@@ -1638,7 +1638,7 @@
         }
 
         if (!cards.length) {
-          showStatus('No roles are open right now. <a href="/candidates/apply/">Register your details</a> and we\'ll keep you in mind for the next one.', true);
+          showStatus('No roles are open right now. <a href="https://jobs.designerrecruitment.co.uk/register.aspx">Register your details</a> and we\'ll keep you in mind for the next one.', true);
           detailBody.hidden = true;
           return;
         }
@@ -1733,12 +1733,11 @@
       detailEl.type.textContent      = card.dataset.type;
       detailEl.posted.textContent    = 'Posted ' + card.dataset.posted;
       detailEl.salary.textContent    = card.dataset.salary;
-      detailEl.apply.href            = '/candidates/apply/?' + new URLSearchParams({
-                                          ref:      card.dataset.ref,
-                                          title:    card.dataset.title,
-                                          location: card.dataset.location,
-                                          salary:   card.dataset.salary,
-                                        }).toString();
+      // Apply on FireFish, the client's recruitment system, so the candidate
+      // is registered there directly. Each advert in the feed carries its own
+      // apply URL; the general registration page is the fallback.
+      detailEl.apply.href            = card.dataset.apply
+                                       || 'https://jobs.designerrecruitment.co.uk/register.aspx';
       detailEl.factCat.textContent   = card.dataset.cat;
       detailEl.factRef.textContent   = card.dataset.ref;
       detailEl.factType.textContent  = card.dataset.type;
